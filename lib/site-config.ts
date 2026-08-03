@@ -23,6 +23,7 @@ export const navigation = [
   ["Wildfire", "/wildfire-insurance"],
   ["Education", "/education"],
   ["Our Agency", "/about"],
+  ["About Abel", "/abel-duran"],
   ["Yorba Linda", "/yorba-linda-office"],
   ["Customer Service", "/customer-service"],
   ["Referral Partners", "/referral-partners"],
