@@ -21,10 +21,11 @@ export const navigation = [
   ["Business", "/business-insurance"],
   ["Carriers", "/carriers"],
   ["Wildfire", "/wildfire-insurance"],
-  ["Referral Partners", "/referral-partners"],
   ["Education", "/education"],
   ["Our Agency", "/about"],
+  ["Yorba Linda", "/yorba-linda-office"],
   ["Customer Service", "/customer-service"],
+  ["Referral Partners", "/referral-partners"],
 ] as const;
 
 export const agents = {
