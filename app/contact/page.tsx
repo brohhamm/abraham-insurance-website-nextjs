@@ -1,19 +1,5 @@
-import Image from "next/image";
 import { QuoteForm } from "@/components/quote-form";
 import { PageHero } from "@/components/ui";
 import { siteConfig } from "@/lib/site-config";
-
-export const metadata = {
-  title: "Contact & Quote Request",
-  description: "Request a personal or business insurance quote from Abraham Nunez-Chavez.",
-  alternates: { canonical: "/contact" },
-};
-
-export default async function Page({
-  searchParams,
-}: {
-  searchParams: Promise<{ insurance?: string; market?: string }>;
-}) {
-  const { insurance = "", market = "" } = await searchParams;
-  return <><PageHero eyebrow="Contact & quote request" title="Tell me what you need to protect.">Share the basic details below. No Social Security number, driver’s license number, or payment information is needed.</PageHero><section className="section"><div className="shell contact-grid"><div className="form-card"><QuoteForm initialInsuranceType={insurance} initialMarket={market}/></div><aside><div className="contact-card"><h2>Contact Abraham</h2><p><strong>Direct</strong><a href={siteConfig.phoneHref}>{siteConfig.directPhone}</a></p><p><strong>Office</strong><a href="tel:+19516538888">{siteConfig.phone}</a></p><p><strong>Email</strong><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></p><p><strong>Office</strong><span>{siteConfig.address}</span></p><p><strong>Hours</strong><span>{siteConfig.hours}</span></p><div className="urgent-note"><strong>Claims or urgent policy changes</strong><p>Do not submit them through this form. Contact the agency or carrier directly. Coverage is not effective until confirmed by an authorized representative and all binding requirements are completed.</p></div></div><div className="photo-frame office-frame"><Image src="/images/private-office.jpg" alt="Private meeting space at the Moreno Valley insurance office" fill sizes="(max-width: 900px) 100vw, 36vw" /></div></aside></div></section></>;
-}
+export const metadata={title:"Contact & Quote Request",description:"Choose an agent and request a personal or business insurance quote.",alternates:{canonical:"/contact"}};
+export default async function Page({searchParams}:{searchParams:Promise<{insurance?:string;market?:string;agent?:"abraham"|"abel"|"devan"}>}){const {insurance="",market="",agent}=await searchParams;return <><PageHero eyebrow="Contact & quote request" title="Tell us what you need to protect.">Choose your preferred agent and share the basic details below. No Social Security number, driver’s license number, or payment information is needed.</PageHero><section className="section"><div className="shell contact-grid"><div className="form-card"><QuoteForm initialInsuranceType={insurance} initialMarket={market} initialAgent={agent||"first"}/></div><aside><div className="contact-card"><h2>Three clear paths</h2><p><strong>Get a new quote</strong><span>Choose Abraham, Abel, Devan, or the first available agent.</span></p><p><strong>Service an existing policy</strong><a href="/customer-service">Contact Rashel or Suzee</a></p><p><strong>Moreno Valley office</strong><a href="tel:+19516538888">951-653-8888</a><span>{siteConfig.morenoValleyOffice}</span></p><p><strong>Yorba Linda office</strong><a href="tel:+17147016411">714-701-6411</a><span>{siteConfig.yorbaLindaOffice}</span></p><div className="urgent-note"><strong>Claims or urgent policy changes</strong><p>Coverage is not effective until confirmed by an authorized representative or carrier. For urgent claims outside office hours, use the claims number on your policy documents.</p></div></div></aside></div></section></>}
