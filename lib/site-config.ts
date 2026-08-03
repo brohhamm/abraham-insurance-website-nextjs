@@ -11,7 +11,7 @@ export const siteConfig = {
   address: "13800 Heacock St., Suite C120, Moreno Valley, CA 92553",
   secondLocation: "Yorba Linda, California",
   hours: "Monday–Friday, 9:00 AM–5:00 PM",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://abraham-insurance-website-nextjs.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.abrahamvalleyinsurance.com",
 };
 
 export const navigation = [
