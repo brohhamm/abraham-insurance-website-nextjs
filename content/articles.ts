@@ -3,6 +3,10 @@ export type Article = {
   title: string;
   summary: string;
   body: string[];
+  category?: "Personal" | "Commercial" | "Wildfire & Catastrophe" | "Real Estate" | "General";
+  quickFacts?: string[];
+  commonLimits?: string;
+  officialResources?: { label: string; url: string }[];
 };
 
 export const articles: Article[] = [
@@ -85,7 +89,396 @@ export const articles: Article[] = [
       "Additional protection can be important for households with income, savings, property, youthful drivers, rental properties, pools, pets, or other exposures that could lead to a serious liability claim.",
       "Umbrella insurers usually require minimum underlying liability limits and disclosure of vehicles, properties, drivers, and other exposures. Review all underlying policies together so the required limits remain in place.",
     ],
-  },
+  },,
+{
+  "slug": "california-auto-liability-limits",
+  "title": "California Auto Liability Limits: Minimum vs. Meaningful Protection",
+  "category": "Personal",
+  "summary": "Compare California's legal minimum 30/60/15 limits with more protective options for income, assets, and serious accidents.",
+  "quickFacts": [
+    "California's minimum is $30,000/$60,000 bodily injury and $15,000 property damage.",
+    "The state minimum is a legal floor, not a recommendation for every household.",
+    "Limits should reflect vehicles, income, assets, drivers, and umbrella requirements."
+  ],
+  "commonLimits": "Legal minimum: 30/60/15. A common protection-focused starting point is 100/300/100; households with greater assets or umbrella plans often review 250/500/100 or higher.",
+  "body": [
+    "Liability coverage pays covered claims when an insured driver is legally responsible for injuring someone or damaging property. California increased its private-passenger minimum limits to $30,000 per person, $60,000 per accident, and $15,000 for property damage.",
+    "Minimum limits can be exhausted quickly by hospital treatment, lost income, multiple injured people, or damage to a newer vehicle. Amounts above the policy limit may become the driver's responsibility.",
+    "A limit review should consider household income, savings, home ownership, youthful drivers, vehicle use, and any umbrella requirements. Higher limits cost more but provide a larger buffer against severe claims."
+  ],
+  "officialResources": [
+    {
+      "label": "California DMV insurance requirements",
+      "url": "https://www.dmv.ca.gov/portal/vehicle-registration/insurance-requirements/"
+    },
+    {
+      "label": "California Department of Insurance auto resources",
+      "url": "https://www.insurance.ca.gov/01-consumers/105-type/1-auto/"
+    }
+  ]
+},
+{
+  "slug": "uninsured-underinsured-motorist-california",
+  "title": "Uninsured and Underinsured Motorist Coverage in California",
+  "category": "Personal",
+  "summary": "Understand how UM/UIM can protect your household when an at-fault driver has too little—or no—insurance.",
+  "quickFacts": [
+    "UM/UIM addresses covered injuries caused by uninsured or underinsured drivers.",
+    "Uninsured-motorist property-damage rules differ from collision coverage.",
+    "Matching UM/UIM to bodily-injury limits is a strong comparison point where available."
+  ],
+  "commonLimits": "Common selections are 100/300 or 250/500. A protection-focused approach is to compare UM/UIM at the same level as your bodily-injury liability limit, subject to carrier rules.",
+  "body": [
+    "Uninsured motorist coverage can respond when a covered person is injured by a driver with no liability insurance. Underinsured motorist coverage may apply when the at-fault driver's limit is insufficient for the covered damages.",
+    "California policies and carrier forms differ, particularly for property damage, deductibles, stacking, and who qualifies as an insured. Collision coverage may still be important for vehicle damage.",
+    "Review every household driver, regular passenger exposure, medical-insurance deductibles, income, and liability limits. Rejecting or reducing UM/UIM can materially shift accident risk back to the household."
+  ],
+  "officialResources": [
+    {
+      "label": "California Department of Insurance auto resources",
+      "url": "https://www.insurance.ca.gov/01-consumers/105-type/1-auto/"
+    }
+  ]
+},
+{
+  "slug": "comprehensive-collision-deductibles",
+  "title": "Comprehensive, Collision, and Auto Deductibles",
+  "category": "Personal",
+  "summary": "See what physical-damage coverage protects and how $500 and $1,000 deductibles affect premium and claim costs.",
+  "quickFacts": [
+    "Collision addresses covered impact losses; comprehensive generally addresses covered non-collision losses.",
+    "Lenders and lessors commonly require both coverages.",
+    "The deductible applies separately to each covered claim."
+  ],
+  "commonLimits": "$500 and $1,000 deductibles are common. Choose an amount you could pay promptly after a loss; compare the premium difference before increasing it.",
+  "body": [
+    "Collision coverage generally addresses covered damage from impact with another vehicle or object. Comprehensive coverage commonly addresses theft, vandalism, falling objects, animal strikes, glass, and certain weather losses, subject to the contract.",
+    "A higher deductible can reduce premium but increases the amount due after each covered claim. The vehicle's value, loan balance, repair costs, and available emergency savings should guide the choice.",
+    "Older vehicles still require an economic review rather than an automatic removal of coverage. Compare annual savings with the vehicle's actual cash value and the household's ability to replace it."
+  ],
+  "officialResources": [
+    {
+      "label": "California Department of Insurance auto resources",
+      "url": "https://www.insurance.ca.gov/01-consumers/105-type/1-auto/"
+    }
+  ]
+},
+{
+  "slug": "california-homeowners-coverage-limits",
+  "title": "California Homeowners Coverage Limits: What to Review",
+  "category": "Personal",
+  "summary": "A practical guide to dwelling, personal property, liability, loss of use, and California reconstruction concerns.",
+  "quickFacts": [
+    "Dwelling coverage should follow estimated reconstruction cost, not sale price.",
+    "Code-upgrade, extended replacement cost, and debris-removal provisions can materially affect a total loss.",
+    "Home inventory and high-value property limits deserve separate review."
+  ],
+  "commonLimits": "Dwelling: insurer replacement-cost estimate. Liability: $300,000–$500,000 is commonly reviewed. Water backup: often $10,000–$25,000. Deductibles: commonly $1,000–$5,000 or a percentage in higher-risk placements.",
+  "body": [
+    "California rebuilding costs can be affected by labor shortages, debris removal, permitting, building-code upgrades, access, slope, and demand after a regional catastrophe. The dwelling limit should be supported by an accurate reconstruction estimate.",
+    "Personal property, loss of use, other structures, and liability are separate coverage parts. Jewelry, collectibles, water backup, service lines, home businesses, pools, and accessory structures may need endorsements or specific limits.",
+    "Review the replacement-cost estimate after renovations and compare all deductibles in actual dollars. Wildfire-exposed properties may require a FAIR Plan and companion DIC structure instead of one standard homeowners policy."
+  ],
+  "officialResources": [
+    {
+      "label": "CDI residential coverage comparison tool",
+      "url": "https://interactive.web.insurance.ca.gov/apex/f?p=143:1"
+    },
+    {
+      "label": "California Department of Insurance homeowners resources",
+      "url": "https://www.insurance.ca.gov/01-consumers/105-type/5-residential/"
+    }
+  ]
+},
+{
+  "slug": "renters-insurance-california",
+  "title": "Renters Insurance in California",
+  "category": "Personal",
+  "summary": "Protect belongings, temporary living expenses, and liability that a landlord's policy generally does not cover.",
+  "quickFacts": [
+    "A landlord's policy generally does not insure a tenant's belongings.",
+    "Loss-of-use coverage can help with eligible temporary living costs.",
+    "Roommates are not automatically insured unless the policy says so."
+  ],
+  "commonLimits": "Personal property commonly starts around $25,000–$50,000. Liability commonly starts at $100,000, with $300,000 often reviewed for stronger protection.",
+  "body": [
+    "Renters insurance typically combines personal property, additional living expense, and personal liability coverage. The building owner's policy generally protects the structure—not the tenant's furniture, clothing, electronics, or liability.",
+    "Replacement-cost settlement can provide stronger protection than actual cash value because depreciation is not applied in the same way, subject to policy terms. Jewelry, bicycles, collectibles, and business equipment may have special limits.",
+    "Choose personal-property coverage using a room-by-room inventory. Review liability exposure from pets, guests, water damage, and daily activities, and confirm every resident who needs coverage is properly listed."
+  ],
+  "officialResources": [
+    {
+      "label": "CDI homeowners, renters, and condo comparison tool",
+      "url": "https://interactive.web.insurance.ca.gov/apex/f?p=143:1"
+    }
+  ]
+},
+{
+  "slug": "condo-insurance-california",
+  "title": "California Condo Insurance and HOA Gaps",
+  "category": "Personal",
+  "summary": "Coordinate HO-6 coverage with the HOA master policy for interiors, loss assessment, belongings, and liability.",
+  "quickFacts": [
+    "The HOA master policy and CC&Rs determine what the unit owner must insure.",
+    "Loss assessment coverage has conditions and sublimits.",
+    "Interior upgrades may require more building-property coverage than a basic quote provides."
+  ],
+  "commonLimits": "Building property should match the owner's responsibility under the master policy and CC&Rs. Liability of $300,000–$500,000 and loss assessment of $25,000–$50,000 are commonly reviewed.",
+  "body": [
+    "Condo insurance must be coordinated with the HOA master policy. Some associations insure portions of the interior; others leave drywall, flooring, cabinets, fixtures, and improvements to the unit owner.",
+    "Loss assessment coverage may help with certain assessments arising from covered losses or liability claims, but deductibles and exclusions apply. It does not cover every HOA assessment.",
+    "Obtain the master policy declarations and relevant CC&R insurance language. Review interior replacement cost, belongings, temporary living expenses, water deductibles, liability, and any rental or business use."
+  ],
+  "officialResources": [
+    {
+      "label": "CDI homeowners, renters, and condo comparison tool",
+      "url": "https://interactive.web.insurance.ca.gov/apex/f?p=143:1"
+    }
+  ]
+},
+{
+  "slug": "landlord-insurance-california",
+  "title": "California Landlord Insurance: Coverage and Limits",
+  "category": "Personal",
+  "summary": "Review dwelling, landlord contents, loss of rents, premises liability, and tenant-related exposures.",
+  "quickFacts": [
+    "A homeowners policy is generally not designed for a tenant-occupied property.",
+    "Loss-of-rents coverage requires a covered loss and is subject to time and dollar limits.",
+    "Vacancy, short-term rental, and renovation exposures require specific underwriting."
+  ],
+  "commonLimits": "Dwelling: current reconstruction estimate. Premises liability: $500,000–$1 million is commonly reviewed. Loss of rents: often 12 months or the carrier's available limit.",
+  "body": [
+    "Landlord policies are designed around a non-owner-occupied dwelling and can include building coverage, landlord-owned contents, fair rental value or loss of rents, and premises liability.",
+    "Tenant belongings are not covered by the landlord's policy. Requiring renters insurance can improve risk transfer, but the lease requirement does not replace accurate landlord coverage.",
+    "Confirm occupancy, number of units, leases, renovations, vacancy, short-term rental activity, pools, pets, property management, and ownership entity. These details affect eligibility and policy form."
+  ],
+  "officialResources": [
+    {
+      "label": "California Department of Insurance residential resources",
+      "url": "https://www.insurance.ca.gov/01-consumers/105-type/5-residential/"
+    }
+  ]
+},
+{
+  "slug": "life-insurance-needs-california",
+  "title": "Life Insurance Needs: Term, Permanent, and Benefit Amounts",
+  "category": "Personal",
+  "summary": "Estimate protection for income replacement, debts, education, final expenses, and family goals.",
+  "quickFacts": [
+    "Term insurance provides coverage for a defined period.",
+    "Permanent coverage may provide lifetime protection if funded and maintained as required.",
+    "Beneficiaries and ownership should be reviewed after major life changes."
+  ],
+  "commonLimits": "There is no California-prescribed recommended amount. A common starting calculation is 7–10 times annual income, then adjust for debts, mortgage, education, existing assets, and survivor income.",
+  "body": [
+    "Life insurance needs are personal. A useful analysis starts with income replacement, mortgage and debt payoff, education funding, final expenses, caregiving needs, and the resources already available to survivors.",
+    "Term insurance can provide a larger death benefit for a defined period at a lower initial premium. Permanent products may add lifetime coverage and cash-value features but require a longer funding and performance review.",
+    "Compare guarantees, non-guaranteed values, premium duration, conversion options, ownership, and beneficiaries. Replacement of an existing policy requires particular care because new surrender charges and contestability periods may apply."
+  ],
+  "officialResources": [
+    {
+      "label": "CDI Life Insurance and Annuities guide",
+      "url": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/07-life/upload/Life-Insurance-and-Annuities-Updated-073123.pdf"
+    }
+  ]
+},
+{
+  "slug": "earthquake-insurance-retrofit-discounts",
+  "title": "CEA Earthquake Coverage and Retrofit Discounts",
+  "category": "Wildfire & Catastrophe",
+  "summary": "Understand separate earthquake coverage, percentage deductibles, CEA options, and retrofit resources that may reduce risk and premium.",
+  "quickFacts": [
+    "Standard homeowners policies generally exclude earthquake shaking damage.",
+    "CEA policies offer selectable coverages and percentage deductibles.",
+    "Qualifying retrofits may reduce damage and may qualify for premium discounts."
+  ],
+  "commonLimits": "Dwelling generally follows the companion residential policy. CEA deductible options commonly range from 5% to 25%, depending on coverage and eligibility. Compare personal property and loss-of-use selections separately.",
+  "body": [
+    "Earthquake coverage is separate from standard homeowners insurance. CEA coverage is sold through participating residential insurers and should be reviewed for dwelling, personal property, loss of use, building-code upgrade, and deductible structure.",
+    "A percentage deductible can represent a substantial dollar amount because it is based on the insured dwelling limit. Compare the actual dollar deductible, premium, retrofit status, and ability to finance repairs after a major earthquake.",
+    "Qualifying foundation bolting and cripple-wall bracing may reduce structural damage. Current grants, eligibility, and discount rules change, so homeowners should verify requirements before permits or work begin."
+  ],
+  "officialResources": [
+    {
+      "label": "California Earthquake Authority coverage",
+      "url": "https://www.earthquakeauthority.com/"
+    },
+    {
+      "label": "CEA premium discounts",
+      "url": "https://www.earthquakeauthority.com/california-earthquake-insurance-policies/earthquake-insurance-policy-premium-discounts"
+    },
+    {
+      "label": "Earthquake Brace + Bolt grants",
+      "url": "https://www.earthquakebracebolt.com/"
+    }
+  ]
+},
+{
+  "slug": "wildfire-readiness-home-hardening",
+  "title": "Wildfire Readiness, Home Hardening, and Insurance Discounts",
+  "category": "Wildfire & Catastrophe",
+  "summary": "Use California readiness resources to reduce ember, structure, defensible-space, and evacuation risk.",
+  "quickFacts": [
+    "Embers can ignite homes well ahead of the flame front.",
+    "The first five feet around a structure deserve special attention.",
+    "California's Safer from Wildfires framework identifies mitigation actions tied to insurance discounts."
+  ],
+  "commonLimits": "Readiness is not an insurance limit. Pair mitigation with an annual dwelling reconstruction review, adequate loss of use, code-upgrade coverage, and a deductible you can fund.",
+  "body": [
+    "Wildfire readiness combines structure hardening, defensible space, property maintenance, evacuation planning, and accurate insurance documentation. Roofs, vents, eaves, windows, decks, fences, vegetation, and debris are common focus areas.",
+    "California's Safer from Wildfires framework addresses the structure, immediate surroundings, and community. Insurer credits vary, and documentation or inspection may be required.",
+    "Maintain a home inventory, store policy documents securely, photograph improvements, and review reconstruction and loss-of-use limits before fire season. Mitigation improves resilience but does not guarantee eligibility or prevent every loss."
+  ],
+  "officialResources": [
+    {
+      "label": "CAL FIRE Ready for Wildfire",
+      "url": "https://www.readyforwildfire.org/"
+    },
+    {
+      "label": "CAL FIRE home hardening guide",
+      "url": "https://www.readyforwildfire.org/prepare-for-wildfire/hardening-your-home/"
+    },
+    {
+      "label": "CDI Safer from Wildfires discounts",
+      "url": "https://www.insurance.ca.gov/01-consumers/200-wrr/Safer-from-Wildfires.cfm"
+    },
+    {
+      "label": "California FAIR Plan",
+      "url": "https://www.cfpnet.com/"
+    }
+  ]
+},
+{
+  "slug": "commercial-general-liability-limits",
+  "title": "Commercial General Liability Limits for California Businesses",
+  "category": "Commercial",
+  "summary": "Understand occurrence, aggregate, products-completed operations, contracts, and common $1M/$2M limits.",
+  "quickFacts": [
+    "GL addresses covered third-party injury, property damage, and certain personal or advertising injury.",
+    "Contracts may require specific limits and additional-insured wording.",
+    "Professional, auto, employee injury, and cyber risks generally need separate coverage."
+  ],
+  "commonLimits": "$1 million per occurrence / $2 million aggregate is common for small businesses. Higher limits or an umbrella may be appropriate for contracts, premises traffic, products, construction, or larger revenue.",
+  "body": [
+    "Commercial general liability is foundational but not all-inclusive. It commonly addresses covered third-party bodily injury, property damage, and certain personal or advertising injury claims.",
+    "The occurrence limit and general aggregate work differently. Products-completed operations, damage to rented premises, medical payments, deductibles, and exclusions should be reviewed with contracts and operations.",
+    "Describe all work accurately, including subcontracting, height, excavation, hot work, products, geographic territory, and additional-insured requirements. Undisclosed operations can create underwriting and claim problems."
+  ],
+  "officialResources": [
+    {
+      "label": "CDI commercial liability information",
+      "url": "https://www.insurance.ca.gov/0100-consumers/0060-information-guides/0040-commercial/commercial-liability.cfm"
+    },
+    {
+      "label": "CDI Commercial Insurance guide",
+      "url": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/09-comm/upload/IG-Commercial-Insurance-Updated-061524.pdf"
+    }
+  ]
+},
+{
+  "slug": "business-owners-policy-property-income",
+  "title": "Business Owners Policies, Property, and Business Income",
+  "category": "Commercial",
+  "summary": "See how eligible businesses can combine liability, property, and income protection—and where gaps remain.",
+  "quickFacts": [
+    "A BOP typically packages property and liability for eligible businesses.",
+    "Business income generally requires direct covered physical loss unless endorsed otherwise.",
+    "Equipment breakdown, water, flood, earthquake, and cyber require separate review."
+  ],
+  "commonLimits": "Property should follow a current replacement-cost inventory. Business income is often evaluated for at least 12 months; $1M/$2M liability is common, subject to the operation and contracts.",
+  "body": [
+    "A business owners policy can combine commercial property and general liability for eligible small and midsize operations. Eligibility depends on industry, revenue, square footage, payroll, property values, and loss history.",
+    "Property schedules should capture tenant improvements, furniture, inventory, tools, equipment, outdoor property, signs, and property off premises. Business-income limits should reflect the time needed to resume operations.",
+    "Review equipment breakdown, utility interruption, spoilage, ordinance or law, water, crime, hired and non-owned auto, cyber, earthquake, and flood rather than assuming they are automatically included."
+  ],
+  "officialResources": [
+    {
+      "label": "CDI Commercial Insurance guide",
+      "url": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/09-comm/upload/IG-Commercial-Insurance-Updated-061524.pdf"
+    }
+  ]
+},
+{
+  "slug": "workers-compensation-california",
+  "title": "California Workers’ Compensation Requirements and Audits",
+  "category": "Commercial",
+  "summary": "Understand mandatory employee protection, classifications, payroll estimates, audits, and employer liability.",
+  "quickFacts": [
+    "California employers generally must carry workers' compensation when they have employees.",
+    "Premium is commonly based on payroll, classifications, experience, and carrier factors.",
+    "Final audits can create additional premium or return premium."
+  ],
+  "commonLimits": "Statutory workers' compensation benefits apply. Employer's liability limits commonly begin at $1 million each accident / $1 million disease-policy limit / $1 million disease-each employee.",
+  "body": [
+    "California employers generally must maintain workers' compensation coverage when they have employees. Industry-specific rules, officers, owners, contractors, and exclusions require careful review.",
+    "Premium starts with estimated payroll and classifications, then is commonly reconciled through an audit. Accurate job descriptions, payroll separation, subcontractor certificates, and ownership records reduce avoidable surprises.",
+    "Report operational and payroll changes during the term. General liability does not replace workers' compensation, and independent-contractor labels do not by themselves determine worker status."
+  ],
+  "officialResources": [
+    {
+      "label": "California DWC employer information",
+      "url": "https://www.dir.ca.gov/dwc/employer.htm"
+    },
+    {
+      "label": "CDI Workers’ Compensation guide",
+      "url": "https://www.insurance.ca.gov/01-consumers/105-type/9-compare-prem/wc-rate/"
+    }
+  ]
+},
+{
+  "slug": "commercial-auto-california",
+  "title": "California Commercial Auto Coverage and Limits",
+  "category": "Commercial",
+  "summary": "Review liability, physical damage, symbols, drivers, vehicle use, filings, and hired/non-owned exposure.",
+  "quickFacts": [
+    "Personal auto policies may exclude or restrict business use.",
+    "Covered-auto symbols determine which vehicles receive each coverage.",
+    "Federal, state, local, and contract requirements may exceed California's basic vehicle minimum."
+  ],
+  "commonLimits": "$1 million combined single-limit liability is common for many commercial operations. Higher limits or filings may be required for regulated vehicles, contracts, passenger transport, or hazardous materials.",
+  "body": [
+    "Commercial auto insurance should reflect the vehicles, drivers, radius, cargo, ownership, garaging, and actual business use. Titled ownership and named-insured structure must align.",
+    "Liability, physical damage, uninsured motorists, medical payments, hired auto, non-owned auto, towing, rental, and cargo are separate considerations. Policy symbols control which autos are covered.",
+    "Motor carriers, passenger transportation, interstate operations, and certain commodities may require filings and higher limits. Confirm regulatory and contractual requirements before binding."
+  ],
+  "officialResources": [
+    {
+      "label": "California DMV insurance requirements",
+      "url": "https://www.dmv.ca.gov/portal/vehicle-registration/insurance-requirements/"
+    },
+    {
+      "label": "CDI Commercial Insurance guide",
+      "url": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/09-comm/upload/IG-Commercial-Insurance-Updated-061524.pdf"
+    }
+  ]
+},
+{
+  "slug": "cyber-professional-liability-california",
+  "title": "Cyber and Professional Liability for California Businesses",
+  "category": "Commercial",
+  "summary": "Protect against data incidents, technology failures, and claims that professional services caused financial harm.",
+  "quickFacts": [
+    "GL generally does not replace cyber or professional liability.",
+    "Cyber coverage can include response costs, notification, restoration, extortion, and liability.",
+    "Professional liability is usually written on a claims-made basis."
+  ],
+  "commonLimits": "$1 million is a common starting point for small-business cyber or professional liability. Revenue, records, contract requirements, regulated data, and potential client loss may justify higher limits.",
+  "body": [
+    "Cyber coverage can address incident response, forensic investigation, notification, credit monitoring, data restoration, business interruption, extortion, fraud, regulatory matters, and third-party liability, subject to the form.",
+    "Professional liability or errors and omissions coverage can address claims that advice, design, technology, or professional services caused financial loss. The retroactive date and continuous coverage are critical on claims-made policies.",
+    "Review contracts, revenue, largest-client exposure, record count, payment processes, remote access, backups, multifactor authentication, vendor dependencies, and professional services. Limits should reflect a credible severe event—not only the smallest contract."
+  ],
+  "officialResources": [
+    {
+      "label": "California Cybersecurity Integration Center resources",
+      "url": "https://calcsic.ca.gov/"
+    },
+    {
+      "label": "CDI Commercial Insurance guide",
+      "url": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/09-comm/upload/IG-Commercial-Insurance-Updated-061524.pdf"
+    }
+  ]
+}
 ];
 
 export function getArticle(slug: string) {
