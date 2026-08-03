@@ -89,7 +89,7 @@ export const articles: Article[] = [
       "Additional protection can be important for households with income, savings, property, youthful drivers, rental properties, pools, pets, or other exposures that could lead to a serious liability claim.",
       "Umbrella insurers usually require minimum underlying liability limits and disclosure of vehicles, properties, drivers, and other exposures. Review all underlying policies together so the required limits remain in place.",
     ],
-  },,
+  },
 {
   "slug": "california-auto-liability-limits",
   "title": "California Auto Liability Limits: Minimum vs. Meaningful Protection",
