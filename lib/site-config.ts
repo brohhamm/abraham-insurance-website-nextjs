@@ -10,6 +10,8 @@ export const siteConfig = {
   linkedin: "https://www.linkedin.com/in/abraham-nunez-chavez-5b1212187/",
   address: "13800 Heacock St., Suite C120, Moreno Valley, CA 92553",
   secondLocation: "Yorba Linda, California",
+  morenoValleyOffice: "13800 Heacock St., Suite C120, Moreno Valley, CA 92553",
+  yorbaLindaOffice: "23621 La Palma Ave., Suite A, Yorba Linda, CA 92887",
   hours: "Monday–Friday, 9:00 AM–5:00 PM",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.abrahamvalleyinsurance.com",
 };
@@ -21,5 +23,12 @@ export const navigation = [
   ["Wildfire", "/wildfire-insurance"],
   ["Referral Partners", "/referral-partners"],
   ["Education", "/education"],
-  ["About", "/about"],
+  ["Our Agency", "/about"],
+  ["Customer Service", "/customer-service"],
 ] as const;
+
+export const agents = {
+  abraham: { name: "Abraham Nunez-Chavez", email: "Abraham.aduran@farmersagency.com", phone: "714-388-9533", phoneHref: "tel:+17143889533", textHref: "sms:+17143889533" },
+  abel: { name: "Abel Duran", email: "Aduran@farmersagent.com", phone: "951-653-8888", phoneHref: "tel:+19516538888", textHref: "sms:+19516538888" },
+  devan: { name: "Devan Wright", email: "devan.aduran@farmersagency.com", phone: "714-701-6412", phoneHref: "tel:+17147016412", textHref: "sms:+17147016412" },
+} as const;
