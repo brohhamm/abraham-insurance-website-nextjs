@@ -1,26 +1,26 @@
 import Link from "next/link";
 
-const guideMap: Record<string, string> = {
-  "Home & Property": "california-homeowners-coverage-limits",
-  "Auto & Umbrella": "california-auto-liability-limits",
-  "Business Insurance": "commercial-general-liability-limits",
-  "Life Insurance": "life-insurance-needs-california",
-  "Escrow Support": "insurance-before-escrow",
-  "Carrier Options": "fair-plan-dic",
-  "Homeowners": "california-homeowners-coverage-limits",
-  "Auto": "california-auto-liability-limits",
-  "Renters": "renters-insurance-california",
-  "Condo": "condo-insurance-california",
-  "Landlord": "landlord-insurance-california",
-  "Umbrella": "umbrella-insurance",
-  "Life": "life-insurance-needs-california",
-  "Earthquake": "earthquake-insurance-retrofit-discounts",
-  "General Liability": "commercial-general-liability-limits",
-  "Commercial Property": "business-owners-policy-property-income",
-  "Workers’ Compensation": "workers-compensation-california",
-  "Commercial Auto": "commercial-auto-california",
-  "Business Owners Policy": "business-owners-policy-property-income",
-  "Industry Review": "cyber-professional-liability-california",
+const learnMap: Record<string, string> = {
+  "Home & Property": "/insurance/homeowners-insurance",
+  "Auto & Umbrella": "/insurance/auto-insurance",
+  "Business Insurance": "/insurance/general-liability-insurance",
+  "Life Insurance": "/insurance/life-insurance",
+  "Escrow Support": "/education/insurance-before-escrow",
+  "Carrier Options": "/carriers",
+  "Homeowners": "/insurance/homeowners-insurance",
+  "Auto": "/insurance/auto-insurance",
+  "Renters": "/insurance/renters-insurance",
+  "Condo": "/insurance/condo-insurance",
+  "Landlord": "/insurance/landlord-insurance",
+  "Umbrella": "/insurance/umbrella-insurance",
+  "Life": "/insurance/life-insurance",
+  "Earthquake": "/insurance/earthquake-insurance",
+  "General Liability": "/insurance/general-liability-insurance",
+  "Commercial Property": "/insurance/commercial-property-insurance",
+  "Workers’ Compensation": "/insurance/workers-compensation-insurance",
+  "Commercial Auto": "/insurance/commercial-auto-insurance",
+  "Business Owners Policy": "/insurance/business-owners-policy",
+  "Industry Review": "/insurance/cyber-professional-liability",
 };
 
 export function PageHero({ eyebrow, title, children }: { eyebrow: string; title: string; children: React.ReactNode }) {
@@ -33,7 +33,7 @@ export function CTA() {
 
 export function Cards({ items }: { items: readonly { title: string; text: string }[] }) {
   return <div className="card-grid">{items.map((item) => {
-    const guide = guideMap[item.title];
-    return <article className="card" key={item.title}><div className="card-mark" aria-hidden="true">✓</div><h3>{item.title}</h3><p>{item.text}</p><div className="card-actions"><Link className="card-link" href={`/contact?insurance=${encodeURIComponent(item.title)}`}>Request a Quote →</Link>{guide ? <Link className="learn-link" href={`/education/${guide}`}>Learn about this coverage →</Link> : null}</div></article>;
+    const learnHref = learnMap[item.title];
+    return <article className="card" key={item.title}><div className="card-mark" aria-hidden="true">✓</div><h3>{item.title}</h3><p>{item.text}</p><div className="card-actions"><Link className="card-link" href={`/contact?insurance=${encodeURIComponent(item.title)}`}>Request a Quote →</Link>{learnHref ? <Link className="learn-link" href={learnHref}>Learn about this coverage →</Link> : null}</div></article>;
   })}</div>;
 }
