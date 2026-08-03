@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, MouseEvent, useState } from "react";
 import { siteConfig } from "@/lib/site-config";
 
 type ContactLinks = { gmail: string; email: string; text: string } | null;
@@ -55,14 +55,16 @@ export function QuoteForm({
   initialInsuranceType?: string;
   initialMarket?: string;
 }) {
+  const selectedInsurance =
+    insuranceAliases[initialInsuranceType] ||
+    (insuranceOptions.includes(initialInsuranceType as (typeof insuranceOptions)[number]) ? initialInsuranceType : partner ? "Referral partnership" : "");
   const [step, setStep] = useState(1);
   const [links, setLinks] = useState<ContactLinks>(null);
   const [message, setMessage] = useState("");
-  const selectedInsurance =
-    insuranceAliases[initialInsuranceType] ||
-    (insuranceOptions.includes(initialInsuranceType) ? initialInsuranceType : partner ? "Referral partnership" : "");
+  const [coverage, setCoverage] = useState(selectedInsurance);
+  const [zipCode, setZipCode] = useState("");
 
-  function continueToContact(event: React.MouseEvent<HTMLButtonElement>) {
+  function continueToContact(event: MouseEvent<HTMLButtonElement>) {
     const form = event.currentTarget.form;
     const insurance = form?.elements.namedItem("insuranceType") as HTMLSelectElement | null;
     const zip = form?.elements.namedItem("zip") as HTMLInputElement | null;
@@ -92,14 +94,16 @@ export function QuoteForm({
     {step === 1 ? <fieldset className="quote-step">
       <legend>What can Abraham help you insure?</legend>
       <p>Start with two details. The next step only asks how to reach you.</p>
-      <label>Coverage needed<select name="insuranceType" required defaultValue={selectedInsurance}><option value="" disabled>Select coverage</option><optgroup label="Personal insurance">{personalOptions.map((item) => <option key={item}>{item}</option>)}</optgroup><optgroup label="Business insurance">{commercialOptions.map((item) => <option key={item}>{item}</option>)}</optgroup><optgroup label="Other requests">{otherOptions.map((item) => <option key={item}>{item}</option>)}</optgroup></select></label>
-      <label>ZIP code<input name="zip" required inputMode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" autoComplete="postal-code" placeholder="92553" /></label>
+      <label>Coverage needed<select name="insuranceType" required value={coverage} onChange={(event) => setCoverage(event.target.value)}><option value="" disabled>Select coverage</option><optgroup label="Personal insurance">{personalOptions.map((item) => <option key={item}>{item}</option>)}</optgroup><optgroup label="Business insurance">{commercialOptions.map((item) => <option key={item}>{item}</option>)}</optgroup><optgroup label="Other requests">{otherOptions.map((item) => <option key={item}>{item}</option>)}</optgroup></select></label>
+      <label>ZIP code<input name="zip" required inputMode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" autoComplete="postal-code" placeholder="92553" value={zipCode} onChange={(event) => setZipCode(event.target.value)} /></label>
       {initialMarket ? <p className="selected-market"><strong>Service area or market:</strong> {initialMarket}</p> : null}
       <button className="button quote-next" type="button" onClick={continueToContact}>Continue →</button>
       <p className="privacy-reassurance">No Social Security number, driver’s license number, or payment information is requested.</p>
     </fieldset> : null}
 
     {step === 2 && !links ? <fieldset className="quote-step">
+      <input type="hidden" name="insuranceType" value={coverage} />
+      <input type="hidden" name="zip" value={zipCode} />
       <legend id="quote-step-heading" tabIndex={-1}>How should Abraham contact you?</legend>
       <p>Only your name and phone number are required. Everything else is optional.</p>
       <div className="form-grid"><label>First name<input name="firstName" required autoComplete="given-name" /></label><label>Last name<input name="lastName" required autoComplete="family-name" /></label>
@@ -111,7 +115,7 @@ export function QuoteForm({
       <div className="quote-navigation"><button className="button button-secondary" type="button" onClick={() => setStep(1)}>← Back</button><button className="button" type="submit">{partner ? "Prepare Partner Request" : "Choose How to Send"}</button></div>
     </fieldset> : null}
 
-    {links ? <section className="quote-ready" aria-labelledby="quote-ready-title"><div className="ready-mark" aria-hidden="true">✓</div><h2 id="quote-ready-title">Your request is ready.</h2><p id="form-note" className="form-message success">{message}</p><div className="contact-action-panel" aria-label="Send your quote request"><a className="button" href={links.text}>Text Abraham</a><a className="button button-secondary" href={links.gmail} target="_blank" rel="noreferrer">Open Gmail</a><a className="button button-secondary" href={links.email}>Other Email App</a><a className="button button-secondary" href={siteConfig.phoneHref}>Call {siteConfig.directPhone}</a></div><button className="text-link reset-button" type="button" onClick={() => { setLinks(null); setMessage(""); setStep(1); }}>Start over</button></section> : null}
+    {links ? <section className="quote-ready" aria-labelledby="quote-ready-title"><div className="ready-mark" aria-hidden="true">✓</div><h2 id="quote-ready-title">Your request is ready.</h2><p id="form-note" className="form-message success">{message}</p><div className="contact-action-panel" aria-label="Send your quote request"><a className="button" href={links.text}>Text Abraham</a><a className="button button-secondary" href={links.gmail} target="_blank" rel="noreferrer">Open Gmail</a><a className="button button-secondary" href={links.email}>Other Email App</a><a className="button button-secondary" href={siteConfig.phoneHref}>Call {siteConfig.directPhone}</a></div><button className="text-link reset-button" type="button" onClick={() => { setLinks(null); setMessage(""); setCoverage(selectedInsurance); setZipCode(""); setStep(1); }}>Start over</button></section> : null}
     {!links ? <p id="form-note" className="form-message">Fast two-step request. Do not use this form for claims or urgent policy changes.</p> : null}
   </form>;
 }
