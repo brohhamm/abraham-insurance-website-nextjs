@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Abraham Nunez-Chavez",
-  title: "Insurance Producer",
+  title: "Insurance Agent/Broker",
   license: "4357305",
   agency: "Farmers Insurance – Office of Abel Duran",
   phone: "951-653-8888",
@@ -16,6 +16,7 @@ export const siteConfig = {
 export const navigation = [
   ["Personal", "/personal-insurance"],
   ["Business", "/business-insurance"],
+  ["Carriers", "/carriers"],
   ["Wildfire", "/wildfire-insurance"],
   ["Referral Partners", "/referral-partners"],
   ["Education", "/education"],
