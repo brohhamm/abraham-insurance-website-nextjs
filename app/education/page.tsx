@@ -1,3 +1,13 @@
-import Link from "next/link"; import { PageHero } from "@/components/ui"; import { articles } from "@/content/articles";
-export const metadata={title:"Insurance Education Center",description:"Plain-English insurance resources for consumers, business owners, Realtors, and loan officers.",alternates:{canonical:"/education"}};
-export default function Page(){return <><PageHero eyebrow="Insurance education center" title="Understand the coverage behind the price.">Concise explanations to help you evaluate insurance, prepare for escrow, and recognize common coverage gaps.</PageHero><section className="section"><div className="shell article-grid">{articles.map(a=><Link className="article-card" href={`/education/${a.slug}`} key={a.slug}><span>Guide</span><h2>{a.title}</h2><p>{a.summary}</p><strong>Read article →</strong></Link>)}</div><p className="shell disclaimer">Educational information only. Coverage varies by policy and carrier. Actual policy language controls.</p></section></>}
+import { PageHero } from "@/components/ui";
+import { EducationLibrary } from "@/components/education-library";
+import { articles } from "@/content/articles";
+
+export const metadata = {
+  title: "Insurance Education Center",
+  description: "Interactive California insurance guides for consumers, business owners, Realtors, and loan officers.",
+  alternates: { canonical: "/education" },
+};
+
+export default function Page() {
+  return <><PageHero eyebrow="Insurance education center" title="Understand the coverage behind the price.">Search 23 practical guides, compare common limits, and open official California resources for personal, commercial, wildfire, earthquake, and escrow decisions.</PageHero><section className="section"><div className="shell"><EducationLibrary articles={articles} /><p className="disclaimer">Limits shown are educational starting points—not universal recommendations. Coverage needs vary by applicant, property, operation, contract, carrier, and policy. Actual policy language controls.</p></div></section></>;
+}
