@@ -24,6 +24,7 @@ export const navigation = [
   ["Education", "/education"],
   ["Our Agency", "/about"],
   ["About Abel", "/abel-duran"],
+  ["Moreno Valley", "/moreno-valley-office"],
   ["Yorba Linda", "/yorba-linda-office"],
   ["Customer Service", "/customer-service"],
   ["Referral Partners", "/referral-partners"],
