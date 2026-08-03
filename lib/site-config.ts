@@ -7,6 +7,7 @@ export const siteConfig = {
   directPhone: "714-388-9533",
   phoneHref: "tel:+17143889533",
   email: "Abraham.aduran@farmersagency.com",
+  linkedin: "https://www.linkedin.com/in/abraham-nunez-chavez-5b1212187/",
   address: "13800 Heacock St., Suite C120, Moreno Valley, CA 92553",
   secondLocation: "Yorba Linda, California",
   hours: "Monday–Friday, 9:00 AM–5:00 PM",

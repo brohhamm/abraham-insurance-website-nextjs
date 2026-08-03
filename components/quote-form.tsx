@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 import { siteConfig } from "@/lib/site-config";
 
-type ContactLinks = { email: string; text: string } | null;
+type ContactLinks = { gmail: string; email: string; text: string } | null;
 
 function createRequestMessage(data: Record<string, FormDataEntryValue>) {
   const value = (key: string) => String(data[key] || "Not provided");
@@ -42,11 +42,12 @@ export function QuoteForm({ partner = false }: { partner?: boolean }) {
     const request = createRequestMessage(payload);
     const subject = `${partner ? "Referral Partner" : "Insurance Quote"} Request - ${String(payload.firstName)} ${String(payload.lastName)}`;
     const email = `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(request)}`;
+    const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(siteConfig.email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(request)}`;
     const text = `sms:+17143889533?&body=${encodeURIComponent(request)}`;
 
-    setLinks({ email, text });
-    setMessage("Your request is ready. Your email application should open with the completed information. Please press Send to deliver it, or choose Text or Call below.");
-    window.location.href = email;
+    setLinks({ gmail, email, text });
+    setMessage("Your request is ready. Gmail should open in a new tab with the completed information. Review it and press Send, or choose another contact option below.");
+    window.open(gmail, "_blank", "noopener,noreferrer");
   }
 
   return <form className="quote-form" onSubmit={submit} aria-describedby="form-note">
@@ -61,6 +62,6 @@ export function QuoteForm({ partner = false }: { partner?: boolean }) {
     <label className="consent"><input name="consent" type="checkbox" value="yes" required /> I agree to be contacted about this request. Submission does not bind or alter coverage.</label>
     <button className="button" type="submit">{partner ? "Prepare Partner Request" : "Request My Quote"}</button>
     <p id="form-note" className={`form-message ${links ? "success" : ""}`}>{message || "After submitting, choose email, text, or call. Do not use this form for claims or urgent policy changes."}</p>
-    {links ? <div className="contact-action-panel" aria-label="Send your quote request"><a className="button" href={links.email}>Open Email</a><a className="button button-secondary" href={links.text}>Open Text Message</a><a className="button button-secondary" href={siteConfig.phoneHref}>Call {siteConfig.directPhone}</a></div> : null}
+    {links ? <div className="contact-action-panel" aria-label="Send your quote request"><a className="button" href={links.gmail} target="_blank" rel="noreferrer">Open Gmail</a><a className="button button-secondary" href={links.email}>Other Email App</a><a className="button button-secondary" href={links.text}>Open Text Message</a><a className="button button-secondary" href={siteConfig.phoneHref}>Call {siteConfig.directPhone}</a></div> : null}
   </form>;
 }
