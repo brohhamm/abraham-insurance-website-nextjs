@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Abraham Nunez-Chavez Insurance Agent and Broker</title>
+<desc id="desc">Southern California personal and business insurance</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061a2e"/><stop offset="1" stop-color="#0d3554"/></linearGradient></defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<rect x="70" y="70" width="10" height="490" fill="#d5a34b"/>
+<text x="125" y="190" fill="#efbd66" font-family="Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="4">SOUTHERN CALIFORNIA</text>
+<text x="125" y="290" fill="#ffffff" font-family="Georgia, serif" font-size="66" font-weight="700">Abraham Nunez-Chavez</text>
+<text x="125" y="365" fill="#ffffff" font-family="Georgia, serif" font-size="52">Insurance Agent / Broker</text>
+<text x="125" y="450" fill="#d8e3ec" font-family="Arial, sans-serif" font-size="31">Personal • Commercial • Wildfire • Escrow Support</text>
+<text x="125" y="515" fill="#efbd66" font-family="Arial, sans-serif" font-size="25">CA Insurance Lic. No. 4357305</text>
+</svg>
