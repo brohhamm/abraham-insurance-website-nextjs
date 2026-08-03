@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Cards, CTA } from "@/components/ui";
 
+export const metadata = { alternates: { canonical: "/" } };
+
 const services = [
   { title: "Home & Property", text: "Learn how dwelling, belongings, liability, loss of use, deductibles, and replacement cost work together." },
   { title: "Auto & Umbrella", text: "Understand liability, uninsured motorists, physical damage, and added protection for serious claims." },
