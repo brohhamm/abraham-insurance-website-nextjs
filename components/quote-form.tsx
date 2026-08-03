@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, MouseEvent, useState } from "react";
-import { siteConfig } from "@/lib/site-config";
+import { agents } from "@/lib/site-config";
 
 type ContactLinks = { gmail: string; email: string; text: string } | null;
 
@@ -31,7 +31,8 @@ const insuranceAliases: Record<string, string> = {
 function createRequestMessage(data: Record<string, FormDataEntryValue>) {
   const value = (key: string) => String(data[key] || "Not provided");
   return [
-    "Hello Abraham,", "", "I am requesting insurance assistance.", "",
+    `Hello ${value("preferredAgent") === "first" ? "Agency Team" : value("preferredAgentName")},`, "", "I am requesting insurance assistance.", "",
+    `Preferred agent: ${value("preferredAgentName")}`,
     `Name: ${value("firstName")} ${value("lastName")}`,
     `Phone: ${value("phone")}`,
     `Email: ${value("email")}`,
@@ -50,10 +51,12 @@ export function QuoteForm({
   partner = false,
   initialInsuranceType = "",
   initialMarket = "",
+  initialAgent = "first",
 }: {
   partner?: boolean;
   initialInsuranceType?: string;
   initialMarket?: string;
+  initialAgent?: keyof typeof agents | "first";
 }) {
   const selectedInsurance =
     insuranceAliases[initialInsuranceType] ||
@@ -63,6 +66,7 @@ export function QuoteForm({
   const [message, setMessage] = useState("");
   const [coverage, setCoverage] = useState(selectedInsurance);
   const [zipCode, setZipCode] = useState("");
+  const [preferredAgent, setPreferredAgent] = useState<keyof typeof agents | "first">(initialAgent);
 
   function continueToContact(event: MouseEvent<HTMLButtonElement>) {
     const form = event.currentTarget.form;
@@ -77,11 +81,14 @@ export function QuoteForm({
     event.preventDefault();
     const payload = Object.fromEntries(new FormData(event.currentTarget).entries());
     if (payload.website) return;
+    const selected = preferredAgent === "first" ? agents.abraham : agents[preferredAgent];
+    payload.preferredAgent = preferredAgent;
+    payload.preferredAgentName = preferredAgent === "first" ? "First available agent" : selected.name;
     const request = createRequestMessage(payload);
     const subject = `${partner ? "Referral Partner" : "Insurance"} Request - ${String(payload.firstName)} ${String(payload.lastName)}`;
-    const email = `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(request)}`;
-    const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(siteConfig.email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(request)}`;
-    const text = `sms:+17143889533?&body=${encodeURIComponent(request)}`;
+    const email = `mailto:${selected.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(request)}`;
+    const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(selected.email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(request)}`;
+    const text = `${selected.textHref}?&body=${encodeURIComponent(request)}`;
     setLinks({ gmail, email, text });
     setMessage("Your request is ready. Choose Text, Gmail, Email, or Call below. The agency receives it after you press Send in the selected app.");
   }
@@ -92,10 +99,11 @@ export function QuoteForm({
     <div className="quote-progress" aria-label={`Step ${step} of 2`}><span className={step >= 1 ? "active" : ""}>1</span><i/><span className={step >= 2 ? "active" : ""}>2</span><strong>Step {step} of 2</strong></div>
 
     {step === 1 ? <fieldset className="quote-step">
-      <legend>What can Abraham help you insure?</legend>
+      <legend>What can our agency help you insure?</legend>
       <p>Start with two details. The next step only asks how to reach you.</p>
       <label>Coverage needed<select name="insuranceType" required value={coverage} onChange={(event) => setCoverage(event.target.value)}><option value="" disabled>Select coverage</option><optgroup label="Personal insurance">{personalOptions.map((item) => <option key={item}>{item}</option>)}</optgroup><optgroup label="Business insurance">{commercialOptions.map((item) => <option key={item}>{item}</option>)}</optgroup><optgroup label="Other requests">{otherOptions.map((item) => <option key={item}>{item}</option>)}</optgroup></select></label>
       <label>ZIP code<input name="zip" required inputMode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" autoComplete="postal-code" placeholder="92553" value={zipCode} onChange={(event) => setZipCode(event.target.value)} /></label>
+      <label>Who would you prefer to work with?<select name="preferredAgent" value={preferredAgent} onChange={(event) => setPreferredAgent(event.target.value as keyof typeof agents | "first")}><option value="first">No preference — first available agent</option><option value="abraham">Abraham Nunez-Chavez</option><option value="abel">Abel Duran</option><option value="devan">Devan Wright</option></select></label>
       {initialMarket ? <p className="selected-market"><strong>Service area or market:</strong> {initialMarket}</p> : null}
       <button className="button quote-next" type="button" onClick={continueToContact}>Continue →</button>
       <p className="privacy-reassurance">No Social Security number, driver’s license number, or payment information is requested.</p>
@@ -104,7 +112,7 @@ export function QuoteForm({
     {step === 2 && !links ? <fieldset className="quote-step">
       <input type="hidden" name="insuranceType" value={coverage} />
       <input type="hidden" name="zip" value={zipCode} />
-      <legend id="quote-step-heading" tabIndex={-1}>How should Abraham contact you?</legend>
+      <legend id="quote-step-heading" tabIndex={-1}>How should we contact you?</legend>
       <p>Only your name and phone number are required. Everything else is optional.</p>
       <div className="form-grid"><label>First name<input name="firstName" required autoComplete="given-name" /></label><label>Last name<input name="lastName" required autoComplete="family-name" /></label>
       <label>Phone<input name="phone" required type="tel" autoComplete="tel" placeholder="(714) 555-0123" /></label><label>Email <span>(optional)</span><input name="email" type="email" autoComplete="email" /></label>
@@ -115,7 +123,7 @@ export function QuoteForm({
       <div className="quote-navigation"><button className="button button-secondary" type="button" onClick={() => setStep(1)}>← Back</button><button className="button" type="submit">{partner ? "Prepare Partner Request" : "Choose How to Send"}</button></div>
     </fieldset> : null}
 
-    {links ? <section className="quote-ready" aria-labelledby="quote-ready-title"><div className="ready-mark" aria-hidden="true">✓</div><h2 id="quote-ready-title">Your request is ready.</h2><p id="form-note" className="form-message success">{message}</p><div className="contact-action-panel" aria-label="Send your quote request"><a className="button" href={links.text}>Text Abraham</a><a className="button button-secondary" href={links.gmail} target="_blank" rel="noreferrer">Open Gmail</a><a className="button button-secondary" href={links.email}>Other Email App</a><a className="button button-secondary" href={siteConfig.phoneHref}>Call {siteConfig.directPhone}</a></div><button className="text-link reset-button" type="button" onClick={() => { setLinks(null); setMessage(""); setCoverage(selectedInsurance); setZipCode(""); setStep(1); }}>Start over</button></section> : null}
+    {links ? <section className="quote-ready" aria-labelledby="quote-ready-title"><div className="ready-mark" aria-hidden="true">✓</div><h2 id="quote-ready-title">Your request is ready.</h2><p id="form-note" className="form-message success">{message}</p><div className="contact-action-panel" aria-label="Send your quote request"><a className="button" href={links.text}>Text selected agent</a><a className="button button-secondary" href={links.gmail} target="_blank" rel="noreferrer">Open Gmail</a><a className="button button-secondary" href={links.email}>Other Email App</a><a className="button button-secondary" href={(preferredAgent === "first" ? agents.abraham : agents[preferredAgent]).phoneHref}>Call {(preferredAgent === "first" ? agents.abraham : agents[preferredAgent]).phone}</a></div><button className="text-link reset-button" type="button" onClick={() => { setLinks(null); setMessage(""); setCoverage(selectedInsurance); setZipCode(""); setStep(1); }}>Start over</button></section> : null}
     {!links ? <p id="form-note" className="form-message">Fast two-step request. Do not use this form for claims or urgent policy changes.</p> : null}
   </form>;
 }
