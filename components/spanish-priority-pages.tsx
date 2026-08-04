@@ -28,8 +28,6 @@ const team = [
     copy: "Devan atiende la oficina de Yorba Linda y se especializa en seguros de casa, auto, vida, arrendador, comerciales, marítimos, vehículos todoterreno, remolques, paraguas y terremoto.",
     href: "/es/devan-wright",
     cta: "Conozca a Devan",
-    image: "/images/devan-wright-yorba-linda-insurance-agent.jpg",
-    alt: "Devan Wright, agente y corredora de seguros con licencia en Yorba Linda, California",
   },
   {
     name: "Rosalia Elizabeth Gomez",
@@ -142,15 +140,9 @@ export function SpanishAgency() {
           <div className="team-grid">
             {team.map((m) => (
               <article className="team-card" key={m.name}>
-                {m.image ? (
-                  <div className="team-card-photo">
-                    <Image src={m.image} alt={m.alt} fill sizes="(max-width: 760px) 100vw, 33vw" />
-                  </div>
-                ) : (
-                  <div className="initial-avatar" aria-hidden="true">
-                    {m.name.split(" ").map((n) => n[0]).join("")}
-                  </div>
-                )}
+                <div className="initial-avatar" aria-hidden="true">
+                  {m.name.split(" ").map((n) => n[0]).join("")}
+                </div>
                 <p className="eyebrow">{m.role}</p>
                 <h3>{m.name}</h3>
                 <strong>{m.license}</strong>
