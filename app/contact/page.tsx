@@ -1,5 +1,84 @@
 import { QuoteForm } from "@/components/quote-form";
 import { PageHero } from "@/components/ui";
 import { siteConfig } from "@/lib/site-config";
-export const metadata={title:"Contact & Quote Request",description:"Choose an agent and request a personal or business insurance quote.",alternates:{canonical:"/contact",languages:{"en-US":"/contact","es-US":"/es/contacto","x-default":"/contact"}}};
-export default async function Page({searchParams}:{searchParams:Promise<{insurance?:string;market?:string;agent?:"abraham"|"abel"|"devan"}>}){const {insurance="",market="",agent}=await searchParams;return <><PageHero eyebrow="Contact & quote request" title="Tell us what you need to protect.">Choose your preferred agent and share the basic details below. No Social Security number, driver’s license number, or payment information is needed.</PageHero><section className="section"><div className="shell contact-grid"><div className="form-card"><QuoteForm initialInsuranceType={insurance} initialMarket={market} initialAgent={agent||"first"}/></div><aside><div className="contact-card"><h2>Three clear paths</h2><p><strong>Get a new quote</strong><span>Choose Abraham, Abel, Devan, or the first available agent.</span></p><p><strong>Service an existing policy</strong><a href="/customer-service">Contact Rashel or Suzee</a></p><p><strong>Moreno Valley office</strong><a href="tel:+19516538888">951-653-8888</a><span>{siteConfig.morenoValleyOffice}</span></p><p><strong>Yorba Linda office</strong><a href="tel:+17147016411">714-701-6411</a><span>{siteConfig.yorbaLindaOffice}</span></p><div className="urgent-note"><strong>Claims or urgent policy changes</strong><p>Coverage is not effective until confirmed by an authorized representative or carrier. For urgent claims outside office hours, use the claims number on your policy documents.</p></div></div></aside></div></section></>}
+export const metadata = {
+  title: "Contact & Quote Request",
+  description:
+    "Choose an agent and request a personal or business insurance quote.",
+  alternates: {
+    canonical: "/contact",
+    languages: {
+      "en-US": "/contact",
+      "es-US": "/es/contacto",
+      "x-default": "/contact",
+    },
+  },
+};
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    insurance?: string;
+    market?: string;
+    agent?: "abraham" | "abel" | "devan" | "rosalia";
+  }>;
+}) {
+  const { insurance = "", market = "", agent } = await searchParams;
+  return (
+    <>
+      <PageHero
+        eyebrow="Contact & quote request"
+        title="Tell us what you need to protect."
+      >
+        Choose your preferred agent and share the basic details below. No Social
+        Security number, driver’s license number, or payment information is
+        needed.
+      </PageHero>
+      <section className="section">
+        <div className="shell contact-grid">
+          <div className="form-card">
+            <QuoteForm
+              initialInsuranceType={insurance}
+              initialMarket={market}
+              initialAgent={agent || "first"}
+            />
+          </div>
+          <aside>
+            <div className="contact-card">
+              <h2>Three clear paths</h2>
+              <p>
+                <strong>Get a new quote</strong>
+                <span>
+                  Choose Abraham, Abel, Devan, Rosalia, or the first available
+                  agent. Each agent’s primary office is shown in the form.
+                </span>
+              </p>
+              <p>
+                <strong>Service an existing policy</strong>
+                <a href="/customer-service">Contact Rashel or Suzee</a>
+              </p>
+              <p>
+                <strong>Moreno Valley office</strong>
+                <a href="tel:+19516538888">951-653-8888</a>
+                <span>{siteConfig.morenoValleyOffice}</span>
+              </p>
+              <p>
+                <strong>Yorba Linda office</strong>
+                <a href="tel:+17147016411">714-701-6411</a>
+                <span>{siteConfig.yorbaLindaOffice}</span>
+              </p>
+              <div className="urgent-note">
+                <strong>Claims or urgent policy changes</strong>
+                <p>
+                  Coverage is not effective until confirmed by an authorized
+                  representative or carrier. For urgent claims outside office
+                  hours, use the claims number on your policy documents.
+                </p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </>
+  );
+}
