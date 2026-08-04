@@ -1,0 +1,26 @@
+export const personalMarkets = [
+  { title: "Auto", names: ["Border Solutions", "Bristol West", "National General Insurance"] },
+  { title: "Boats & watercraft", names: ["Progressive", "SkiSafe"] },
+  { title: "Builders risk & vacant property", names: ["AUGold", "US Assure"] },
+  { title: "Earthquake", names: ["Arrowhead", "GeoVera Insurance"] },
+  { title: "Flood", names: ["Advantage Flood", "AON Edge", "Neptune", "NFIP", "Trinity"] },
+  { title: "Homeowners & property", names: ["Aegis Specialty", "AUGold", "Bamboo", "Delos", "LightSpeed", "ONE80", "Pacific Specialty (PSIC)", "SageSure", "Steadily (Landlord)"] },
+  { title: "Other personal lines", names: ["American Home Shield", "Hagerty", "Pets Best"] },
+  { title: "Personal property floater / inland marine", names: ["CRC Tapco", "Jewelers Mutual"] },
+  { title: "Personal umbrella", names: ["MyMGA.com", "PersonalUmbrella.com", "RLI"] },
+  { title: "Weather / catastrophe", names: ["CRC Tapco"] },
+] as const;
+export const commercialMarkets = [
+  { title: "Bonds", names: ["BTIS", "CNA Surety", "Propeller"] },
+  { title: "Builders risk & vacant property", names: ["US Assure"] },
+  { title: "Commercial auto", names: ["Bristol West"] },
+  { title: "Cyber", names: ["BOXX", "Hiscox NOW"] },
+  { title: "Earthquake", names: ["Vikco"] },
+  { title: "Flood", names: ["AON Edge", "Neptune", "NFIP"] },
+  { title: "Garage & dealers", names: ["ONE80"] },
+  { title: "GL, BOP & package", names: ["BTIS", "CRC Tapco", "ERGO NEXT", "Hiscox NOW", "LIO", "Pathpoint", "RLI", "SageSure", "Tokio Marine HCC", "USLI"] },
+  { title: "Habitational", names: ["CRC Tapco", "PolicyJoy"] },
+  { title: "Lessor's risk", names: ["CRC Tapco", "Pathpoint", "USLI"] },
+  { title: "Weather / catastrophe", names: ["CRC Tapco"] },
+  { title: "Workers' compensation", names: ["AmTrust", "BTIS"] },
+] as const;
