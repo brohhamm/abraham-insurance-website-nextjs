@@ -18,8 +18,8 @@ const team = [
     role: "Agente / Corredor de seguros · Moreno Valley",
     license: "Lic. de CA n.º 4357305",
     copy: "Abraham ayuda con seguros personales, comerciales y de vida, además de escrow, incendios forestales y propiedades difíciles de asegurar.",
-    href: "/es/contacto?agent=abraham",
-    cta: "Solicitar una cotización con Abraham",
+    href: "/es/abraham-nunez-chavez",
+    cta: "Conozca a Abraham",
   },
   {
     name: "Devan Wright",
@@ -34,8 +34,8 @@ const team = [
     role: "Agente y Corredora de Seguros · Moreno Valley",
     license: "Lic. de CA n.º 0K37042",
     copy: "Rosalia ofrece asistencia con seguros personales, comerciales y de vida. Su oficina principal está en Moreno Valley.",
-    href: "/es/contacto?agent=rosalia",
-    cta: "Solicitar una cotización con Rosalia",
+    href: "/es/rosalia-elizabeth-gomez",
+    cta: "Conozca a Rosalia",
   },
   {
     name: "Emily Lussier",
@@ -753,7 +753,7 @@ export function SpanishOffice({ city }: { city: keyof typeof officeData }) {
                       </>
                     ) : p[0] === "Abraham Nunez-Chavez" ? (
                       <>
-                        <Link className="text-link" href="/es/nuestra-agencia">
+                        <Link className="text-link" href="/es/abraham-nunez-chavez">
                           Conozca a Abraham →
                         </Link>
                         <a className="text-link" href="tel:+17143889533">
@@ -783,10 +783,10 @@ export function SpanishOffice({ city }: { city: keyof typeof officeData }) {
                       </>
                     ) : p[0] === "Rosalia Elizabeth Gomez" ? (
                       <>
-                        <Link
-                          className="text-link"
-                          href="/es/contacto?agent=rosalia"
-                        >
+                        <Link className="text-link" href="/es/rosalia-elizabeth-gomez">
+                          Conozca a Rosalia →
+                        </Link>
+                        <Link className="text-link" href="/es/contacto?agent=rosalia">
                           Solicitar una cotización con Rosalia →
                         </Link>
                         <a className="text-link" href="tel:9516538888">
