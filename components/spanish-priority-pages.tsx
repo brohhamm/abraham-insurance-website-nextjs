@@ -6,14 +6,6 @@ import { siteConfig } from "@/lib/site-config";
 
 const team = [
   {
-    name: "Rosalia Elizabeth Gomez",
-    role: "Agente y Corredora de Seguros · Moreno Valley",
-    license: "Lic. de CA n.º 0K37042",
-    copy: "Rosalia ofrece asistencia con seguros personales, comerciales y de vida. Su oficina principal está en Moreno Valley.",
-    href: "/es/contacto?agent=rosalia",
-    cta: "Solicitar una cotización con Rosalia",
-  },
-  {
     name: "Abel Duran",
     role: "Agente de Farmers Insurance · Agente principal",
     license: "Lic. de CA núm. 0F17442 · Lic. de agencia núm. 0K15422",
@@ -22,12 +14,30 @@ const team = [
     cta: "Conozca a Abel",
   },
   {
+    name: "Abraham Nunez-Chavez",
+    role: "Agente / Corredor de seguros · Moreno Valley",
+    license: "Lic. de CA n.º 4357305",
+    copy: "Abraham ayuda con seguros personales, comerciales y de vida, además de escrow, incendios forestales y propiedades difíciles de asegurar.",
+    href: "/es/contacto?agent=abraham",
+    cta: "Solicitar una cotización con Abraham",
+  },
+  {
     name: "Devan Wright",
     role: "Agente / Corredor · Yorba Linda",
     license: "Lic. de CA núm. 0H19544",
     copy: "Devan atiende la oficina de Yorba Linda y se especializa en seguros de casa, auto, vida, arrendador, comerciales, marítimos, vehículos todoterreno, remolques, paraguas y terremoto.",
     href: "/es/devan-wright",
     cta: "Conozca a Devan",
+    image: "/images/devan-wright-yorba-linda-insurance-agent.jpg",
+    alt: "Devan Wright, agente y corredora de seguros con licencia en Yorba Linda, California",
+  },
+  {
+    name: "Rosalia Elizabeth Gomez",
+    role: "Agente y Corredora de Seguros · Moreno Valley",
+    license: "Lic. de CA n.º 0K37042",
+    copy: "Rosalia ofrece asistencia con seguros personales, comerciales y de vida. Su oficina principal está en Moreno Valley.",
+    href: "/es/contacto?agent=rosalia",
+    cta: "Solicitar una cotización con Rosalia",
   },
   {
     name: "Emily Lussier",
@@ -132,12 +142,15 @@ export function SpanishAgency() {
           <div className="team-grid">
             {team.map((m) => (
               <article className="team-card" key={m.name}>
-                <div className="initial-avatar" aria-hidden="true">
-                  {m.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </div>
+                {m.image ? (
+                  <div className="team-card-photo">
+                    <Image src={m.image} alt={m.alt} fill sizes="(max-width: 760px) 100vw, 33vw" />
+                  </div>
+                ) : (
+                  <div className="initial-avatar" aria-hidden="true">
+                    {m.name.split(" ").map((n) => n[0]).join("")}
+                  </div>
+                )}
                 <p className="eyebrow">{m.role}</p>
                 <h3>{m.name}</h3>
                 <strong>{m.license}</strong>
@@ -551,7 +564,7 @@ const officeData = {
         "Agente / Corredor",
         "0H19544",
         "Devan brinda orientación sobre seguros personales, comerciales y de vida desde la oficina de Yorba Linda.",
-        "",
+        "/images/devan-wright-yorba-linda-insurance-agent.jpg",
       ],
       [
         "Emily Lussier",
@@ -703,6 +716,8 @@ export function SpanishOffice({ city }: { city: keyof typeof officeData }) {
                       alt={
                         p[0] === "Abraham Nunez-Chavez"
                           ? "Abraham Nunez-Chavez, productor de seguros con licencia al servicio del sur de California"
+                          : p[0] === "Devan Wright"
+                            ? "Devan Wright, agente y corredora de seguros con licencia en Yorba Linda, California"
                           : p[0] === "Rosalia Elizabeth Gomez"
                             ? "Rosalia Elizabeth Gomez, agente de seguros con licencia en la oficina de Moreno Valley"
                           : `${p[0]}, ${p[1]}`

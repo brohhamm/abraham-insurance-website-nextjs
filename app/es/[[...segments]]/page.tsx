@@ -300,6 +300,7 @@ function ArticlePage({ slug }: { slug: string }) {
 function LocationPage({ slug }: { slug: string }) {
   const x = getSpanishLocation(slug);
   if (!x) notFound();
+  const isOrangeCounty = slug === "condado-de-orange";
   return (
     <>
       <PageHero
@@ -322,7 +323,18 @@ function LocationPage({ slug }: { slug: string }) {
               ))}
             </ul>
           </div>
-          <aside className="details-card">
+          {isOrangeCounty ? <aside className="details-card">
+            <h2>Acceso local</h2>
+            <p><strong>Devan Wright</strong><br />Agente / Corredora<br />Lic. de CA n.º 0H19544</p>
+            <p>23621 La Palma Ave., Suite A<br />Yorba Linda, CA 92887</p>
+            <p><strong>Oficina principal:</strong> <a className="text-link" href="tel:7147016411" aria-label="Llamar a la oficina principal de Devan Wright en Yorba Linda al 714-701-6411">714-701-6411</a><br /><strong>Línea directa y mensajes de texto:</strong> <a className="text-link" href="tel:7147016412" aria-label="Llamar directamente a Devan Wright al 714-701-6412">714-701-6412</a></p>
+            <div className="profile-links">
+              <a className="text-link" href="sms:7147016412" aria-label="Enviar mensaje de texto a Devan Wright al 714-701-6412">Enviar mensaje de texto a Devan →</a>
+              <a className="text-link" href="mailto:devan.aduran@farmersagency.com" aria-label="Enviar correo electrónico a Devan Wright">devan.aduran@farmersagency.com</a>
+              <a className="text-link" href="https://maps.google.com/?q=23621+La+Palma+Ave+Suite+A+Yorba+Linda+CA+92887" target="_blank" rel="noreferrer" aria-label="Cómo llegar a la oficina de Devan Wright en Yorba Linda">Cómo llegar ↗</a>
+              <Link className="button" href="/es/contacto?agent=devan&market=Orange%20County">Solicitar apoyo local</Link>
+            </div>
+          </aside> : <aside className="details-card">
             <h2>Acceso local</h2>
             <p>{x.officeNote}</p>
             <p>
@@ -343,7 +355,7 @@ function LocationPage({ slug }: { slug: string }) {
             <Link className="text-link" href={x.officeHref}>
               {x.officeLabel} →
             </Link>
-          </aside>
+          </aside>}
         </div>
       </section>
       <section className="section risk-context">
@@ -798,7 +810,8 @@ function Profile({ who }: { who: "abel" | "devan" }) {
           : "Orientación personal, comercial y de vida desde la oficina de Yorba Linda."}
       </PageHero>
       <section className="section">
-        <div className="shell service-layout">
+        <div className={abel ? "shell service-layout" : "shell profile-layout"}>
+          {!abel ? <div className="photo-frame portrait-frame"><Image src="/images/devan-wright-yorba-linda-insurance-agent.jpg" alt="Devan Wright, agente y corredora de seguros con licencia en Yorba Linda, California" fill sizes="(max-width: 760px) 75vw, 340px" priority /></div> : null}
           <div>
             <p className="eyebrow">Lic. CA {abel ? "0F17442" : "0H19544"}</p>
             <h2>Cobertura basada en el riesgo.</h2>
@@ -810,8 +823,13 @@ function Profile({ who }: { who: "abel" | "devan" }) {
             <Link className="button" href={`/es/contacto?agent=${who}`}>
               Solicitar cotización con {abel ? "Abel" : "Devan"}
             </Link>
+          {!abel ? <aside className="details-card">
+            <h2>Oficina de Yorba Linda</h2>
+            <p>{siteConfig.yorbaLindaOffice}</p>
+            <a href="tel:+17147016412">714-701-6412</a>
+          </aside> : null}
           </div>
-          <aside className="details-card">
+          {abel ? <aside className="details-card">
             <h2>
               {abel ? "Oficina de Moreno Valley" : "Oficina de Yorba Linda"}
             </h2>
@@ -823,7 +841,7 @@ function Profile({ who }: { who: "abel" | "devan" }) {
             <a href={abel ? "tel:+19516538888" : "tel:+17147016412"}>
               {abel ? "951-653-8888" : "714-701-6412"}
             </a>
-          </aside>
+          </aside> : null}
         </div>
       </section>
       <CTA />
