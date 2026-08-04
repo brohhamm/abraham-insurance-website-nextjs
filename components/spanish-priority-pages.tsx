@@ -8,8 +8,8 @@ const team = [
   {
     name: "Rosalia Elizabeth Gomez",
     role: "Agente y Corredora de Seguros · Moreno Valley",
-    license: "Licencia de Seguros de California n.º 0K37042",
-    copy: "Rosalia ayuda a personas, familias, propietarios de inmuebles y negocios con seguros personales, comerciales y de vida.",
+    license: "Lic. de CA n.º 0K37042",
+    copy: "Rosalia ofrece asistencia con seguros personales, comerciales y de vida. Su oficina principal está en Moreno Valley.",
     href: "/es/contacto?agent=rosalia",
     cta: "Solicitar una cotización con Rosalia",
   },
@@ -511,7 +511,7 @@ const officeData = {
         "Rosalia Elizabeth Gomez",
         "Agente y Corredora de Seguros · Moreno Valley",
         "0K37042",
-        "Rosalia ayuda a personas, familias, propietarios de inmuebles y negocios con seguros personales, comerciales y de vida. Su oficina principal está en Moreno Valley. Puede solicitar una cita presencial en la oficina de Yorba Linda.",
+        "Rosalia ofrece asistencia con seguros personales, comerciales y de vida. Su oficina principal está en Moreno Valley.",
         "/images/rosalia-elizabeth-gomez-insurance-agent.jpg",
       ],
       [
@@ -697,7 +697,7 @@ export function SpanishOffice({ city }: { city: keyof typeof officeData }) {
             {d.staff.map((p) => (
               <article className="location-profile" key={p[0]}>
                 {p[4] ? (
-                  <div className="location-profile-photo">
+                  <div className={`location-profile-photo ${p[0] === "Rosalia Elizabeth Gomez" ? "rosalia-profile-photo" : ""}`}>
                     <Image
                       src={p[4]}
                       alt={
