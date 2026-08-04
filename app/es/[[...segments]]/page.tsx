@@ -24,6 +24,7 @@ import {
   SpanishCustomerService,
   SpanishOffice,
 } from "@/components/spanish-priority-pages";
+import { AgentProfile } from "@/components/agent-profile";
 
 type Props = {
   params: Promise<{ segments?: string[] }>;
@@ -649,7 +650,7 @@ function Simple({ path }: { path: string }) {
     return (
       <>
         <PageHero
-          eyebrow="Oficinas de agentes y corredores de seguros en Yorba Linda y Moreno Valley"
+          eyebrow="Agente y corredor de seguros · Sur de California"
           title="Protección clara para su hogar, familia y negocio."
         >
           Orientación en seguros personales, comerciales, de vida, incendios
@@ -693,6 +694,12 @@ function Simple({ path }: { path: string }) {
           </div>
         </section>
         <section className="section soft">
+          <div className="shell photo-story">
+            <div className="photo-frame photo-frame-wide"><Image src="/images/moreno-valley-front-desk.jpg" alt="Recepción de la oficina de seguros en Moreno Valley" fill sizes="(max-width: 900px) 100vw, 55vw" /></div>
+            <div><p className="eyebrow">Servicio local y accesible</p><h2>Oficinas de agentes y corredores de seguros en Yorba Linda y Moreno Valley.</h2><p className="agency-attribution">Con el respaldo de Abel Duran Insurance Agency, Inc.</p><p className="lead-small">Seleccione un agente con licencia para recibir orientación sobre cotizaciones y cobertura en cualquiera de las dos oficinas del sur de California.</p><div className="profile-links"><Link className="text-link" href="/es/oficina-moreno-valley">Conozca al equipo de Moreno Valley →</Link><Link className="text-link" href="/es/oficina-yorba-linda">Conozca al equipo de Yorba Linda →</Link></div></div>
+          </div>
+        </section>
+        <section className="section soft">
           <div className="shell">
             <h2>Orientación local</h2>
             <div className="location-links">
@@ -710,9 +717,9 @@ function Simple({ path }: { path: string }) {
     );
   if (path === "/es/nuestra-agencia") return <SpanishAgency />;
   if (path === "/es/abel-duran") return <SpanishAbel />;
-  if (path === "/es/abraham-nunez-chavez") return <AgentProfile who="abraham" />;
+  if (path === "/es/abraham-nunez-chavez") return <AgentProfile agent="abraham" locale="es" />;
   if (path === "/es/devan-wright") return <Profile who="devan" />;
-  if (path === "/es/rosalia-elizabeth-gomez") return <AgentProfile who="rosalia" />;
+  if (path === "/es/rosalia-elizabeth-gomez") return <AgentProfile agent="rosalia" locale="es" />;
   if (path === "/es/oficina-moreno-valley")
     return <SpanishOffice city="Moreno Valley" />;
   if (path === "/es/oficina-yorba-linda")
@@ -793,58 +800,6 @@ function Team() {
         </article>
       </div>
     </section>
-  );
-}
-function AgentProfile({ who }: { who: "abraham" | "rosalia" }) {
-  const abraham = who === "abraham";
-  const firstName = abraham ? "Abraham" : "Rosalia";
-  const fullName = abraham ? "Abraham Nunez-Chavez" : "Rosalia Elizabeth Gomez";
-  const license = abraham ? "4357305" : "0K37042";
-  const image = abraham ? "/images/abraham-nunez-chavez-insurance-agent.jpg" : "/images/rosalia-elizabeth-gomez-insurance-agent.jpg";
-  const phone = abraham ? "714-388-9533" : "951-653-8888";
-  const phoneHref = abraham ? "tel:+17143889533" : "tel:+19516538888";
-  return (
-    <>
-      <PageHero
-        eyebrow={`Conozca a ${fullName}`}
-        title={abraham ? "Orientación clara y acceso a opciones de seguros personales y comerciales." : "Asistencia con seguros personales, comerciales y de vida en Moreno Valley."}
-      >
-        {abraham
-          ? "Abraham ayuda a personas, familias, propietarios, negocios y socios de referidos a comparar opciones de cobertura en el sur de California."
-          : "Rosalia atiende a clientes desde la oficina de Moreno Valley de Abel Duran Insurance Agency."}
-      </PageHero>
-      <section className="section">
-        <div className="shell profile-layout">
-          <div className={`photo-frame portrait-frame ${abraham ? "" : "rosalia-profile-photo"}`}>
-            <Image src={image} alt={`${fullName}, agente y corredor de seguros con licencia en California`} fill sizes="(max-width: 760px) 75vw, 340px" priority />
-          </div>
-          <div>
-            <p className="eyebrow">Agente / Corredor de seguros · Lic. de CA n.º {license}</p>
-            <h2>{abraham ? "Cobertura, capacidad de respuesta y opciones prácticas." : "Orientación local para la cobertura que usted necesita."}</h2>
-            <p>{abraham
-              ? "Abraham es un productor de seguros con licencia afiliado a la Oficina de Abel Duran. Ayuda con seguros personales, comerciales y de vida, además de necesidades de escrow, zonas de incendios forestales y propiedades difíciles de asegurar."
-              : "Rosalia ofrece asistencia con seguros personales, comerciales y de vida. Desde la oficina de Moreno Valley, ayuda a los clientes a revisar la cobertura disponible y avanzar con el proceso de cotización adecuado."}</p>
-            {abraham ? <p>Su enfoque se centra en explicar la cobertura con claridad, identificar posibles brechas y ayudar a los clientes a entender cómo los límites y deducibles pueden afectar un reclamo.</p> : null}
-            <p>La disponibilidad de cobertura y aseguradoras depende de la elegibilidad, suscripción, ubicación, límites seleccionados y términos de la póliza.</p>
-            <div className="button-row">
-              <Link className="button" href={`/es/contacto?agent=${who}`}>Solicitar una cotización con {firstName}</Link>
-              <a className="button button-secondary" href={phoneHref}>Llamar al {phone}</a>
-              {abraham ? <a className="button button-secondary" href="sms:+17143889533">Enviar mensaje a Abraham</a> : null}
-            </div>
-            <aside className="details-card details-wrap">
-              <h2>{abraham ? "Contacto y oficinas" : "Oficina de Moreno Valley"}</h2>
-              <dl>
-                <dt>{abraham ? "Línea directa y mensajes" : "Oficina principal"}</dt><dd><a href={phoneHref}>{phone}</a></dd>
-                {abraham ? <><dt>Correo electrónico</dt><dd><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></dd></> : null}
-                <dt>Oficina de Moreno Valley</dt><dd>{siteConfig.morenoValleyOffice}</dd>
-                {abraham ? <><dt>Segunda ubicación</dt><dd>{siteConfig.yorbaLindaOffice}</dd></> : null}
-              </dl>
-            </aside>
-          </div>
-        </div>
-      </section>
-      <CTA />
-    </>
   );
 }
 function Profile({ who }: { who: "abel" | "devan" }) {

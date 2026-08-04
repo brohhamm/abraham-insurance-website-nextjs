@@ -11,6 +11,12 @@ export function Header() {
   const locale = localeFromPath(pathname);
   const navigation = navByLocale[locale];
   const spanish = locale === "es";
+  const agents = [
+    { name: "Abel Duran", role: spanish ? "Agente principal" : "Principal Agent", href: spanish ? "/es/abel-duran" : "/abel-duran" },
+    { name: "Abraham Nunez-Chavez", role: spanish ? "Agente/Corredor" : "Agent/Broker", href: spanish ? "/es/abraham-nunez-chavez" : "/abraham-nunez-chavez" },
+    { name: "Devan Wright", role: spanish ? "Agente/Corredora" : "Agent/Broker", href: spanish ? "/es/devan-wright" : "/devan-wright" },
+    { name: "Rosalia Elizabeth Gomez", role: spanish ? "Agente/Corredora" : "Agent/Broker", href: spanish ? "/es/rosalia-elizabeth-gomez" : "/rosalia-elizabeth-gomez" },
+  ] as const;
 
   useEffect(() => {
     function closeOnEscape(event: KeyboardEvent) {
@@ -21,9 +27,11 @@ export function Header() {
   }, []);
 
   return <header className="site-header">
-    <div className="topbar"><div className="shell topbar-inner"><span>{spanish ? "Licencia de seguros de CA" : "CA Insurance Lic. No."} {siteConfig.license}</span><a href={siteConfig.phoneHref}>{spanish ? "Línea directa" : "Direct"}: {siteConfig.directPhone}</a></div></div>
+    <div className="topbar"><div className="shell topbar-inner"><Link href={spanish ? "/es" : "/"} aria-label={spanish ? "Página principal" : "Home"}>{spanish ? "Licencia de seguros de CA" : "CA Insurance Lic. No."} {siteConfig.license}</Link><a href={siteConfig.phoneHref}>{spanish ? "Línea directa" : "Direct"}: {siteConfig.directPhone}</a></div></div>
+    <nav className="shell agent-navigation" aria-label={spanish ? "Seleccione un agente" : "Choose an agent"}>
+      {agents.map((agent) => <Link key={agent.name} href={agent.href} className="agent-brand" aria-current={pathname === agent.href ? "page" : undefined}><strong>{agent.name}</strong><span>{agent.role}</span></Link>)}
+    </nav>
     <div className="shell nav-row">
-      <Link href={spanish ? "/es" : "/"} className="brand" aria-label={spanish ? "Inicio de Abraham Nunez-Chavez Seguros" : "Abraham Nunez-Chavez Insurance home"}><strong>Abraham Nunez-Chavez</strong><span>{spanish ? "Agente/Corredor de Seguros" : "Insurance Agent/Broker"}</span></Link>
       <button className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="main-navigation" aria-label={open ? (spanish ? "Cerrar menú de navegación" : "Close navigation menu") : (spanish ? "Abrir menú de navegación" : "Open navigation menu")}>{open ? (spanish ? "Cerrar" : "Close") : (spanish ? "Menú" : "Menu")}</button>
       <nav id="main-navigation" className={open ? "nav-links open" : "nav-links"} aria-label={spanish ? "Navegación principal" : "Main navigation"}>
         {navigation.map(([label, href]) => <Link key={href} href={href} aria-current={pathname === href ? "page" : undefined} onClick={() => setOpen(false)}>{label}</Link>)}
