@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { articles, getArticle } from "@/content/articles";
 import { siteConfig } from "@/lib/site-config";
+import { alternatesFor } from "@/lib/i18n";
 
 const publishedDate = "2026-08-03";
 
@@ -13,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return article ? {
     title: article.title,
     description: article.summary,
-    alternates: { canonical: `/education/${article.slug}` },
+    alternates: alternatesFor(`/education/${article.slug}`),
     authors: [{ name: "Abraham Nunez-Chavez", url: "/about" }],
   } : { title: "Article" };
 }

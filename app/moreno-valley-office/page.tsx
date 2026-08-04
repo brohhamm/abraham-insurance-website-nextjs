@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Moreno Valley Insurance Office | Abel Duran Insurance Agency",
   description: "Meet Abel Duran, Abraham Nunez-Chavez, Rashel Dominguez, and Suzee Cervantes at the Moreno Valley office. Call 951-653-8888.",
-  alternates: { canonical: "/moreno-valley-office" },
+  alternates:{canonical:"/moreno-valley-office",languages:{"en-US":"/moreno-valley-office","es-US":"/es/oficina-moreno-valley","x-default":"/moreno-valley-office"}},
 };
 
 const specialties = ["Homeowners", "Auto", "Landlord", "Life", "Commercial", "Workers’ compensation", "Commercial auto", "Umbrella", "Wildfire", "Earthquake"];

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CTA, PageHero } from "@/components/ui";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata={title:"Our Agency",description:"Meet Abraham Nunez-Chavez and the Abel Duran Insurance Agency team serving Moreno Valley and Yorba Linda.",alternates:{canonical:"/about"}};
+export const metadata={title:"Our Agency",description:"Meet Abraham Nunez-Chavez and the Abel Duran Insurance Agency team serving Moreno Valley and Yorba Linda.",alternates:{canonical:"/about",languages:{"en-US":"/about","es-US":"/es/nuestra-agencia","x-default":"/about"}}};
 const team=[
   {name:"Abel Duran",role:"Farmers Insurance Agent · Principal Agent",license:"CA Lic. No. 0F17442 · Agency Lic. No. 0K15422",copy:"Abel owns and leads both the Moreno Valley and Yorba Linda offices and helps clients with personal, commercial, and life insurance.",href:"/abel-duran",cta:"Meet Abel"},
   {name:"Devan Wright",role:"Agent / Broker · Yorba Linda",license:"CA Lic. No. 0H19544",copy:"Devan serves the Yorba Linda office, focusing on home, auto, life, landlord, commercial, marine, off-road, trailer, umbrella, and earthquake insurance.",href:"/devan-wright",cta:"Meet Devan"},

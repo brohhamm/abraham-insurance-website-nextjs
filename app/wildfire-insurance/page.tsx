@@ -4,7 +4,7 @@ import { CTA, PageHero } from "@/components/ui";
 export const metadata = {
   title: "Wildfire, FAIR Plan & Earthquake Resources",
   description: "California FAIR Plan, DIC, wildfire readiness, CEA earthquake coverage, and retrofit-discount resources.",
-  alternates: { canonical: "/wildfire-insurance" },
+  alternates:{canonical:"/wildfire-insurance",languages:{"en-US":"/wildfire-insurance","es-US":"/es/seguro-contra-incendios-forestales","x-default":"/wildfire-insurance"}},
 };
 
 const resources = [

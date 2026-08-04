@@ -5,7 +5,7 @@ import { Cards, CTA } from "@/components/ui";
 export const metadata = {
   title: "Insurance Agent & Broker in Moreno Valley, CA",
   description: "Personal, commercial, wildfire, life, and escrow insurance support for Moreno Valley, Riverside County, Yorba Linda, and Orange County.",
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", languages: { "en-US": "/", "es-US": "/es", "x-default": "/" } },
 };
 
 const services = [

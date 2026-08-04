@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function SpanishNotFound(){return <section className="page-hero"><div className="shell narrow"><p className="eyebrow">Error 404</p><h1>No encontramos esta página.</h1><p className="lead">La dirección puede haber cambiado o contener un error.</p><div className="button-row"><Link className="button" href="/es">Volver al inicio</Link><Link className="button button-secondary" href="/es/contacto">Solicitar ayuda</Link></div></div></section>}

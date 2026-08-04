@@ -4,7 +4,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/ui";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = { title: "Yorba Linda Insurance Office | Abel Duran Insurance Agency", description: "Meet Abel Duran, Devan Wright, and Emily Lussier at the Yorba Linda office of Abel Duran Insurance Agency. Call 714-701-6411.", alternates: { canonical: "/yorba-linda-office" } };
+export const metadata: Metadata = { title: "Yorba Linda Insurance Office | Abel Duran Insurance Agency", description: "Meet Abel Duran, Devan Wright, and Emily Lussier at the Yorba Linda office of Abel Duran Insurance Agency. Call 714-701-6411.", alternates:{canonical:"/yorba-linda-office",languages:{"en-US":"/yorba-linda-office","es-US":"/es/oficina-yorba-linda","x-default":"/yorba-linda-office"}} };
 const specialties = ["Life", "Homeowners", "Landlord and renters", "Auto", "Commercial", "Marine", "Off-road vehicles", "Trailers", "Umbrella", "Earthquake"];
 
 export default function YorbaLindaOfficePage() {

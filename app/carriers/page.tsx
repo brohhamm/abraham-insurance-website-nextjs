@@ -4,7 +4,7 @@ import { CTA, PageHero } from "@/components/ui";
 export const metadata = {
   title: "Insurance Carriers and Markets",
   description: "Personal and commercial insurance carriers, brokerage markets, and California programs available through Abraham Nunez-Chavez.",
-  alternates: { canonical: "/carriers" },
+  alternates:{canonical:"/carriers",languages:{"en-US":"/carriers","es-US":"/es/aseguradoras","x-default":"/carriers"}},
 };
 
 const personalMarkets = [

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CTA, PageHero } from "@/components/ui";
 import { getServiceLocation, serviceLocations } from "@/content/locations";
 import { siteConfig } from "@/lib/site-config";
+import { alternatesFor } from "@/lib/i18n";
 
 export function generateStaticParams() {
   return serviceLocations.map((location) => ({ slug: location.slug }));
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return location ? {
     title: `Insurance Agent & Broker in ${location.name}, CA`,
     description: location.summary,
-    alternates: { canonical: `/locations/${location.slug}` },
+    alternates: alternatesFor(`/locations/${location.slug}`),
   } : { title: "Southern California Insurance" };
 }
 

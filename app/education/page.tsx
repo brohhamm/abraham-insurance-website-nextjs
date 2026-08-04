@@ -5,7 +5,7 @@ import { articles } from "@/content/articles";
 export const metadata = {
   title: "Insurance Education Center",
   description: "Interactive California insurance guides for consumers, business owners, Realtors, and loan officers.",
-  alternates: { canonical: "/education" },
+  alternates:{canonical:"/education",languages:{"en-US":"/education","es-US":"/es/educacion","x-default":"/education"}},
 };
 
 export default function Page() {

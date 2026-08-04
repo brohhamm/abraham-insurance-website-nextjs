@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CTA, PageHero } from "@/components/ui";
 import { getInsuranceService, insuranceServices } from "@/content/services";
 import { siteConfig } from "@/lib/site-config";
+import { alternatesFor } from "@/lib/i18n";
 
 export function generateStaticParams() {
   return insuranceServices.map((service) => ({ slug: service.slug }));
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return service ? {
     title: `${service.name} in Southern California`,
     description: `${service.summary} Serving Moreno Valley, Riverside County, Yorba Linda, and Orange County.`,
-    alternates: { canonical: `/insurance/${service.slug}` },
+    alternates: alternatesFor(`/insurance/${service.slug}`),
   } : { title: "Insurance Coverage" };
 }
 

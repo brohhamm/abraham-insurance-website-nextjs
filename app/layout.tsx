@@ -4,6 +4,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { MobileContactBar } from "@/components/mobile-contact-bar";
 import { siteConfig } from "@/lib/site-config";
+import { headers } from "next/headers";
 import "./globals.css";
 
 const geist = Geist({ variable: "--font-sans", subsets: ["latin"] });
@@ -29,7 +30,8 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.svg" },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const locale=(await headers()).get("x-site-locale")==="es"?"es":"en";
   const schema = {
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
@@ -52,5 +54,5 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       itemListElement: ["Homeowners", "Auto", "Renters", "Condo", "Landlord", "Umbrella", "Life", "Earthquake", "General Liability", "Workers Compensation", "Commercial Auto", "Commercial Property", "Business Owners Policy"].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
     },
   };
-  return <html lang="en"><body className={`${geist.variable} ${lora.variable}`}><Header/><main>{children}</main><Footer/><MobileContactBar/><script id="insurance-agency-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /></body></html>;
+  return <html lang={locale}><body className={`${geist.variable} ${lora.variable}`}><Header/><main>{children}</main><Footer/><MobileContactBar/><script id="insurance-agency-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /></body></html>;
 }

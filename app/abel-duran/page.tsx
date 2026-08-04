@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "About Abel Duran | Farmers Insurance Agent and Agency Owner",
   description: "Meet Abel Duran, owner and principal agent of Abel Duran Insurance Agency, serving Moreno Valley, Yorba Linda, and Southern California. CA Lic. 0F17442.",
-  alternates: { canonical: "/abel-duran" },
+  alternates:{canonical:"/abel-duran",languages:{"en-US":"/abel-duran","es-US":"/es/abel-duran","x-default":"/abel-duran"}},
 };
 
 const insuranceServices = ["Auto", "Homeowners", "Renters and condo", "Landlord", "Umbrella", "Life", "Business", "Commercial auto", "Commercial property", "General liability", "Workers’ compensation"];
