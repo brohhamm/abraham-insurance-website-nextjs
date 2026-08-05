@@ -9,7 +9,7 @@ export function EmilyProfile({ locale }: { locale: "en" | "es" }) {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Emily Lussier",
-    image: `${siteConfig.url}/images/emily-lussier-yorba-linda-insurance-agent.jpg`,
+    image: `${siteConfig.url}/images/emily-lussier-yorba-linda-insurance-professional.jpg`,
     jobTitle: "Customer Service Representative",
     identifier: "California Insurance License No. 4440213",
     worksFor: { "@type": "InsuranceAgency", name: "Abel Duran Insurance Agency, Inc." },
@@ -24,7 +24,7 @@ export function EmilyProfile({ locale }: { locale: "en" | "es" }) {
       {spanish ? "Emily ayuda a los clientes con preguntas sobre pólizas, documentos, facturación, renovaciones y solicitudes generales de servicio." : "Emily assists clients with policy questions, documents, billing guidance, renewals, and general account support."}
     </PageHero>
     <section className="section"><div className="shell profile-layout">
-      <div className="photo-frame portrait-frame emily-profile-photo"><Image src="/images/emily-lussier-yorba-linda-insurance-agent.jpg" alt={spanish ? "Emily Lussier, profesional de seguros con licencia en la oficina de Yorba Linda" : "Emily Lussier, licensed insurance professional at the Yorba Linda office"} fill sizes="(max-width: 760px) 75vw, 340px" priority /></div>
+      <div className="photo-frame portrait-frame"><Image src="/images/emily-lussier-yorba-linda-insurance-professional.jpg" alt={spanish ? "Emily Lussier, profesional de seguros con licencia en la oficina de Yorba Linda" : "Emily Lussier, licensed insurance professional at the Yorba Linda office"} fill sizes="(max-width: 760px) 75vw, 340px" priority /></div>
       <div><p className="eyebrow">{spanish ? "Representante de servicio al cliente · Lic. de CA n.º 4440213" : "Customer Service Representative · CA Lic. No. 4440213"}</p><h2>{spanish ? "Atención clara para sus necesidades de servicio." : "Clear help for your policy-service needs."}</h2>
         <p>{spanish ? "Emily ayuda a los clientes de Yorba Linda con preguntas sobre pólizas, documentos, orientación de facturación, renovaciones y apoyo general de sus cuentas." : "Emily assists Yorba Linda clients with policy questions, documents, billing guidance, renewals, and general account support."}</p>
         <p>{spanish ? "Trabaja desde la oficina de Yorba Linda de Abel Duran Insurance Agency, Inc. Para cotizaciones nuevas, el equipo puede conectarlo con el agente con licencia adecuado." : "She works from the Yorba Linda office of Abel Duran Insurance Agency, Inc. For new quotes, the team can connect you with the appropriate licensed agent."}</p>

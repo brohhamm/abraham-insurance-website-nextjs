@@ -563,7 +563,7 @@ const officeData = {
         "Representante de servicio al cliente",
         "4440213",
         "Emily ayuda a los clientes de Yorba Linda con preguntas sobre pólizas, documentos, orientación de facturación, renovaciones y apoyo general de sus cuentas.",
-        "/images/emily-lussier-yorba-linda-insurance-agent.jpg",
+        "/images/emily-lussier-yorba-linda-insurance-professional.jpg",
       ],
     ],
   },
@@ -712,6 +712,8 @@ export function SpanishOffice({ city }: { city: keyof typeof officeData }) {
                             ? "Devan Wright, agente y corredora de seguros con licencia en Yorba Linda, California"
                           : p[0] === "Rosalia Elizabeth Gomez"
                             ? "Rosalia Elizabeth Gomez, agente de seguros con licencia en la oficina de Moreno Valley"
+                          : p[0] === "Emily Lussier"
+                            ? "Emily Lussier, profesional de seguros con licencia en la oficina de Yorba Linda"
                           : `${p[0]}, ${p[1]}`
                       }
                       fill
