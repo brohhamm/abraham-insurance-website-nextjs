@@ -1,9 +1,10 @@
 "use client";
 
-import { FormEvent, MouseEvent, useState } from "react";
+import { FormEvent, MouseEvent, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { agents } from "@/lib/site-config";
 import { localeFromPath } from "@/lib/i18n";
+import { trackEvent } from "@/lib/analytics";
 
 type ContactLinks = { gmail: string; email: string; text: string } | null;
 
@@ -136,6 +137,7 @@ export function QuoteForm({
   const [preferredAgent, setPreferredAgent] = useState<
     keyof typeof agents | "first"
   >(initialAgent);
+  const submissionTracked = useRef(false);
 
   function continueToContact(event: MouseEvent<HTMLButtonElement>) {
     const form = event.currentTarget.form;
@@ -176,6 +178,12 @@ export function QuoteForm({
         ? "Su solicitud está lista. Elija mensaje de texto, Gmail, correo electrónico o llamada. La agencia la recibirá después de que presione Enviar en la aplicación seleccionada."
         : "Your request is ready. Choose Text, Gmail, Email, or Call below. The agency receives it after you press Send in the selected app.",
     );
+    if (!submissionTracked.current) {
+      submissionTracked.current = true;
+      trackEvent("quote_form_submitted", {
+        form_type: partner ? "referral_partner" : "quote",
+      });
+    }
   }
 
   return (
@@ -183,6 +191,7 @@ export function QuoteForm({
       className="quote-form easy-quote-form"
       onSubmit={submit}
       aria-describedby="form-note"
+      data-analytics-form={partner ? "referral_partner" : "quote"}
     >
       <div className="honeypot" aria-hidden="true">
         <label>
@@ -549,6 +558,7 @@ export function QuoteForm({
               setCoverage(selectedInsurance);
               setZipCode("");
               setStep(1);
+              submissionTracked.current = false;
             }}
           >
             {es ? "Comenzar de nuevo" : "Start over"}

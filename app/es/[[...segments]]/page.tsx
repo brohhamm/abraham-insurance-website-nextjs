@@ -588,6 +588,21 @@ function Legal({ privacy = false }: { privacy?: boolean }) {
                 números de Seguro Social o licencia, información de pago,
                 expedientes médicos ni otros datos altamente confidenciales.
               </p>
+              <h2>Analítica del sitio web</h2>
+              <p>
+                Este sitio utiliza Vercel Web Analytics para medir el tráfico
+                general y las interacciones con el sitio, incluidas las vistas
+                de páginas, las fuentes de referencia, las campañas UTM, la
+                información general sobre ubicación y dispositivos, y acciones
+                como seleccionar opciones de cotización, teléfono, mensaje de
+                texto, correo electrónico, idioma, oficina o recursos externos.
+                La analítica no se utiliza intencionalmente para recopilar la
+                información ingresada en formularios de seguros, cotización o
+                servicio. Las URL de analítica se filtran para conservar solo
+                los parámetros estándar de campañas UTM; los demás parámetros
+                de consulta y fragmentos se eliminan antes de enviar eventos de
+                analítica.
+              </p>
               <h2>Uso de la información</h2>
               <p>
                 Puede usarse para responder, evaluar opciones, prestar servicio,
