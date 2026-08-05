@@ -11,11 +11,9 @@ export function Footer() {
     <footer className="footer">
       <div className="shell footer-grid">
         <div>
-          <p className="footer-brand">{siteConfig.name}</p>
-          <p>
-            {siteConfig.title} · CA Lic. No. {siteConfig.license}
-          </p>
-          <p>{siteConfig.agency}</p>
+          <p className="footer-brand">Abel Duran</p>
+          <p>{es ? "Propietario de la agencia" : "Agency Owner"} · {es ? "Lic. de agencia de CA n.º 0K15422" : "CA Agency Lic. No. 0K15422"}</p>
+          <p>Abel Duran Insurance Agency, Inc.</p>
         </div>
         <div>
           <h2>{es ? "Explorar" : "Explore"}</h2>
@@ -35,7 +33,8 @@ export function Footer() {
           </Link>
         </div>
         <div>
-          <h2>{es ? "Contacto" : "Contact"}</h2>
+          <h2>{es ? "Contacto principal del sitio web" : "Primary Website Contact"}</h2>
+          <p>{siteConfig.name}</p>
           <a href={siteConfig.phoneHref}>{siteConfig.directPhone}</a>
           <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
           <a href={siteConfig.linkedin} target="_blank" rel="noreferrer">
@@ -47,8 +46,8 @@ export function Footer() {
       <div className="shell legal-row">
         <p>
           {es
-            ? "Abraham Nunez-Chavez, Lic. de CA núm. 4357305. Abel Duran, Lic. de CA núm. 0F17442. Devan Wright, Lic. de CA núm. 0H19544. Rosalia Elizabeth Gomez, Lic. de CA núm. 0K37042. Abel Duran Insurance Agency, Inc., Lic. de agencia de CA núm. 0K15422. Los productos y su disponibilidad varían según la aseguradora, la elegibilidad de suscripción, la cobertura seleccionada y el estado."
-            : "Abraham Nunez-Chavez, CA Lic. No. 4357305. Abel Duran, CA Lic. No. 0F17442. Devan Wright, CA Lic. No. 0H19544. Rosalia Elizabeth Gomez, CA Lic. No. 0K37042. Abel Duran Insurance Agency, Inc., CA Agency Lic. No. 0K15422. Insurance products and availability vary by carrier, underwriting eligibility, coverage selection, and state."}
+            ? "Abel Duran, Lic. de CA núm. 0F17442. Devan Wright, Lic. de CA núm. 0H19544. Rosalia Elizabeth Gomez, Lic. de CA núm. 0K37042. Abel Duran Insurance Agency, Inc., Lic. de agencia de CA núm. 0K15422. Los productos y su disponibilidad varían según la aseguradora, la elegibilidad de suscripción, la cobertura seleccionada y el estado."
+            : "Abel Duran, CA Lic. No. 0F17442. Devan Wright, CA Lic. No. 0H19544. Rosalia Elizabeth Gomez, CA Lic. No. 0K37042. Abel Duran Insurance Agency, Inc., CA Agency Lic. No. 0K15422. Insurance products and availability vary by carrier, underwriting eligibility, coverage selection, and state."}
         </p>
         <div>
           <Link href={es ? "/es/privacidad" : "/privacy"}>

@@ -91,8 +91,8 @@ export function localizePath(pathname: string, locale: Locale) {
 }
 
 export const navByLocale = {
-  en: [["Home", "/"], ["Personal", "/personal-insurance"], ["Business", "/business-insurance"], ["Carriers", "/carriers"], ["Wildfire", "/wildfire-insurance"], ["Education", "/education"], ["Our Agency", "/about"], ["About Abel", "/abel-duran"], ["Moreno Valley", "/moreno-valley-office"], ["Yorba Linda", "/yorba-linda-office"], ["Customer Service", "/customer-service"], ["Referral Partners", "/referral-partners"]],
-  es: [["Inicio", "/es"], ["Personales", "/es/seguros-personales"], ["Comerciales", "/es/seguros-comerciales"], ["Aseguradoras", "/es/aseguradoras"], ["Incendios forestales", "/es/seguro-contra-incendios-forestales"], ["Educación", "/es/educacion"], ["Nuestra agencia", "/es/nuestra-agencia"], ["Acerca de Abel", "/es/abel-duran"], ["Moreno Valley", "/es/oficina-moreno-valley"], ["Yorba Linda", "/es/oficina-yorba-linda"], ["Servicio al cliente", "/es/servicio-al-cliente"], ["Socios de referidos", "/es/socios-de-referidos"]],
+  en: [["Home", "/"], ["Personal Lines", "/personal-insurance"], ["Business Lines", "/business-insurance"], ["Carriers", "/carriers"], ["Wildfire", "/wildfire-insurance"], ["Education", "/education"], ["Our Agency", "/about"], ["About Abel", "/abel-duran"], ["Moreno Valley", "/moreno-valley-office"], ["Yorba Linda", "/yorba-linda-office"], ["Customer Service", "/customer-service"], ["Referral Partners", "/referral-partners"]],
+  es: [["Inicio", "/es"], ["Seguros personales", "/es/seguros-personales"], ["Seguros comerciales", "/es/seguros-comerciales"], ["Aseguradoras", "/es/aseguradoras"], ["Incendios forestales", "/es/seguro-contra-incendios-forestales"], ["Educación", "/es/educacion"], ["Nuestra agencia", "/es/nuestra-agencia"], ["Acerca de Abel", "/es/abel-duran"], ["Moreno Valley", "/es/oficina-moreno-valley"], ["Yorba Linda", "/es/oficina-yorba-linda"], ["Servicio al cliente", "/es/servicio-al-cliente"], ["Socios de referidos", "/es/socios-de-referidos"]],
 } as const;
 
 export function alternatesFor(enPath: string) {

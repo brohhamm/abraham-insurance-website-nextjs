@@ -17,8 +17,8 @@ export const siteConfig = {
 };
 
 export const navigation = [
-  ["Personal", "/personal-insurance"],
-  ["Business", "/business-insurance"],
+  ["Personal Lines", "/personal-insurance"],
+  ["Business Lines", "/business-insurance"],
   ["Carriers", "/carriers"],
   ["Wildfire", "/wildfire-insurance"],
   ["Education", "/education"],
@@ -34,5 +34,5 @@ export const agents = {
   abraham: { name: "Abraham Nunez-Chavez", email: "Abraham.aduran@farmersagency.com", phone: "714-388-9533", phoneHref: "tel:+17143889533", textHref: "sms:+17143889533", office: "Moreno Valley" },
   abel: { name: "Abel Duran", email: "Aduran@farmersagent.com", phone: "951-653-8888", phoneHref: "tel:+19516538888", textHref: "sms:+19516538888", office: "Moreno Valley" },
   devan: { name: "Devan Wright", email: "devan.aduran@farmersagency.com", phone: "714-701-6412", phoneHref: "tel:+17147016412", textHref: "sms:+17147016412", office: "Yorba Linda" },
-  rosalia: { name: "Rosalia Elizabeth Gomez", email: "Abraham.aduran@farmersagency.com", phone: "951-653-8888", phoneHref: "tel:+19516538888", textHref: "sms:+19516538888", office: "Moreno Valley" },
+  rosalia: { name: "Rosalia Elizabeth Gomez", email: "rosalia.aduran@farmersagency.com", phone: "951-653-8888", phoneHref: "tel:+19516538888", textHref: "sms:+19516538888", office: "Moreno Valley" },
 } as const;

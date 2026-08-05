@@ -68,58 +68,54 @@ export function SpanishAgency() {
     <>
       <PageHero
         eyebrow="Nuestra agencia"
-        title="Orientación local respaldada por un equipo conectado."
+        title="Dos ubicaciones. Un equipo de agencia conectado."
       >
-        Abraham continúa siendo su contacto principal en este sitio, con agentes
-        experimentados y apoyo especializado para el servicio de pólizas en dos
-        oficinas del sur de California.
+        Abel Duran es propietario de las oficinas de Moreno Valley y Yorba
+        Linda, donde un equipo coordinado brinda orientación local y apoyo para
+        pólizas en todo el sur de California.
       </PageHero>
       <section className="section">
         <div className="shell profile-layout">
           <div className="photo-frame portrait-frame">
             <Image
-              src="/images/abraham-nunez-chavez-insurance-agent.jpg"
-              alt="Abraham Nunez-Chavez, productor de seguros con licencia al servicio del sur de California"
+              src="/images/abel-duran.jpg"
+              alt="Abel Duran, propietario de las oficinas de Moreno Valley y Yorba Linda de Abel Duran Insurance Agency"
               fill
               sizes="(max-width: 760px) 75vw, 340px"
               priority
             />
           </div>
           <div>
-            <p className="eyebrow">Contacto principal del sitio web</p>
-            <h2>Abraham Nunez-Chavez</h2>
+            <p className="eyebrow">Propietario de la agencia · Moreno Valley y Yorba Linda</p>
+            <h2>Abel Duran</h2>
             <p>
               <strong>
-                Agente/Corredor de Seguros · Lic. de CA núm.{" "}
-                {siteConfig.license}
+                Agente principal · Lic. de CA núm. 0F17442 · Lic. de agencia de
+                CA núm. 0K15422
               </strong>
             </p>
             <p>
-              Abraham es un productor de seguros con licencia afiliado a la
-              Oficina de Abel Duran. Ayuda a los clientes a comparar opciones
-              prácticas de cobertura para seguros personales, comerciales y de
-              vida, así como necesidades de escrow, incendios forestales y
-              propiedades difíciles de asegurar.
+              Abel es propietario y dirige ambas ubicaciones de la agencia en el
+              sur de California. Las oficinas de Moreno Valley y Yorba Linda
+              trabajan juntas como un solo equipo para brindar orientación y
+              servicio consistentes a personas, familias y negocios.
             </p>
             <p>
-              Abraham y Abel son profesionales de seguros con licencias
-              individuales que trabajan a través de Abel Duran Insurance Agency,
-              Inc. Cuando corresponde, pueden estar disponibles opciones con
-              aseguradoras adicionales; esas aseguradoras son independientes de
-              Farmers Insurance.
+              Los agentes con licencia ayudan con seguros personales,
+              comerciales y de vida, mientras que los especialistas de servicio
+              apoyan a clientes actuales con preguntas, documentos, facturación,
+              renovaciones y solicitudes de sus cuentas.
             </p>
             <div className="button-row">
-              <Link className="button" href="/es/contacto?agent=abraham">
-                Solicitar una cotización con Abraham
+              <Link className="button" href="/es/contacto?agent=abel">
+                Solicitar una cotización con Abel
               </Link>
-              <a
+              <Link
                 className="button button-secondary"
-                href={siteConfig.linkedin}
-                target="_blank"
-                rel="noreferrer"
+                href="/es/abel-duran"
               >
-                LinkedIn ↗
-              </a>
+                Conozca a Abel
+              </Link>
             </div>
           </div>
         </div>
@@ -545,17 +541,10 @@ const officeData = {
     address: "yorbaLindaOffice" as const,
     staff: [
       [
-        "Abel Duran",
-        "Propietario y agente principal",
-        "0F17442",
-        "Abel es propietario y dirige ambas oficinas de la agencia, y ayuda a los clientes con seguros personales, comerciales y de vida.",
-        "/images/abel-duran.jpg",
-      ],
-      [
         "Devan Wright",
-        "Agente / Corredor",
+        "Agente / Corredora de tiempo completo",
         "0H19544",
-        "Devan brinda orientación sobre seguros personales, comerciales y de vida desde la oficina de Yorba Linda.",
+        "Devan brinda servicio de tiempo completo y orientación sobre seguros personales, comerciales y de vida desde la oficina de Yorba Linda.",
         "/images/devan-wright-yorba-linda-insurance-agent.jpg",
       ],
       [
@@ -603,14 +592,11 @@ export function SpanishOffice({ city }: { city: keyof typeof officeData }) {
     <>
       <PageHero
         eyebrow={`Oficina de ${city}`}
-        title={`Orientación local sobre seguros y apoyo para pólizas en ${city}.`}
+        title={mv ? "Orientación local sobre seguros y apoyo para pólizas en Moreno Valley." : "Conozca a su agente de seguros en Yorba Linda."}
       >
-        Conozca al equipo de Abel Duran Insurance Agency que atiende al{" "}
-        {d.county} desde{" "}
         {mv
-          ? "13800 Heacock Street, Suite C120"
-          : "23621 La Palma Avenue, Suite A"}
-        .
+          ? "Conozca al equipo de Abel Duran Insurance Agency que atiende al Condado de Riverside desde 13800 Heacock Street, Suite C120."
+          : "Devan Wright brinda servicio de seguros de tiempo completo en la oficina de Yorba Linda y ayuda a personas, familias y negocios con seguros personales, comerciales y de vida."}
       </PageHero>
       <section className="office-gallery" aria-label={`Oficina de ${city}`}>
         <div className="shell office-gallery-grid">
@@ -636,17 +622,17 @@ export function SpanishOffice({ city }: { city: keyof typeof officeData }) {
       <section className="section">
         <div className="shell office-summary">
           <div>
-            <p className="eyebrow">Una agencia · Dos ubicaciones</p>
-            <h2>Propiedad y dirección de Abel Duran.</h2>
+            <p className="eyebrow">{mv ? "Una agencia · Dos ubicaciones" : "Agente local de tiempo completo"}</p>
+            <h2>{mv ? "Propiedad y dirección de Abel Duran." : "Devan Wright atiende la oficina de Yorba Linda."}</h2>
             <p>
               {mv
                 ? "La oficina de Moreno Valley es la ubicación principal de Abel Duran Insurance Agency. Los agentes con licencia ayudan con nuevas coberturas y los especialistas de servicio ayudan a los clientes actuales con documentos de póliza, facturación, renovaciones y solicitudes de sus cuentas."
-                : "Abel Duran es propietario y agente principal de las oficinas de Yorba Linda y Moreno Valley de Abel Duran Insurance Agency. El equipo de Yorba Linda ofrece orientación para nuevos seguros y apoyo para pólizas existentes desde una oficina local."}
+                : "Devan es la única agente con licencia asignada de tiempo completo a esta ubicación y brinda orientación para cotizaciones y coberturas. Emily Lussier ayuda a los clientes actuales con el servicio de pólizas y sus cuentas."}
             </p>
+            {!mv ? <p><strong>Abel Duran es propietario de las oficinas de Yorba Linda y Moreno Valley, las cuales operan como un solo equipo de agencia conectado.</strong></p> : null}
             <div className="button-row">
-              <a className="button" href={d.phoneHref}>
-                Llamar al {d.phone}
-              </a>
+              {mv ? <a className="button" href={d.phoneHref}>Llamar al {d.phone}</a> : <Link className="button" href="/es/contacto?agent=devan">Solicitar una cotización con Devan</Link>}
+              {!mv ? <a className="button button-secondary" href="tel:+17147016412">Llamar o enviar mensaje al 714-701-6412</a> : null}
               <a
                 className="button button-secondary"
                 href={`https://maps.google.com/?q=${mv ? "13800+Heacock+St+Suite+C120+Moreno+Valley+CA+92553" : "23621+La+Palma+Ave+Suite+A+Yorba+Linda+CA+92887"}`}
@@ -666,6 +652,7 @@ export function SpanishOffice({ city }: { city: keyof typeof officeData }) {
               <dd>
                 <a href={d.phoneHref}>{d.phone}</a>
               </dd>
+              {!mv ? <><dt>Línea directa de Devan</dt><dd><a href="tel:+17147016412">714-701-6412</a></dd><dt>Correo electrónico</dt><dd><a href="mailto:devan.aduran@farmersagency.com">devan.aduran@farmersagency.com</a></dd></> : null}
               <dt>Fax</dt>
               <dd>{d.fax}</dd>
               {mv ? (
@@ -690,15 +677,11 @@ export function SpanishOffice({ city }: { city: keyof typeof officeData }) {
           <div className="section-heading">
             <div>
               <p className="eyebrow">Equipo de {city}</p>
-              <h2>Agentes y servicio al cliente.</h2>
+              <h2>{mv ? "Agentes y servicio al cliente." : "Su agente local y contacto de servicio al cliente."}</h2>
             </div>
-            <p>
-              Elija a un agente con licencia para una cotización y orientación
-              sobre cobertura, o a un especialista de servicio para recibir
-              ayuda con una póliza existente.
-            </p>
+            <p>{mv ? "Elija a un agente con licencia para una cotización y orientación sobre cobertura, o a un especialista de servicio para recibir ayuda con una póliza existente." : "Contacte a Devan para una nueva cotización u orientación sobre cobertura, y a Emily para ayuda con una póliza existente."}</p>
           </div>
-          <div className={`location-team-grid ${mv ? "moreno-team-grid" : ""}`}>
+          <div className={`location-team-grid ${mv ? "moreno-team-grid" : "yorba-team-grid"}`}>
             {d.staff.map((p) => (
               <article className="location-profile" key={p[0]}>
                 {p[4] ? (

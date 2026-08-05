@@ -63,7 +63,7 @@ const titleFor = (path: string) => {
       "/es/emily-lussier": "Emily Lussier",
       "/es/rosalia-elizabeth-gomez": "Rosalia Elizabeth Gomez",
       "/es/oficina-moreno-valley": "Oficina de seguros en Moreno Valley",
-      "/es/oficina-yorba-linda": "Oficina de seguros en Yorba Linda",
+      "/es/oficina-yorba-linda": "Devan Wright | Oficina de seguros en Yorba Linda",
       "/es/servicio-al-cliente": "Servicio al cliente",
       "/es/contacto": "Contacto y solicitud de cotización",
       "/es/privacidad": "Política de privacidad",
@@ -651,7 +651,7 @@ function Simple({ path }: { path: string }) {
   if (path === "/es")
     return (
       <>
-        <section className="hero"><div className="shell hero-grid"><div><p className="eyebrow">Agentes y corredores ubicados en Yorba Linda y Moreno Valley, sirviendo con orgullo a California</p><h1>Protección clara para su hogar, familia y negocio.</h1><p className="lead">Orientación en seguros personales, comerciales, de vida, incendios forestales y escrow para los condados de Riverside y Orange.</p><div className="button-row"><Link className="button" href="/es/contacto">Solicitar una cotización</Link></div><div className="trust-line"><span>Lic. de CA n.º 4357305</span><span>Moreno Valley y Yorba Linda</span></div></div><aside className="hero-panel"><p className="eyebrow">Propietario de la agencia y agente principal</p><h2>Liderazgo local. Mayor respaldo en seguros.</h2><ul><li>Liderazgo de una agencia Farmers Insurance</li><li>Seguros personales, comerciales y de vida</li><li>Atención desde las oficinas de Moreno Valley y Yorba Linda</li><li>Acceso a mercados adicionales de corretaje cuando corresponda</li></ul><Link href="/es/abel-duran" aria-label="Conozca a Abel Duran">Conozca a Abel <span>→</span></Link></aside></div></section>
+        <section className="hero"><div className="shell hero-grid"><div><p className="eyebrow">Agentes y corredores ubicados en Yorba Linda y Moreno Valley, sirviendo con orgullo a California</p><h1>Protección clara para su hogar, familia y negocio.</h1><p className="lead">Orientación en seguros personales, comerciales, de vida, incendios forestales y escrow para los condados de Riverside y Orange.</p><div className="button-row"><Link className="button" href="/es/contacto">Solicitar una cotización</Link></div><div className="trust-line"><span>Lic. de CA n.º 0K15422</span><span>Moreno Valley y Yorba Linda</span></div></div><aside className="hero-panel"><p className="eyebrow">Propietario de la agencia y agente principal</p><h2>Liderazgo local. Mayor respaldo en seguros.</h2><ul><li>Liderazgo de una agencia Farmers Insurance</li><li>Seguros personales, comerciales y de vida</li><li>Atención desde las oficinas de Moreno Valley y Yorba Linda</li><li>Acceso a mercados adicionales de corretaje cuando corresponda</li></ul><Link href="/es/abel-duran" aria-label="Conozca a Abel Duran">Conozca a Abel <span>→</span></Link></aside></div></section>
         <section className="section">
           <div className="shell">
             <div className="section-heading">
