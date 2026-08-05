@@ -40,10 +40,10 @@ const team = [
   {
     name: "Emily Lussier",
     role: "Representante de servicio al cliente · Yorba Linda",
-    license: "Servicio de pólizas y atención al cliente",
+    license: "Lic. de CA n.º 4440213",
     copy: "Emily ayuda a los clientes de Yorba Linda con preguntas sobre pólizas, documentos, orientación de facturación, renovaciones y apoyo general de sus cuentas.",
-    href: "/es/oficina-yorba-linda",
-    cta: "Conozca al equipo de Yorba Linda",
+    href: "/es/emily-lussier",
+    cta: "Conozca a Emily",
   },
   {
     name: "Rashel Dominguez",
@@ -561,9 +561,9 @@ const officeData = {
       [
         "Emily Lussier",
         "Representante de servicio al cliente",
-        "",
+        "4440213",
         "Emily ayuda a los clientes de Yorba Linda con preguntas sobre pólizas, documentos, orientación de facturación, renovaciones y apoyo general de sus cuentas.",
-        "/images/emily-lussier.jpg",
+        "/images/emily-lussier-yorba-linda-insurance-agent.jpg",
       ],
     ],
   },
@@ -795,6 +795,9 @@ export function SpanishOffice({ city }: { city: keyof typeof officeData }) {
                       </>
                     ) : p[0] === "Emily Lussier" ? (
                       <>
+                        <Link className="text-link" href="/es/emily-lussier">
+                          Ver el perfil de Emily →
+                        </Link>
                         <a
                           className="text-link"
                           href="mailto:emily.aduran@farmersagency.com"

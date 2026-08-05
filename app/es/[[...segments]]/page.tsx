@@ -25,6 +25,7 @@ import {
   SpanishOffice,
 } from "@/components/spanish-priority-pages";
 import { AgentProfile } from "@/components/agent-profile";
+import { EmilyProfile } from "@/components/emily-profile";
 
 type Props = {
   params: Promise<{ segments?: string[] }>;
@@ -59,6 +60,7 @@ const titleFor = (path: string) => {
       "/es/abel-duran": "Abel Duran",
       "/es/abraham-nunez-chavez": "Abraham Nunez-Chavez",
       "/es/devan-wright": "Devan Wright",
+      "/es/emily-lussier": "Emily Lussier",
       "/es/rosalia-elizabeth-gomez": "Rosalia Elizabeth Gomez",
       "/es/oficina-moreno-valley": "Oficina de seguros en Moreno Valley",
       "/es/oficina-yorba-linda": "Oficina de seguros en Yorba Linda",
@@ -650,7 +652,7 @@ function Simple({ path }: { path: string }) {
     return (
       <>
         <PageHero
-          eyebrow="Agente y corredor de seguros · Sur de California"
+          eyebrow="Agentes y corredores ubicados en Yorba Linda y Moreno Valley, sirviendo con orgullo a California"
           title="Protección clara para su hogar, familia y negocio."
         >
           Orientación en seguros personales, comerciales, de vida, incendios
@@ -719,6 +721,7 @@ function Simple({ path }: { path: string }) {
   if (path === "/es/abel-duran") return <SpanishAbel />;
   if (path === "/es/abraham-nunez-chavez") return <AgentProfile agent="abraham" locale="es" />;
   if (path === "/es/devan-wright") return <Profile who="devan" />;
+  if (path === "/es/emily-lussier") return <EmilyProfile locale="es" />;
   if (path === "/es/rosalia-elizabeth-gomez") return <AgentProfile agent="rosalia" locale="es" />;
   if (path === "/es/oficina-moreno-valley")
     return <SpanishOffice city="Moreno Valley" />;
@@ -1073,10 +1076,11 @@ function Office({ city }: { city: "Moreno Valley" | "Yorba Linda" }) {
         {
           name: "Emily Lussier",
           role: "Representante de servicio al cliente",
-          license: "",
+          license: "4440213",
           copy: "Ayuda con preguntas, documentos, facturación, renovaciones y apoyo general de cuentas.",
-          image: "/images/emily-lussier.jpg",
+          image: "/images/emily-lussier-yorba-linda-insurance-agent.jpg",
           links: [
+            ["Ver perfil", "/es/emily-lussier"],
             ["Enviar correo", "mailto:emily.aduran@farmersagency.com"],
             ["LinkedIn", "https://www.linkedin.com/in/emily-lussier/"],
           ],
@@ -1211,13 +1215,15 @@ function Office({ city }: { city: "Moreno Valley" | "Yorba Linda" }) {
             {staff.map((person) => (
               <article className="location-profile" key={person.name}>
                 {person.image ? (
-                  <div className="location-profile-photo">
+                  <div className={`location-profile-photo ${person.name === "Emily Lussier" ? "emily-profile-photo" : ""}`}>
                     <Image
                       src={person.image}
                       alt={
                         person.name === "Abraham Nunez-Chavez"
                           ? "Abraham Nunez-Chavez, productor de seguros con licencia al servicio del sur de California"
-                          : person.name
+                          : person.name === "Emily Lussier"
+                            ? "Emily Lussier, profesional de seguros con licencia en la oficina de Yorba Linda"
+                            : person.name
                       }
                       fill
                       sizes="(max-width:760px) 100vw,25vw"

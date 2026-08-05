@@ -27,7 +27,14 @@ export function Header() {
   }, []);
 
   return <header className="site-header">
-    <div className="topbar"><div className="shell topbar-inner"><Link href={spanish ? "/es" : "/"} aria-label={spanish ? "Página principal" : "Home"}>{spanish ? "Licencia de seguros de CA" : "CA Insurance Lic. No."} {siteConfig.license}</Link><a href={siteConfig.phoneHref}>{spanish ? "Línea directa" : "Direct"}: {siteConfig.directPhone}</a></div></div>
+    <div className="topbar"><div className="shell topbar-inner">
+      <Link href={spanish ? "/es" : "/"} aria-label={spanish ? "Página principal" : "Home"}>{spanish ? "Licencia de seguros de CA" : "CA Insurance Lic. No."} {siteConfig.license}</Link>
+      <div className="topbar-contacts" aria-label={spanish ? "Números telefónicos de contacto" : "Contact phone numbers"}>
+        <a href="tel:+17143889533" aria-label={spanish ? "Llamar a la línea directa de Abraham al 714-388-9533" : "Call Abraham's direct line at 714-388-9533"}>{spanish ? "Línea directa" : "Direct"}: 714-388-9533</a>
+        <a href="tel:+19516538888" aria-label={spanish ? "Llamar a la oficina de Moreno Valley al 951-653-8888" : "Call the Moreno Valley office at 951-653-8888"}>{spanish ? "Oficina de Moreno Valley" : "Moreno Valley Office"}: 951-653-8888</a>
+        <a href="tel:+17147016411" aria-label={spanish ? "Llamar a la oficina de Yorba Linda al 714-701-6411" : "Call the Yorba Linda office at 714-701-6411"}>{spanish ? "Oficina de Yorba Linda" : "Yorba Linda Office"}: 714-701-6411</a>
+      </div>
+    </div></div>
     <nav className="shell agent-navigation" aria-label={spanish ? "Seleccione un agente" : "Choose an agent"}>
       {agents.map((agent) => <Link key={agent.name} href={agent.href} className="agent-brand" aria-current={pathname === agent.href ? "page" : undefined}><strong>{agent.name}</strong><span>{agent.role}</span></Link>)}
     </nav>

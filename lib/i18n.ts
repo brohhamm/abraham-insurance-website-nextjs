@@ -12,6 +12,7 @@ const staticPairs = [
   ["/abel-duran", "/es/abel-duran"],
   ["/abraham-nunez-chavez", "/es/abraham-nunez-chavez"],
   ["/devan-wright", "/es/devan-wright"],
+  ["/emily-lussier", "/es/emily-lussier"],
   ["/rosalia-elizabeth-gomez", "/es/rosalia-elizabeth-gomez"],
   ["/moreno-valley-office", "/es/oficina-moreno-valley"],
   ["/yorba-linda-office", "/es/oficina-yorba-linda"],
