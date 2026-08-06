@@ -4,6 +4,7 @@ export type AnalyticsEventName =
   | "quote_cta_clicked"
   | "quote_form_started"
   | "quote_form_submitted"
+  | "building_claims_check_prepared"
   | "phone_clicked"
   | "text_clicked"
   | "email_clicked"

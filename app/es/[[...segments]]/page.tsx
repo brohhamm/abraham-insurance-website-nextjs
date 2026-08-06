@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { PageHero, CTA } from "@/components/ui";
 import { GriefSupport } from "@/components/grief-support";
 import { QuoteForm } from "@/components/quote-form";
+import { ClaimsCheckForm } from "@/components/claims-check-form";
 import { siteConfig } from "@/lib/site-config";
 import { routePairs, spanishAlternates } from "@/lib/i18n";
 import {
@@ -666,7 +667,8 @@ function Simple({ path }: { path: string }) {
   if (path === "/es")
     return (
       <>
-        <section className="hero"><div className="shell hero-grid"><div><p className="eyebrow">Agentes y corredores ubicados en Yorba Linda y Moreno Valley, sirviendo con orgullo a California</p><h1>Protección clara para su hogar, familia y negocio.</h1><p className="lead">Orientación en seguros personales, comerciales, de vida, incendios forestales y escrow para los condados de Riverside y Orange.</p><div className="button-row"><Link className="button" href="/es/contacto">Solicitar una cotización</Link></div><div className="trust-line"><span>Lic. de CA n.º 0K15422</span><span>Moreno Valley y Yorba Linda</span></div></div><aside className="hero-panel"><p className="eyebrow">Propietario de la agencia y agente principal</p><h2>Liderazgo local. Mayor respaldo en seguros.</h2><ul><li>Liderazgo de una agencia Farmers Insurance</li><li>Seguros personales, comerciales y de vida</li><li>Atención desde las oficinas de Moreno Valley y Yorba Linda</li><li>Acceso a mercados adicionales de corretaje cuando corresponda</li></ul><Link href="/es/abel-duran" aria-label="Conozca a Abel Duran">Conozca a Abel <span>→</span></Link></aside></div></section>
+        <section className="section office-opening"><div className="shell"><div className="section-heading"><div><p className="eyebrow">Atención local de seguros</p><h1>Dos oficinas locales. Una agencia conectada.</h1></div><p>Ambas oficinas pertenecen a Abel Duran y trabajan como un solo equipo para atender al Condado de Riverside, el Condado de Orange y las comunidades cercanas del Sur de California.</p></div><div className="office-opening-grid"><article><div className="office-opening-photo"><Image src="/images/moreno-valley-front-desk.jpg" alt="Oficina de Abel Duran Insurance Agency en Moreno Valley" fill priority sizes="(max-width:760px) 100vw,50vw" /></div><div className="office-opening-copy"><p className="eyebrow">Oficina principal</p><h2>Moreno Valley</h2><p>13800 Heacock St., Suite C120<br />Moreno Valley, CA 92553</p><div className="profile-links"><Link className="text-link" href="/es/oficina-moreno-valley">Conozca al equipo →</Link><a className="text-link" href="https://maps.google.com/?q=13800+Heacock+St+Suite+C120+Moreno+Valley+CA+92553" target="_blank" rel="noreferrer">Cómo llegar ↗</a></div></div></article><article><div className="office-opening-photo"><Image src="/images/yorba-linda-office-front.jpg" alt="Oficina de Abel Duran Insurance Agency en Yorba Linda" fill priority sizes="(max-width:760px) 100vw,50vw" /></div><div className="office-opening-copy"><p className="eyebrow">Oficina del Condado de Orange</p><h2>Yorba Linda</h2><p>23621 La Palma Ave., Suite A<br />Yorba Linda, CA 92887</p><div className="profile-links"><Link className="text-link" href="/es/oficina-yorba-linda">Conozca al equipo →</Link><a className="text-link" href="https://maps.google.com/?q=23621+La+Palma+Ave+Suite+A+Yorba+Linda+CA+92887" target="_blank" rel="noreferrer">Cómo llegar ↗</a></div></div></article></div></div></section>
+        <section className="hero"><div className="shell hero-grid"><div><p className="eyebrow">Agentes y corredores ubicados en Yorba Linda y Moreno Valley, sirviendo con orgullo a California</p><h1>Protección clara para su hogar, familia y negocio.</h1><p className="lead">Orientación en seguros personales, comerciales, de vida, incendios forestales y escrow para los condados de Riverside y Orange.</p><div className="button-row"><Link className="button" href="/es/contacto">Solicitar una cotización</Link></div><div className="trust-line"><span>Abel: Licencia de CA n.º 0F17442 | Licencia de Agencia n.º 0K15422</span><span>Moreno Valley y Yorba Linda</span></div></div><aside className="hero-panel"><p className="eyebrow">Propietario de la agencia y agente principal</p><h2>Liderazgo local. Mayor respaldo en seguros.</h2><ul><li>Liderazgo de una agencia Farmers Insurance</li><li>Seguros personales, comerciales y de vida</li><li>Atención desde las oficinas de Moreno Valley y Yorba Linda</li><li>Acceso a mercados adicionales de corretaje cuando corresponda</li></ul><Link href="/es/abel-duran" aria-label="Conozca a Abel Duran">Conozca a Abel <span>→</span></Link></aside></div></section>
         <section className="section">
           <div className="shell">
             <div className="section-heading">
@@ -723,6 +725,7 @@ function Simple({ path }: { path: string }) {
             </div>
           </div>
         </section>
+        <section className="section"><div className="shell partner-grid"><div><p className="eyebrow">Cotización rápida</p><h2>Indíquenos qué necesita y cómo se enteró de nosotros.</h2><p className="lead-small">Seleccione cobertura, agente preferido y método de contacto. La categoría de referencia ayuda a la agencia a medir qué relaciones y recursos locales son más útiles.</p></div><div className="form-card"><QuoteForm /></div></div></section>
         <CTA />
       </>
     );
@@ -1010,6 +1013,7 @@ function Carriers() {
             aprobada. La cobertura final se rige por la aprobación y póliza
             emitida.
           </p>
+          <p><strong>Es posible que haya mercados adicionales de seguros comerciales, especializados, compensación laboral, auto comercial, granjas y agronegocios disponibles a través de Kraft Lake Compare.</strong> La disponibilidad de compañías y productos depende del riesgo, los requisitos de suscripción, la ubicación y el estado. La cobertura no está garantizada hasta que la compañía correspondiente la apruebe y emita.</p>
           <p>
             El acceso depende de nombramientos, relaciones, licencias,
             territorio, productos y suscripción actuales. La inclusión no
@@ -1401,6 +1405,7 @@ function Referral() {
           </div>
         </div>
       </section>
+      <section className="section soft"><div className="shell partner-grid"><div><p className="eyebrow">Recurso gratuito de suscripción</p><h2>Solicite una revisión gratuita del historial de reclamaciones de la propiedad</h2><p>El historial previo de reclamaciones de una propiedad puede afectar la elegibilidad, las opciones de cobertura y la prima. Algunas viviendas pueden ser difíciles o imposibles de asegurar debido a pérdidas anteriores o condiciones pendientes. Revisar la información disponible con anticipación ayuda a compradores y profesionales hipotecarios a identificar obstáculos antes de que retrasen el cierre.</p><p><strong>Abraham Nunez-Chavez es el contacto designado de la agencia para estas revisiones gratuitas.</strong></p><p className="disclaimer">La revisión de reclamaciones es un recurso informativo de suscripción y no garantiza la asegurabilidad, aceptación de una compañía, prima ni cobertura.</p></div><div className="form-card"><ClaimsCheckForm spanish /></div></div></section>
     </>
   );
 }

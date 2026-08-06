@@ -27,7 +27,7 @@ export function Header() {
 
   return <header className="site-header">
     <div className="topbar"><div className="shell topbar-inner">
-      <Link href={spanish ? "/es" : "/"} aria-label={spanish ? "Página principal" : "Home"}>{spanish ? "Licencia de seguros de CA" : "CA Insurance Lic. No."} 0K15422</Link>
+      <Link href={spanish ? "/es" : "/"} aria-label={spanish ? "Página principal" : "Home"}>{spanish ? "Abel: Lic. CA 0F17442 · Agencia 0K15422" : "Abel: CA Lic. 0F17442 · Agency Lic. 0K15422"}</Link>
       <div className="topbar-contacts" aria-label={spanish ? "Números telefónicos de contacto" : "Contact phone numbers"}>
         <a href="tel:+17143889533" aria-label={spanish ? "Llamar a la línea directa de Abraham al 714-388-9533" : "Call Abraham's direct line at 714-388-9533"}>{spanish ? "Línea directa" : "Direct"}: 714-388-9533</a>
         <a href="tel:+19516538888" aria-label={spanish ? "Llamar a la oficina de Moreno Valley al 951-653-8888" : "Call the Moreno Valley office at 951-653-8888"}>{spanish ? "Oficina de Moreno Valley" : "Moreno Valley Office"}: 951-653-8888</a>

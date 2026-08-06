@@ -37,6 +37,17 @@ const insuranceOptions = [
   ...commercialOptions,
   ...otherOptions,
 ];
+const leadSources = [
+  "Referral from a client",
+  "Loan officer or mortgage professional",
+  "Real estate agent",
+  "Business or referral partner",
+  "Google search",
+  "Farmers Insurance",
+  "Social media",
+  "Community event",
+  "Other",
+] as const;
 
 const insuranceAliases: Record<string, string> = {
   "Home & Property": "Homeowners Insurance",
@@ -78,6 +89,8 @@ function createRequestMessage(
       `Área de servicio o mercado: ${value("market")}`,
       `Aseguradora actual: ${value("currentCarrier")}`,
       `Fecha de vigencia deseada: ${value("effectiveDate")}`,
+      `Cómo se enteró de nosotros: ${value("leadSource")}`,
+      `Otra fuente: ${value("leadSourceOther")}`,
       "",
       "Detalles adicionales:",
       value("description"),
@@ -99,7 +112,9 @@ function createRequestMessage(
     `Insurance type: ${value("insuranceType")}`,
     `Service area or selected market: ${value("market")}`,
     `Current carrier: ${value("currentCarrier")}`,
-    `Desired effective date: ${value("effectiveDate")}`,
+      `Desired effective date: ${value("effectiveDate")}`,
+      `How they heard about us: ${value("leadSource")}`,
+      `Other lead source: ${value("leadSourceOther")}`,
     "",
     "Additional details:",
     value("description"),
@@ -137,6 +152,7 @@ export function QuoteForm({
   const [preferredAgent, setPreferredAgent] = useState<
     keyof typeof agents | "first"
   >(initialAgent);
+  const [leadSource, setLeadSource] = useState("");
   const submissionTracked = useRef(false);
 
   function continueToContact(event: MouseEvent<HTMLButtonElement>) {
@@ -182,6 +198,7 @@ export function QuoteForm({
       submissionTracked.current = true;
       trackEvent("quote_form_submitted", {
         form_type: partner ? "referral_partner" : "quote",
+        ...(payload.leadSource ? { lead_source: String(payload.leadSource) } : {}),
       });
     }
   }
@@ -453,6 +470,27 @@ export function QuoteForm({
               <span>({es ? "opcional" : "optional"})</span>
               <input name="effectiveDate" type="date" />
             </label>
+            <label>
+              {es ? "¿Cómo se enteró de nosotros?" : "How did you hear about us?"}
+              <select name="leadSource" value={leadSource} onChange={(event) => setLeadSource(event.target.value)}>
+                <option value="">{es ? "Seleccione una opción" : "Select an option"}</option>
+                {leadSources.map((source) => <option key={source} value={source}>{es ? ({
+                  "Referral from a client": "Recomendación de un cliente",
+                  "Loan officer or mortgage professional": "Oficial de préstamos o profesional hipotecario",
+                  "Real estate agent": "Agente de bienes raíces",
+                  "Business or referral partner": "Negocio o socio de referencia",
+                  "Google search": "Búsqueda en Google",
+                  "Farmers Insurance": "Farmers Insurance",
+                  "Social media": "Redes sociales",
+                  "Community event": "Evento comunitario",
+                  "Other": "Otro",
+                } as Record<string, string>)[source] : source}</option>)}
+              </select>
+            </label>
+            {leadSource === "Other" ? <label>
+              {es ? "Indíquenos cómo se enteró de nosotros." : "Please tell us where you heard about us."}
+              <input name="leadSourceOther" required />
+            </label> : null}
           </div>
           <details className="optional-details">
             <summary>
@@ -557,6 +595,7 @@ export function QuoteForm({
               setMessage("");
               setCoverage(selectedInsurance);
               setZipCode("");
+              setLeadSource("");
               setStep(1);
               submissionTracked.current = false;
             }}
