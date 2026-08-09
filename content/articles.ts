@@ -247,7 +247,86 @@ export const articles: Article[] = [
     "Loss-of-rents coverage requires a covered loss and is subject to time and dollar limits.",
     "Vacancy, short-term rental, and renovation exposures require specific underwriting."
   ],
-  "commonLimits": "Dwelling: current reconstruction estimate…1482 tokens truncated…, and accurate insurance documentation. Roofs, vents, eaves, windows, decks, fences, vegetation, and debris are common focus areas.",
+  "commonLimits": "Dwelling: current reconstruction estimate. Premises liability: $500,000–$1 million is commonly reviewed. Loss of rents: often 12 months or the carrier's available limit.",
+  "body": [
+    "Landlord policies are designed around a non-owner-occupied dwelling and can include building coverage, landlord-owned contents, fair rental value or loss of rents, and premises liability.",
+    "Tenant belongings are not covered by the landlord's policy. Requiring renters insurance can improve risk transfer, but the lease requirement does not replace accurate landlord coverage.",
+    "Confirm occupancy, number of units, leases, renovations, vacancy, short-term rental activity, pools, pets, property management, and ownership entity. These details affect eligibility and policy form."
+  ],
+  "officialResources": [
+    {
+      "label": "California Department of Insurance residential resources",
+      "url": "https://www.insurance.ca.gov/01-consumers/105-type/5-residential/"
+    }
+  ]
+},
+{
+  "slug": "life-insurance-needs-california",
+  "title": "Life Insurance Needs: Term, Permanent, and Benefit Amounts",
+  "category": "Personal",
+  "summary": "Estimate protection for income replacement, debts, education, final expenses, and family goals.",
+  "quickFacts": [
+    "Term insurance provides coverage for a defined period.",
+    "Permanent coverage may provide lifetime protection if funded and maintained as required.",
+    "Beneficiaries and ownership should be reviewed after major life changes."
+  ],
+  "commonLimits": "There is no California-prescribed recommended amount. A common starting calculation is 7–10 times annual income, then adjust for debts, mortgage, education, existing assets, and survivor income.",
+  "body": [
+    "Life insurance needs are personal. A useful analysis starts with income replacement, mortgage and debt payoff, education funding, final expenses, caregiving needs, and the resources already available to survivors.",
+    "Term insurance can provide a larger death benefit for a defined period at a lower initial premium. Permanent products may add lifetime coverage and cash-value features but require a longer funding and performance review.",
+    "Compare guarantees, non-guaranteed values, premium duration, conversion options, ownership, and beneficiaries. Replacement of an existing policy requires particular care because new surrender charges and contestability periods may apply."
+  ],
+  "officialResources": [
+    {
+      "label": "CDI Life Insurance and Annuities guide",
+      "url": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/07-life/upload/Life-Insurance-and-Annuities-Updated-073123.pdf"
+    }
+  ]
+},
+{
+  "slug": "earthquake-insurance-retrofit-discounts",
+  "title": "CEA Earthquake Coverage and Retrofit Discounts",
+  "category": "Wildfire & Catastrophe",
+  "summary": "Understand separate earthquake coverage, percentage deductibles, CEA options, and retrofit resources that may reduce risk and premium.",
+  "quickFacts": [
+    "Standard homeowners policies generally exclude earthquake shaking damage.",
+    "CEA policies offer selectable coverages and percentage deductibles.",
+    "Qualifying retrofits may reduce damage and may qualify for premium discounts."
+  ],
+  "commonLimits": "Dwelling generally follows the companion residential policy. CEA deductible options commonly range from 5% to 25%, depending on coverage and eligibility. Compare personal property and loss-of-use selections separately.",
+  "body": [
+    "Earthquake coverage is separate from standard homeowners insurance. CEA coverage is sold through participating residential insurers and should be reviewed for dwelling, personal property, loss of use, building-code upgrade, and deductible structure.",
+    "A percentage deductible can represent a substantial dollar amount because it is based on the insured dwelling limit. Compare the actual dollar deductible, premium, retrofit status, and ability to finance repairs after a major earthquake.",
+    "Qualifying foundation bolting and cripple-wall bracing may reduce structural damage. Current grants, eligibility, and discount rules change, so homeowners should verify requirements before permits or work begin."
+  ],
+  "officialResources": [
+    {
+      "label": "California Earthquake Authority coverage",
+      "url": "https://www.earthquakeauthority.com/"
+    },
+    {
+      "label": "CEA premium discounts",
+      "url": "https://www.earthquakeauthority.com/california-earthquake-insurance-policies/earthquake-insurance-policy-premium-discounts"
+    },
+    {
+      "label": "Earthquake Brace + Bolt grants",
+      "url": "https://www.earthquakebracebolt.com/"
+    }
+  ]
+},
+{
+  "slug": "wildfire-readiness-home-hardening",
+  "title": "Wildfire Readiness, Home Hardening, and Insurance Discounts",
+  "category": "Wildfire & Catastrophe",
+  "summary": "Use California readiness resources to reduce ember, structure, defensible-space, and evacuation risk.",
+  "quickFacts": [
+    "Embers can ignite homes well ahead of the flame front.",
+    "The first five feet around a structure deserve special attention.",
+    "California's Safer from Wildfires framework identifies mitigation actions tied to insurance discounts."
+  ],
+  "commonLimits": "Readiness is not an insurance limit. Pair mitigation with an annual dwelling reconstruction review, adequate loss of use, code-upgrade coverage, and a deductible you can fund.",
+  "body": [
+    "Wildfire readiness combines structure hardening, defensible space, property maintenance, evacuation planning, and accurate insurance documentation. Roofs, vents, eaves, windows, decks, fences, vegetation, and debris are common focus areas.",
     "California's Safer from Wildfires framework addresses the structure, immediate surroundings, and community. Insurer credits vary, and documentation or inspection may be required.",
     "Maintain a home inventory, store policy documents securely, photograph improvements, and review reconstruction and loss-of-use limits before fire season. Mitigation improves resilience but does not guarantee eligibility or prevent every loss."
   ],
