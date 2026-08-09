@@ -17,20 +17,12 @@ export function Footer() {
         </div>
         <div>
           <h2>{es ? "Explorar" : "Explore"}</h2>
-          {navigation.slice(0, 4).map(([l, h]) => (
+          {navigation.map(([l, h]) => (
             <Link key={h} href={h}>
               {l}
             </Link>
           ))}
-          <Link href={es ? "/es/nuestra-agencia" : "/about"}>
-            {es ? "Nuestra agencia" : "Our Agency"}
-          </Link>
-          <Link href={es ? "/es/oficina-yorba-linda" : "/yorba-linda-office"}>
-            {es ? "Oficina de Yorba Linda" : "Yorba Linda Office"}
-          </Link>
-          <Link href={es ? "/es/servicio-al-cliente" : "/customer-service"}>
-            {es ? "Servicio al cliente" : "Customer Service"}
-          </Link>
+          <Link className="footer-quote" href={es ? "/es/contacto" : "/contact"}>{es ? "Solicitar una cotización" : "Request a Quote"}</Link>
         </div>
         <div>
           <h2>{es ? "Contacto principal del sitio web" : "Primary Website Contact"}</h2>

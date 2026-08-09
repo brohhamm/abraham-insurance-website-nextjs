@@ -468,12 +468,18 @@ function Education() {
   return (
     <>
       <PageHero
-        eyebrow="Centro de educación sobre seguros"
+        eyebrow="Centro de incendios y educación"
         title="Conozca la cobertura detrás del precio."
       >
-        Explore 23 guías prácticas para decisiones personales, comerciales, de
-        incendio, terremoto y escrow.
+        Explore guías prácticas y recursos oficiales para decisiones personales,
+        comerciales, de incendios, terremotos y escrow.
       </PageHero>
+      <section className="section wildfire-hub">
+        <div className="shell">
+          <div className="section-heading"><div><p className="eyebrow">Incendios, FAIR Plan y catástrofes</p><h2>Comience con la preparación de su propiedad.</h2></div><p>Consulte FAIR Plan, cobertura DIC, fortalecimiento de la vivienda, espacio defendible y protección contra terremotos desde un solo centro.</p></div>
+          <div className="guide-actions"><Link className="button" href="/es/educacion/fair-plan-y-cobertura-dic">Guía de FAIR Plan y DIC</Link><Link className="button button-secondary" href="/es/educacion/preparacion-contra-incendios-y-fortalecimiento-del-hogar">Preparación contra incendios</Link><Link className="button button-secondary" href="/es/educacion/seguro-de-terremoto-y-descuentos-por-refuerzo">Recursos para terremotos</Link></div>
+        </div>
+      </section>
       <section className="section">
         <div className="shell">
           <GriefSupport locale="es" placement="education" />

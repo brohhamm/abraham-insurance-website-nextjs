@@ -5,7 +5,7 @@ import type { Article } from "@/content/articles";
 
 const categories = ["All", "Personal", "Commercial", "Wildfire & Catastrophe", "Real Estate", "General"] as const;
 
-export function EducationLibrary({ articles }: { articles: Article[] }) {
+export function EducationLibrary({ articles, spanish = false }: { articles: Article[]; spanish?: boolean }) {
   const [category, setCategory] = useState<(typeof categories)[number]>("All");
   const [query, setQuery] = useState("");
   const filtered = useMemo(() => {
@@ -20,8 +20,8 @@ export function EducationLibrary({ articles }: { articles: Article[] }) {
 
   return <div>
     <div className="education-controls">
-      <label className="education-search">Search guides
-        <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Auto limits, wildfire, workers’ comp…" />
+      <label className="education-search">{spanish ? "Buscar guías" : "Search guides"}
+        <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={spanish ? "Límites de auto, incendios, negocios…" : "Auto limits, wildfire, workers’ comp…"} />
       </label>
       <div className="filter-row" aria-label="Filter education guides">
         {categories.map((item) => <button key={item} type="button" className={category === item ? "filter-chip active" : "filter-chip"} aria-pressed={category === item} onClick={() => setCategory(item)}>{item}</button>)}

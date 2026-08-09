@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { localeFromPath, localizePath, navByLocale } from "@/lib/i18n";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
   const locale = localeFromPath(pathname);
   const navigation = navByLocale[locale];
@@ -25,6 +26,16 @@ export function Header() {
     return () => document.removeEventListener("keydown", closeOnEscape);
   }, []);
 
+  useEffect(() => {
+    document.body.classList.toggle("menu-open", open);
+    return () => document.body.classList.remove("menu-open");
+  }, [open]);
+
+  function closeMenu() {
+    setOpen(false);
+    requestAnimationFrame(() => menuButton.current?.focus());
+  }
+
   return <header className="site-header">
     <div className="topbar"><div className="shell topbar-inner">
       <Link href={spanish ? "/es" : "/"} aria-label={spanish ? "Página principal" : "Home"}>{spanish ? "Abel: Lic. CA 0F17442 · Agencia 0K15422" : "Abel: CA Lic. 0F17442 · Agency Lic. 0K15422"}</Link>
@@ -38,11 +49,15 @@ export function Header() {
       {agents.map((agent) => <Link key={agent.name} href={agent.href} className="agent-brand" aria-current={pathname === agent.href ? "page" : undefined}><strong>{agent.name}</strong><span>{agent.role}</span></Link>)}
     </nav>
     <div className="shell nav-row">
-      <button className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="main-navigation" aria-label={open ? (spanish ? "Cerrar menú de navegación" : "Close navigation menu") : (spanish ? "Abrir menú de navegación" : "Open navigation menu")}>{open ? (spanish ? "Cerrar" : "Close") : (spanish ? "Menú" : "Menu")}</button>
+      <button ref={menuButton} className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="main-navigation" aria-label={open ? (spanish ? "Cerrar menú de navegación" : "Close navigation menu") : (spanish ? "Abrir menú de navegación" : "Open navigation menu")}>{open ? (spanish ? "Cerrar" : "Close") : (spanish ? "Menú" : "Menu")}</button>
       <nav id="main-navigation" className={open ? "nav-links open" : "nav-links"} aria-label={spanish ? "Navegación principal" : "Main navigation"}>
         {navigation.map(([label, href]) => <Link key={href} href={href} aria-current={pathname === href ? "page" : undefined} onClick={() => setOpen(false)}>{label}</Link>)}
+        <div className="mobile-team-links" aria-label={spanish ? "Conozca al equipo" : "Meet our team"}>
+          <strong>{spanish ? "Conozca al equipo" : "Meet Our Team"}</strong>
+          {agents.map((agent) => <Link key={agent.href} href={agent.href} onClick={closeMenu}>{agent.name}<span>{agent.role}</span></Link>)}
+        </div>
         <Link className="button button-small language-button" href={localizePath(pathname, spanish ? "en" : "es")} hrefLang={spanish ? "en-US" : "es-US"} lang={spanish ? "en" : "es"} aria-label={spanish ? "View this page in English" : "Ver esta página en español"} onClick={() => setOpen(false)}>{spanish ? "English" : "Español"}</Link>
-        <Link className="button button-small" href={spanish ? "/es/contacto" : "/contact"} aria-current={pathname === (spanish ? "/es/contacto" : "/contact") ? "page" : undefined} onClick={() => setOpen(false)}>{spanish ? "Solicitar una cotización" : "Request a Quote"}</Link>
+        <Link className="button button-small" href={spanish ? "/es/contacto" : "/contact"} aria-current={pathname === (spanish ? "/es/contacto" : "/contact") ? "page" : undefined} onClick={closeMenu}>{spanish ? "Solicitar una cotización" : "Request a Quote"}</Link>
       </nav>
     </div>
   </header>;
