@@ -5,7 +5,7 @@ import { serviceLocations } from "@/content/locations";
 import { siteConfig } from "@/lib/site-config";
 import { routePairs } from "@/lib/i18n";
 
-const lastModified = new Date("2026-08-04T00:00:00-07:00");
+const lastModified = new Date("2026-08-09T00:00:00-07:00");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = ["", "/personal-insurance", "/business-insurance", "/carriers", "/referral-partners", "/education", "/about", "/abel-duran", "/abraham-nunez-chavez", "/devan-wright", "/emily-lussier", "/rosalia-elizabeth-gomez", "/moreno-valley-office", "/yorba-linda-office", "/customer-service", "/contact", "/privacy", "/terms"];
