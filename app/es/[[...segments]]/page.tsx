@@ -534,7 +534,399 @@ function Contact({
                 <strong>Nueva cotización</strong>
                 <span>
                   Elija a Abraham, Abel, Devan, Rosalia o al primer agente
-                  disponible. La oficina principal de cada agente ap…4949 tokens truncated…          <article className="market-card" key={group.title}>
+                  disponible. La oficina principal de cada agente aparece en el
+                  formulario.
+                </span>
+              </p>
+              <p>
+                <strong>Servicio de póliza existente</strong>
+                <Link href="/es/servicio-al-cliente">
+                  Contactar a Rashel o Suzee
+                </Link>
+              </p>
+              <p>
+                <strong>Oficina de Moreno Valley</strong>
+                <a href="tel:+19516538888">951-653-8888</a>
+                <span>{siteConfig.morenoValleyOffice}</span>
+              </p>
+              <p>
+                <strong>Oficina de Yorba Linda</strong>
+                <a href="tel:+17147016411">714-701-6411</a>
+                <span>{siteConfig.yorbaLindaOffice}</span>
+              </p>
+              <div className="urgent-note">
+                <strong>Reclamos o cambios urgentes</strong>
+                <p>
+                  La cobertura no entra en vigor hasta confirmarse por un
+                  representante autorizado o la aseguradora.
+                </p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </>
+  );
+}
+function Legal({ privacy = false }: { privacy?: boolean }) {
+  return (
+    <>
+      <PageHero
+        eyebrow="Información legal"
+        title={
+          privacy
+            ? "Política de privacidad"
+            : "Términos y condiciones del sitio"
+        }
+      >
+        {privacy
+          ? "Cómo se maneja la información enviada mediante este sitio."
+          : "Limitaciones importantes que rigen el uso de este sitio."}
+      </PageHero>
+      <section className="section">
+        <div className="shell legal-copy">
+          {privacy ? (
+            <>
+              <h2>Información recopilada</h2>
+              <p>
+                Este sitio prepara la información que usted ingresa para
+                enviarla por la opción de correo o mensaje que seleccione. La
+                agencia no la recibe hasta que usted complete el envío. No envíe
+                números de Seguro Social o licencia, información de pago,
+                expedientes médicos ni otros datos altamente confidenciales.
+              </p>
+              <h2>Analítica del sitio web</h2>
+              <p>
+                Este sitio utiliza Vercel Web Analytics para medir el tráfico
+                general y las interacciones con el sitio, incluidas las vistas
+                de páginas, las fuentes de referencia, las campañas UTM, la
+                información general sobre ubicación y dispositivos, y acciones
+                como seleccionar opciones de cotización, teléfono, mensaje de
+                texto, correo electrónico, idioma, oficina o recursos externos.
+                La analítica no se utiliza intencionalmente para recopilar la
+                información ingresada en formularios de seguros, cotización o
+                servicio. Las URL de analítica se filtran para conservar solo
+                los parámetros estándar de campañas UTM; los demás parámetros
+                de consulta y fragmentos se eliminan antes de enviar eventos de
+                analítica.
+              </p>
+              <h2>Uso de la información</h2>
+              <p>
+                Puede usarse para responder, evaluar opciones, prestar servicio,
+                prevenir spam y conservar registros. Puede compartirse con
+                personal, aseguradoras o proveedores cuando sea razonablemente
+                necesario y conforme a la ley.
+              </p>
+              <h2>Seguridad y conservación</h2>
+              <p>
+                Se emplean medidas razonables, pero ninguna transmisión en línea
+                es completamente segura. Los datos pueden conservarse por
+                razones comerciales, legales y de cumplimiento.
+              </p>
+              <h2>Sus opciones</h2>
+              <p>
+                Puede comunicarse con la agencia para consultar sobre su
+                información o dejar comunicaciones no esenciales.
+              </p>
+            </>
+          ) : (
+            <>
+              <h2>Información educativa</h2>
+              <p>
+                El contenido es educación general y no constituye asesoría
+                legal, fiscal, financiera, de reclamos ni cobertura. No modifica
+                una póliza; rige el contrato real.
+              </p>
+              <h2>Sin autoridad para obligar cobertura</h2>
+              <p>
+                Enviar un formulario, correo o solicitud no obliga, cambia,
+                renueva, cancela ni restablece cobertura. Solo entra en vigor
+                después de confirmación autorizada y de cumplir los requisitos.
+              </p>
+              <h2>Disponibilidad</h2>
+              <p>
+                Los productos están sujetos a elegibilidad, suscripción,
+                condiciones, límites y exclusiones. No se garantiza producto,
+                precio, descuento ni aceptación.
+              </p>
+              <h2>Relación con la agencia</h2>
+              <p>
+                Este es el sitio profesional de Abraham Nunez-Chavez,
+                agente/corredor, Lic. CA 4357305, asociado con Farmers Insurance
+                – Office of Abel Duran. No es el sitio corporativo oficial de
+                Farmers Insurance.
+              </p>
+              <h2>Asuntos urgentes</h2>
+              <p>
+                No use formularios para reclamos o cambios urgentes. Comuníquese
+                por el canal oficial adecuado.
+              </p>
+            </>
+          )}
+        </div>
+      </section>
+    </>
+  );
+}
+
+function Simple({ path }: { path: string }) {
+  if (path === "/es")
+    return (
+      <>
+        <section className="section office-opening"><div className="shell"><div className="section-heading"><div><p className="eyebrow">Atención local de seguros</p><h1>Dos oficinas locales. Una agencia conectada.</h1></div><p>Ambas oficinas pertenecen a Abel Duran y trabajan como un solo equipo para atender al Condado de Riverside, el Condado de Orange y las comunidades cercanas del Sur de California.</p></div><div className="office-opening-grid"><article><div className="office-opening-photo"><Image src="/images/moreno-valley-front-desk.jpg" alt="Oficina de Abel Duran Insurance Agency en Moreno Valley" fill priority sizes="(max-width:760px) 100vw,50vw" /></div><div className="office-opening-copy"><p className="eyebrow">Oficina principal</p><h2>Moreno Valley</h2><p>13800 Heacock St., Suite C120<br />Moreno Valley, CA 92553</p><div className="profile-links"><Link className="text-link" href="/es/oficina-moreno-valley">Conozca al equipo →</Link><a className="text-link" href="https://maps.google.com/?q=13800+Heacock+St+Suite+C120+Moreno+Valley+CA+92553" target="_blank" rel="noreferrer">Cómo llegar ↗</a></div></div></article><article><div className="office-opening-photo"><Image src="/images/yorba-linda-office-front.jpg" alt="Oficina de Abel Duran Insurance Agency en Yorba Linda" fill priority sizes="(max-width:760px) 100vw,50vw" /></div><div className="office-opening-copy"><p className="eyebrow">Oficina del Condado de Orange</p><h2>Yorba Linda</h2><p>23621 La Palma Ave., Suite A<br />Yorba Linda, CA 92887</p><div className="profile-links"><Link className="text-link" href="/es/oficina-yorba-linda">Conozca al equipo →</Link><a className="text-link" href="https://maps.google.com/?q=23621+La+Palma+Ave+Suite+A+Yorba+Linda+CA+92887" target="_blank" rel="noreferrer">Cómo llegar ↗</a></div></div></article></div></div></section>
+        <section className="hero"><div className="shell hero-grid"><div><p className="eyebrow">Agentes y corredores ubicados en Yorba Linda y Moreno Valley, sirviendo con orgullo a California</p><h1>Protección clara para su hogar, familia y negocio.</h1><p className="lead">Orientación en seguros personales, comerciales, de vida, incendios forestales y escrow para los condados de Riverside y Orange.</p><div className="button-row"><Link className="button" href="/es/contacto">Solicitar una cotización</Link></div><div className="trust-line"><span>Abel: Licencia de CA n.º 0F17442 | Licencia de Agencia n.º 0K15422</span><span>Moreno Valley y Yorba Linda</span></div></div><aside className="hero-panel"><p className="eyebrow">Propietario de la agencia y agente principal</p><h2>Liderazgo local. Mayor respaldo en seguros.</h2><ul><li>Liderazgo de una agencia Farmers Insurance</li><li>Seguros personales, comerciales y de vida</li><li>Atención desde las oficinas de Moreno Valley y Yorba Linda</li><li>Acceso a mercados adicionales de corretaje cuando corresponda</li></ul><Link href="/es/abel-duran" aria-label="Conozca a Abel Duran">Conozca a Abel <span>→</span></Link></aside></div></section>
+        <section className="section">
+          <div className="shell">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">Comience por su necesidad</p>
+                <h2>Opciones de cobertura con contexto.</h2>
+              </div>
+              <p>
+                Compare protección, límites, deducibles, elegibilidad y valor
+                antes de tomar una decisión.
+              </p>
+            </div>
+            <div className="location-links">
+              <Link href="/es/seguros-personales">
+                <strong>Seguros personales</strong>
+                <span>
+                  Casa, auto, inquilinos, condominio, arrendador, paraguas, vida
+                  y terremoto →
+                </span>
+              </Link>
+              <Link href="/es/seguros-comerciales">
+                <strong>Seguros comerciales</strong>
+                <span>
+                  Responsabilidad, propiedad, compensación laboral, auto
+                  comercial y BOP →
+                </span>
+              </Link>
+              <Link href="/es/contacto">
+                <strong>Solicitar cotización</strong>
+                <span>
+                  Proceso rápido con opciones de mensaje, Gmail, correo y
+                  llamada →
+                </span>
+              </Link>
+            </div>
+          </div>
+        </section>
+        <section className="section soft">
+          <div className="shell photo-story">
+            <div className="photo-frame photo-frame-wide"><Image src="/images/moreno-valley-front-desk.jpg" alt="Recepción de la oficina de seguros en Moreno Valley" fill sizes="(max-width: 900px) 100vw, 55vw" /></div>
+            <div><p className="eyebrow">Servicio local y accesible</p><h2>Oficinas de agentes y corredores de seguros en Yorba Linda y Moreno Valley.</h2><p className="agency-attribution">Con el respaldo de Abel Duran Insurance Agency, Inc.</p><p className="lead-small">Seleccione un agente con licencia para recibir orientación sobre cotizaciones y cobertura en cualquiera de las dos oficinas del sur de California.</p><div className="profile-links"><Link className="text-link" href="/es/oficina-moreno-valley">Conozca al equipo de Moreno Valley →</Link><Link className="text-link" href="/es/oficina-yorba-linda">Conozca al equipo de Yorba Linda →</Link></div></div>
+          </div>
+        </section>
+        <section className="section soft">
+          <div className="shell">
+            <h2>Orientación local</h2>
+            <div className="location-links">
+              {spanishLocations.map((x) => (
+                <Link key={x.slug} href={`/es/areas/${x.slug}`}>
+                  <strong>{x.name}</strong>
+                  <span>Riesgos locales y recursos oficiales →</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className="section"><div className="shell partner-grid"><div><p className="eyebrow">Cotización rápida</p><h2>Indíquenos qué necesita y cómo se enteró de nosotros.</h2><p className="lead-small">Seleccione cobertura, agente preferido y método de contacto. La categoría de referencia ayuda a la agencia a medir qué relaciones y recursos locales son más útiles.</p></div><div className="form-card"><QuoteForm /></div></div></section>
+        <CTA />
+      </>
+    );
+  if (path === "/es/nuestra-agencia") return <SpanishAgency />;
+  if (path === "/es/abel-duran") return <SpanishAbel />;
+  if (path === "/es/abraham-nunez-chavez") return <AgentProfile agent="abraham" locale="es" />;
+  if (path === "/es/devan-wright") return <Profile who="devan" />;
+  if (path === "/es/emily-lussier") return <EmilyProfile locale="es" />;
+  if (path === "/es/rosalia-elizabeth-gomez") return <AgentProfile agent="rosalia" locale="es" />;
+  if (path === "/es/oficina-moreno-valley")
+    return <SpanishOffice city="Moreno Valley" />;
+  if (path === "/es/oficina-yorba-linda")
+    return <SpanishOffice city="Yorba Linda" />;
+  if (path === "/es/aseguradoras") return <Carriers />;
+  if (path === "/es/seguro-contra-incendios-forestales")
+    return (
+      <>
+        <PageHero
+          eyebrow="Incendios forestales y preparación ante catástrofes"
+          title="Proteja la propiedad y prepare al hogar."
+        >
+          Revise colocación, mitigación de incendios, terremoto y recursos de
+          refuerzo en un solo centro enfocado en California.
+        </PageHero>
+        <section className="section">
+          <div className="shell card-grid">
+            <article className="card">
+              <h2>FAIR Plan y DIC</h2>
+              <p>
+                Dos pólizas pueden complementarse cuando el mercado tradicional
+                no acepta el riesgo. Revise riesgos, límites y deducibles
+                juntos.
+              </p>
+              <Link href="/es/educacion/fair-plan-y-cobertura-dic">
+                Leer la guía →
+              </Link>
+            </article>
+            <article className="card">
+              <h2>Fortalecimiento del hogar</h2>
+              <p>
+                Techo, ventilas, aleros, espacio defendible y documentación
+                pueden reducir el riesgo; los descuentos varían.
+              </p>
+              <Link href="/es/educacion/preparacion-contra-incendios-y-fortalecimiento-del-hogar">
+                Ver recursos →
+              </Link>
+            </article>
+            <article className="card">
+              <h2>Terremotos</h2>
+              <p>
+                Las pólizas estándar generalmente excluyen movimiento sísmico.
+                Compare deducibles porcentuales y pérdida de uso.
+              </p>
+              <Link href="/es/seguro-contra-terremotos">
+                Revisar cobertura →
+              </Link>
+            </article>
+          </div>
+        </section>
+        <CTA />
+      </>
+    );
+  if (path === "/es/servicio-al-cliente") return <SpanishCustomerService />;
+  if (path === "/es/socios-de-referidos") return <Referral />;
+  if (path === "/es/privacidad") return <Legal privacy />;
+  if (path === "/es/terminos") return <Legal />;
+  notFound();
+}
+function Team() {
+  return (
+    <section className="section">
+      <div className="shell support-cards">
+        <article className="team-card">
+          <h2>Abraham Nunez-Chavez</h2>
+          <p>Agente/corredor de seguros · Lic. CA 4357305</p>
+          <a href="tel:+17143889533">714-388-9533</a>
+        </article>
+        <article className="team-card">
+          <h2>Abel Duran</h2>
+          <p>Propietario y agente principal · Lic. CA 0F17442</p>
+          <a href="tel:+19516538888">951-653-8888</a>
+        </article>
+        <article className="team-card">
+          <h2>Devan Wright</h2>
+          <p>Agente/corredor · Lic. CA 0H19544</p>
+          <a href="tel:+17147016412">714-701-6412</a>
+        </article>
+      </div>
+    </section>
+  );
+}
+function Profile({ who }: { who: "abel" | "devan" }) {
+  const abel = who === "abel";
+  return (
+    <>
+      <PageHero
+        eyebrow={
+          abel ? "Acerca de Abel Duran" : "Agente y corredor en Yorba Linda"
+        }
+        title={
+          abel
+            ? "Experiencia, liderazgo local y orientación práctica."
+            : "Devan Wright"
+        }
+      >
+        {abel
+          ? "Propietario y agente principal de Abel Duran Insurance Agency, con oficinas en Moreno Valley y Yorba Linda."
+          : "Orientación personal, comercial y de vida desde la oficina de Yorba Linda."}
+      </PageHero>
+      <section className="section">
+        <div className={abel ? "shell service-layout" : "shell profile-layout"}>
+          {!abel ? <div className="photo-frame portrait-frame"><Image src="/images/devan-wright-yorba-linda-insurance-agent.jpg" alt="Devan Wright, agente y corredora de seguros con licencia en Yorba Linda, California" fill sizes="(max-width: 760px) 75vw, 340px" priority /></div> : null}
+          <div>
+            <p className="eyebrow">Lic. CA {abel ? "0F17442" : "0H19544"}</p>
+            <h2>Cobertura basada en el riesgo.</h2>
+            <p>
+              {abel
+                ? "Abel dirige una agencia enfocada en relaciones duraderas, servicio local y soluciones prácticas. Su reconocimiento incluye Farmers Insurance President’s Council."
+                : "Devan atiende a familias, propietarios y negocios con seguros de vida, casa, alquiler, inquilinos, auto, comerciales, marítimos, vehículos recreativos, remolques, paraguas y terremoto."}
+            </p>
+            <Link className="button" href={`/es/contacto?agent=${who}`}>
+              Solicitar cotización con {abel ? "Abel" : "Devan"}
+            </Link>
+          {!abel ? <aside className="details-card">
+            <h2>Oficina de Yorba Linda</h2>
+            <p>{siteConfig.yorbaLindaOffice}</p>
+            <a href="tel:+17147016412">714-701-6412</a>
+          </aside> : null}
+          </div>
+          {abel ? <aside className="details-card">
+            <h2>
+              {abel ? "Oficina de Moreno Valley" : "Oficina de Yorba Linda"}
+            </h2>
+            <p>
+              {abel
+                ? siteConfig.morenoValleyOffice
+                : siteConfig.yorbaLindaOffice}
+            </p>
+            <a href={abel ? "tel:+19516538888" : "tel:+17147016412"}>
+              {abel ? "951-653-8888" : "714-701-6412"}
+            </a>
+          </aside> : null}
+        </div>
+      </section>
+      <CTA />
+    </>
+  );
+}
+const marketTitles: Record<string, string> = {
+  Auto: "Auto",
+  "Boats & watercraft": "Embarcaciones",
+  "Builders risk & vacant property":
+    "Riesgo del constructor y propiedad vacante",
+  Earthquake: "Terremoto",
+  Flood: "Inundación",
+  "Homeowners & property": "Casa y propiedad",
+  "Other personal lines": "Otras líneas personales",
+  "Personal property floater / inland marine":
+    "Bienes personales / transporte terrestre",
+  "Personal umbrella": "Paraguas personal",
+  "Weather / catastrophe": "Clima / catástrofe",
+  Bonds: "Fianzas",
+  "Commercial auto": "Auto comercial",
+  Cyber: "Riesgo cibernético",
+  "Garage & dealers": "Talleres y concesionarios",
+  "GL, BOP & package": "Responsabilidad, BOP y paquete",
+  Habitational: "Propiedades habitacionales",
+  "Lessor's risk": "Riesgo del arrendador",
+  "Workers' compensation": "Compensación laboral",
+};
+function SpanishMarketSection({
+  title,
+  description,
+  markets,
+}: {
+  title: string;
+  description: string;
+  markets: ReadonlyArray<{
+    readonly title: string;
+    readonly names: readonly string[];
+  }>;
+}) {
+  return (
+    <section className="section">
+      <div className="shell">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Acceso de corretaje mediante Kraft Lake</p>
+            <h2>{title}</h2>
+          </div>
+          <p>{description}</p>
+        </div>
+        <div className="market-grid">
+          {markets.map((group) => (
+            <article className="market-card" key={group.title}>
               <p className="eyebrow">
                 {marketTitles[group.title] || group.title}
               </p>
