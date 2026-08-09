@@ -7,6 +7,7 @@ export type Article = {
   quickFacts?: string[];
   commonLimits?: string;
   officialResources?: { label: string; url: string }[];
+  relatedSlugs?: string[];
 };
 
 export const articles: Article[] = [
@@ -246,86 +247,7 @@ export const articles: Article[] = [
     "Loss-of-rents coverage requires a covered loss and is subject to time and dollar limits.",
     "Vacancy, short-term rental, and renovation exposures require specific underwriting."
   ],
-  "commonLimits": "Dwelling: current reconstruction estimate. Premises liability: $500,000–$1 million is commonly reviewed. Loss of rents: often 12 months or the carrier's available limit.",
-  "body": [
-    "Landlord policies are designed around a non-owner-occupied dwelling and can include building coverage, landlord-owned contents, fair rental value or loss of rents, and premises liability.",
-    "Tenant belongings are not covered by the landlord's policy. Requiring renters insurance can improve risk transfer, but the lease requirement does not replace accurate landlord coverage.",
-    "Confirm occupancy, number of units, leases, renovations, vacancy, short-term rental activity, pools, pets, property management, and ownership entity. These details affect eligibility and policy form."
-  ],
-  "officialResources": [
-    {
-      "label": "California Department of Insurance residential resources",
-      "url": "https://www.insurance.ca.gov/01-consumers/105-type/5-residential/"
-    }
-  ]
-},
-{
-  "slug": "life-insurance-needs-california",
-  "title": "Life Insurance Needs: Term, Permanent, and Benefit Amounts",
-  "category": "Personal",
-  "summary": "Estimate protection for income replacement, debts, education, final expenses, and family goals.",
-  "quickFacts": [
-    "Term insurance provides coverage for a defined period.",
-    "Permanent coverage may provide lifetime protection if funded and maintained as required.",
-    "Beneficiaries and ownership should be reviewed after major life changes."
-  ],
-  "commonLimits": "There is no California-prescribed recommended amount. A common starting calculation is 7–10 times annual income, then adjust for debts, mortgage, education, existing assets, and survivor income.",
-  "body": [
-    "Life insurance needs are personal. A useful analysis starts with income replacement, mortgage and debt payoff, education funding, final expenses, caregiving needs, and the resources already available to survivors.",
-    "Term insurance can provide a larger death benefit for a defined period at a lower initial premium. Permanent products may add lifetime coverage and cash-value features but require a longer funding and performance review.",
-    "Compare guarantees, non-guaranteed values, premium duration, conversion options, ownership, and beneficiaries. Replacement of an existing policy requires particular care because new surrender charges and contestability periods may apply."
-  ],
-  "officialResources": [
-    {
-      "label": "CDI Life Insurance and Annuities guide",
-      "url": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/07-life/upload/Life-Insurance-and-Annuities-Updated-073123.pdf"
-    }
-  ]
-},
-{
-  "slug": "earthquake-insurance-retrofit-discounts",
-  "title": "CEA Earthquake Coverage and Retrofit Discounts",
-  "category": "Wildfire & Catastrophe",
-  "summary": "Understand separate earthquake coverage, percentage deductibles, CEA options, and retrofit resources that may reduce risk and premium.",
-  "quickFacts": [
-    "Standard homeowners policies generally exclude earthquake shaking damage.",
-    "CEA policies offer selectable coverages and percentage deductibles.",
-    "Qualifying retrofits may reduce damage and may qualify for premium discounts."
-  ],
-  "commonLimits": "Dwelling generally follows the companion residential policy. CEA deductible options commonly range from 5% to 25%, depending on coverage and eligibility. Compare personal property and loss-of-use selections separately.",
-  "body": [
-    "Earthquake coverage is separate from standard homeowners insurance. CEA coverage is sold through participating residential insurers and should be reviewed for dwelling, personal property, loss of use, building-code upgrade, and deductible structure.",
-    "A percentage deductible can represent a substantial dollar amount because it is based on the insured dwelling limit. Compare the actual dollar deductible, premium, retrofit status, and ability to finance repairs after a major earthquake.",
-    "Qualifying foundation bolting and cripple-wall bracing may reduce structural damage. Current grants, eligibility, and discount rules change, so homeowners should verify requirements before permits or work begin."
-  ],
-  "officialResources": [
-    {
-      "label": "California Earthquake Authority coverage",
-      "url": "https://www.earthquakeauthority.com/"
-    },
-    {
-      "label": "CEA premium discounts",
-      "url": "https://www.earthquakeauthority.com/california-earthquake-insurance-policies/earthquake-insurance-policy-premium-discounts"
-    },
-    {
-      "label": "Earthquake Brace + Bolt grants",
-      "url": "https://www.earthquakebracebolt.com/"
-    }
-  ]
-},
-{
-  "slug": "wildfire-readiness-home-hardening",
-  "title": "Wildfire Readiness, Home Hardening, and Insurance Discounts",
-  "category": "Wildfire & Catastrophe",
-  "summary": "Use California readiness resources to reduce ember, structure, defensible-space, and evacuation risk.",
-  "quickFacts": [
-    "Embers can ignite homes well ahead of the flame front.",
-    "The first five feet around a structure deserve special attention.",
-    "California's Safer from Wildfires framework identifies mitigation actions tied to insurance discounts."
-  ],
-  "commonLimits": "Readiness is not an insurance limit. Pair mitigation with an annual dwelling reconstruction review, adequate loss of use, code-upgrade coverage, and a deductible you can fund.",
-  "body": [
-    "Wildfire readiness combines structure hardening, defensible space, property maintenance, evacuation planning, and accurate insurance documentation. Roofs, vents, eaves, windows, decks, fences, vegetation, and debris are common focus areas.",
+  "commonLimits": "Dwelling: current reconstruction estimate…1482 tokens truncated…, and accurate insurance documentation. Roofs, vents, eaves, windows, decks, fences, vegetation, and debris are common focus areas.",
     "California's Safer from Wildfires framework addresses the structure, immediate surroundings, and community. Insurer credits vary, and documentation or inspection may be required.",
     "Maintain a home inventory, store policy documents securely, photograph improvements, and review reconstruction and loss-of-use limits before fire season. Mitigation improves resilience but does not guarantee eligibility or prevent every loss."
   ],
@@ -478,6 +400,74 @@ export const articles: Article[] = [
       "url": "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/09-comm/upload/IG-Commercial-Insurance-Updated-061524.pdf"
     }
   ]
+},
+{
+  slug: "california-home-insurance-non-renewal",
+  title: "What to Do After a California Home Insurance Non-Renewal",
+  category: "Wildfire & Catastrophe",
+  summary: "A practical response plan for reviewing the notice, documenting the property, comparing alternatives, and protecting a mortgage or escrow timeline.",
+  quickFacts: [
+    "A non-renewal generally ends coverage at expiration and differs from a midterm cancellation.",
+    "California residential non-renewal notices generally must be sent at least 75 days before expiration, subject to current law and exceptions.",
+    "FAIR Plan, DIC, admitted, and excess-and-surplus policies are not interchangeable."
+  ],
+  commonLimits: "Start immediately: confirm the expiration date, request the stated reason, correct inaccurate property information, and prepare photographs, inspection records, mitigation documents, loss history, and a current reconstruction estimate.",
+  body: [
+    "A home insurance non-renewal does not necessarily mean the homeowner did something wrong. Read the entire notice, preserve the envelope or email, identify the expiration date and stated reason, and contact the insurer or agent promptly. Ask whether the decision involves a correctable property condition, missing information, wildfire assessment, roof condition, claims history, reconstruction value, or a broader underwriting change.",
+    "Review the policy and application for accurate occupancy, square footage, roof details, system updates, detached structures, accessory dwelling units, business activity, prior claims, and wildfire-mitigation features. If information is inaccurate, ask how to correct it. If repairs could affect the decision, request the requirements in writing. Repairs and mitigation can strengthen a file but do not guarantee renewal.",
+    "Prepare an underwriting file with current photographs, roof and renovation records, inspections, mitigation receipts, loss history, the current declarations page, and a replacement-cost estimate. A licensed agent or broker may review an admitted insurer, a specialty or excess-and-surplus insurer, the California FAIR Plan, or a FAIR Plan policy combined with Difference in Conditions coverage. Compare covered causes of loss, liability, theft, water damage, loss of use, deductibles, code coverage, and lender requirements rather than premium alone.",
+    "California may establish temporary non-renewal protections after declared wildfire disasters, but they can be limited by location, policy type, and time period. Confirm eligibility with the California Department of Insurance. Homeowners with a mortgage should begin early to avoid a lapse and potential force-placed coverage."
+  ],
+  officialResources: [
+    { label: "CDI Residential Insurance: Homeowners and Renters", url: "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm" },
+    { label: "California Department of Insurance wildfire resources", url: "https://www.insurance.ca.gov/01-consumers/200-wrr/" }
+  ],
+  relatedSlugs: ["fair-plan-dic", "wildfire-readiness-home-hardening", "replacement-cost-market-value", "insurance-before-escrow"]
+},
+{
+  slug: "high-value-home-insurance-underwriting-california",
+  title: "Preparing a High-Value California Home for Insurance Underwriting",
+  category: "Personal",
+  summary: "Organize the property details, reconstruction records, mitigation proof, appraisals, and liability information underwriters may need.",
+  quickFacts: [
+    "A strong submission explains the property instead of listing only an address and dwelling limit.",
+    "Reconstruction cost should reflect custom features, specialized labor, debris removal, permits, and code requirements—not sale price.",
+    "Mitigation documentation can strengthen a file but does not guarantee eligibility, pricing, or coverage."
+  ],
+  commonLimits: "Begin before a renewal, non-renewal, or escrow deadline. Gather a current reconstruction estimate, photographs, inspection and renovation records, mitigation proof, loss history, appraisals, and details about all structures and household liability exposures.",
+  body: [
+    "High-value homes often require more underwriting detail because custom construction, luxury finishes, access, wildfire exposure, secondary structures, valuable collections, and complex ownership can affect eligibility and coverage design. Start early enough for inspections, appraisals, replacement-cost review, and questions from more than one market.",
+    "Create an accurate property profile covering construction, occupancy, roof and materials, system updates, custom finishes, detached structures, pools, solar equipment, generators, private roads, gates, hydrants, sprinklers, alarms, and trust or entity ownership. Explain discrepancies among prior applications, public records, inspections, and the reconstruction estimate.",
+    "Support the dwelling limit with reconstruction information rather than market value. Automated estimates may miss imported finishes, architectural work, specialized contractors, slope access, demolition, debris removal, permits, and building-code requirements. Review the estimate after renovations and document changes with invoices, plans, photographs, and appraisals.",
+    "For wildfire-exposed property, document relevant roof, vent, eave, window, defensible-space, vegetation, fencing, and community mitigation work. Also disclose water-leak controls, security, pools, domestic employees, home businesses, events, animals, and recreational exposures. Coordinate home, auto, umbrella, rental-property, watercraft, valuables, and secondary-home policies."
+  ],
+  officialResources: [
+    { label: "CDI Residential Insurance: Homeowners and Renters", url: "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm" },
+    { label: "CDI Safer from Wildfires", url: "https://www.insurance.ca.gov/01-consumers/200-wrr/Safer-from-Wildfires.cfm" }
+  ],
+  relatedSlugs: ["california-homeowners-coverage-limits", "replacement-cost-market-value", "wildfire-readiness-home-hardening", "umbrella-insurance"]
+},
+{
+  slug: "insuring-jewelry-art-collections",
+  title: "How to Insure Jewelry, Fine Art, and Valuable Collections",
+  category: "Personal",
+  summary: "Understand special limits, scheduled-property coverage, appraisals, inventories, valuation, and protection away from home.",
+  quickFacts: [
+    "A large personal-property limit does not eliminate category-specific limits for jewelry, art, firearms, silverware, money, or collectibles.",
+    "Scheduling property may provide broader protection depending on the contract and generally requires documentation.",
+    "Appraisals and inventories should be updated as values and collections change."
+  ],
+  commonLimits: "Review the policy's actual special limits rather than relying on a generic amount. Inventory valuable items, confirm the settlement method and deductible, and ask whether scheduled or separate valuable-articles coverage is appropriate.",
+  body: [
+    "Homeowners, renters, and condo policies can protect personal property, but may apply smaller special limits to jewelry, fine art, antiques, firearms, silverware, money, computers, business property, and collections. These limits are generally part of—not additional to—the total personal-property limit. A policy may also restrict a particular cause of loss such as theft.",
+    "Scheduling generally means listing an item through an endorsement or separate valuable-articles policy. Depending on the contract, it may provide a separate limit, broader covered causes of loss, different deductible terms, or agreed-value treatment. Verify each feature in the policy rather than assuming it applies.",
+    "Create an inventory recording the maker or artist, identifying marks, serial number, purchase information, appraisal, photographs, receipts, ownership history, storage location, and security. Keep copies away from the home or in secure cloud storage. Ask how often appraisals must be updated and how newly acquired property is treated before scheduling.",
+    "Review whether claims use replacement cost, actual cash value, agreed value, stated amount, or repair and restoration cost. Confirm how coverage applies to accidental breakage, disappearance, flood, earthquake, transit, vault storage, exhibitions, restoration, second homes, and international travel. Risk controls do not guarantee eligibility or a discount."
+  ],
+  officialResources: [
+    { label: "CDI Residential Insurance: Homeowners and Renters", url: "https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm" }
+  ],
+  relatedSlugs: ["california-homeowners-coverage-limits", "renters-insurance-california", "condo-insurance-california", "replacement-cost-market-value"]
 }
 ];
 
