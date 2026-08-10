@@ -71,6 +71,9 @@ export const articleSlugPairs = {
   "workers-compensation-california": "compensacion-laboral-en-california",
   "commercial-auto-california": "seguro-de-auto-comercial-en-california",
   "cyber-professional-liability-california": "responsabilidad-cibernetica-y-profesional",
+  "california-home-insurance-non-renewal": "no-renovacion-seguro-de-casa-california",
+  "high-value-home-insurance-underwriting-california": "seguro-de-casa-de-alto-valor-california",
+  "insuring-jewelry-art-collections": "seguro-para-joyas-arte-y-colecciones",
 } as const;
 
 const pairs: [string, string][] = [
@@ -104,3 +107,4 @@ export function spanishAlternates(esPath: string) {
   const enPath = reverseRoutePairs[esPath];
   return { canonical: esPath, languages: { "en-US": enPath, "es-US": esPath, "x-default": enPath } };
 }
+
