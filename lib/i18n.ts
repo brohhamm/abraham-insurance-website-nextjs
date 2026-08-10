@@ -107,4 +107,3 @@ export function spanishAlternates(esPath: string) {
   const enPath = reverseRoutePairs[esPath];
   return { canonical: esPath, languages: { "en-US": enPath, "es-US": esPath, "x-default": enPath } };
 }
-
