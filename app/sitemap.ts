@@ -1,10 +1,10 @@
-import type { MetadataRoute } from "next";
+c = "import type { MetadataRoute } from "next";
 import { articles } from "@/content/articles";
 import { insuranceServices } from "@/content/services";
 import { serviceLocations } from "@/content/locations";
 import { siteConfig } from "@/lib/site-config";
 import { routePairs } from "@/lib/i18n";
-
+export const dynamic = "force-static";
 const lastModified = new Date("2026-08-09T00:00:00-07:00");
 
 export default function sitemap(): MetadataRoute.Sitemap {
