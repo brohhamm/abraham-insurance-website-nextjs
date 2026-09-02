@@ -34,5 +34,5 @@ export const agents = {
   abraham: { name: "Abraham Nunez-Chavez", email: "Abraham.aduran@farmersagency.com", phone: "714-388-9533", phoneHref: "tel:+17143889533", textHref: "sms:+17143889533", office: "Moreno Valley" },
   abel: { name: "Abel Duran", email: "Aduran@farmersagent.com", phone: "951-653-8888", phoneHref: "tel:+19516538888", textHref: "sms:+19516538888", office: "Moreno Valley" },
   devan: { name: "Devan Wright", email: "devan.aduran@farmersagency.com", phone: "714-701-6412", phoneHref: "tel:+17147016412", textHref: "sms:+17147016412", office: "Yorba Linda" },
-  rosalia: { name: "Rosalia Elizabeth Gomez", email: "rosalia.aduran@farmersagency.com", phone: "951-653-8888", phoneHref: "tel:+19516538888", textHref: "sms:+19516538888", office: "Moreno Valley" },
+  rosalia: { name: "Rosalia Elizabeth Gomez", email: "rosalia.aduran@farmersagency.com", phone: "619-417-6140", phoneHref: "tel:+16194176140", textHref: "sms:+16194176140", office: "Moreno Valley" },
 } as const;

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CTA, PageHero } from "@/components/ui";
-import { siteConfig } from "@/lib/site-config";
+import { agents, siteConfig } from "@/lib/site-config";
 
 type Agent = "abraham" | "rosalia";
 
@@ -38,14 +38,14 @@ const profiles = {
       bio: "Rosalia assists with personal, commercial, and life insurance. Her primary office is in Moreno Valley.",
       detail: "She works through Abel Duran Insurance Agency, Inc. and helps clients connect with appropriate quote and coverage support based on their insurance needs.",
       office: siteConfig.morenoValleyOffice,
-      phone: "951-653-8888",
-      phoneHref: "tel:+19516538888",
-      textHref: "sms:+19516538888",
+      phone: agents.rosalia.phone,
+      phoneHref: agents.rosalia.phoneHref,
+      textHref: agents.rosalia.textHref,
       email: "rosalia.aduran@farmersagency.com",
       quoteHref: "/contact?agent=rosalia",
       quoteLabel: "Request a Quote With Rosalia",
-      callLabel: "Call the Moreno Valley Office",
-      textLabel: "Text the Moreno Valley Office",
+      callLabel: "Call Rosalia",
+      textLabel: "Text Rosalia",
       officeLabel: "Moreno Valley office",
       role: "Insurance Agent/Broker",
     },
@@ -82,14 +82,14 @@ const profiles = {
       bio: "Rosalia ofrece asistencia con seguros personales, comerciales y de vida. Su oficina principal está en Moreno Valley.",
       detail: "Trabaja a través de Abel Duran Insurance Agency, Inc. y ayuda a los clientes a comunicarse con el apoyo adecuado para cotizaciones y coberturas según sus necesidades de seguro.",
       office: siteConfig.morenoValleyOffice,
-      phone: "951-653-8888",
-      phoneHref: "tel:+19516538888",
-      textHref: "sms:+19516538888",
+      phone: agents.rosalia.phone,
+      phoneHref: agents.rosalia.phoneHref,
+      textHref: agents.rosalia.textHref,
       email: "rosalia.aduran@farmersagency.com",
       quoteHref: "/es/contacto?agent=rosalia",
       quoteLabel: "Solicitar una cotización con Rosalia",
-      callLabel: "Llamar a la oficina de Moreno Valley",
-      textLabel: "Enviar mensaje a la oficina de Moreno Valley",
+      callLabel: "Llamar a Rosalia",
+      textLabel: "Enviar mensaje a Rosalia",
       officeLabel: "Oficina de Moreno Valley",
       role: "Agente/Corredora de Seguros",
     },
