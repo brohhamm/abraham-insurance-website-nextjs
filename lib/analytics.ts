@@ -15,8 +15,8 @@ export type AnalyticsEventName =
 type AnalyticsProperties = Record<string, string | number | boolean>;
 
 export const productionAnalyticsHosts = new Set([
-  "abrahamvalleyinsurance.com",
-  "www.abrahamvalleyinsurance.com",
+  "theduranagency.com",
+  "www.theduranagency.com",
   "abraham-insurance-website-nextjs.vercel.app",
 ]);
 
@@ -71,3 +71,4 @@ export function trackEvent(
     // Analytics must never interrupt navigation, form handling, or contact actions.
   }
 }
+

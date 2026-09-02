@@ -34,7 +34,7 @@ For larger projects, GitHub Desktop is easier: choose **Add an Existing Reposito
 ## 4. Connect Resend
 
 1. Create an account at [Resend](https://resend.com/).
-2. Add and verify a domain you control. Follow Resend’s DNS instructions exactly.
+2. Add and verify a domain you control. Follow Resendâ€™s DNS instructions exactly.
 3. Create an API key.
 4. Choose an inbox for quote notifications.
 5. Set `QUOTE_FROM_EMAIL` to an address on the verified sending domain.
@@ -45,14 +45,14 @@ Copy `.env.example` to `.env.local` for local testing and replace the examples:
 RESEND_API_KEY=re_your_api_key
 QUOTE_NOTIFICATION_EMAIL=Abraham.aduran@farmersagency.com
 QUOTE_FROM_EMAIL=Insurance Website <quotes@yourdomain.com>
-NEXT_PUBLIC_SITE_URL=https://www.yourdomain.com
+NEXT_PUBLIC_SITE_URL=https://www.theduranagency.com
 ```
 
 Never commit `.env.local` or an API key to GitHub.
 
 ## 5. Deploy through Vercel
 
-1. Sign in to Vercel and select **Add New → Project**.
+1. Sign in to Vercel and select **Add New â†’ Project**.
 2. Import the GitHub repository.
 3. Leave the framework preset as **Next.js**.
 4. Leave **Root Directory** blank because `package.json` is already at the repository root.
@@ -62,7 +62,7 @@ Never commit `.env.local` or an API key to GitHub.
 
 ## 6. Connect a custom domain
 
-In the Vercel project, open **Settings → Domains**, add the domain, and follow the DNS instructions. After the domain works, update `NEXT_PUBLIC_SITE_URL` to the final `https://` address and redeploy.
+The production site uses `https://www.theduranagency.com`. In the existing Vercel production project, keep both `theduranagency.com` and `www.theduranagency.com` assigned, with the apex permanently redirecting to `www`.
 
 ## 7. Update content
 
@@ -81,10 +81,10 @@ Replace placeholder imagery only with photos or graphics you own or are authoriz
 2. Submit a test using your own contact information.
 3. Confirm the success message appears.
 4. Confirm the notification reaches `QUOTE_NOTIFICATION_EMAIL`.
-5. Confirm Reply sends to the visitor’s submitted email.
+5. Confirm Reply sends to the visitorâ€™s submitted email.
 6. Delete the test email when complete.
 
-The general form intentionally does not collect Social Security numbers, driver’s license numbers, payment information, or other highly sensitive information. A submission does not bind or alter insurance coverage.
+The general form intentionally does not collect Social Security numbers, driverâ€™s license numbers, payment information, or other highly sensitive information. A submission does not bind or alter insurance coverage.
 
 ## 9. Validation commands
 
@@ -99,7 +99,7 @@ Both commands should complete before deploying changes.
 
 ### Vercel cannot find package.json
 
-The repository was uploaded with an extra wrapper folder or the wrong Root Directory was selected. Move `package.json`, `app`, and `components` to the repository root, or set Vercel’s Root Directory to the folder containing `package.json`.
+The repository was uploaded with an extra wrapper folder or the wrong Root Directory was selected. Move `package.json`, `app`, and `components` to the repository root, or set Vercelâ€™s Root Directory to the folder containing `package.json`.
 
 ### Module not found
 
@@ -107,7 +107,7 @@ Confirm the full folder structure was uploaded, including `components`, `content
 
 ### Incorrect root directory
 
-In Vercel, open **Settings → Build and Deployment → Root Directory**. Keep it blank when `package.json` is at the repository root.
+In Vercel, open **Settings â†’ Build and Deployment â†’ Root Directory**. Keep it blank when `package.json` is at the repository root.
 
 ### Missing environment variables
 
@@ -124,3 +124,4 @@ Use Node.js 22 or newer, run `npm install`, then run `npm run lint` and `npm run
 ## Important disclosure
 
 Insurance products are subject to eligibility, underwriting, terms, conditions, limitations, and exclusions. Coverage and pricing vary by carrier and applicant. Website content is educational and does not modify any policy. Actual policy language controls. Form submission does not bind or alter coverage, and coverage is not effective until confirmed by an authorized representative and all binding requirements are completed.
+
