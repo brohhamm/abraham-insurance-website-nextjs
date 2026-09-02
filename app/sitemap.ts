@@ -1,4 +1,4 @@
-c = "import type { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 import { articles } from "@/content/articles";
 import { insuranceServices } from "@/content/services";
 import { serviceLocations } from "@/content/locations";
