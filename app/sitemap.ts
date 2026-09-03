@@ -5,10 +5,10 @@ import { serviceLocations } from "@/content/locations";
 import { siteConfig } from "@/lib/site-config";
 import { routePairs } from "@/lib/i18n";
 export const dynamic = "force-static";
-const lastModified = new Date("2026-08-09T00:00:00-07:00");
+const lastModified = new Date("2026-09-02T00:00:00-07:00");
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = ["", "/personal-insurance", "/business-insurance", "/carriers", "/referral-partners", "/education", "/about", "/abel-duran", "/abraham-nunez-chavez", "/devan-wright", "/emily-lussier", "/rosalia-elizabeth-gomez", "/moreno-valley-office", "/yorba-linda-office", "/customer-service", "/contact", "/privacy", "/terms"];
+  const paths = ["", "/personal-insurance", "/business-insurance", "/carriers", "/referral-partners", "/education", "/about", "/abel-duran", "/abraham-nunez-chavez", "/devan-wright", "/emily-lussier", "/rosalia-elizabeth-gomez", "/moreno-valley-office", "/yorba-linda-office", "/customer-service", "/contact", "/privacy", "/sms-terms-and-conditions", "/terms"];
   const english = [
     ...paths.map((path) => ({ url: `${siteConfig.url}${path}`, lastModified, changeFrequency: path === "" ? "weekly" as const : "monthly" as const, priority: path === "" ? 1 : 0.7 })),
     ...insuranceServices.map((service) => ({ url: `${siteConfig.url}/insurance/${service.slug}`, lastModified, changeFrequency: "monthly" as const, priority: 0.8 })),
@@ -18,3 +18,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const spanish = Object.values(routePairs).map((path) => ({ url: `${siteConfig.url}${path}`, lastModified, changeFrequency: path === "/es" ? "weekly" as const : "monthly" as const, priority: path === "/es" ? 0.9 : 0.7 }));
   return [...english, ...spanish];
 }
+
