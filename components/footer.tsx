@@ -42,9 +42,8 @@ export function Footer() {
             : "Abel Duran, CA Lic. No. 0F17442. Devan Wright, CA Lic. No. 0H19544. Rosalia Elizabeth Gomez, CA Lic. No. 0K37042. Abel Duran Insurance Agency, Inc., CA Agency Lic. No. 0K15422. Insurance products and availability vary by carrier, underwriting eligibility, coverage selection, and state."}
         </p>
         <div>
-          <Link href={es ? "/es/privacidad" : "/privacy"}>
-            {es ? "Privacidad" : "Privacy"}
-          </Link>
+          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/sms-terms-and-conditions">SMS Terms and Conditions</Link>
           <Link href={es ? "/es/terminos" : "/terms"}>
             {es ? "Términos" : "Terms"}
           </Link>
@@ -53,3 +52,4 @@ export function Footer() {
     </footer>
   );
 }
+
