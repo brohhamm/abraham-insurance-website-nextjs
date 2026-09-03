@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Abraham Nunez-Chavez",
   title: "Insurance Agent/Broker",
   license: "4357305",
-  agency: "Farmers Insurance â€“ Office of Abel Duran",
+  agency: "Farmers Insurance – Office of Abel Duran",
   phone: "951-653-8888",
   directPhone: "714-388-9533",
   phoneHref: "tel:+17143889533",
@@ -12,7 +12,7 @@ export const siteConfig = {
   secondLocation: "Yorba Linda, California",
   morenoValleyOffice: "13800 Heacock St., Suite C120, Moreno Valley, CA 92553",
   yorbaLindaOffice: "23621 La Palma Ave., Suite A, Yorba Linda, CA 92887",
-  hours: "Mondayâ€“Friday, 9:00 AMâ€“5:00 PM",
+  hours: "Monday–Friday, 9:00 AM–5:00 PM",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.theduranagency.com",
 };
 
@@ -36,4 +36,5 @@ export const agents = {
   devan: { name: "Devan Wright", email: "devan.aduran@farmersagency.com", phone: "714-701-6412", phoneHref: "tel:+17147016412", textHref: "sms:+17147016412", office: "Yorba Linda" },
   rosalia: { name: "Rosalia Elizabeth Gomez", email: "rosalia.aduran@farmersagency.com", phone: "619-417-6140", phoneHref: "tel:+16194176140", textHref: "sms:+16194176140", office: "Moreno Valley" },
 } as const;
+
 
