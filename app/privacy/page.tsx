@@ -1,3 +1,69 @@
+import type { Metadata } from "next";
 import { PageHero } from "@/components/ui";
-export const metadata={title:"Privacy Policy",alternates:{canonical:"/privacy",languages:{"en-US":"/privacy","es-US":"/es/privacidad","x-default":"/privacy"}}};
-export default function Page(){return <><PageHero eyebrow="Legal" title="Privacy Policy">How information submitted through this website is handled.</PageHero><section className="section"><div className="shell legal-copy"><h2>Information collected</h2><p>This website prepares the information you enter for transmission through the email or text-messaging option you select. The request is not delivered to the agency unless you complete the sending step in that application. Information you send may include your name, contact details, location, insurance interest, and request description. Do not submit Social Security numbers, driver’s license numbers, payment information, medical records, or other highly sensitive information through the general form.</p><h2>Website analytics</h2><p>This website uses Vercel Web Analytics to measure general traffic and website interactions, including page views, referring sources, UTM campaigns, general geographic and device information, and actions such as quote, telephone, text, email, language, office, and external-resource selections. Analytics is not intentionally used to collect information entered into insurance, quote, or service forms. Analytics URLs are filtered so only standard UTM campaign parameters are retained; other query parameters and URL fragments are removed before analytics events are sent.</p><h2>How information is used</h2><p>Information may be used to respond to your request, evaluate insurance options, provide service, prevent spam, and maintain appropriate business records. It may be shared with agency personnel, insurers, service providers, or other parties as reasonably necessary to address your request, subject to applicable law and their requirements.</p><h2>Security and retention</h2><p>Reasonable safeguards are used, but no online transmission is guaranteed secure. Information may be retained as needed for business, legal, and compliance purposes.</p><h2>Your choices</h2><p>You may contact the agency to ask about your submitted information or opt out of nonessential communications. This notice may be updated as practices or legal requirements change.</p></div></section></>}
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "Privacy Policy for Abel Duran Insurance Agency Inc.",
+  alternates: {
+    canonical: "/privacy",
+    languages: { "en-US": "/privacy", "x-default": "/privacy" },
+  },
+};
+
+export default function PrivacyPolicyPage() {
+  return <>
+    <PageHero eyebrow="Legal" title="Privacy Policy">Effective Date: July 30, 2026</PageHero>
+    <section className="section"><div className="shell legal-copy">
+      <p>Abel Duran Insurance Agency Inc. respects your privacy. This Privacy Policy explains how we collect, use, disclose, and protect personal information, including information collected through telephone and SMS communications.</p>
+
+      <h2>Information We Collect</h2>
+      <p>We may collect personal information that you provide to us, including:</p>
+      <ul>
+        <li>Name</li><li>Telephone number</li><li>Email address</li><li>Mailing address</li>
+        <li>Insurance policy and coverage information</li><li>Appointment information</li>
+        <li>Information submitted while requesting a quote or customer service</li>
+        <li>Communications and correspondence with our agency</li><li>SMS opt-in and opt-out records</li>
+      </ul>
+
+      <h2>How We Use Personal Information</h2>
+      <p>We may use personal information to:</p>
+      <ul>
+        <li>Provide insurance quotes and services</li><li>Respond to customer questions and requests</li>
+        <li>Schedule and confirm appointments</li><li>Follow up regarding requested insurance services</li>
+        <li>Provide policy, renewal, account, and customer-service updates</li>
+        <li>Send text messages after receiving appropriate consent</li>
+        <li>Maintain records and comply with applicable legal and regulatory requirements</li>
+      </ul>
+
+      <h2>How Information May Be Shared</h2>
+      <p>Personal information may be shared with insurance carriers, service providers, regulatory authorities, or other parties when reasonably necessary to provide requested insurance services, administer policies, comply with legal obligations, or protect our rights.</p>
+      <p>We do not sell personal information.</p>
+
+      <h2>SMS Privacy</h2>
+      <p>By providing your mobile telephone number and agreeing to receive SMS messages, you consent to receive customer-care, appointment, follow-up, policy-related, and account-related text messages from Abel Duran Insurance Agency Inc.</p>
+      <p>SMS consent, mobile telephone numbers, and mobile opt-in information will not be shared with third parties or affiliates for marketing or promotional purposes.</p>
+      <p>Text messaging originator opt-in data and consent will not be sold, rented, or shared with third parties.</p>
+      <p>Message frequency may vary. Message and data rates may apply.</p>
+      <p>Reply STOP to opt out at any time.</p>
+      <p>Reply HELP for assistance.</p>
+      <p>Consent to receive SMS messages is not a condition of purchasing any product or service.</p>
+
+      <h2>Data Security</h2>
+      <p>We use reasonable administrative, technical, and organizational safeguards designed to protect personal information. However, no method of electronic transmission or storage is completely secure.</p>
+
+      <h2>Your Choices</h2>
+      <p>You may request that we update or correct your contact information. You may stop receiving SMS messages at any time by replying STOP.</p>
+
+      <h2>Contact Us</h2>
+      <p>For questions regarding this Privacy Policy, contact:</p>
+      <address>
+        Abel Duran Insurance Agency Inc.<br />
+        13800 Heacock Street, Suite C120<br />
+        Moreno Valley, CA 92553<br />
+        Phone: <a href="tel:+19516538888">951-653-8888</a><br />
+        Email: <a href="mailto:aduran@farmersagent.com">aduran@farmersagent.com</a>
+      </address>
+    </div></section>
+  </>;
+}
+
