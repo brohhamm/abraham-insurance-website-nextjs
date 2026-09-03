@@ -2,6 +2,7 @@
 
 import { FormEvent, MouseEvent, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { agents } from "@/lib/site-config";
 import { localeFromPath } from "@/lib/i18n";
 import { trackEvent } from "@/lib/analytics";
@@ -515,6 +516,12 @@ export function QuoteForm({
               ? "Acepto que se comuniquen conmigo sobre esta solicitud. Prepararla no obliga ni modifica cobertura alguna."
               : "I agree to be contacted about this request. Preparing a request does not bind or alter coverage."}
           </label>
+          <p className="privacy-reassurance">
+            {es ? "Consulte nuestra " : "Review our "}
+            <Link href="/privacy">Privacy Policy</Link>
+            {es ? " y los " : " and "}
+            <Link href="/sms-terms-and-conditions">SMS Terms and Conditions</Link>.
+          </p>
           <div className="quote-navigation">
             <button
               className="button button-secondary"
@@ -614,3 +621,4 @@ export function QuoteForm({
     </form>
   );
 }
+
