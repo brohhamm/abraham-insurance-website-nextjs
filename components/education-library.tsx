@@ -5,7 +5,7 @@ import type { Article } from "@/content/articles";
 
 const categories = ["All", "Personal", "Commercial", "Wildfire & Catastrophe", "Real Estate", "General"] as const;
 
-export function EducationLibrary({ articles, spanish = false }: { articles: Article[]; spanish?: boolean }) {
+export function EducationLibrary({ articles, spanish = false }: { articles: Pick<Article, "slug" | "title" | "summary" | "category" | "commonLimits" | "quickFacts">[]; spanish?: boolean }) {
   const [category, setCategory] = useState<(typeof categories)[number]>("All");
   const [query, setQuery] = useState("");
   const filtered = useMemo(() => {
@@ -33,7 +33,7 @@ export function EducationLibrary({ articles, spanish = false }: { articles: Arti
         <span>{article.category || "General"} guide</span>
         <h2>{article.title}</h2>
         <p>{article.summary}</p>
-        {article.commonLimits ? <details><summary>Common limits and starting points</summary><p>{article.commonLimits}</p></details> : null}
+        {article.commonLimits ? <details><summary>What to compare in your policy</summary><p>{article.commonLimits}</p></details> : null}
         <Link href={`/education/${article.slug}`}><strong>Open full guide →</strong></Link>
       </article>)}
     </div>

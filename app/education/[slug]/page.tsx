@@ -1,20 +1,34 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { articles, getArticle } from "@/content/articles";
 import { siteConfig } from "@/lib/site-config";
 import { alternatesFor } from "@/lib/i18n";
+import { GuideSections } from "@/components/guide-sections";
 
 const publishedDate = "2026-08-09";
 
 export function generateStaticParams() { return articles.map((article) => ({ slug: article.slug })); }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const article = getArticle(slug);
   return article ? {
     title: article.title,
     description: article.summary,
     alternates: alternatesFor(`/education/${article.slug}`),
+    openGraph: {
+      title: article.title,
+      description: article.summary,
+      url: `/education/${article.slug}`,
+      type: "article",
+      locale: "en_US",
+      alternateLocale: ["es_US"],
+      publishedTime: publishedDate,
+      modifiedTime: article.dateModified ?? publishedDate,
+      images: [{ url: "/og-insurance.svg", width: 1200, height: 630 }],
+    },
+    twitter: { card: "summary_large_image", title: article.title, description: article.summary, images: ["/og-insurance.svg"] },
     authors: [{ name: "Abraham Nunez-Chavez", url: "/about" }],
   } : { title: "Article" };
 }
@@ -30,7 +44,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     headline: article.title,
     description: article.summary,
     datePublished: publishedDate,
-    dateModified: publishedDate,
+    dateModified: article.dateModified ?? publishedDate,
     mainEntityOfPage: articleUrl,
     author: { "@type": "Person", name: "Abraham Nunez-Chavez", url: `${siteConfig.url}/about`, identifier: "CA Insurance Lic. No. 4357305" },
     publisher: { "@type": "InsuranceAgency", "@id": `${siteConfig.url}/#insurance-agency`, name: siteConfig.name },
@@ -50,13 +64,15 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     <h1>{article.title}</h1>
     <p className="article-summary">{article.summary}</p>
     <div className="author-row"><div><strong>Written and reviewed by <Link href="/about">Abraham Nunez-Chavez</Link></strong><span>California Insurance Agent/Broker · Lic. No. 4357305</span></div><time dateTime={publishedDate}>Reviewed August 9, 2026</time></div>
+    {article.dateModified ? <p className="source-note">Educational examples updated <time dateTime={article.dateModified}>September 7, 2026</time>. This update does not represent a new staff or legal review.</p> : null}
     {article.quickFacts?.length ? <section className="guide-panel"><h2>What to know first</h2><ul>{article.quickFacts.map((fact) => <li key={fact}>{fact}</li>)}</ul></section> : null}
-    {article.commonLimits ? <section className="limit-panel"><p className="eyebrow">California limits and common starting points</p><p>{article.commonLimits}</p><small>These are educational benchmarks, not a recommendation for every applicant.</small></section> : null}
+    {article.commonLimits ? <section className="limit-panel"><p className="eyebrow">What to compare in your policy</p><p>{article.commonLimits}</p><small>These are educational benchmarks, not a recommendation for every applicant.</small></section> : null}
     <section className="guide-copy">{article.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</section>
-    {article.officialResources?.length ? <section className="official-resources"><h2>Official California resources</h2><div>{article.officialResources.map((resource) => <a href={resource.url} target="_blank" rel="noreferrer" key={resource.url}>{resource.label}<span aria-hidden="true">↗</span></a>)}</div></section> : null}
-    {article.relatedSlugs?.length ? <section className="official-resources"><h2>Related Abraham Valley Insurance guides</h2><div>{article.relatedSlugs.map((relatedSlug) => { const related = getArticle(relatedSlug); return related ? <Link href={`/education/${related.slug}`} key={related.slug}>{related.title}<span aria-hidden="true">→</span></Link> : null; })}</div></section> : null}
+    <GuideSections sections={article.sections} />
+    {article.officialResources?.length ? <section className="official-resources"><h2>Official resources</h2><div>{article.officialResources.map((resource) => <a href={resource.url} target="_blank" rel="noreferrer" key={resource.url}>{resource.label}<span aria-hidden="true">↗</span></a>)}</div></section> : null}
+    {article.relatedSlugs?.length ? <section className="official-resources"><h2>Related insurance guides</h2><div>{article.relatedSlugs.map((relatedSlug) => { const related = getArticle(relatedSlug); return related ? <Link href={`/education/${related.slug}`} key={related.slug}>{related.title}<span aria-hidden="true">→</span></Link> : null; })}</div></section> : null}
     <div className="article-disclaimer"><strong>Important:</strong> This information is educational and does not modify any policy. Coverage is subject to eligibility, underwriting, policy terms, conditions, limitations, and exclusions. Laws, programs, limits, and carrier rules can change. Actual policy language and current official requirements control.</div>
-    <div className="guide-actions"><Link className="button" href={`/contact?insurance=${encodeURIComponent(article.title)}`}>Ask About This Coverage</Link><Link className="button button-secondary" href="/education">Explore More Guides</Link></div>
+    <div className="guide-actions"><Link className="button" href={`/contact?insurance=${encodeURIComponent(article.title)}`}>Review My Coverage Questions</Link><Link className="button button-secondary" href="/education">Explore More Guides</Link></div>
     <script id={`article-schema-${article.slug}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     <script id={`breadcrumb-schema-${article.slug}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
   </div></article>;

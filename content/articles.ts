@@ -1,3 +1,5 @@
+import { guideLessons, guideUpdated, type GuideSection } from "./guide-lessons";
+
 export type Article = {
   slug: string;
   title: string;
@@ -8,9 +10,11 @@ export type Article = {
   commonLimits?: string;
   officialResources?: { label: string; url: string }[];
   relatedSlugs?: string[];
+  sections?: GuideSection[];
+  dateModified?: string;
 };
 
-export const articles: Article[] = [
+const originalArticles: Article[] = [
   {
     slug: "home-insurance-deductibles",
     title: "Understanding Home Insurance Deductibles",
@@ -67,7 +71,7 @@ export const articles: Article[] = [
     summary: "These business policies address different risks and are often needed together.",
     body: [
       "General liability insurance commonly addresses third-party bodily injury, property damage, and certain personal or advertising injury claims arising from business operations. It generally does not replace coverage for employee job-related injuries.",
-      "Workers' compensation provides benefits for covered employee occupational injuries and illnesses and may include medical care, disability benefits, and employer liability protection. California employers must evaluate their legal obligations carefully when hiring workers.",
+      "Workers' compensation provides statutory benefits for covered employee work-related injuries and illnesses, including medical and disability benefits. Employer's liability is a separate coverage part. California employers with one or more employees must satisfy workers' compensation requirements through insurance or authorized self-insurance.",
       "Payroll, job duties, classifications, subcontractor practices, and ownership structure affect workers' compensation underwriting and audits. Accurate records reduce the risk of unexpected premium adjustments.",
     ],
   },
@@ -95,15 +99,15 @@ export const articles: Article[] = [
   "slug": "california-auto-liability-limits",
   "title": "California Auto Liability Limits: Minimum vs. Meaningful Protection",
   "category": "Personal",
-  "summary": "Compare California's legal minimum 30/60/15 limits with more protective options for income, assets, and serious accidents.",
+  "summary": "Compare California's standard-policy minimum 30/60/15 limits with more protective options for income, assets, and serious accidents.",
   "quickFacts": [
-    "California's minimum is $30,000/$60,000 bodily injury and $15,000 property damage.",
+    "California's standard auto minimum is $30,000/$60,000 for bodily injury and $15,000 for property damage; the separate Low Cost program has different rules.",
     "The state minimum is a legal floor, not a recommendation for every household.",
     "Limits should reflect vehicles, income, assets, drivers, and umbrella requirements."
   ],
   "commonLimits": "Legal minimum: 30/60/15. A common protection-focused starting point is 100/300/100; households with greater assets or umbrella plans often review 250/500/100 or higher.",
   "body": [
-    "Liability coverage pays covered claims when an insured driver is legally responsible for injuring someone or damaging property. California increased its private-passenger minimum limits to $30,000 per person, $60,000 per accident, and $15,000 for property damage.",
+    "Liability coverage pays covered claims when an insured driver is legally responsible for injuring someone or damaging property. California's standard private-passenger policies require minimum limits of $30,000 per injured person, $60,000 per accident for injuries, and $15,000 for property damage.",
     "Minimum limits can be exhausted quickly by hospital treatment, lost income, multiple injured people, or damage to a newer vehicle. Amounts above the policy limit may become the driver's responsibility.",
     "A limit review should consider household income, savings, home ownership, youthful drivers, vehicle use, and any umbrella requirements. Higher limits cost more but provide a larger buffer against severe claims."
   ],
@@ -131,7 +135,7 @@ export const articles: Article[] = [
   "commonLimits": "Common selections are 100/300 or 250/500. A protection-focused approach is to compare UM/UIM at the same level as your bodily-injury liability limit, subject to carrier rules.",
   "body": [
     "Uninsured motorist coverage can respond when a covered person is injured by a driver with no liability insurance. Underinsured motorist coverage may apply when the at-fault driver's limit is insufficient for the covered damages.",
-    "California policies and carrier forms differ, particularly for property damage, deductibles, stacking, and who qualifies as an insured. Collision coverage may still be important for vehicle damage.",
+    "Coverage for injuries differs from coverage for vehicle damage. California's UIM rules restrict adding policy limits together, and the contract and law determine who qualifies as an insured. Collision coverage may still be important for vehicle damage.",
     "Review every household driver, regular passenger exposure, medical-insurance deductibles, income, and liability limits. Rejecting or reducing UM/UIM can materially shift accident risk back to the household."
   ],
   "officialResources": [
@@ -218,7 +222,7 @@ export const articles: Article[] = [
   "slug": "condo-insurance-california",
   "title": "California Condo Insurance and HOA Gaps",
   "category": "Personal",
-  "summary": "Coordinate HO-6 coverage with the HOA master policy for interiors, loss assessment, belongings, and liability.",
+  "summary": "Coordinate your condo unit-owner policy (often called HO-6) with the homeowners association's master policy for interiors, shared-loss assessments, belongings, and liability.",
   "quickFacts": [
     "The HOA master policy and CC&Rs determine what the unit owner must insure.",
     "Loss assessment coverage has conditions and sublimits.",
@@ -353,7 +357,7 @@ export const articles: Article[] = [
   "slug": "commercial-general-liability-limits",
   "title": "Commercial General Liability Limits for California Businesses",
   "category": "Commercial",
-  "summary": "Understand occurrence, aggregate, products-completed operations, contracts, and common $1M/$2M limits.",
+  "summary": "Understand per-event and total policy limits, protection for completed work, and why contracts need more than a certificate.",
   "quickFacts": [
     "GL addresses covered third-party injury, property damage, and certain personal or advertising injury.",
     "Contracts may require specific limits and additional-insured wording.",
@@ -405,13 +409,13 @@ export const articles: Article[] = [
   "category": "Commercial",
   "summary": "Understand mandatory employee protection, classifications, payroll estimates, audits, and employer liability.",
   "quickFacts": [
-    "California employers generally must carry workers' compensation when they have employees.",
+    "California employers with one or more employees must satisfy workers' compensation requirements.",
     "Premium is commonly based on payroll, classifications, experience, and carrier factors.",
     "Final audits can create additional premium or return premium."
   ],
   "commonLimits": "Statutory workers' compensation benefits apply. Employer's liability limits commonly begin at $1 million each accident / $1 million disease-policy limit / $1 million disease-each employee.",
   "body": [
-    "California employers generally must maintain workers' compensation coverage when they have employees. Industry-specific rules, officers, owners, contractors, and exclusions require careful review.",
+    "California employers with one or more employees must satisfy workers' compensation requirements through insurance or authorized self-insurance. Industry-specific rules, officers, owners, contractors, and exclusions require careful review.",
     "Premium starts with estimated payroll and classifications, then is commonly reconciled through an audit. Accurate job descriptions, payroll separation, subcontractor certificates, and ownership records reduce avoidable surprises.",
     "Report operational and payroll changes during the term. General liability does not replace workers' compensation, and independent-contractor labels do not by themselves determine worker status."
   ],
@@ -549,6 +553,17 @@ export const articles: Article[] = [
   relatedSlugs: ["california-homeowners-coverage-limits", "renters-insurance-california", "condo-insurance-california", "replacement-cost-market-value"]
 }
 ];
+
+export const articles: Article[] = originalArticles.map((article) => {
+  const lesson = guideLessons[article.slug];
+  return lesson ? {
+    ...article,
+    sections: lesson.en.sections,
+    commonLimits: lesson.en.limits,
+    officialResources: lesson.sources,
+    dateModified: guideUpdated,
+  } : article;
+});
 
 export function getArticle(slug: string) {
   return articles.find((article) => article.slug === slug);
