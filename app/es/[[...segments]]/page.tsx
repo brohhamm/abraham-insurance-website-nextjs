@@ -27,6 +27,7 @@ import {
 } from "@/components/spanish-priority-pages";
 import { AgentProfile } from "@/components/agent-profile";
 import { EmilyProfile } from "@/components/emily-profile";
+import { GuideSections } from "@/components/guide-sections";
 
 type Props = {
   params: Promise<{ segments?: string[] }>;
@@ -82,18 +83,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const path = pathOf(segments);
   const title = titleFor(path);
   if (!title) return { title: "Página no encontrada" };
+  const article = spanishArticles.find((item) => `/es/educacion/${item.slug}` === path);
   return {
     title,
-    description: `${title}. Orientación profesional y clara sobre seguros para clientes del sur de California.`,
+    description: article?.summary ?? `${title}. Orientación profesional y clara sobre seguros para clientes del sur de California.`,
     alternates: spanishAlternates(path),
     openGraph: {
       title,
-      description: `Información y opciones de seguro en español para el sur de California.`,
+      description: article?.summary ?? `Información y opciones de seguro en español para el sur de California.`,
       locale: "es_US",
       alternateLocale: ["en_US"],
       url: path,
       type: "website",
+      ...(article ? { type: "article" as const, modifiedTime: article.dateModified, images: [{ url: "/og-insurance.svg", width: 1200, height: 630 }] } : {}),
     },
+    ...(article ? { twitter: { card: "summary_large_image" as const, title, description: article.summary, images: ["/og-insurance.svg"] } } : {}),
   };
 }
 
@@ -167,7 +171,7 @@ function ServicePage({ slug }: { slug: string }) {
             </ul>
           </div>
           <aside className="limit-panel service-limit">
-            <p className="eyebrow">Límites comunes y puntos de partida</p>
+            <p className="eyebrow">Qué comparar en su póliza</p>
             <p>{x.limits}</p>
             <small>
               La recomendación depende del solicitante, riesgo, contratos,
@@ -261,6 +265,7 @@ function ArticlePage({ slug }: { slug: string }) {
       <article className="section">
         <div className="shell article-layout">
           <div className="article-body">
+            {x.dateModified ? <p className="source-note">Ejemplos educativos actualizados el <time dateTime={x.dateModified}>7 de septiembre de 2026</time>. Esta actualización no representa una nueva revisión del personal ni revisión legal.</p> : null}
             {x.quickFacts?.length ? (
               <div className="quick-facts">
                 <p className="eyebrow">Puntos clave</p>
@@ -274,9 +279,10 @@ function ArticlePage({ slug }: { slug: string }) {
             {x.body.map((v) => (
               <p key={v}>{v}</p>
             ))}
+            <GuideSections sections={x.sections} />
             {x.commonLimits ? (
               <div className="limit-panel">
-                <p className="eyebrow">Límites comunes y puntos de partida</p>
+                <p className="eyebrow">Qué comparar en su póliza</p>
                 <p>{x.commonLimits}</p>
               </div>
             ) : null}
@@ -294,11 +300,17 @@ function ArticlePage({ slug }: { slug: string }) {
               </a>
             ))}
             <Link className="button" href="/es/contacto">
-              Solicitar orientación
+              Revisar mis preguntas de cobertura
             </Link>
           </aside>
         </div>
       </article>
+      <script id={`article-schema-${x.slug}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "Article", headline: x.title,
+        description: x.summary, inLanguage: "es-US", dateModified: x.dateModified,
+        mainEntityOfPage: `${siteConfig.url}/es/educacion/${x.slug}`,
+        publisher: { "@type": "InsuranceAgency", "@id": `${siteConfig.url}/#insurance-agency`, name: siteConfig.name },
+      }) }} />
       <CTA />
     </>
   );
@@ -471,12 +483,13 @@ function Education() {
         eyebrow="Centro de incendios y educación"
         title="Conozca la cobertura detrás del precio."
       >
-        Explore guías prácticas y recursos oficiales para decisiones personales,
-        comerciales, de incendios, terremotos y escrow.
+        Empiece con su pregunta: ¿qué pagaría después de un reclamo?, ¿qué deja
+        fuera mi póliza?, ¿qué reviso antes de comprar casa? Las guías explican
+        términos, presentan ejemplos y muestran qué preguntar después.
       </PageHero>
       <section className="section wildfire-hub">
         <div className="shell">
-          <div className="section-heading"><div><p className="eyebrow">Incendios, FAIR Plan y catástrofes</p><h2>Comience con la preparación de su propiedad.</h2></div><p>Consulte FAIR Plan, cobertura DIC, fortalecimiento de la vivienda, espacio defendible y protección contra terremotos desde un solo centro.</p></div>
+          <div className="section-heading"><div><p className="eyebrow">Incendios, FAIR Plan y catástrofes</p><h2>Comience con la preparación de su propiedad.</h2></div><p>Aprenda cómo se coordinan el seguro contra incendio FAIR Plan y una póliza separada de diferencia en condiciones (DIC). Después revise medidas para reducir daños por incendio y comparar cobertura sísmica.</p></div>
           <div className="guide-actions"><Link className="button" href="/es/educacion/fair-plan-y-cobertura-dic">Guía de FAIR Plan y DIC</Link><Link className="button button-secondary" href="/es/educacion/preparacion-contra-incendios-y-fortalecimiento-del-hogar">Preparación contra incendios</Link><Link className="button button-secondary" href="/es/educacion/seguro-de-terremoto-y-descuentos-por-refuerzo">Recursos para terremotos</Link></div>
         </div>
       </section>
@@ -731,7 +744,7 @@ function Simple({ path }: { path: string }) {
             </div>
           </div>
         </section>
-        <section className="section"><div className="shell partner-grid"><div><p className="eyebrow">Cotización rápida</p><h2>Indíquenos qué necesita y cómo se enteró de nosotros.</h2><p className="lead-small">Seleccione cobertura, agente preferido y método de contacto. La categoría de referencia ayuda a la agencia a medir qué relaciones y recursos locales son más útiles.</p></div><div className="form-card"><QuoteForm /></div></div></section>
+        <section className="section"><div className="shell partner-grid"><div><p className="eyebrow">Cotización rápida</p><h2>Indíquenos qué necesita y cómo se enteró de nosotros.</h2><p className="lead-small">Seleccione cobertura, agente y método de contacto. Díganos si necesita una cotización nueva o comparar su póliza actual. Podemos explicar límites, lo que pagaría después de una pérdida cubierta y qué protecciones requieren revisión separada.</p></div><div className="form-card"><QuoteForm /></div></div></section>
         <CTA />
       </>
     );
@@ -983,8 +996,10 @@ function Carriers() {
                 <li>California Earthquake Authority</li>
               </ul>
               <p>
-                Los programas públicos o legales pueden formar parte de una
-                estrategia más amplia.
+                El FAIR Plan brinda seguro básico contra incendio cuando no hay
+                cobertura tradicional disponible; CEA atiende protección sísmica.
+                Ninguno significa que todo riesgo esté asegurado. Pregunte cuál
+                póliza cubre cada evento y qué protecciones se compran aparte.
               </p>
               <Link
                 className="text-link"
@@ -1400,9 +1415,11 @@ function Referral() {
               </p>
             ))}
             <p className="note">
-              <strong>El tiempo importa.</strong> Envíe dirección y datos del
-              comprador temprano para identificar problemas antes de las fechas
-              finales.
+              <strong>El tiempo importa.</strong> Empiece con dirección, fecha de
+              cierre, ocupación y requisitos del prestamista. La suscripción es
+              la evaluación de la propiedad y solicitante por la aseguradora.
+              Pregunte qué documentos o reparaciones faltan y confirme cobertura
+              realmente vigente; una cotización no es constancia de seguro.
             </p>
           </div>
           <div className="form-card">

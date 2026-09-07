@@ -1,3 +1,5 @@
+import { locationGuidance } from "./location-guidance";
+
 export type RiskTopic = {
   title: string;
   signal: string;
@@ -28,7 +30,7 @@ const autoRisk: RiskTopic = {
   resourceUrl: "https://www.insurance.ca.gov/0400-news/0200-studies-reports/0600-research-studies/auto-class-plan/circular-ppa-drg.cfm",
 };
 
-export const serviceLocations: ServiceLocation[] = [
+const originalLocations: ServiceLocation[] = [
   {
     slug: "moreno-valley",
     name: "Moreno Valley",
@@ -63,7 +65,7 @@ export const serviceLocations: ServiceLocation[] = [
     officeHref: "/yorba-linda-office",
     officeLabel: "Meet the Yorba Linda team",
     risks: [
-      { title: "Wildfire and open-space interface", signal: "Yorba Linda’s 2025 CAL FIRE mapping identifies Moderate, High, and Very High Fire Hazard Severity Zones. A city fuel-reduction project targets approximately 78 acres near 296 homes, reflecting the localized nature of the exposure.", insurance: "Verify the parcel’s current zone, defensible space, roof, vents, eaves, vegetation, slope, access, and reconstruction estimate. Wildfire eligibility and mitigation credits are carrier-specific; the hazard map alone does not determine the premium.", resourceLabel: "Yorba Linda 2025 fire-hazard maps", resourceUrl: "https://www.yorbalindaca.gov/930/2025-CalFIRE-Fire-Hazard-Severity-Zone-M" },
+      { title: "Wildfire and open-space interface", signal: "Yorba Linda’s 2025 CAL FIRE mapping identifies Moderate, High, and Very High Fire Hazard Severity Zones. Look up your own parcel; a city hazard designation does not by itself determine whether an insurer will accept the home.", insurance: "Verify the parcel’s current zone, defensible space, roof, vents, eaves, vegetation, slope, access, and reconstruction estimate. Wildfire eligibility and mitigation credits are carrier-specific; the hazard map alone does not determine the premium.", resourceLabel: "Yorba Linda 2025 fire-hazard maps", resourceUrl: "https://www.yorbalindaca.gov/930/2025-CalFIRE-Fire-Hazard-Severity-Zone-M" },
       { title: "Earthquake and liquefaction", signal: "The City’s mapping tools allow residents to review seismic and liquefaction hazard information by location, while the Local Hazard Mitigation Plan evaluates earthquake vulnerability citywide.", insurance: "Standard homeowners insurance generally excludes earthquake damage. Review earthquake dwelling limits, percentage deductibles, contents, loss of use, masonry features, and retrofit status separately from the home policy.", resourceLabel: "Map Yorba Linda hazard-zone viewer", resourceUrl: "https://www.yorbalindaca.gov/750/Geographic-Information-Systems-GIS" },
       { title: "Flood, drainage, and hillside runoff", signal: "The City warns that proximity to open space creates both wildfire and hillside-runoff concerns. Flood exposure can exist outside mapped high-risk areas and can change after wildfire or major drainage changes.", insurance: "Check the parcel in FEMA and City mapping tools. Homeowners policies generally exclude rising surface water; NFIP and private flood policies have separate limits, deductibles, exclusions, and waiting-period rules.", resourceLabel: "Yorba Linda emergency and natural-hazard maps", resourceUrl: "https://www.yorbalindaca.gov/161/Emergency-Management" },
       autoRisk,
@@ -122,6 +124,15 @@ export const serviceLocations: ServiceLocation[] = [
     ],
   },
 ];
+
+export const serviceLocations = originalLocations.map((location) => ({
+  ...location,
+  additionalResources: [...location.additionalResources,
+    { label: "NFIP: coverage and exclusions", url: "https://www.floodsmart.gov/get-insured/buy-a-policy" },
+    { label: "USGS: understanding liquefaction", url: "https://earthquake.usgs.gov/education/geologicmaps/liquefaction.php" },
+  ],
+  risks: location.risks.map((risk, index) => ({ ...risk, insurance: locationGuidance.en[index] })),
+}));
 
 export function getServiceLocation(slug: string) {
   return serviceLocations.find((location) => location.slug === slug);
