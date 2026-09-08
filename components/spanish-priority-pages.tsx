@@ -167,8 +167,8 @@ export function SpanishAgency() {
             <article>
               <div className="agency-location-photo">
                 <Image
-                  src="/images/moreno-valley-front-desk.jpg"
-                  alt="Oficina de Moreno Valley de Abel Duran Insurance Agency"
+                  src="/images/agency-office-wall-and-recognition-display.webp"
+                  alt="Pared de la oficina con letrero de Farmers y una vitrina de reconocimientos"
                   fill
                   sizes="(max-width: 760px) 100vw, 50vw"
                 />
@@ -491,7 +491,7 @@ const officeData = {
     phoneHref: "tel:+19516538888",
     fax: "951-656-3333",
     front: "/images/moreno-valley-front-desk.jpg",
-    second: "/images/private-office.jpg",
+    second: "/images/moreno-valley-office-exterior.webp",
     address: "morenoValleyOffice" as const,
     staff: [
       [
