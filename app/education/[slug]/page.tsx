@@ -5,6 +5,7 @@ import { articles, getArticle } from "@/content/articles";
 import { siteConfig } from "@/lib/site-config";
 import { alternatesFor } from "@/lib/i18n";
 import { GuideSections } from "@/components/guide-sections";
+import { ArticlePhoto } from "@/components/article-photo";
 
 const publishedDate = "2026-08-09";
 
@@ -68,6 +69,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     {article.quickFacts?.length ? <section className="guide-panel"><h2>What to know first</h2><ul>{article.quickFacts.map((fact) => <li key={fact}>{fact}</li>)}</ul></section> : null}
     {article.commonLimits ? <section className="limit-panel"><p className="eyebrow">What to compare in your policy</p><p>{article.commonLimits}</p><small>These are educational benchmarks, not a recommendation for every applicant.</small></section> : null}
     <section className="guide-copy">{article.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</section>
+    <ArticlePhoto slug={article.slug} locale="en" />
     <GuideSections sections={article.sections} />
     {article.officialResources?.length ? <section className="official-resources"><h2>Official resources</h2><div>{article.officialResources.map((resource) => <a href={resource.url} target="_blank" rel="noreferrer" key={resource.url}>{resource.label}<span aria-hidden="true">↗</span></a>)}</div></section> : null}
     {article.relatedSlugs?.length ? <section className="official-resources"><h2>Related insurance guides</h2><div>{article.relatedSlugs.map((relatedSlug) => { const related = getArticle(relatedSlug); return related ? <Link href={`/education/${related.slug}`} key={related.slug}>{related.title}<span aria-hidden="true">→</span></Link> : null; })}</div></section> : null}
