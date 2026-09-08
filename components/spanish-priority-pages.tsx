@@ -167,8 +167,8 @@ export function SpanishAgency() {
             <article>
               <div className="agency-location-photo">
                 <Image
-                  src="/images/agency-office-wall-and-recognition-display.webp"
-                  alt="Pared de la oficina con letrero de Farmers y una vitrina de reconocimientos"
+                  src="/images/moreno-valley-office-exterior.webp"
+                  alt="Ventana de Farmers Insurance en la oficina de la agencia en Moreno Valley"
                   fill
                   sizes="(max-width: 760px) 100vw, 50vw"
                 />
