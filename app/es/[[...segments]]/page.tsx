@@ -28,6 +28,7 @@ import {
 import { AgentProfile } from "@/components/agent-profile";
 import { EmilyProfile } from "@/components/emily-profile";
 import { GuideSections } from "@/components/guide-sections";
+import { ArticlePhoto } from "@/components/article-photo";
 
 type Props = {
   params: Promise<{ segments?: string[] }>;
@@ -279,6 +280,7 @@ function ArticlePage({ slug }: { slug: string }) {
             {x.body.map((v) => (
               <p key={v}>{v}</p>
             ))}
+            <ArticlePhoto slug={x.englishSlug} locale="es" />
             <GuideSections sections={x.sections} />
             {x.commonLimits ? (
               <div className="limit-panel">
@@ -727,7 +729,7 @@ function Simple({ path }: { path: string }) {
         </section>
         <section className="section soft">
           <div className="shell photo-story">
-            <div className="photo-frame photo-frame-wide"><Image src="/images/moreno-valley-front-desk.jpg" alt="Recepción de la oficina de seguros en Moreno Valley" fill sizes="(max-width: 900px) 100vw, 55vw" /></div>
+            <div className="photo-frame photo-frame-wide"><Image src="/images/moreno-valley-office-lounge.webp" alt="Área de recepción y asientos de la oficina de seguros en Moreno Valley" fill loading="eager" sizes="(max-width: 900px) 100vw, 55vw" /></div>
             <div><p className="eyebrow">Servicio local y accesible</p><h2>Oficinas de agentes y corredores de seguros en Yorba Linda y Moreno Valley.</h2><p className="agency-attribution">Con el respaldo de Abel Duran Insurance Agency, Inc.</p><p className="lead-small">Seleccione un agente con licencia para recibir orientación sobre cotizaciones y cobertura en cualquiera de las dos oficinas del sur de California.</p><div className="profile-links"><Link className="text-link" href="/es/oficina-moreno-valley">Conozca al equipo de Moreno Valley →</Link><Link className="text-link" href="/es/oficina-yorba-linda">Conozca al equipo de Yorba Linda →</Link></div></div>
           </div>
         </section>
@@ -1173,7 +1175,7 @@ function Office({ city }: { city: "Moreno Valley" | "Yorba Linda" }) {
             <Image
               src={
                 mv
-                  ? "/images/private-office.jpg"
+                  ? "/images/moreno-valley-office-exterior.webp"
                   : "/images/yorba-linda-office-wide.jpg"
               }
               alt={`Segunda vista de la oficina de ${city}`}
