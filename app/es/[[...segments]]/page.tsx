@@ -729,7 +729,7 @@ function Simple({ path }: { path: string }) {
         </section>
         <section className="section soft">
           <div className="shell photo-story">
-            <div className="photo-frame photo-frame-wide"><Image src="/images/moreno-valley-office-lounge.webp" alt="Área de recepción y asientos de la oficina de seguros en Moreno Valley" fill loading="eager" sizes="(max-width: 900px) 100vw, 55vw" /></div>
+            <div className="photo-frame photo-frame-wide"><Image src="/images/moreno-valley-office-palm-trunk.webp" alt="Ventana exterior de la oficina de Farmers Insurance en Moreno Valley" fill loading="eager" sizes="(max-width: 900px) 100vw, 55vw" /></div>
             <div><p className="eyebrow">Servicio local y accesible</p><h2>Oficinas de agentes y corredores de seguros en Yorba Linda y Moreno Valley.</h2><p className="agency-attribution">Con el respaldo de Abel Duran Insurance Agency, Inc.</p><p className="lead-small">Seleccione un agente con licencia para recibir orientación sobre cotizaciones y cobertura en cualquiera de las dos oficinas del sur de California.</p><div className="profile-links"><Link className="text-link" href="/es/oficina-moreno-valley">Conozca al equipo de Moreno Valley →</Link><Link className="text-link" href="/es/oficina-yorba-linda">Conozca al equipo de Yorba Linda →</Link></div></div>
           </div>
         </section>
