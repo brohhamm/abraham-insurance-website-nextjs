@@ -6,6 +6,7 @@ import { siteConfig } from "@/lib/site-config";
 import { alternatesFor } from "@/lib/i18n";
 import { GuideSections } from "@/components/guide-sections";
 import { ArticlePhoto } from "@/components/article-photo";
+import { articleOpening } from "@/content/article-openings";
 
 const publishedDate = "2026-08-09";
 
@@ -65,7 +66,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     <h1>{article.title}</h1>
     <p className="article-summary">{article.summary}</p>
     <div className="author-row"><div><strong>Written and reviewed by <Link href="/about">Abraham Nunez-Chavez</Link></strong><span>California Insurance Agent/Broker · Lic. No. 4357305</span></div><time dateTime={publishedDate}>Reviewed August 9, 2026</time></div>
-    {article.dateModified ? <p className="source-note">Educational examples updated <time dateTime={article.dateModified}>September 7, 2026</time>. This update does not represent a new staff or legal review.</p> : null}
+    {article.dateModified ? <p className="source-note">Educational examples updated <time dateTime={article.dateModified}>September 20, 2026</time>. This update does not represent a new legal review.</p> : null}
+    {articleOpening(article.slug, "en") ? <section className="article-opening" aria-label="Why this topic matters"><p className="eyebrow">Why this matters</p><p>{articleOpening(article.slug, "en")}</p></section> : null}
     {article.quickFacts?.length ? <section className="guide-panel"><h2>What to know first</h2><ul>{article.quickFacts.map((fact) => <li key={fact}>{fact}</li>)}</ul></section> : null}
     {article.commonLimits ? <section className="limit-panel"><p className="eyebrow">What to compare in your policy</p><p>{article.commonLimits}</p><small>These are educational benchmarks, not a recommendation for every applicant.</small></section> : null}
     <section className="guide-copy">{article.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</section>
