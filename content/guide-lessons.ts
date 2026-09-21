@@ -8,7 +8,7 @@ const workers = { label: "California DWC: employer questions", url: "https://www
 
 // Paired teaching sections share one key so English and Spanish examples stay aligned.
 // This is an editorial update date, not a claim of staff or legal review.
-export const guideUpdated = "2026-09-07";
+export const guideUpdated = "2026-09-20";
 export const guideLessons: Record<string, BilingualLesson> = {
   "home-insurance-deductibles": {
     sources: [residential],
@@ -299,3 +299,4 @@ export const guideLessons: Record<string, BilingualLesson> = {
     ] },
   },
 };
+

@@ -14,6 +14,7 @@ const photos = {
   "california-auto-liability-limits": { src: "/images/california-coastal-highway.webp", en: "California coastal highway beside rocky shoreline", es: "Carretera costera de California junto a una costa rocosa", portrait: true },
   "california-homeowners-coverage-limits": { src: "/images/california-coastal-landscape.webp", en: "Open California coastal landscape with ocean and grassy shoreline", es: "Paisaje costero abierto de California con océano y costa cubierta de pasto", portrait: false },
   "condo-insurance-california": { src: "/images/california-residential-neighborhood-street.webp", en: "California residential neighborhood with attached homes and parked vehicles", es: "Vecindario residencial de California con viviendas adosadas y vehículos estacionados", portrait: true },
+  "landlord-insurance-california": { src: "/images/southern-california-rental-neighborhood-palms.webp", en: "Southern California rental neighborhood framed by palm trees", es: "Vecindario de viviendas de alquiler del sur de California rodeado de palmeras", portrait: true },
   "life-insurance-needs-california": { src: "/images/downtown-los-angeles-overlook.webp", en: "Elevated Southern California view toward downtown Los Angeles", es: "Vista elevada del sur de California hacia el centro de Los Ángeles", portrait: true },
   "earthquake-insurance-retrofit-discounts": { src: "/images/california-desert-and-mountain-terrain.webp", en: "Rocky California terrain with mountains in the distance", es: "Terreno rocoso de California con montañas a la distancia", portrait: false },
   "wildfire-readiness-home-hardening": { src: "/images/people-walking-on-california-overlook-trail.webp", en: "Two people walking along an elevated California trail", es: "Dos personas caminando por un sendero elevado de California", portrait: true },
@@ -33,3 +34,4 @@ export function ArticlePhoto({ slug, locale }: { slug: string; locale: "en" | "e
   if (!photo) return null;
   return <figure className={`article-photo${photo.portrait ? " article-photo-portrait" : ""}`}><Image src={photo.src} alt={photo[locale]} fill sizes={photo.portrait ? "(max-width: 620px) 100vw, 480px" : "(max-width: 820px) 100vw, 790px"} /></figure>;
 }
+

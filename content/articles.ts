@@ -562,9 +562,10 @@ export const articles: Article[] = originalArticles.map((article) => {
     commonLimits: lesson.en.limits,
     officialResources: lesson.sources,
     dateModified: guideUpdated,
-  } : article;
+  } : { ...article, dateModified: guideUpdated };
 });
 
 export function getArticle(slug: string) {
   return articles.find((article) => article.slug === slug);
 }
+

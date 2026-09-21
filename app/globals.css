@@ -96,6 +96,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 /* App-like mobile navigation and comfortable touch targets. */
 .mobile-team-links{display:none}.footer-quote{color:#efbd66;font-weight:800}.wildfire-hub{background:#f7f2e8;border-bottom:1px solid #d9c8a8}
+.article-opening{margin:1.5rem 0 2rem;padding:1.25rem 1.4rem;border-left:4px solid #b9762b;background:#f7f2e8;border-radius:0 14px 14px 0}.article-opening .eyebrow{margin:0 0 .45rem}.article-opening p:last-child{margin:0;font-size:1.08rem;line-height:1.75}
 @media(max-width:900px){
   body.menu-open{overflow:hidden}
   .agent-navigation{display:none}
@@ -120,4 +121,5 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   body{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
   .mobile-contact-bar{padding-bottom:env(safe-area-inset-bottom)}
 }
+
 

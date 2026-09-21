@@ -29,6 +29,7 @@ import { AgentProfile } from "@/components/agent-profile";
 import { EmilyProfile } from "@/components/emily-profile";
 import { GuideSections } from "@/components/guide-sections";
 import { ArticlePhoto } from "@/components/article-photo";
+import { articleOpening } from "@/content/article-openings";
 
 type Props = {
   params: Promise<{ segments?: string[] }>;
@@ -266,7 +267,8 @@ function ArticlePage({ slug }: { slug: string }) {
       <article className="section">
         <div className="shell article-layout">
           <div className="article-body">
-            {x.dateModified ? <p className="source-note">Ejemplos educativos actualizados el <time dateTime={x.dateModified}>7 de septiembre de 2026</time>. Esta actualización no representa una nueva revisión del personal ni revisión legal.</p> : null}
+            {x.dateModified ? <p className="source-note">Ejemplos educativos actualizados el <time dateTime={x.dateModified}>20 de septiembre de 2026</time>. Esta actualización no representa una nueva revisión legal.</p> : null}
+            {articleOpening(x.englishSlug, "es") ? <section className="article-opening" aria-label="Por qué importa este tema"><p className="eyebrow">Por qué importa</p><p>{articleOpening(x.englishSlug, "es")}</p></section> : null}
             {x.quickFacts?.length ? (
               <div className="quick-facts">
                 <p className="eyebrow">Puntos clave</p>
@@ -1451,3 +1453,4 @@ export default async function SpanishPage({ params, searchParams }: Props) {
   if (path === "/es/contacto") return <Contact search={search} />;
   return <Simple path={path} />;
 }
+
