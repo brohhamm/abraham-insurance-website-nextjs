@@ -1453,4 +1453,3 @@ export default async function SpanishPage({ params, searchParams }: Props) {
   if (path === "/es/contacto") return <Contact search={search} />;
   return <Simple path={path} />;
 }
-

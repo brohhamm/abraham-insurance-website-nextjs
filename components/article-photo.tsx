@@ -34,4 +34,3 @@ export function ArticlePhoto({ slug, locale }: { slug: string; locale: "en" | "e
   if (!photo) return null;
   return <figure className={`article-photo${photo.portrait ? " article-photo-portrait" : ""}`}><Image src={photo.src} alt={photo[locale]} fill sizes={photo.portrait ? "(max-width: 620px) 100vw, 480px" : "(max-width: 820px) 100vw, 790px"} /></figure>;
 }
-

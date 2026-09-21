@@ -299,4 +299,3 @@ export const guideLessons: Record<string, BilingualLesson> = {
     ] },
   },
 };
-

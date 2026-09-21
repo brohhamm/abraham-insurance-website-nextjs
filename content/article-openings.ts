@@ -113,4 +113,3 @@ export const articleOpenings: Record<string, BilingualOpening> = {
 export function articleOpening(slug: string, locale: keyof BilingualOpening) {
   return articleOpenings[slug]?.[locale];
 }
-

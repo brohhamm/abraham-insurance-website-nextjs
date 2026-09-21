@@ -81,4 +81,3 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     <script id={`breadcrumb-schema-${article.slug}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
   </div></article>;
 }
-
