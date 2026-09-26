@@ -476,6 +476,21 @@ function Listing({ commercial = false }: { commercial?: boolean }) {
           ))}
         </div>
       </section>
+      <section className="section soft">
+        <div className="shell prose-grid">
+          {commercial ? (
+            <>
+              <div><p className="eyebrow">Un evento, varias preguntas de cobertura</p><h2>Un solo día de trabajo puede involucrar varias pólizas.</h2><p>Imagine a un contratista: un empleado se lesiona, la camioneta de la empresa daña el portón del cliente y durante la noche roban herramientas. Compensación laboral, auto comercial, responsabilidad general y cobertura para herramientas atienden partes distintas. Tener una póliza comercial no vuelve intercambiables las demás.</p></div>
+              <div><p className="eyebrow">Empiece con la operación real</p><h2>Describa lo que el negocio hace en la práctica.</h2><p>Precio y elegibilidad dependen de funciones laborales, subcontratistas, uso de vehículos, lugares de trabajo, contratos, ingresos, nómina, valores y pérdidas anteriores. Una descripción precisa ayuda a clasificar el riesgo y reduce sorpresas en auditoría o reclamo.</p></div>
+            </>
+          ) : (
+            <>
+              <div><p className="eyebrow">Por qué las pólizas deben coordinarse</p><h2>Un cambio cotidiano puede afectar varias coberturas.</h2><p>Imagine un hogar que remodela la cocina, agrega a un conductor adolescente y empieza a alquilar su antigua casa. La remodelación cambia el cálculo de reconstrucción, el conductor cambia la exposición de auto y la vivienda ahora necesita seguro para inquilinos, no para ocupación del dueño. El precio de renovación por sí solo no revela esos problemas.</p></div>
+              <div><p className="eyebrow">Una revisión práctica</p><h2>Conecte cada límite con un gasto real.</h2><p>Convierta deducibles a la cantidad que podría pagar después de una pérdida. Compare responsabilidad con un reclamo grave. Calcule cuánto podría durar la vivienda temporal o la renta perdida. Después confirme qué riesgos requieren otra póliza, como terremoto e inundación.</p></div>
+            </>
+          )}
+        </div>
+      </section>
       <CTA />
     </>
   );
