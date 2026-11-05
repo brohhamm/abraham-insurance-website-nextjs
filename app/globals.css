@@ -122,3 +122,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .mobile-contact-bar{padding-bottom:env(safe-area-inset-bottom)}
 }
 
+/* Event RSVP uses the existing agency palette and form controls. */
+.rsvp-banner{background:#173e39;color:#fffdf9;padding:18px 0}.rsvp-banner .shell{display:flex;align-items:center;justify-content:space-between;gap:18px}.rsvp-banner p{margin:0}.rsvp-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:36px;align-items:start}.rsvp-guest>label{display:grid;margin-bottom:18px;gap:6px}.rsvp-guest{border:1px solid #ddc9a8;padding:16px;margin:16px 0;min-width:0}.rsvp-layout textarea{width:100%;box-sizing:border-box}.rsvp-layout .quote-ready{min-width:0}
+@media(max-width:760px){.rsvp-layout{grid-template-columns:1fr}.rsvp-banner .shell{align-items:flex-start;flex-direction:column}.rsvp-layout .form-card{padding:22px}}
