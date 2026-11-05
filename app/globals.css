@@ -122,3 +122,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .mobile-contact-bar{padding-bottom:env(safe-area-inset-bottom)}
 }
 
+/* Event RSVP uses the existing agency palette and form controls. */
+.rsvp-banner{background:#173e39;color:#fffdf9;padding:18px 0}.rsvp-banner .shell{display:flex;align-items:center;justify-content:space-between;gap:18px}.rsvp-banner p{margin:0}.rsvp-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;align-items:start}.rsvp-fields{border:0;padding:0;margin:0;min-width:0}.rsvp-fields>label,.rsvp-guest>label{display:grid;margin-bottom:18px;gap:6px}.rsvp-guest{border:1px solid #ddc9a8;padding:16px;margin:16px 0}.rsvp-reference{overflow-wrap:anywhere}.rsvp-table{overflow-x:auto}.rsvp-table table{width:100%;border-collapse:collapse}.rsvp-table th,.rsvp-table td{padding:10px;text-align:left;border:1px solid #ddc9a8;vertical-align:top;overflow-wrap:anywhere}.rsvp-table small{font-size:.75rem}
+@media(max-width:760px){.rsvp-layout{grid-template-columns:1fr}.rsvp-banner .shell{align-items:flex-start;flex-direction:column}.rsvp-layout .form-card{padding:22px}}
+@media print{body:has(.rsvp-table) header,body:has(.rsvp-table) footer,body:has(.rsvp-table) .mobile-contact-bar,.rsvp-no-print{display:none!important}.rsvp-table{overflow:visible}.rsvp-table table{font-size:10pt}.rsvp-table tr{break-inside:avoid}.rsvp-table thead{display:table-header-group}body:has(.rsvp-table) .shell{width:100%;max-width:none}body:has(.rsvp-table) .section{padding:0}}

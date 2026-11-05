@@ -1,6 +1,7 @@
 export type Locale = "en" | "es";
 
 const staticPairs = [
+  ["/events/christmas-client-appreciation", "/es/eventos/convivio-navideno"],
   ["/", "/es"],
   ["/personal-insurance", "/es/seguros-personales"],
   ["/business-insurance", "/es/seguros-comerciales"],

@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   const englishDates = new Map(english.map((entry) => [new URL(entry.url).pathname, entry.lastModified]));
   const spanish = Object.entries(routePairs).map(([en, path]) => ({ url: `${siteConfig.url}${path}`, lastModified: englishDates.get(en) ?? lastModified, changeFrequency: path === "/es" ? "weekly" as const : "monthly" as const, priority: path === "/es" ? 0.9 : 0.7 }));
-  return [...english, ...spanish];
+  const eventEntry = { url: `${siteConfig.url}/events/christmas-client-appreciation`, lastModified: new Date("2026-11-05T00:00:00-08:00"), changeFrequency: "weekly" as const, priority: 0.7 };
+  return [...english, ...spanish, eventEntry];
 }
 
