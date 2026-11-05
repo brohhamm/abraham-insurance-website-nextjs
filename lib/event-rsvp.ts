@@ -9,11 +9,6 @@ export const event = {
 };
 export type ClientStatus = "yes" | "no" | "unsure";
 export type Guest = { name: string; client: ClientStatus };
-export type Registration = {
-  reference: string; created: string; name: string; phone: string; email: string;
-  client: ClientStatus; guests: Guest[]; notes: string; locale: "en" | "es";
-  sms: string; emailStatus: string; smsSid?: string; cancelled?: boolean;
-};
 export class RsvpError extends Error {
   constructor(public code: string, public status = 400) { super(code); }
 }
@@ -42,3 +37,16 @@ export function parseRegistration(input: unknown) {
   if (new Set(names).size !== names.length) throw new RsvpError("invalid");
   return { name, phone, email, client: client(d.client), guests, notes: clean(d.notes ?? "", 500), locale: d.locale === "es" ? "es" as const : "en" as const };
 }
+export function buildRsvpMessage(d: ReturnType<typeof parseRegistration>) {
+  const es = d.locale === "es";
+  const status = (v: ClientStatus) => v === "yes" ? (es ? "Sí (pendiente de verificación)" : "Yes (pending verification)") : v === "no" ? "No" : (es ? "No estoy seguro" : "Not sure");
+  return [es ? "Solicitud de asistencia: Convivio navideño" : "RSVP request: Christmas Client Appreciation",
+    es ? "10 de diciembre de 2026, 5–8 p. m. (Pacífico)" : "December 10, 2026, 5–8 p.m. (Pacific)", event.address,
+    `${es ? "Nombre" : "Name"}: ${d.name}`, `${es ? "Teléfono" : "Phone"}: ${d.phone}`, `${es ? "Correo" : "Email"}: ${d.email}`,
+    `${es ? "Asegurado principal" : "Primary named insured"}: ${status(d.client)}`, `${es ? "Total de asistentes" : "Total attending"}: ${d.guests.length + 1}`,
+    ...d.guests.map((g, i) => `${es ? "Invitado" : "Guest"} ${i + 1}: ${g.name} | ${es ? "Asegurado principal" : "Primary named insured"}: ${status(g.client)}`),
+    ...(d.notes ? [`${es ? "Solicitudes" : "Requests"}: ${d.notes}`] : []),
+    es ? "Por favor, confirmen disponibilidad. Mi lugar no está confirmado hasta recibir respuesta de la agencia." : "Please confirm availability. My place is not confirmed until the agency replies.",
+  ].join("\n");
+}
+export const smsHref = (message: string) => `sms:+17143889533?&body=${encodeURIComponent(message)}`;

@@ -1,7 +1,6 @@
 import { PageHero } from "@/components/ui";
 import { EventRsvpForm } from "@/components/event-rsvp-form";
 import { event } from "@/lib/event-rsvp";
-import { isRsvpConfigured } from "@/lib/event-store";
 import { connection } from "next/server";
 
 export async function ChristmasEvent({ locale }: { locale: "en" | "es" }) {
@@ -19,7 +18,8 @@ export async function ChristmasEvent({ locale }: { locale: "en" | "es" }) {
         <p>{es ? "¿Necesita ayuda o desea cambiar o cancelar su registro?" : "Need help or want to change or cancel your registration?"} <a href="tel:+19516538888">951-653-8888</a>.</p>
       </div>
       <div className="form-card"><h2>{es ? "Confirmar asistencia" : "RSVP"}</h2><p>{es ? "Evento seleccionado: Convivio navideño · 10 de diciembre" : "Selected event: Christmas Client Appreciation · December 10"}</p>
-        {closed ? <p role="status">{es ? "El registro cerró el 23 de noviembre. Llame a la oficina para recibir asistencia." : "Registration closed on November 23. Please call the office for assistance."}</p> : !isRsvpConfigured() ? <p role="status">{es ? "El registro en línea aún no está disponible. Llame al 951-653-8888 para obtener información. No se ha reservado ningún lugar mediante esta página." : "Online registration is not available yet. Please call 951-653-8888 for information. No place has been reserved through this page."}</p> : <EventRsvpForm locale={locale} />}
+        <p>{es ? "Cupo limitado a 50 invitados. La agencia confirma los lugares y mantiene la lista de asistentes; enviar un mensaje no garantiza un lugar." : "Limited to 50 guests. The agency confirms places and maintains the guest list; sending a message does not guarantee a place."}</p>
+        {closed ? <p role="status">{es ? "El registro cerró el 23 de noviembre. Llame a la oficina para recibir asistencia." : "Registration closed on November 23. Please call the office for assistance."}</p> : <EventRsvpForm locale={locale} />}
       </div>
     </div></section>
   </>;
