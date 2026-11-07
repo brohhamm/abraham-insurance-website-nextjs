@@ -41,6 +41,7 @@ export function buildRsvpMessage(d: ReturnType<typeof parseRegistration>) {
   const es = d.locale === "es";
   const status = (v: ClientStatus) => v === "yes" ? (es ? "Sí (pendiente de verificación)" : "Yes (pending verification)") : v === "no" ? "No" : (es ? "No estoy seguro" : "Not sure");
   return [es ? "Solicitud de asistencia: Convivio navideño" : "RSVP request: Christmas Client Appreciation",
+    es ? "¡Hola, equipo de la agencia Abel Duran! Me encantaría acompañarles a la celebración navideña. Estos son los datos de mi grupo:" : "Hello, Abel Duran Agency team! I’d love to join your holiday celebration. Here are my party’s details:",
     es ? "10 de diciembre de 2026, 5–8 p. m. (Pacífico)" : "December 10, 2026, 5–8 p.m. (Pacific)", event.address,
     `${es ? "Nombre" : "Name"}: ${d.name}`, `${es ? "Teléfono" : "Phone"}: ${d.phone}`, `${es ? "Correo" : "Email"}: ${d.email}`,
     `${es ? "Asegurado principal" : "Primary named insured"}: ${status(d.client)}`, `${es ? "Total de asistentes" : "Total attending"}: ${d.guests.length + 1}`,
