@@ -1,4 +1,3 @@
-import { MosesServiceCard } from "@/components/moses-service-card";
 import Image from "next/image";
 import Link from "next/link";
 import { CTA, PageHero } from "@/components/ui";
@@ -149,7 +148,6 @@ export function SpanishAgency() {
                 </Link>
               </article>
             ))}
-            <MosesServiceCard locale="es" />
           </div>
         </div>
       </section>
@@ -827,7 +825,6 @@ export function SpanishOffice({ city }: { city: keyof typeof officeData }) {
                 </div>
               </article>
             ))}
-            {city === "Moreno Valley" && <MosesServiceCard locale="es" location />}
           </div>
         </div>
       </section>
@@ -933,7 +930,7 @@ export function SpanishCustomerService() {
         eyebrow="Servicio al cliente y apoyo para pólizas"
         title="Ayuda para pólizas existentes de un verdadero equipo de agencia."
       >
-        Rashel Dominguez, Suzee Cervantes y Moses Nunez-Chavez ayudan con preguntas sobre pólizas, documentos, orientación de
+        Rashel Dominguez y Suzee Cervantes ayudan con preguntas sobre pólizas, documentos, orientación de
         facturación, renovaciones y solicitudes de servicio.
       </PageHero>
       <section className="section">
@@ -979,7 +976,6 @@ export function SpanishCustomerService() {
                 </div>
               </article>
             ))}
-            <MosesServiceCard locale="es" />
           </div>
         </div>
       </section>

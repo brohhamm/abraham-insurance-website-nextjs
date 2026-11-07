@@ -1,0 +1,55 @@
+.holiday-event{--holiday-green:#153f35;--holiday-wine:#752b3e;--holiday-gold:#e0bd76;background:#fbf7ee;color:#253d36}
+.holiday-event .holiday-intro{position:relative;overflow:hidden;padding:42px 0 28px;background:radial-gradient(ellipse at 90% 0,#346253 0,transparent 48%),linear-gradient(115deg,#0e302a,#173e35);color:#fffaf0;border-bottom:5px solid #d4af66}
+.holiday-event .holiday-intro .shell{position:relative}
+.holiday-event .holiday-kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#7b3445;margin-bottom:12px}
+.holiday-event .holiday-intro .holiday-kicker{color:#edcd8e;padding-right:90px}
+.holiday-event h1{font-size:clamp(2.2rem,4.2vw,3.7rem);max-width:850px;line-height:1.08;margin-bottom:16px;color:#fffaf0}
+.holiday-event .holiday-subtitle{font-weight:700;font-size:1.05rem;color:#f0d5a5;margin-bottom:10px}
+.holiday-event .holiday-welcome{max-width:780px;color:#e5eee7;margin-bottom:22px}
+.holiday-event .holiday-ornaments{position:absolute;right:0;top:-45px;display:flex;gap:18px;color:#edcd8e;pointer-events:none}
+.holiday-event .holiday-ornaments span{padding-top:30px;border-top:0;border-left:1px solid #bda573;font-size:2rem;line-height:1.4}
+.holiday-event .holiday-ornaments span:nth-child(2){padding-top:58px;font-size:2.8rem}
+.holiday-event .holiday-date-strip{display:flex;gap:24px;align-items:center;border-top:1px solid #698172;padding-top:18px;font-size:.85rem}
+.holiday-event .holiday-date-strip>span:first-child{flex-shrink:0}
+.holiday-event .holiday-date-strip>span:nth-child(2){flex:1;max-width:390px}
+.holiday-event .holiday-date-strip .button{background:#f0d5a5;color:#173c32;border-color:#f0d5a5;box-shadow:none;flex-shrink:0}
+.holiday-event .holiday-body{padding:32px 0 64px;background:radial-gradient(ellipse at 0 100%,#ece8d8 0,transparent 55%)}
+.holiday-event .rsvp-layout{gap:26px}
+.holiday-event .holiday-details{display:grid;gap:18px}
+.holiday-event .holiday-card{padding:26px;background:#fffdf8;border:1px solid #dfd1b8;border-radius:12px}
+.holiday-event h2{font-size:1.8rem;color:#173f35;margin-bottom:16px}
+.holiday-event .holiday-card p:last-child{margin-bottom:0}
+.holiday-event .holiday-partners{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.holiday-event .holiday-partners span{font-size:.72rem;font-weight:750;border:1px solid #d9c8aa;padding:5px 9px;border-radius:30px;color:#6e3141}
+.holiday-event .holiday-how{background:#f0ede1}
+.holiday-event .holiday-how ol{padding-left:22px;margin-bottom:0}
+.holiday-event .holiday-how li{padding-left:6px;margin:12px 0}
+.holiday-event dt{font-size:.9rem;letter-spacing:0;text-transform:none;color:#173f35;font-weight:800}
+.holiday-event dd{margin:5px 0 18px;font-size:.92rem}
+.holiday-event dd:last-child{margin-bottom:0}
+.holiday-event .holiday-drawings{border-top:4px solid #7b3445}
+.holiday-event .holiday-help{font-size:.87rem;padding:0 12px}
+.holiday-event a:not(.button){text-decoration:underline;text-underline-offset:3px}
+.holiday-event .holiday-form{padding:30px;border:1px solid #d5c19b;border-top:5px solid #7b3445;border-radius:12px;background:#fffdf8;box-shadow:0 12px 32px #273e3310;scroll-margin-top:24px;min-width:0}
+.holiday-event .holiday-form-event{font-size:.82rem;font-weight:750;padding:12px;background:#f3ecdf;border-radius:6px}
+.holiday-event .quote-form>label{margin:18px 0}
+.holiday-event .quote-form .form-grid{margin-top:18px}
+.holiday-event .quote-form label{color:#294338}
+.holiday-event .quote-form input,.holiday-event .quote-form select,.holiday-event .quote-form textarea,.holiday-event .rsvp-preview textarea{min-height:48px;font-size:16px;max-width:100%;border:1px solid #a8b5a9;border-radius:6px;padding:11px;background:#fff}
+.holiday-event .quote-form input:focus,.holiday-event .quote-form select:focus,.holiday-event .quote-form textarea:focus{outline:3px solid #e0bd7680;border-color:#173f35}
+.holiday-event .rsvp-channels{display:grid;grid-template-columns:1fr;gap:12px;margin:20px 0 12px}
+.holiday-event .button{min-height:48px;border-radius:6px;background:#1a493b;border-color:#1a493b;color:#fff;white-space:normal;text-align:center;box-shadow:none}
+.holiday-event .button:hover{background:#10382b}
+.holiday-event .rsvp-gmail{background:#752b3e;border-color:#752b3e}
+.holiday-event .rsvp-gmail:hover{background:#542032}
+.holiday-event .button-secondary{background:transparent;color:#173f35;border-color:#657968}
+.holiday-event .button-secondary:hover{background:#e4eadf;color:#173f35}
+.holiday-event .rsvp-fallbacks{display:flex;flex-wrap:wrap;gap:12px 20px}
+.holiday-event .rsvp-fallbacks button{border:0;padding:8px 0;background:transparent;color:#294338;text-decoration:underline;cursor:pointer;font-size:.88rem;font-weight:700;min-height:44px}
+.holiday-event .rsvp-recipient{font-size:.76rem;overflow-wrap:anywhere;color:#46594e;margin:14px 0}
+.holiday-event .rsvp-preview{display:grid;gap:8px;font-size:.85rem;font-weight:700;margin:20px 0}
+.holiday-event .rsvp-ready h3{font-family:var(--font-serif),Georgia,serif;font-size:1.9rem}
+.holiday-event :focus-visible{outline:3px solid #a76d13;outline-offset:4px}
+.holiday-event [role=alert]{padding:12px;border-left:4px solid #752b3e;background:#f8e9e8;color:#652238}
+@media(max-width:760px){.holiday-event .holiday-intro{padding:28px 0 22px}.holiday-event .holiday-date-strip{flex-wrap:wrap;gap:14px}.holiday-event .holiday-date-strip>span:nth-child(2){flex-basis:55%}.holiday-event .holiday-date-strip .button{width:100%}.holiday-event .holiday-body{padding:20px 0 40px}.holiday-event .holiday-form{grid-row:1;padding:22px}.holiday-event .holiday-card{padding:22px}.holiday-event .holiday-ornaments{opacity:.6}.holiday-event .holiday-intro .holiday-kicker{padding-right:70px}}
+@media(prefers-reduced-motion:reduce){html:has(.holiday-event){scroll-behavior:auto}.holiday-event .button{transition:none}}

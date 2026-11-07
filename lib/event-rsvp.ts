@@ -50,3 +50,8 @@ export function buildRsvpMessage(d: ReturnType<typeof parseRegistration>) {
   ].join("\n");
 }
 export const smsHref = (message: string) => `sms:+17143889533?&body=${encodeURIComponent(message)}`;
+export const rsvpEmail = "Abraham.aduran@farmersagency.com";
+export const rsvpSubject = (locale: "en" | "es") => locale === "es" ? "Solicitud de asistencia | Convivio navideño | 10 de diciembre de 2026" : "RSVP Request | Christmas Client Appreciation | December 10, 2026";
+export const gmailHref = (message: string, locale: "en" | "es") => `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(rsvpEmail)}&su=${encodeURIComponent(rsvpSubject(locale))}&body=${encodeURIComponent(message)}`;
+export const emailHref = (message: string, locale: "en" | "es") => `mailto:${rsvpEmail}?subject=${encodeURIComponent(rsvpSubject(locale))}&body=${encodeURIComponent(message)}`;
+export const isRsvpOpen = (now = Date.now()) => now < event.deadline;

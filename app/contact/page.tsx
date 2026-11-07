@@ -55,7 +55,7 @@ export default async function Page({
               </p>
               <p>
                 <strong>Service an existing policy</strong>
-                <a href="/customer-service">Contact Rashel, Suzee, or Moses</a>
+                <a href="/customer-service">Contact Rashel or Suzee</a>
               </p>
               <p>
                 <strong>Moreno Valley office</strong>

@@ -574,7 +574,7 @@ function Contact({
               <p>
                 <strong>Servicio de póliza existente</strong>
                 <Link href="/es/servicio-al-cliente">
-                  Contactar a Rashel, Suzee o Moses
+                  Contactar a Rashel o Suzee
                 </Link>
               </p>
               <p>
