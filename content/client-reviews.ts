@@ -1,10 +1,9 @@
 // Original Google reviews checked November 17, 2026. Reviewer reuse consent
 // was confirmed personally by Abraham. Preserve source order, newest first;
-// relative labels are snapshots, not inferred publication dates.
+// no inferred publication dates or relative posting times are displayed.
 export const abrahamReviews = [
   {
     name: "Matthew Leanord Scharp",
-    age: { en: "An hour ago", es: "Hace una hora" },
     rating: 5,
     url: "https://share.google/AWY8G0ScfhAP4tuON",
     excerpt: {
@@ -14,7 +13,6 @@ export const abrahamReviews = [
   },
   {
     name: "Socalarmorinsurance",
-    age: { en: "2 months ago", es: "Hace 2 meses" },
     rating: 5,
     url: "https://share.google/4oQbKntLoTmI7Dnht",
     excerpt: {
@@ -24,7 +22,6 @@ export const abrahamReviews = [
   },
   {
     name: "Luz Chavez",
-    age: { en: "6 months ago", es: "Hace 6 meses" },
     rating: 5,
     url: "https://share.google/rBu0zsEMEVwgUivai",
     excerpt: {
@@ -34,7 +31,6 @@ export const abrahamReviews = [
   },
   {
     name: "Rosie Phillips",
-    age: { en: "6 months ago", es: "Hace 6 meses" },
     rating: 5,
     url: "https://share.google/x2ECyyJGrhVC5id8b",
     excerpt: {

@@ -11,9 +11,9 @@ export function AbrahamReviews({ locale }: { locale: "en" | "es" }) {
   return <section className="section soft" aria-labelledby="abraham-reviews-heading"><div className="shell">
     <div className="section-heading"><div><p className="eyebrow">{spanish ? "Experiencias compartidas" : "Shared experiences"}</p><h2 id="abraham-reviews-heading">{spanish ? "Lo que dicen los clientes sobre trabajar con Abraham" : "What clients say about working with Abraham"}</h2></div></div>
     <GoogleAttribution spanish={spanish} />
-    <p className="review-note">{spanish ? "Selección de reseñas, de la más reciente a la más antigua. Las fechas relativas se muestran como aparecían en Google al verificarlas el 17 de noviembre de 2026. Son opiniones individuales, no la calificación general de la agencia." : "Selected reviews, newest first. Relative dates are shown as they appeared on Google when checked November 17, 2026. These are individual opinions, not the agency’s overall rating."}</p>
+    <p className="review-note">{spanish ? "Selección de reseñas, de la más reciente a la más antigua. Son opiniones individuales, no la calificación general de la agencia." : "Selected reviews, newest first. These are individual opinions, not the agency’s overall rating."}</p>
     <div className="client-review-grid">{abrahamReviews.map(review => <figure className="card client-review" key={review.name}>
-      <figcaption><strong>{review.name}</strong><span>{review.age[locale]}</span></figcaption>
+      <figcaption><strong>{review.name}</strong></figcaption>
       <p className="review-rating">{spanish ? "Calificación individual: " : "Individual rating: "}{review.rating}/5</p>
       <blockquote><p>“{review.excerpt[locale]}”</p></blockquote>
       {spanish && <p className="review-note">Traducción del original en inglés.</p>}
