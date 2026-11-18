@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CTA, PageHero } from "@/components/ui";
 import { agents, siteConfig } from "@/lib/site-config";
+import { AbrahamReviews } from "@/components/client-reviews";
 
 type Agent = "abraham" | "rosalia";
 
@@ -119,6 +120,6 @@ export function AgentProfile({ agent, locale }: { agent: Agent; locale: "en" | "
         <div className="button-row"><Link className="button" href={profile.quoteHref}>{profile.quoteLabel}</Link><a className="button button-secondary" href={profile.phoneHref}>{profile.callLabel}</a><a className="button button-secondary" href={profile.textHref}>{profile.textLabel}</a></div>
         <aside className="details-card details-wrap"><h2>{profile.officeLabel}</h2><dl><dt>{spanish ? "Dirección" : "Address"}</dt><dd>{profile.office}</dd><dt>{spanish ? "Teléfono" : "Phone"}</dt><dd><a href={profile.phoneHref}>{profile.phone}</a></dd><dt>{spanish ? "Correo electrónico" : "Email"}</dt><dd><a href={`mailto:${profile.email}`}>{profile.email}</a></dd></dl></aside>
       </div>
-    </div></section><CTA /><script id={`${agent}-person-schema`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+    </div></section>{agent === "abraham" && <AbrahamReviews locale={locale} />}<CTA /><script id={`${agent}-person-schema`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
   </>;
 }

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars -- legacy route helpers remain until all bilingual pages share components */
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CommunityReviews } from "@/components/client-reviews";
 import { EventBanner } from "@/components/event-banner";
 import { notFound } from "next/navigation";
 import { PageHero, CTA } from "@/components/ui";
@@ -766,6 +767,7 @@ function Simple({ path }: { path: string }) {
           </div>
         </section>
         <section className="section"><div className="shell partner-grid"><div><p className="eyebrow">Cotización rápida</p><h2>Indíquenos qué necesita y cómo se enteró de nosotros.</h2><p className="lead-small">Seleccione cobertura, agente y método de contacto. Díganos si necesita una cotización nueva o comparar su póliza actual. Podemos explicar límites, lo que pagaría después de una pérdida cubierta y qué protecciones requieren revisión separada.</p></div><div className="form-card"><QuoteForm /></div></div></section>
+        <CommunityReviews locale="es" />
         <CTA />
       </>
     );
