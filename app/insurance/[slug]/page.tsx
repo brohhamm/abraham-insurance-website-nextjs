@@ -5,6 +5,8 @@ import { getInsuranceService, insuranceServices } from "@/content/services";
 import { siteConfig } from "@/lib/site-config";
 import { alternatesFor } from "@/lib/i18n";
 import { GriefSupport } from "@/components/grief-support";
+import { ExperienceSection } from "@/components/abraham-experience";
+import { serviceExperience } from "@/content/abraham-experience";
 
 export function generateStaticParams() {
   return insuranceServices.map((service) => ({ slug: service.slug }));
@@ -15,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const service = getInsuranceService(slug);
   return service ? {
     title: `${service.name} in Southern California`,
-    description: `${service.summary} Serving Moreno Valley, Riverside County, Yorba Linda, and Orange County.`,
+    description: serviceExperience[service.slug] ? `${service.summary} Review options with Abraham Nunez-Chavez. Call 714-388-9533. Serving Riverside and Orange Counties.` : `${service.summary} Serving Moreno Valley, Riverside County, Yorba Linda, and Orange County.`,
     alternates: alternatesFor(`/insurance/${service.slug}`),
   } : { title: "Insurance Coverage" };
 }
@@ -49,6 +51,7 @@ export default async function InsuranceServicePage({ params }: { params: Promise
     <section className="section soft"><div className="shell"><div className="section-heading"><div><p className="eyebrow">Prepare for a quote</p><h2>Information that helps produce an accurate option</h2></div><p>No Social Security number, payment information, or sensitive documents are requested through the website.</p></div><div className="quote-info-grid">{service.quoteInfo.map((item, index) => <article key={item}><strong>0{index + 1}</strong><p>{item}</p></article>)}</div></div></section>
     <section className="section"><div className="shell service-layout"><div><p className="eyebrow">Common questions</p><h2>What clients commonly ask</h2><div className="faq-list">{service.commonQuestions.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></div><aside className="guide-callout"><p className="eyebrow">Coverage guide</p><h2>Understand the details before comparing price.</h2><p>See a realistic example, learn the unfamiliar terms, and bring specific questions to your policy review.</p><Link className="text-link" href={`/education/${service.guideSlug}`}>Read the related guide →</Link></aside></div></section>
     {service.slug === "life-insurance" ? <section className="section soft"><div className="shell"><GriefSupport placement="life" /></div></section> : null}
+    {serviceExperience[service.slug] && <ExperienceSection topic={serviceExperience[service.slug]} locale="en" />}
     <CTA />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />

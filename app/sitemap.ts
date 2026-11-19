@@ -13,7 +13,7 @@ const contextReviewModified = new Date("2026-09-26T00:00:00-07:00");
 const contextReviewPaths = new Set(["/personal-insurance", "/business-insurance"]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const paths = ["", "/personal-insurance", "/business-insurance", "/carriers", "/referral-partners", "/education", "/about", "/abel-duran", "/abraham-nunez-chavez", "/devan-wright", "/emily-lussier", "/rosalia-elizabeth-gomez", "/moreno-valley-office", "/yorba-linda-office", "/customer-service", "/contact", "/privacy", "/sms-terms-and-conditions", "/terms"];
+  const paths = ["/inland-marine-insurance", "", "/personal-insurance", "/business-insurance", "/carriers", "/referral-partners", "/education", "/about", "/abel-duran", "/abraham-nunez-chavez", "/devan-wright", "/emily-lussier", "/rosalia-elizabeth-gomez", "/moreno-valley-office", "/yorba-linda-office", "/customer-service", "/contact", "/privacy", "/sms-terms-and-conditions", "/terms"];
   const english = [
     ...paths.map((path) => ({ url: `${siteConfig.url}${path}`, lastModified: contextReviewPaths.has(path) ? contextReviewModified : updatedStaticPaths.has(path) ? contentModified : lastModified, changeFrequency: path === "" ? "weekly" as const : "monthly" as const, priority: path === "" ? 1 : 0.7 })),
     ...insuranceServices.map((service) => ({ url: `${siteConfig.url}/insurance/${service.slug}`, lastModified: contentModified, changeFrequency: "monthly" as const, priority: 0.8 })),
@@ -23,6 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const englishDates = new Map(english.map((entry) => [new URL(entry.url).pathname, entry.lastModified]));
   const spanish = Object.entries(routePairs).map(([en, path]) => ({ url: `${siteConfig.url}${path}`, lastModified: englishDates.get(en) ?? lastModified, changeFrequency: path === "/es" ? "weekly" as const : "monthly" as const, priority: path === "/es" ? 0.9 : 0.7 }));
   const eventEntry = { url: `${siteConfig.url}/events/christmas-client-appreciation`, lastModified: new Date("2026-11-05T00:00:00-08:00"), changeFrequency: "weekly" as const, priority: 0.7 };
-  return [...english, ...spanish, eventEntry];
+  const revised = new Set(["/", "/abraham-nunez-chavez", "/business-insurance", "/referral-partners", "/inland-marine-insurance", "/insurance/homeowners-insurance", "/insurance/condo-insurance", "/insurance/landlord-insurance", "/insurance/auto-insurance", "/insurance/life-insurance", "/insurance/general-liability-insurance", "/insurance/commercial-property-insurance", "/insurance/business-owners-policy", "/insurance/workers-compensation-insurance", "/insurance/contractor-insurance", "/insurance/commercial-auto-insurance"]);
+  for (const path of [...revised]) if (routePairs[path]) revised.add(routePairs[path]);
+  return [...english, ...spanish, eventEntry].map(entry => revised.has(new URL(entry.url).pathname) ? { ...entry, lastModified: new Date("2026-11-18T00:00:00-08:00") } : entry);
 }
 

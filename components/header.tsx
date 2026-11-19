@@ -3,8 +3,10 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { localeFromPath, localizePath, navByLocale } from "@/lib/i18n";
+import { SiteSearch } from "@/components/site-search";
+import type { SearchEntry } from "@/lib/search-index";
 
-export function Header() {
+export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
   const [open, setOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
@@ -52,6 +54,7 @@ export function Header() {
       <button ref={menuButton} className="menu-button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="main-navigation" aria-label={open ? (spanish ? "Cerrar menú de navegación" : "Close navigation menu") : (spanish ? "Abrir menú de navegación" : "Open navigation menu")}>{open ? (spanish ? "Cerrar" : "Close") : (spanish ? "Menú" : "Menu")}</button>
       <nav id="main-navigation" className={open ? "nav-links open" : "nav-links"} aria-label={spanish ? "Navegación principal" : "Main navigation"}>
         {navigation.map(([label, href]) => <Link key={href} href={href} aria-current={pathname === href ? "page" : undefined} onClick={() => setOpen(false)}>{label}</Link>)}
+        <SiteSearch entries={searchEntries} locale={locale} onNavigate={() => setOpen(false)} />
         <div className="mobile-team-links" aria-label={spanish ? "Conozca al equipo" : "Meet our team"}>
           <strong>{spanish ? "Conozca al equipo" : "Meet Our Team"}</strong>
           {agents.map((agent) => <Link key={agent.href} href={agent.href} onClick={closeMenu}>{agent.name}<span>{agent.role}</span></Link>)}

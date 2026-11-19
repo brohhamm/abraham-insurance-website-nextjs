@@ -27,6 +27,8 @@ import {
   SpanishCustomerService,
   SpanishOffice,
 } from "@/components/spanish-priority-pages";
+import { AbrahamHomeFeature, ExperienceSection } from "@/components/abraham-experience";
+import { serviceExperience } from "@/content/abraham-experience";
 import { AgentProfile } from "@/components/agent-profile";
 import { EmilyProfile } from "@/components/emily-profile";
 import { GuideSections } from "@/components/guide-sections";
@@ -88,13 +90,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = titleFor(path);
   if (!title) return { title: "Página no encontrada" };
   const article = spanishArticles.find((item) => `/es/educacion/${item.slug}` === path);
+  const service = spanishServices.find(item => `/es/${item.slug}` === path);
+  const abrahamDescription = path === "/es/abraham-nunez-chavez" ? "Abraham Nunez-Chavez: propiedades de alquiler, compradores primerizos, escrow, responsabilidad comercial, equipo y vida. 714-388-9533." : service && serviceExperience[service.englishSlug] ? `${service.summary} Revise opciones con Abraham Nunez-Chavez: 714-388-9533.` : undefined;
   return {
     title,
-    description: article?.summary ?? `${title}. Orientación profesional y clara sobre seguros para clientes del sur de California.`,
+    description: abrahamDescription ?? article?.summary ?? `${title}. Orientación profesional y clara sobre seguros para clientes del sur de California.`,
     alternates: spanishAlternates(path),
     openGraph: {
       title,
-      description: article?.summary ?? `Información y opciones de seguro en español para el sur de California.`,
+      description: abrahamDescription ?? article?.summary ?? `Información y opciones de seguro en español para el sur de California.`,
       locale: "es_US",
       alternateLocale: ["en_US"],
       url: path,
@@ -243,6 +247,7 @@ function ServicePage({ slug }: { slug: string }) {
           </div>
         </section>
       ) : null}
+      {serviceExperience[x.englishSlug] && <ExperienceSection topic={serviceExperience[x.englishSlug]} locale="es" />}
       <CTA />
       <script
         type="application/ld+json"
@@ -493,6 +498,7 @@ function Listing({ commercial = false }: { commercial?: boolean }) {
           )}
         </div>
       </section>
+      {commercial && <><ExperienceSection topic="commercial" locale="es" /><ExperienceSection topic="inland" locale="es" /></>}
       <CTA />
     </>
   );
@@ -767,6 +773,7 @@ function Simple({ path }: { path: string }) {
           </div>
         </section>
         <section className="section"><div className="shell partner-grid"><div><p className="eyebrow">Cotización rápida</p><h2>Indíquenos qué necesita y cómo se enteró de nosotros.</h2><p className="lead-small">Seleccione cobertura, agente y método de contacto. Díganos si necesita una cotización nueva o comparar su póliza actual. Podemos explicar límites, lo que pagaría después de una pérdida cubierta y qué protecciones requieren revisión separada.</p></div><div className="form-card"><QuoteForm /></div></div></section>
+        <AbrahamHomeFeature locale="es" />
         <CommunityReviews locale="es" />
         <CTA />
       </>
@@ -1452,6 +1459,7 @@ function Referral() {
         </div>
       </section>
       <section className="section soft"><div className="shell partner-grid"><div><p className="eyebrow">Recurso gratuito de suscripción</p><h2>Solicite una revisión gratuita del historial de reclamaciones de la propiedad</h2><p>El historial previo de reclamaciones de una propiedad puede afectar la elegibilidad, las opciones de cobertura y la prima. Algunas viviendas pueden ser difíciles o imposibles de asegurar debido a pérdidas anteriores o condiciones pendientes. Revisar la información disponible con anticipación ayuda a compradores y profesionales hipotecarios a identificar obstáculos antes de que retrasen el cierre.</p><p><strong>Abraham Nunez-Chavez es el contacto designado de la agencia para estas revisiones gratuitas.</strong></p><p className="disclaimer">La revisión de reclamaciones es un recurso informativo de suscripción y no garantiza la asegurabilidad, aceptación de una compañía, prima ni cobertura.</p></div><div className="form-card"><ClaimsCheckForm spanish /></div></div></section>
+      <ExperienceSection topic="homebuyer" locale="es" />
     </>
   );
 }

@@ -6,6 +6,7 @@ import { MobileContactBar } from "@/components/mobile-contact-bar";
 import { SiteAnalytics } from "@/components/site-analytics";
 import { siteConfig } from "@/lib/site-config";
 import { headers } from "next/headers";
+import { buildSearchIndex } from "@/lib/search-index";
 import "./globals.css";
 
 const geist = Geist({ variable: "--font-sans", subsets: ["latin"] });
@@ -55,5 +56,5 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       itemListElement: ["Homeowners", "Auto", "Renters", "Condo", "Landlord", "Umbrella", "Life", "Earthquake", "General Liability", "Workers Compensation", "Commercial Auto", "Commercial Property", "Business Owners Policy"].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
     },
   };
-  return <html lang={locale}><body className={`${geist.variable} ${lora.variable}`}><Header/><main>{children}</main><Footer/><MobileContactBar/><script id="insurance-agency-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /><SiteAnalytics /></body></html>;
+  return <html lang={locale}><body className={`${geist.variable} ${lora.variable}`}><Header searchEntries={buildSearchIndex()}/><main>{children}</main><Footer/><MobileContactBar/><script id="insurance-agency-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /><SiteAnalytics /></body></html>;
 }
