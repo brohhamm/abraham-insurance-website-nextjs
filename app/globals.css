@@ -136,3 +136,5 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:620px){.experience-grid{grid-template-columns:1fr}.site-search-dialog{padding:20px}.search-heading h2{font-size:1.5rem}.search-trigger{text-align:left;min-height:44px}}
 
 .search-trigger:focus-visible{outline-color:#efc477}.search-trigger:hover{color:#efc477}
+
+.site-search-dialog{position:fixed;inset:0;margin:auto}

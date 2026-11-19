@@ -16,7 +16,7 @@ export function SiteSearch({ entries, locale, onNavigate }: { entries: SearchEnt
   function open() { setQuery(""); dialog.current?.showModal(); input.current?.focus(); }
   return <>
     <button ref={trigger} type="button" className="search-trigger" aria-haspopup="dialog" onClick={open}>{es ? "Buscar" : "Search"}</button>
-    <dialog ref={dialog} className="site-search-dialog" aria-labelledby="site-search-title" onKeyDown={event => { if (event.key === "Escape") event.stopPropagation(); }} onCancel={event => { event.preventDefault(); close(); }}>
+    <dialog ref={dialog} className="site-search-dialog" aria-labelledby="site-search-title" onKeyDown={event => { if (event.key === "Escape") { event.preventDefault(); event.stopPropagation(); close(); } }} onCancel={event => { event.preventDefault(); close(); }}>
       <div className="search-heading"><h2 id="site-search-title">{es ? "Busque en el sitio" : "Search the website"}</h2><button type="button" className="button button-secondary button-small" onClick={close}>{es ? "Cerrar" : "Close"}</button></div>
       <label className="search-label" htmlFor="site-search-input">{es ? "Agentes, seguros, guías, oficinas y eventos" : "Agents, insurance, guides, offices, and events"}</label>
       <input ref={input} id="site-search-input" type="search" value={query} maxLength={120} autoComplete="off" onChange={event => setQuery(event.target.value)} placeholder={es ? "Por ejemplo: alquiler, equipo, Abraham" : "Try landlord, equipment, or Abraham"} aria-describedby="search-status" />
