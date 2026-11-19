@@ -22,6 +22,7 @@ export function Header({ searchEntries }: { searchEntries: SearchEntry[] }) {
 
   useEffect(() => {
     function closeOnEscape(event: KeyboardEvent) {
+      if (event.target instanceof Element && event.target.closest("dialog")) return;
       if (event.key === "Escape") setOpen(false);
     }
     document.addEventListener("keydown", closeOnEscape);
