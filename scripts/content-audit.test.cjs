@@ -21,16 +21,17 @@ const { spanishArticles, spanishServices } = load("content/spanish");
 const { insuranceServices } = load("content/services");
 const { guideLessons, guideUpdated } = load("content/guide-lessons");
 const { routePairs } = load("lib/i18n");
-test("all 26 guides have matched teaching sections, dates and existing bilingual routes", () => {
-  assert.equal(articles.length, 26);
-  assert.equal(spanishArticles.length, 26);
-  assert.equal(Object.keys(guideLessons).length, 26);
+test("all 27 guides have matched teaching sections, dates and existing bilingual routes", () => {
+  assert.equal(articles.length, 27);
+  assert.equal(spanishArticles.length, 27);
+  assert.equal(Object.keys(guideLessons).length, 27);
   for (const article of articles) {
     const translated = spanishArticles.find((x) => x.englishSlug === article.slug);
     assert.ok(translated);
     assert.equal(routePairs[`/education/${article.slug}`], `/es/educacion/${translated.slug}`);
-    assert.equal(article.dateModified, guideUpdated);
-    assert.equal(translated.dateModified, guideUpdated);
+    const expectedDate = article.slug === "inland-marine-rental-equipment-california" ? "2026-11-18" : guideUpdated;
+    assert.equal(article.dateModified, expectedDate);
+    assert.equal(translated.dateModified, expectedDate);
     assert.ok(article.sections.length >= 2);
     assert.equal(article.sections.length, translated.sections.length);
     const numbers = (sections) => JSON.stringify(sections).match(/\d+(?:[,.]\d+)*%?/g) || [];

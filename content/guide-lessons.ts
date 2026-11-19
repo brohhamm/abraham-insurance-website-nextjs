@@ -1,3 +1,4 @@
+import { inlandMarineLesson, inlandGuideSlug } from "./inland-marine-guide";
 export type GuideSection = { heading: string; paragraphs: string[] };
 type Lesson = { sections: GuideSection[]; limits: string };
 type BilingualLesson = { en: Lesson; es: Lesson; sources: { label: string; url: string }[] };
@@ -10,6 +11,7 @@ const workers = { label: "California DWC: employer questions", url: "https://www
 // This is an editorial update date, not a claim of staff or legal review.
 export const guideUpdated = "2026-09-20";
 export const guideLessons: Record<string, BilingualLesson> = {
+  [inlandGuideSlug]: inlandMarineLesson,
   "home-insurance-deductibles": {
     sources: [residential],
     en: { limits: "Compare the premium savings with the extra deductible you would have to fund. Convert any percentage deductible into dollars using the basis stated in your policy.", sections: [

@@ -50,6 +50,7 @@ export const locationSlugPairs = {
 } as const;
 
 export const articleSlugPairs = {
+  "inland-marine-rental-equipment-california": "seguro-equipo-alquilado-y-transporte-california",
   "home-insurance-deductibles": "deducibles-del-seguro-de-casa",
   "fair-plan-dic": "fair-plan-y-cobertura-dic",
   "replacement-cost-market-value": "costo-de-reemplazo-y-valor-de-mercado",

@@ -56,9 +56,45 @@ test('the real public index has unique bilingual routes and specialty search ter
   const allowed = new Set([...Object.keys(pairs), ...Object.values(pairs)]);
   assert.equal(index.length, new Set(index.map(entry => entry.href)).size);
   assert.ok(index.length > 100);
-  for (const entry of index) assert.ok(allowed.has(entry.href), entry.href);
+  for (const entry of index) assert.ok(allowed.has(entry.href.split("#")[0]), entry.href);
   const { searchPublicPages } = await load();
   assert.equal(searchPublicPages(index, 'Abraham', 'en')[0].href, '/abraham-nunez-chavez');
   assert.ok(searchPublicPages(index, 'vacant condos', 'en').some(entry => entry.href === '/insurance/landlord-insurance'));
   assert.equal(searchPublicPages(index, 'equipo', 'es')[0].locale, 'es');
+  for (const [query, locale, expected] of [
+    ['landlord insurance','en','/insurance/landlord-insurance'],
+    ['rental equipment','en','/inland-marine-insurance'],
+    ['equipo alquilado','es','/es/seguro-de-equipo-y-bienes-en-transito'],
+    ['landlrod','en','/insurance/landlord-insurance'],
+  ]) assert.equal(searchPublicPages(index,query,locale)[0].href,expected,query);
+  for (const query of ['restaurants','salon','workers compensation','FAIR Plan','DIC','DP-3','mobile homes','annuities']) assert.ok(searchPublicPages(index,query,'en').length,query);
+  for (const query of ['GriefShare','grief share','greif share','grief','bereavement','duelo','grief support groups near me']) {
+    const found = searchPublicPages(index,query,'es');
+    assert.ok(found.some(entry=>entry.href.includes('#grief-support')),query);
+    assert.equal(found[0].locale,'es',query);
+  }
+  assert.equal(searchPublicPages(index,'Coterie','en')[0].href,'/carriers');
+  assert.equal(searchPublicPages(index,'Juan Pollo','es')[0].href,'/es/eventos/convivio-navideno');
+  for (const topic of Object.values(loadTs('content/abraham-guidance').guidanceLinks)) {
+    assert.notEqual(topic.service,topic.guide);
+    assert.ok(allowed.has(topic.service),topic.service);
+    assert.ok(allowed.has(topic.guide),topic.guide);
+    assert.ok(pairs[topic.service] && pairs[topic.guide]);
+  }
+
+});
+
+test('exact titles outrank broad guides, typos resolve, and all meaningful terms must match', async () => {
+  const { searchPublicPages } = await load();
+  const pages = [...entries,
+    {href:'/education/landlord-options',title:'Landlord Insurance Options for California',description:'Rental choices',locale:'en',category:'guide'},
+    {href:'/insurance/life-insurance',title:'Life Insurance',description:'Protection and annuity options',locale:'en',category:'service'},
+    {href:'/education/life-guide',title:'Life protection guide',description:'Income replacement',locale:'en',category:'guide'},
+  ];
+  assert.equal(searchPublicPages(pages,'landlord insurance','en')[0].href,'/insurance/landlord-insurance');
+  assert.equal(searchPublicPages(pages,'landlrod','en')[0].href,'/insurance/landlord-insurance');
+  assert.equal(searchPublicPages(pages,'rental equipment','en')[0].href,'/inland-marine-insurance');
+  assert.equal(searchPublicPages(pages,'DP-3','en')[0].href,'/insurance/landlord-insurance');
+  assert.deepEqual(searchPublicPages(pages,'landlord astrophysics','en'),[]);
+  assert.deepEqual(searchPublicPages(pages,'annuities','en').map(x=>x.href),['/insurance/life-insurance']);
 });

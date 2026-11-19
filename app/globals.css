@@ -138,3 +138,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .search-trigger:focus-visible{outline-color:#efc477}.search-trigger:hover{color:#efc477}
 
 .site-search-dialog{position:fixed;inset:0;margin:auto}
+
+.expertise-details,.expertise-example{margin:20px 0;border-top:1px solid var(--line);padding-top:16px}.expertise-details summary,.expertise-example summary{cursor:pointer;font-weight:750;min-height:44px;padding-block:10px;line-height:1.45}.expertise-details p,.expertise-example p{margin-top:14px}.expertise-links{display:grid;gap:8px;padding-top:18px;margin-top:20px;border-top:1px solid var(--line)}.expertise-links a{display:flex;align-items:center;min-height:44px}.expertise-links a:focus-visible,.expertise-details summary:focus-visible,.expertise-example summary:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+
+.search-suggestions { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+.search-suggestions button,.search-clear { min-height:44px; padding:.5rem .8rem; border:1px solid var(--line); border-radius:.5rem; background:var(--white); color:inherit; font:inherit; cursor:pointer; }
+.search-clear { margin-top:.5rem; }
+.search-suggestions button:focus-visible,.search-clear:focus-visible { outline:3px solid var(--gold-dark); outline-offset:3px; }

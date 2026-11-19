@@ -1,3 +1,4 @@
+import { inlandMarineArticle, inlandGuideSlug, inlandGuideDate } from "./inland-marine-guide";
 import { guideLessons, guideUpdated, type GuideSection } from "./guide-lessons";
 
 export type Article = {
@@ -554,14 +555,14 @@ const originalArticles: Article[] = [
 }
 ];
 
-export const articles: Article[] = originalArticles.map((article) => {
+export const articles: Article[] = [...originalArticles, inlandMarineArticle].map((article: Article) => {
   const lesson = guideLessons[article.slug];
   return lesson ? {
     ...article,
     sections: lesson.en.sections,
     commonLimits: lesson.en.limits,
     officialResources: lesson.sources,
-    dateModified: guideUpdated,
+    dateModified: article.slug === inlandGuideSlug ? inlandGuideDate : guideUpdated,
   } : { ...article, dateModified: guideUpdated };
 });
 

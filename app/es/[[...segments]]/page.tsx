@@ -274,7 +274,8 @@ function ArticlePage({ slug }: { slug: string }) {
       <article className="section">
         <div className="shell article-layout">
           <div className="article-body">
-            {x.dateModified ? <p className="source-note">Ejemplos educativos actualizados el <time dateTime={x.dateModified}>20 de septiembre de 2026</time>. Esta actualización no representa una nueva revisión legal.</p> : null}
+            {x.englishSlug === "inland-marine-rental-equipment-california" ? <p className="source-note">Orientación de <Link href="/es/abraham-nunez-chavez">Abraham Nunez-Chavez</Link> · Licencia de CA n.º 4357305. Publicado el <time dateTime="2026-11-18">18 de noviembre de 2026</time>.</p> : null}
+            {x.dateModified && x.englishSlug !== "inland-marine-rental-equipment-california" ? <p className="source-note">Ejemplos educativos actualizados el <time dateTime={x.dateModified}>20 de septiembre de 2026</time>. Esta actualización no representa una nueva revisión legal.</p> : null}
             {articleOpening(x.englishSlug, "es") ? <section className="article-opening" aria-label="Por qué importa este tema"><p className="eyebrow">Por qué importa</p><p>{articleOpening(x.englishSlug, "es")}</p></section> : null}
             {x.quickFacts?.length ? (
               <div className="quick-facts">

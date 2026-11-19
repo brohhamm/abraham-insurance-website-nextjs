@@ -8,13 +8,15 @@ import { GuideSections } from "@/components/guide-sections";
 import { ArticlePhoto } from "@/components/article-photo";
 import { articleOpening } from "@/content/article-openings";
 
-const publishedDate = "2026-08-09";
+const originalPublishedDate = "2026-08-09";
 
 export function generateStaticParams() { return articles.map((article) => ({ slug: article.slug })); }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const article = getArticle(slug);
+  const newGuide = slug === "inland-marine-rental-equipment-california";
+  const publishedDate = newGuide ? "2026-11-18" : originalPublishedDate;
   return article ? {
     title: article.title,
     description: article.summary,
@@ -38,6 +40,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const article = getArticle(slug);
+  const newGuide = slug === "inland-marine-rental-equipment-california";
+  const publishedDate = newGuide ? "2026-11-18" : originalPublishedDate;
   if (!article) notFound();
   const articleUrl = `${siteConfig.url}/education/${article.slug}`;
   const schema = {
@@ -65,8 +69,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     <p className="eyebrow">{article.category || "Insurance"} guide</p>
     <h1>{article.title}</h1>
     <p className="article-summary">{article.summary}</p>
-    <div className="author-row"><div><strong>Written and reviewed by <Link href="/about">Abraham Nunez-Chavez</Link></strong><span>California Insurance Agent/Broker · Lic. No. 4357305</span></div><time dateTime={publishedDate}>Reviewed August 9, 2026</time></div>
-    {article.dateModified ? <p className="source-note">Educational examples updated <time dateTime={article.dateModified}>September 20, 2026</time>. This update does not represent a new legal review.</p> : null}
+    <div className="author-row"><div><strong>{newGuide ? "Insurance guidance from " : "Written and reviewed by "}<Link href={newGuide ? "/abraham-nunez-chavez" : "/about"}>Abraham Nunez-Chavez</Link></strong><span>California Insurance Agent/Broker · Lic. No. 4357305</span></div><time dateTime={publishedDate}>{newGuide ? "Published November 18, 2026" : "Reviewed August 9, 2026"}</time></div>
+    {article.dateModified && !newGuide ? <p className="source-note">Educational examples updated <time dateTime={article.dateModified}>September 20, 2026</time>. This update does not represent a new legal review.</p> : null}
     {articleOpening(article.slug, "en") ? <section className="article-opening" aria-label="Why this topic matters"><p className="eyebrow">Why this matters</p><p>{articleOpening(article.slug, "en")}</p></section> : null}
     {article.quickFacts?.length ? <section className="guide-panel"><h2>What to know first</h2><ul>{article.quickFacts.map((fact) => <li key={fact}>{fact}</li>)}</ul></section> : null}
     {article.commonLimits ? <section className="limit-panel"><p className="eyebrow">What to compare in your policy</p><p>{article.commonLimits}</p><small>These are educational benchmarks, not a recommendation for every applicant.</small></section> : null}

@@ -1,123 +1,143 @@
+// Professional experience and license categories supplied and confirmed by Abraham.
+// Expanded authorities were not independently verified through the blocked CDI lookup.
 export const abrahamSocials = {
-  linkedin: "https://www.linkedin.com/in/abraham-nunez-chavez-5b1212187/",
-  facebook: "https://www.facebook.com/profile.php?id=61592926670011",
+  "linkedin": "https://www.linkedin.com/in/abraham-nunez-chavez-5b1212187/",
+  "facebook": "https://www.facebook.com/profile.php?id=61592926670011"
 };
 
 export const abrahamCities = ["Riverside", "Perris", "Corona", "Yorba Linda", "Anaheim", "Garden Grove", "Moreno Valley"];
 
 export const experience = {
-  review: {
-    href: "/contact?agent=abraham",
-    en: {
-      title: "A coverage review built around your life and business",
-      text: "Abraham Nunez-Chavez looks beyond premium to review insured property, property belonging to others, liability exclusions, actual operations, and how policies work together. For businesses, he reviews employee duties, payroll, and workers’ compensation classifications to help reduce audit discrepancies. Accurate records matter; savings and audit outcomes are not guaranteed.",
-      question: "What should I bring to a coverage review?",
-      answer: "Bring current policy declarations, your questions, and details of changes to your property, household, vehicles, or business. Abraham explains gaps, deductibles, limits, and available options before you decide. Arrange a secure way to share documents; do not send sensitive records through the website form.",
+  "review": {
+    "href": "/contact?agent=abraham",
+    "en": {
+      "title": "Know what your insurance protects before you need it.",
+      "text": "Abraham reviews your policies against the life you live and the business you operate. He checks insured property, belongings owned by others, liability exclusions, limits, deductibles, and overlapping policies. For employers, he reviews employee duties, payroll records, and workers’ compensation classifications. The goal is a clear explanation of what fits, what needs attention, and which changes deserve your money.",
+      "question": "What should I bring to a coverage review?",
+      "answer": "Bring your declarations pages, questions, and details of changes to your household, vehicles, properties, or business. Abraham connects each recommendation to a specific exposure and explains the tradeoff between premium, deductible, and protection. Accurate payroll and classification records support the insurer’s audit; the carrier calculates the final adjustment. Arrange a secure document handoff rather than entering sensitive records in the website form."
     },
-    es: {
-      title: "Una revisión de cobertura basada en su vida y su negocio",
-      text: "Abraham Nunez-Chavez revisa más que la prima: bienes asegurados, bienes de otras personas, exclusiones de responsabilidad, operaciones reales y coordinación entre pólizas. Para negocios, revisa funciones laborales, nómina y clasificaciones de compensación laboral para ayudar a reducir diferencias en auditorías. Los registros precisos importan; no se garantizan ahorros ni resultados de auditoría.",
-      question: "¿Qué debo llevar a una revisión de cobertura?",
-      answer: "Tenga sus declaraciones de póliza, sus preguntas y detalles de cambios en su propiedad, hogar, vehículos o negocio. Abraham explica vacíos, deducibles, límites y opciones antes de que usted decida. Coordine un medio seguro para compartir documentos; no envíe registros sensibles por el formulario del sitio.",
-    },
+    "es": {
+      "title": "Sepa qué protege su seguro antes de necesitarlo.",
+      "text": "Abraham compara sus pólizas con la vida que lleva y las operaciones de su negocio. Revisa bienes asegurados, pertenencias de terceros, exclusiones de responsabilidad, límites, deducibles y coordinación entre pólizas. Para empleadores, revisa funciones laborales, nómina y clasificaciones de compensación laboral. Usted recibe una explicación clara de lo que funciona, lo que necesita atención y qué cambios justifican su costo.",
+      "question": "¿Qué debo llevar a una revisión de cobertura?",
+      "answer": "Tenga sus declaraciones de póliza, preguntas y detalles de cambios en su hogar, vehículos, propiedades o negocio. Abraham vincula cada recomendación con una exposición específica y explica la diferencia entre prima, deducible y protección. Los registros precisos respaldan la auditoría; la aseguradora calcula el ajuste final. Coordine un medio seguro para entregar documentos en vez de introducir registros sensibles en el formulario."
+    }
   },
-  landlord: {
-    href: "/insurance/landlord-insurance",
-    en: {
-      title: "Landlord insurance for individual rentals and property portfolios",
-      text: "Abraham writes DP-3 landlord policies and coordinates insurance for individual landlords, LLC-owned rentals, and multi-property portfolios, including several properties held by the same LLC. His experience includes tenant-occupied homes, landlord condos, vacant condos, seasonal residences, and mobile or manufactured homes with different occupancy arrangements, subject to eligibility.",
-      question: "Can Abraham compare rental-property options outside Farmers?",
-      answer: "Yes. Through the agency’s authorized brokerage access, he reviews Farmers and additional admitted and nonadmitted markets as appropriate. He compares available replacement-cost options, loss of rents after covered property damage, premises liability, deductibles, occupancy requirements, and exclusions. Ordinary unpaid rent is different from covered loss of rents. Insurer availability varies; a portfolio can require separate policies and insurers rather than one policy for every property.",
+  "landlord": {
+    "href": "/insurance/landlord-insurance",
+    "en": {
+      "title": "Protect the rental income and properties you have worked to build.",
+      "text": "Abraham writes DP-3 landlord policies and coordinates coverage for individual rentals, LLC-owned properties, and multi-property portfolios. His placement experience includes tenant-occupied homes, landlord condos, vacant condos, seasonal homes, and mobile or manufactured homes with different occupancy arrangements. He checks ownership, actual use, replacement-cost options, landlord-owned contents, premises liability, and loss of rents together.",
+      "question": "How does a rental-property review go beyond the building limit?",
+      "answer": "Abraham reviews who owns each property, who occupies it, which entity belongs on the policy, and how liability and rental income are protected. He compares Farmers and additional admitted and nonadmitted markets through the agency’s brokerage access. Covered loss of rents follows insured property damage and the policy’s terms; ordinary unpaid rent is a different exposure. Portfolio structure and underwriting determine whether properties use separate policies or a coordinated program.",
+      "example": "A rental-property owner needed coverage across a portfolio that included several homes under the same LLC. Abraham coordinated insurance for the portfolio rather than treating each address as an unrelated transaction. He also places coverage for stand-alone landlords with tenant-occupied homes.",
+      "why": "Your ownership structure, occupancy, property schedule, and liability need to agree across the program. Reviewing the portfolio together helps you spot the questions that a building-value-only quote leaves unanswered."
     },
-    es: {
-      title: "Seguros para viviendas de alquiler y carteras de propiedades",
-      text: "Abraham coloca pólizas DP-3 para propietarios y coordina seguros para arrendadores individuales, propiedades a nombre de una LLC y carteras de varias propiedades, incluidas varias bajo la misma LLC. Tiene experiencia con casas ocupadas por inquilinos, condominios de alquiler, condominios vacantes, residencias de temporada y casas móviles o prefabricadas con distintas ocupaciones, sujetas a elegibilidad.",
-      question: "¿Puede Abraham comparar opciones fuera de Farmers para mis propiedades de alquiler?",
-      answer: "Sí. Mediante el acceso autorizado de corretaje de la agencia, revisa Farmers y mercados admitidos y no admitidos cuando corresponde. Compara opciones disponibles de costo de reemplazo, pérdida de rentas por daños cubiertos, responsabilidad del inmueble, deducibles, ocupación y exclusiones. La renta impagada ordinaria es distinta de la pérdida de rentas cubierta. La disponibilidad varía; una cartera puede requerir pólizas y aseguradoras separadas.",
-    },
+    "es": {
+      "title": "Proteja las propiedades y rentas que ha trabajado para construir.",
+      "text": "Abraham coloca pólizas DP-3 y coordina cobertura para alquileres individuales, propiedades a nombre de una LLC y carteras de varias propiedades. Ha colocado seguros para casas ocupadas por inquilinos, condominios de alquiler, condominios vacantes, viviendas de temporada y casas móviles o prefabricadas con distintas ocupaciones. Revisa titularidad, uso real, costo de reemplazo, bienes del propietario, responsabilidad y pérdida de rentas en conjunto.",
+      "question": "¿Qué revisa además del límite del edificio?",
+      "answer": "Revisa quién es dueño de cada propiedad, quién la ocupa, qué entidad debe figurar en la póliza y cómo se protegen responsabilidad e ingresos. Compara Farmers y mercados admitidos y no admitidos mediante el corretaje de la agencia. La pérdida de rentas cubierta depende de daños asegurados y condiciones de la póliza; la renta impagada ordinaria es otra exposición. La estructura y suscripción determinan las pólizas y coordinación apropiadas.",
+      "example": "Un propietario necesitaba asegurar una cartera con varias viviendas bajo la misma LLC. Abraham coordinó el seguro de la cartera en vez de tratar cada dirección como una operación aislada. También coloca cobertura para arrendadores individuales con viviendas ocupadas por inquilinos.",
+      "why": "Titularidad, ocupación, lista de propiedades y responsabilidad deben corresponder en todo el programa. Revisar la cartera en conjunto ayuda a identificar preguntas que una cotización basada solo en el valor del edificio deja pendientes."
+    }
   },
-  homebuyer: {
-    href: "/education/insurance-before-escrow",
-    en: {
-      title: "Check the insurance before you commit to the home",
-      text: "For first-time buyers and experienced owners, Abraham starts a purchase insurance review with available property claims history, with appropriate authorization. He discusses findings with the buyer and, when authorized, the lender or transaction team. Buyers can share prospective addresses early so insurance costs and eligibility inform the purchase decision before closing approaches.",
-      question: "How does Abraham work with lenders and escrow?",
-      answer: "He coordinates with loan officers, Realtors, escrow officers, and real estate attorneys on quote options, mortgagee details, evidence of insurance, invoices, effective dates, and outstanding underwriting requirements. He compares available insurers’ treatment of prior claims and explains admitted, nonadmitted, and FAIR Plan/DIC options when applicable. Early review helps identify obstacles; available records are not a complete property history, and coverage, lender acceptance, and closing dates are not guaranteed.",
+  "homebuyer": {
+    "href": "/insurance/homeowners-insurance",
+    "en": {
+      "title": "Understand the insurance before you choose the home.",
+      "text": "Your insurance should be part of the purchase decision, not a surprise days before closing. Abraham starts with the available property claims history, explains the findings, and compares insurers’ treatment of prior losses. Send him prospective addresses early to review insurance costs and requirements while you still have time to choose between homes.",
+      "question": "What does Abraham handle with your lender and escrow team?",
+      "answer": "He coordinates quote options, mortgagee wording, evidence of insurance, invoices, effective dates, and outstanding underwriting items with loan officers, Realtors, escrow officers, and real estate attorneys. He explains admitted, nonadmitted, and FAIR Plan/DIC options for the property. Claims records are reviewed with the required authorization and shared with your transaction team as you authorize. The lender makes its acceptance decision, and the insurer determines coverage terms and remaining requirements."
     },
-    es: {
-      title: "Revise el seguro antes de comprometerse con la vivienda",
-      text: "Para compradores primerizos y propietarios con experiencia, Abraham inicia la revisión del seguro de compra con el historial disponible de reclamaciones de la propiedad, con la autorización correspondiente. Explica los resultados al comprador y, cuando está autorizado, al prestamista o equipo de la operación. Usted puede compartir direcciones de viviendas en consideración para evaluar costos y elegibilidad antes de acercarse el cierre.",
-      question: "¿Cómo trabaja Abraham con prestamistas y escrow?",
-      answer: "Coordina con oficiales de préstamos, agentes inmobiliarios, oficiales de escrow y abogados inmobiliarios las opciones, datos del acreedor, evidencia de seguro, facturas, fechas de inicio y requisitos pendientes. Compara el tratamiento de reclamaciones anteriores y explica mercados admitidos, no admitidos y FAIR Plan/DIC cuando corresponde. La revisión temprana ayuda a identificar obstáculos; los registros disponibles no constituyen un historial completo, y no se garantizan cobertura, aceptación del prestamista ni fechas de cierre.",
-    },
+    "es": {
+      "title": "Conozca el seguro antes de elegir su vivienda.",
+      "text": "El seguro debe formar parte de su decisión de compra, no convertirse en una sorpresa días antes del cierre. Abraham empieza con el historial disponible de reclamaciones, explica los resultados y compara cómo las aseguradoras evalúan pérdidas anteriores. Envíe direcciones de viviendas que esté considerando para revisar costos y requisitos mientras aún tiene tiempo de elegir.",
+      "question": "¿Qué coordina Abraham con su prestamista y escrow?",
+      "answer": "Coordina opciones, datos del acreedor hipotecario, evidencia de seguro, facturas, fechas de inicio y requisitos pendientes con oficiales de préstamos, agentes inmobiliarios, oficiales de escrow y abogados inmobiliarios. Explica mercados admitidos, no admitidos y FAIR Plan/DIC para la propiedad. Revisa registros con la autorización requerida y los comparte con su equipo según usted autorice. El prestamista decide la aceptación y la aseguradora determina las condiciones y requisitos restantes."
+    }
   },
-  commercial: {
-    href: "/insurance/general-liability-insurance",
-    en: {
-      title: "Business liability starts with the services you actually provide",
-      text: "Abraham has placed general liability for businesses including restaurants, nail salons, and retail operations. His restaurant experience includes Pomona, Fullerton, Moreno Valley, and Perris. He reviews operations, exclusions, customer exposures, and contractual requirements rather than treating every business in an industry as the same risk.",
-      question: "Why do the details of a salon’s services matter?",
-      answer: "In one anonymized placement, a salon offered chemical straightening and perms. Reviewing those actual services helped Abraham find an appropriate liability market. The available option had a higher premium, and the client chose it to address the operations they needed insured. This illustrates a placement process, not a promise that every salon or treatment qualifies; the actual policy and exclusions control.",
+  "commercial": {
+    "href": "/insurance/general-liability-insurance",
+    "en": {
+      "title": "Your business deserves a review of what it actually does.",
+      "text": "Abraham places general liability for restaurants, nail salons, and retail businesses, with restaurant experience across Pomona, Fullerton, Moreno Valley, and Perris. He asks about the services you perform, customer interactions, contracts, and exclusions before recommending a market. A broad industry label is the starting point, not the complete description of your business.",
+      "question": "Why does describing every service matter?",
+      "answer": "An insurer evaluates the operations you disclose. Abraham reviews those operations alongside the coverage forms, exclusions, and contract requirements. For a salon, that means discussing the treatments actually offered and checking whether liability for those services requires a different form or market. A certificate or business category alone does not establish that a particular treatment is insured.",
+      "example": "A salon offered chemical straightening and perms. Abraham reviewed those services and brokered liability coverage through a market appropriate to the operations. The available option cost more, and the client chose it because it addressed the services the business needed insured.",
+      "why": "A lower price is not a useful comparison if it assumes you do different work. Describing your treatments accurately lets you compare protection for the business you actually run, including the relevant exclusions."
     },
-    es: {
-      title: "La responsabilidad comercial empieza con los servicios que realmente ofrece",
-      text: "Abraham ha colocado responsabilidad civil general para negocios como restaurantes, salones de uñas y comercios minoristas. Su experiencia con restaurantes incluye Pomona, Fullerton, Moreno Valley y Perris. Revisa operaciones, exclusiones, exposición de clientes y requisitos contractuales sin tratar a todos los negocios de una industria como el mismo riesgo.",
-      question: "¿Por qué importan los servicios específicos de un salón?",
-      answer: "En una colocación anonimizada, un salón ofrecía alisados químicos y permanentes. Revisar esos servicios permitió identificar un mercado de responsabilidad apropiado. La opción disponible tenía una prima mayor y el cliente la eligió para atender las operaciones que necesitaba asegurar. El ejemplo describe el proceso, no promete elegibilidad para todos los salones o tratamientos; rigen la póliza y sus exclusiones.",
-    },
+    "es": {
+      "title": "Su negocio merece una revisión de lo que realmente hace.",
+      "text": "Abraham coloca responsabilidad civil general para restaurantes, salones de uñas y comercios minoristas. Su experiencia con restaurantes abarca Pomona, Fullerton, Moreno Valley y Perris. Pregunta por servicios, interacción con clientes, contratos y exclusiones antes de recomendar un mercado. La categoría comercial es el punto de partida, no la descripción completa de su negocio.",
+      "question": "¿Por qué importa describir cada servicio?",
+      "answer": "La aseguradora evalúa las operaciones declaradas. Abraham las revisa junto con formularios, exclusiones y requisitos contractuales. En un salón, esto exige conversar sobre los tratamientos ofrecidos y verificar si su responsabilidad necesita otro formulario o mercado. Un certificado o categoría comercial no establece por sí solo que un tratamiento esté asegurado.",
+      "example": "Un salón ofrecía alisados químicos y permanentes. Abraham revisó esos servicios y colocó responsabilidad mediante un mercado apropiado para las operaciones. La opción disponible costaba más y el cliente la eligió porque atendía los servicios que necesitaba asegurar.",
+      "why": "Un precio menor no es una comparación útil si presupone que usted hace otro trabajo. Describir sus tratamientos con precisión permite comparar protección para su negocio real y revisar las exclusiones pertinentes."
+    }
   },
-  inland: {
-    href: "/inland-marine-insurance",
-    en: {
-      title: "Inland marine for equipment that moves with your business",
-      text: "Inland marine is property insurance for eligible equipment and other property used away from a fixed business location or transported between locations. Abraham reviews ownership, replacement values, storage, transit, rental to others, and customer use alongside general liability and commercial auto. One policy does not automatically address all those exposures.",
-      question: "Can equipment, vehicles, and liability require different insurers?",
-      answer: "Yes. In an anonymized portable sanitation business placement, Abraham coordinated general liability, commercial auto, and inland marine through three separate brokered insurers. The program addressed portable restrooms rented to others, including transit and use at event locations, according to the policies. Coverage during transport, setup, and customer use must be confirmed in the applicable forms, schedules, and exclusions. This was a coordinated program, not one insurer’s package.",
+  "inland": {
+    "href": "/inland-marine-insurance",
+    "en": {
+      "title": "Keep your equipment review moving with your business.",
+      "text": "Your equipment keeps earning its place in the business after it leaves your premises. Abraham reviews mobile equipment, property rented to customers, storage, transit, setup, and use at customer locations. He checks the policy’s transit, rental-to-others, valuation, and customer-use provisions alongside general liability and commercial auto so each part of the operation has a clear place in the coverage review.",
+      "question": "Why coordinate equipment, vehicles, and liability separately?",
+      "answer": "A damaged rental unit, an accident involving its delivery vehicle, and an injury claim involve different insurance questions. Abraham identifies which policy addresses each exposure, checks the named insureds and scheduled equipment, and reviews exclusions and deductibles before recommending a program. The applicable forms determine coverage at each stage of the job.",
+      "example": "For a portable sanitation rental business, Abraham coordinated general liability, commercial auto, and inland marine through three separate brokered insurers. The placement addressed the portable restrooms rented to customers, transit to events, and use at the event locations under the policies.",
+      "why": "Your equipment does not stop needing protection when it leaves the yard. Reviewing transport, delivery, and customer use together helps distinguish damage to the unit from a vehicle accident or a liability claim."
     },
-    es: {
-      title: "Seguro para equipo y bienes que se desplazan con su negocio",
-      text: "La cobertura inland marine protege equipo y otros bienes elegibles utilizados fuera de una ubicación fija o transportados entre lugares. Abraham revisa propiedad, valores de reemplazo, almacenamiento, tránsito, alquiler a terceros y uso por clientes junto con responsabilidad general y auto comercial. Una póliza no cubre automáticamente todas esas exposiciones.",
-      question: "¿El equipo, los vehículos y la responsabilidad pueden necesitar aseguradoras distintas?",
-      answer: "Sí. En una colocación anonimizada para un negocio de sanitarios portátiles, Abraham coordinó responsabilidad general, auto comercial e inland marine mediante tres aseguradoras de corretaje. El programa atendió sanitarios alquilados a terceros, incluidos tránsito y uso en eventos, según las pólizas. La cobertura durante transporte, instalación y uso por clientes debe confirmarse en los formularios, listas de bienes y exclusiones. Fue un programa coordinado, no un paquete de una sola aseguradora.",
-    },
+    "es": {
+      "title": "Revise el equipo al ritmo de las operaciones de su negocio.",
+      "text": "Su equipo sigue trabajando después de salir del local. Abraham revisa equipo móvil, bienes alquilados a clientes, almacenamiento, tránsito, instalación y uso en otras ubicaciones. Comprueba disposiciones de transporte, alquiler a terceros, valoración y uso por clientes junto con responsabilidad general y auto comercial, para ubicar cada parte de la operación en la revisión de cobertura.",
+      "question": "¿Por qué coordinar equipo, vehículos y responsabilidad por separado?",
+      "answer": "Un equipo dañado, un accidente del vehículo de entrega y una reclamación por lesiones presentan preguntas distintas. Abraham identifica la póliza correspondiente a cada exposición, comprueba asegurados y equipo declarado y revisa exclusiones y deducibles antes de recomendar el programa. Los formularios aplicables determinan la cobertura en cada etapa del trabajo.",
+      "example": "Para un negocio de alquiler de sanitarios portátiles, Abraham coordinó responsabilidad general, auto comercial e inland marine mediante tres aseguradoras de corretaje. La colocación atendió las unidades alquiladas a clientes, su traslado a eventos y su uso en esas ubicaciones conforme a las pólizas.",
+      "why": "Su equipo sigue necesitando protección cuando sale del patio. Revisar transporte, entrega y uso por clientes en conjunto permite distinguir daños a la unidad, accidentes del vehículo y reclamaciones de responsabilidad."
+    }
   },
-  auto: {
-    href: "/insurance/auto-insurance",
-    en: {
-      title: "Review the household’s protection, not just the auto premium",
-      text: "Abraham reviews drivers, vehicle use, liability limits, uninsured and underinsured motorist options, physical-damage deductibles, and how auto coverage fits the household’s other policies. His broader protection discussions include life insurance for younger first-time drivers and motorcyclists, with needs considered individually.",
-      question: "What should I discuss when adding a first-time driver?",
-      answer: "Discuss every household driver, the vehicles they use, garaging, mileage, limits, deductibles, and changes to family financial responsibilities. Abraham explains the available protection and how separate auto and life policies address different needs. A life policy does not replace auto liability or medical coverage.",
+  "auto": {
+    "href": "/insurance/auto-insurance",
+    "en": {
+      "title": "Choose auto coverage with your whole household in mind.",
+      "text": "Abraham reviews household drivers, actual vehicle use, liability limits, uninsured and underinsured motorist protection, and physical-damage deductibles. He explains how those choices affect the protection you are buying. His discussions with younger first-time drivers and motorcyclists also address life insurance and the financial responsibilities their families would face after a death.",
+      "question": "What should I discuss when adding a first-time driver?",
+      "answer": "Discuss household drivers, garaging, mileage, vehicle use, and the financial responsibilities you want protected. Abraham connects limits and deductibles to practical decisions, including what you would pay after a covered loss and which risks belong under a separate policy. Auto liability and life insurance serve different purposes; he explains both clearly."
     },
-    es: {
-      title: "Revise la protección del hogar, no solo la prima de auto",
-      text: "Abraham revisa conductores, uso del vehículo, límites de responsabilidad, opciones para conductores sin seguro o con seguro insuficiente, deducibles y coordinación con otras pólizas. Sus conversaciones de protección incluyen seguros de vida para conductores jóvenes primerizos y motociclistas, considerando las necesidades individuales.",
-      question: "¿Qué debo revisar al agregar a un conductor primerizo?",
-      answer: "Comente todos los conductores del hogar, vehículos, domicilio de garaje, millaje, límites, deducibles y cambios en las responsabilidades económicas familiares. Abraham explica las opciones y las distintas necesidades que atienden auto y vida. Una póliza de vida no sustituye responsabilidad de auto ni cobertura médica.",
-    },
+    "es": {
+      "title": "Elija su seguro de auto pensando en todo su hogar.",
+      "text": "Abraham revisa conductores del hogar, uso real del vehículo, límites de responsabilidad, protección frente a conductores sin seguro o con seguro insuficiente y deducibles. Explica cómo cada elección afecta su protección. Con conductores jóvenes primerizos y motociclistas también aborda seguros de vida y las responsabilidades económicas que enfrentarían sus familias después de un fallecimiento.",
+      "question": "¿Qué debo revisar al agregar a un conductor primerizo?",
+      "answer": "Comente conductores, domicilio de garaje, millaje, uso y responsabilidades económicas que desea proteger. Abraham relaciona límites y deducibles con decisiones prácticas: cuánto pagaría tras una pérdida cubierta y qué riesgos corresponden a una póliza separada. Auto y vida atienden necesidades distintas; él explica ambas con claridad."
+    }
   },
-  life: {
-    href: "/insurance/life-insurance",
-    en: {
-      title: "Family protection and multi-generational legacy planning",
-      text: "Abraham helps families review income replacement, debts, caregiving, beneficiaries, and suitable long-term life insurance strategies. Where permanent insurance fits the goal and budget, he discusses ownership and beneficiary arrangements in coordination with the client’s attorney and tax professional. Trust drafting and individualized tax advice belong with those professionals.",
-      question: "Does a legacy strategy guarantee tax-free wealth?",
-      answer: "No. Tax treatment depends on the policy, ownership, funding, transactions, and applicable law. Review premiums, insurance costs, surrender charges, guaranteed and nonguaranteed values, and ongoing funding requirements. Policy loans accrue interest, can reduce benefits, and can create lapse and tax risks. An illustration is not a promise of investment returns, estate-tax exclusion, creditor protection, or perpetual family wealth.",
+  "life": {
+    "href": "/insurance/life-insurance",
+    "en": {
+      "title": "Plan protection for your family and the legacy you want to leave.",
+      "text": "Abraham reviews life insurance and annuity options in the context of your family, budget, and long-term goals. For life insurance, he evaluates income replacement, debts, caregiving, beneficiaries, and the role of permanent coverage in a multi-generational strategy. He coordinates ownership and beneficiary questions with your attorney and tax professional so the insurance fits the wider plan.",
+      "question": "What should you understand before choosing a long-term strategy?",
+      "answer": "Understand the required premiums or contributions, charges, access to money, surrender terms, and guaranteed versus nonguaranteed values. For life policies, review how loans accrue interest and affect benefits and lapse risk. Tax treatment follows the ownership, funding, transactions, and applicable law. Abraham explains the insurance; your attorney and tax professional advise on trusts and your individual legal and tax arrangements."
     },
-    es: {
-      title: "Protección familiar y planificación del legado entre generaciones",
-      text: "Abraham ayuda a revisar reemplazo de ingresos, deudas, cuidado familiar, beneficiarios y estrategias de vida adecuadas a largo plazo. Cuando el seguro permanente corresponde a la meta y al presupuesto, conversa sobre titularidad y beneficiarios en coordinación con el abogado y profesional fiscal del cliente. Esos profesionales atienden redacción de fideicomisos y asesoría fiscal individualizada.",
-      question: "¿Una estrategia de legado garantiza patrimonio libre de impuestos?",
-      answer: "No. El tratamiento fiscal depende de la póliza, titularidad, financiamiento, transacciones y ley aplicable. Revise primas, costos, cargos por rescate, valores garantizados y no garantizados y aportaciones necesarias. Los préstamos generan intereses, pueden reducir beneficios y crear riesgos de caducidad e impuestos. Una ilustración no garantiza rendimientos, exclusión del impuesto sucesorio, protección de acreedores ni patrimonio perpetuo.",
-    },
-  },
+    "es": {
+      "title": "Planifique la protección de su familia y el legado que desea dejar.",
+      "text": "Abraham revisa opciones de seguros de vida y anualidades según su familia, presupuesto y metas a largo plazo. En vida, evalúa reemplazo de ingresos, deudas, cuidado familiar, beneficiarios y el papel del seguro permanente en una estrategia entre generaciones. Coordina preguntas de titularidad y beneficiarios con su abogado y profesional fiscal para integrar el seguro al plan.",
+      "question": "¿Qué debe entender antes de elegir una estrategia a largo plazo?",
+      "answer": "Comprenda primas o aportaciones, cargos, acceso al dinero, condiciones de rescate y valores garantizados y no garantizados. En vida, revise intereses de préstamos, reducción de beneficios y riesgo de caducidad. El tratamiento fiscal depende de titularidad, financiamiento, transacciones y ley aplicable. Abraham explica el seguro; su abogado y profesional fiscal asesoran sobre fideicomisos y su situación legal y tributaria."
+    }
+  }
 } as const;
 
 export type ExperienceTopic = keyof typeof experience;
 export const serviceExperience: Record<string, ExperienceTopic> = {
-  "homeowners-insurance": "homebuyer", "condo-insurance": "landlord",
-  "landlord-insurance": "landlord", "auto-insurance": "auto", "life-insurance": "life",
-  "general-liability-insurance": "commercial", "commercial-property-insurance": "commercial",
-  "business-owners-policy": "commercial", "workers-compensation-insurance": "review",
-  "contractor-insurance": "inland", "commercial-auto-insurance": "inland",
+  "homeowners-insurance": "homebuyer",
+  "condo-insurance": "landlord",
+  "landlord-insurance": "landlord",
+  "auto-insurance": "auto",
+  "life-insurance": "life",
+  "general-liability-insurance": "commercial",
+  "commercial-property-insurance": "commercial",
+  "business-owners-policy": "commercial",
+  "workers-compensation-insurance": "review",
+  "contractor-insurance": "inland",
+  "commercial-auto-insurance": "inland"
 };
