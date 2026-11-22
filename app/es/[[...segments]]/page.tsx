@@ -1,3 +1,4 @@
+import { insuranceServices } from "@/content/services";
 import { PriorityPaths } from "@/components/priority-paths";
 import { CoverageGuidance } from "@/components/coverage-guidance";
 import { coveragePathways } from "@/content/coverage-pathways";
@@ -191,7 +192,7 @@ function ServicePage({ slug }: { slug: string }) {
             </small>
             <Link
               className="button"
-              href={`/es/contacto?insurance=${encodeURIComponent(x.name)}${coveragePathways[x.englishSlug] ? "&agent=abraham" : ""}`}
+              href={`/es/contacto?insurance=${encodeURIComponent(insuranceServices.find((service) => service.slug === x.englishSlug)?.name || x.name)}${coveragePathways[x.englishSlug] ? "&agent=abraham" : ""}`}
             >
               Solicitar cotización
             </Link>
@@ -478,7 +479,7 @@ function Listing({ commercial = false }: { commercial?: boolean }) {
               <div className="card-actions">
                 <Link
                   className="card-link"
-                  href={`/es/contacto?insurance=${encodeURIComponent(x.name)}${coveragePathways[x.englishSlug] ? "&agent=abraham" : ""}`}
+                  href={`/es/contacto?insurance=${encodeURIComponent(insuranceServices.find((service) => service.slug === x.englishSlug)?.name || x.name)}${coveragePathways[x.englishSlug] ? "&agent=abraham" : ""}`}
                 >
                   Solicitar cotización →
                 </Link>
