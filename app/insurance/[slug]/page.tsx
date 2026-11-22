@@ -1,3 +1,5 @@
+import { CoverageGuidance } from "@/components/coverage-guidance";
+import { coveragePathways } from "@/content/coverage-pathways";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { CTA, PageHero } from "@/components/ui";
@@ -15,11 +17,17 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const service = getInsuranceService(slug);
-  return service ? {
-    title: `${service.name} in Southern California`,
-    description: serviceExperience[service.slug] ? `${service.summary} Review options with Abraham Nunez-Chavez. Call 714-388-9533. Serving Riverside and Orange Counties.` : `${service.summary} Serving Moreno Valley, Riverside County, Yorba Linda, and Orange County.`,
+  if (!service) return { title: "Insurance Coverage" };
+  const title = coveragePathways[service.slug] ? `${service.name} | Moreno Valley & California` : `${service.name} in Southern California`;
+  const description = coveragePathways[service.slug] ? `${service.summary} Review coverage with Abraham Nunez-Chavez: 714-388-9533.` : serviceExperience[service.slug] ? `${service.summary} Review options with Abraham Nunez-Chavez. Call 714-388-9533. Serving Riverside and Orange Counties.` : `${service.summary} Serving Moreno Valley, Riverside County, Yorba Linda, and Orange County.`;
+  return {
+    title, description,
     alternates: alternatesFor(`/insurance/${service.slug}`),
-  } : { title: "Insurance Coverage" };
+    ...(coveragePathways[service.slug] ? {
+      openGraph: { title, description, url: `/insurance/${service.slug}`, type: "website" as const, locale: "en_US", images: [{ url: "/og-insurance.svg", width: 1200, height: 630 }] },
+      twitter: { card: "summary_large_image" as const, title, description, images: ["/og-insurance.svg"] }
+    } : {}),
+  };
 }
 
 export default async function InsuranceServicePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -32,7 +40,7 @@ export default async function InsuranceServicePage({ params }: { params: Promise
     name: service.name,
     serviceType: service.name,
     description: service.summary,
-    provider: { "@type": "InsuranceAgency", "@id": `${siteConfig.url}/#insurance-agency`, name: siteConfig.name },
+    provider: { "@type": "InsuranceAgency", "@id": `${siteConfig.url}/#insurance-agency`, name: siteConfig.agencyLegalName },
     areaServed: ["Moreno Valley", "Riverside County", "Yorba Linda", "Orange County", "Southern California"],
     url: `${siteConfig.url}/insurance/${service.slug}`,
   };
@@ -47,9 +55,10 @@ export default async function InsuranceServicePage({ params }: { params: Promise
   };
   return <><PageHero eyebrow={`${service.category} insurance · Southern California`} title={service.name}>{service.summary}</PageHero>
     <nav className="shell breadcrumbs" aria-label="Breadcrumb"><Link href="/">Home</Link><span>›</span><Link href={service.category === "Personal" ? "/personal-insurance" : "/business-insurance"}>{service.category} Insurance</Link><span>›</span><span aria-current="page">{service.name}</span></nav>
-    <section className="section"><div className="shell service-layout"><div><p className="lead-small">{service.intro}</p><h2>What this coverage can protect</h2><ul className="service-list">{service.protects.map((item) => <li key={item}>{item}</li>)}</ul></div><aside className="limit-panel service-limit"><p className="eyebrow">What to compare in your policy</p><p>{service.limits}</p><small>Actual recommendations depend on the applicant, risk, contracts, carrier, and policy.</small><Link className="button" href={`/contact?insurance=${encodeURIComponent(service.name)}`}>Request a {service.name} Quote</Link></aside></div></section>
+    <section className="section"><div className="shell service-layout"><div><p className="lead-small">{service.intro}</p><h2>What this coverage can protect</h2><ul className="service-list">{service.protects.map((item) => <li key={item}>{item}</li>)}</ul></div><aside className="limit-panel service-limit"><p className="eyebrow">What to compare in your policy</p><p>{service.limits}</p><small>Actual recommendations depend on the applicant, risk, contracts, carrier, and policy.</small><Link className="button" href={`/contact?insurance=${encodeURIComponent(service.name)}${coveragePathways[service.slug] ? "&agent=abraham" : ""}`}>Request a {service.name} Quote</Link></aside></div></section>
+    <CoverageGuidance slug={service.slug} locale="en" />
     <section className="section soft"><div className="shell"><div className="section-heading"><div><p className="eyebrow">Prepare for a quote</p><h2>Information that helps produce an accurate option</h2></div><p>No Social Security number, payment information, or sensitive documents are requested through the website.</p></div><div className="quote-info-grid">{service.quoteInfo.map((item, index) => <article key={item}><strong>0{index + 1}</strong><p>{item}</p></article>)}</div></div></section>
-    <section className="section"><div className="shell service-layout"><div><p className="eyebrow">Common questions</p><h2>What clients commonly ask</h2><div className="faq-list">{service.commonQuestions.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></div><aside className="guide-callout"><p className="eyebrow">Coverage guide</p><h2>Understand the details before comparing price.</h2><p>See a realistic example, learn the unfamiliar terms, and bring specific questions to your policy review.</p><Link className="text-link" href={`/education/${service.guideSlug}`}>Read the related guide →</Link></aside></div></section>
+    <section className="section"><div className="shell service-layout"><div><p className="eyebrow">Common questions</p><h2>What clients commonly ask</h2><div className="faq-list">{service.commonQuestions.map((item, index) => <details key={item.question} id={`question-${service.slug}-${index}`}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></div><aside className="guide-callout"><p className="eyebrow">Coverage guide</p><h2>Understand the details before comparing price.</h2><p>See a realistic example, learn the unfamiliar terms, and bring specific questions to your policy review.</p><Link className="text-link" href={`/education/${service.guideSlug}`}>Read the related guide →</Link></aside></div></section>
     {service.slug === "life-insurance" ? <section className="section soft"><div className="shell"><GriefSupport placement="life" /></div></section> : null}
     {serviceExperience[service.slug] && <ExperienceSection topic={serviceExperience[service.slug]} locale="en" />}
     <CTA />

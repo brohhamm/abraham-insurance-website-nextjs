@@ -11,8 +11,8 @@ export function SiteSearch({ entries, locale, onNavigate }: { entries: SearchEnt
   const input = useRef<HTMLInputElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const es = locale === "es";
-  const suggestions = es ? ["Propietarios", "Comprador primerizo", "Equipo alquilado", "Restaurantes", "Vida"] : ["Landlord", "First-time buyer", "Rental equipment", "Restaurants", "Life insurance"];
-  const categories: Record<string, string> = es ? {service:"Seguros", guide:"Guía", agent:"Equipo", location:"Área de servicio", event:"Evento", page:"Página"} : {service:"Insurance", guide:"Guide", agent:"Team", location:"Service area", event:"Event", page:"Page"};
+  const suggestions = es ? ["Seguro de casa", "Propietarios", "Condominio vacante", "Contratista nuevo", "Compensación laboral", "Legado"] : ["Home insurance", "Landlord", "Vacant condo", "New contractor", "Workers compensation", "Legacy life"];
+  const categories: Record<string, string> = es ? {market:"Aseguradoras", service:"Seguros", guide:"Guía", agent:"Equipo", location:"Área de servicio", event:"Evento", page:"Página"} : {market:"Carriers", service:"Insurance", guide:"Guide", agent:"Team", location:"Service area", event:"Event", page:"Page"};
   const results = searchPublicPages(entries, query, locale);
   function close() { dialog.current?.close(); trigger.current?.focus(); }
   function open() { setQuery(""); dialog.current?.showModal(); input.current?.focus(); }

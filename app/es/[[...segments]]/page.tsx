@@ -1,3 +1,7 @@
+import { PriorityPaths } from "@/components/priority-paths";
+import { CoverageGuidance } from "@/components/coverage-guidance";
+import { coveragePathways } from "@/content/coverage-pathways";
+import { MarketGuidance } from "@/components/market-guidance";
 /* eslint-disable @typescript-eslint/no-unused-vars -- legacy route helpers remain until all bilingual pages share components */
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -47,7 +51,7 @@ const pathOf = (segments?: string[]) =>
   `/es${segments?.length ? `/${segments.join("/")}` : ""}`;
 const titleFor = (path: string) => {
   const service = spanishServices.find((x) => `/es/${x.slug}` === path);
-  if (service) return `${service.name} en el sur de California`;
+  if (service) return coveragePathways[service.englishSlug] ? `${service.name} | Moreno Valley y California` : `${service.name} en el sur de California`;
   const article = spanishArticles.find(
     (x) => `/es/educacion/${x.slug}` === path,
   );
@@ -66,7 +70,7 @@ const titleFor = (path: string) => {
       "/es/educacion": "Centro de educación sobre seguros",
       "/es/nuestra-agencia": "Nuestra agencia",
       "/es/abel-duran": "Abel Duran",
-      "/es/abraham-nunez-chavez": "Abraham Nunez-Chavez",
+      "/es/abraham-nunez-chavez": "Agente y corredor de seguros en Moreno Valley",
       "/es/devan-wright": "Devan Wright",
       "/es/emily-lussier": "Emily Lussier",
       "/es/rosalia-elizabeth-gomez": "Rosalia Elizabeth Gomez",
@@ -91,7 +95,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!title) return { title: "Página no encontrada" };
   const article = spanishArticles.find((item) => `/es/educacion/${item.slug}` === path);
   const service = spanishServices.find(item => `/es/${item.slug}` === path);
-  const abrahamDescription = path === "/es/abraham-nunez-chavez" ? "Abraham Nunez-Chavez: propiedades de alquiler, compradores primerizos, escrow, responsabilidad comercial, equipo y vida. 714-388-9533." : service && serviceExperience[service.englishSlug] ? `${service.summary} Revise opciones con Abraham Nunez-Chavez: 714-388-9533.` : undefined;
+  const abrahamDescription = path === "/es/abraham-nunez-chavez" ? "Abraham Nunez-Chavez: propiedades de alquiler, compradores primerizos, escrow, responsabilidad comercial, equipo y vida. 714-388-9533." : service && (coveragePathways[service.englishSlug] || serviceExperience[service.englishSlug]) ? `${service.summary} Revise opciones con Abraham Nunez-Chavez: 714-388-9533.` : undefined;
   return {
     title,
     description: abrahamDescription ?? article?.summary ?? `${title}. Orientación profesional y clara sobre seguros para clientes del sur de California.`,
@@ -105,7 +109,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       ...(article ? { type: "article" as const, modifiedTime: article.dateModified, images: [{ url: "/og-insurance.svg", width: 1200, height: 630 }] } : {}),
     },
-    ...(article ? { twitter: { card: "summary_large_image" as const, title, description: article.summary, images: ["/og-insurance.svg"] } } : {}),
+    twitter: { card: "summary_large_image" as const, title, description: abrahamDescription ?? article?.summary ?? `${title}. Orientación profesional sobre seguros.`, images: ["/og-insurance.svg"] },
   };
 }
 
@@ -138,7 +142,7 @@ function ServicePage({ slug }: { slug: string }) {
     provider: {
       "@type": "InsuranceAgency",
       "@id": `${siteConfig.url}/#insurance-agency`,
-      name: siteConfig.name,
+      name: siteConfig.agencyLegalName,
     },
     areaServed: [
       "Moreno Valley",
@@ -187,13 +191,14 @@ function ServicePage({ slug }: { slug: string }) {
             </small>
             <Link
               className="button"
-              href={`/es/contacto?insurance=${encodeURIComponent(x.name)}`}
+              href={`/es/contacto?insurance=${encodeURIComponent(x.name)}${coveragePathways[x.englishSlug] ? "&agent=abraham" : ""}`}
             >
               Solicitar cotización
             </Link>
           </aside>
         </div>
       </section>
+      <CoverageGuidance slug={x.englishSlug} locale="es" />
       <section className="section soft">
         <div className="shell">
           <div className="section-heading">
@@ -222,8 +227,8 @@ function ServicePage({ slug }: { slug: string }) {
             <p className="eyebrow">Preguntas frecuentes</p>
             <h2>Lo que preguntan nuestros clientes</h2>
             <div className="faq-list">
-              {x.commonQuestions.map((q) => (
-                <details key={q.question}>
+              {x.commonQuestions.map((q, index) => (
+                <details key={q.question} id={`question-${x.englishSlug}-${index}`}>
                   <summary>{q.question}</summary>
                   <p>{q.answer}</p>
                 </details>
@@ -321,7 +326,7 @@ function ArticlePage({ slug }: { slug: string }) {
         "@context": "https://schema.org", "@type": "Article", headline: x.title,
         description: x.summary, inLanguage: "es-US", dateModified: x.dateModified,
         mainEntityOfPage: `${siteConfig.url}/es/educacion/${x.slug}`,
-        publisher: { "@type": "InsuranceAgency", "@id": `${siteConfig.url}/#insurance-agency`, name: siteConfig.name },
+        publisher: { "@type": "InsuranceAgency", "@id": `${siteConfig.url}/#insurance-agency`, name: siteConfig.agencyLegalName },
       }) }} />
       <CTA />
     </>
@@ -462,6 +467,7 @@ function Listing({ commercial = false }: { commercial?: boolean }) {
           ? "Revisiones enfocadas en contratos, propiedad, empleados, vehículos, clientes y las realidades de su industria."
           : "Conozca qué protege cada póliza, dónde surgen vacíos y cómo los límites y deducibles afectan su riesgo."}
       </PageHero>
+      <PriorityPaths locale="es" commercial={commercial} />
       <section className="section">
         <div className="shell card-grid">
           {list.map((x) => (
@@ -472,7 +478,7 @@ function Listing({ commercial = false }: { commercial?: boolean }) {
               <div className="card-actions">
                 <Link
                   className="card-link"
-                  href={`/es/contacto?insurance=${encodeURIComponent(x.name)}`}
+                  href={`/es/contacto?insurance=${encodeURIComponent(x.name)}${coveragePathways[x.englishSlug] ? "&agent=abraham" : ""}`}
                 >
                   Solicitar cotización →
                 </Link>
@@ -717,6 +723,7 @@ function Simple({ path }: { path: string }) {
         <EventBanner locale="es" />
         <section className="section office-opening"><div className="shell"><div className="section-heading"><div><p className="eyebrow">Atención local de seguros</p><h1>Dos oficinas locales. Una agencia conectada.</h1></div><p>Ambas oficinas pertenecen a Abel Duran y trabajan como un solo equipo para atender al Condado de Riverside, el Condado de Orange y las comunidades cercanas del Sur de California.</p></div><div className="office-opening-grid"><article><div className="office-opening-photo"><Image src="/images/moreno-valley-farmers-office-wide-exterior.webp" alt="Pasillo exterior y entrada de la oficina Farmers Insurance en Moreno Valley" fill priority sizes="(max-width:760px) 100vw,50vw" /></div><div className="office-opening-copy"><p className="eyebrow">Oficina principal</p><h2>Moreno Valley</h2><p>13800 Heacock St., Suite C120<br />Moreno Valley, CA 92553</p><div className="profile-links"><Link className="text-link" href="/es/oficina-moreno-valley">Conozca al equipo →</Link><a className="text-link" href="https://maps.google.com/?q=13800+Heacock+St+Suite+C120+Moreno+Valley+CA+92553" target="_blank" rel="noreferrer">Cómo llegar ↗</a></div></div></article><article><div className="office-opening-photo"><Image src="/images/yorba-linda-office-front.jpg" alt="Oficina de Abel Duran Insurance Agency en Yorba Linda" fill priority sizes="(max-width:760px) 100vw,50vw" /></div><div className="office-opening-copy"><p className="eyebrow">Oficina del Condado de Orange</p><h2>Yorba Linda</h2><p>23621 La Palma Ave., Suite A<br />Yorba Linda, CA 92887</p><div className="profile-links"><Link className="text-link" href="/es/oficina-yorba-linda">Conozca al equipo →</Link><a className="text-link" href="https://maps.google.com/?q=23621+La+Palma+Ave+Suite+A+Yorba+Linda+CA+92887" target="_blank" rel="noreferrer">Cómo llegar ↗</a></div></div></article></div></div></section>
         <section className="hero"><div className="shell hero-grid"><div><p className="eyebrow">Agentes y corredores ubicados en Yorba Linda y Moreno Valley, sirviendo con orgullo a California</p><h1>Protección clara para su hogar, familia y negocio.</h1><p className="lead">Orientación en seguros personales, comerciales, de vida, incendios forestales y escrow para los condados de Riverside y Orange.</p><div className="button-row"><Link className="button" href="/es/contacto">Solicitar una cotización</Link></div><div className="trust-line"><span>Abel: Licencia de CA n.º 0F17442 | Licencia de Agencia n.º 0K15422</span><span>Moreno Valley y Yorba Linda</span></div></div><aside className="hero-panel"><p className="eyebrow">Propietario de la agencia y agente principal</p><h2>Liderazgo local. Mayor respaldo en seguros.</h2><ul><li>Liderazgo de una agencia Farmers Insurance</li><li>Seguros personales, comerciales y de vida</li><li>Atención desde las oficinas de Moreno Valley y Yorba Linda</li><li>Acceso a mercados adicionales de corretaje cuando corresponda</li></ul><Link href="/es/abel-duran" aria-label="Conozca a Abel Duran">Conozca a Abel <span>→</span></Link></aside></div></section>
+        <AbrahamHomeFeature locale="es" />
         <section className="section">
           <div className="shell">
             <div className="section-heading">
@@ -774,7 +781,6 @@ function Simple({ path }: { path: string }) {
           </div>
         </section>
         <section className="section"><div className="shell partner-grid"><div><p className="eyebrow">Cotización rápida</p><h2>Indíquenos qué necesita y cómo se enteró de nosotros.</h2><p className="lead-small">Seleccione cobertura, agente y método de contacto. Díganos si necesita una cotización nueva o comparar su póliza actual. Podemos explicar límites, lo que pagaría después de una pérdida cubierta y qué protecciones requieren revisión separada.</p></div><div className="form-card"><QuoteForm /></div></div></section>
-        <AbrahamHomeFeature locale="es" />
         <CommunityReviews locale="es" />
         <CTA />
       </>
@@ -1042,6 +1048,7 @@ function Carriers() {
           </div>
         </div>
       </section>
+      <MarketGuidance locale="es" />
       <SpanishMarketSection
         title="Mercados de seguros personales"
         description="Opciones de auto, propiedad, inundación, terremoto, paraguas, embarcaciones, objetos valiosos y riesgos especiales."

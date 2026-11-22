@@ -109,7 +109,7 @@ export function AgentProfile({ agent, locale }: { agent: Agent; locale: "en" | "
     ...(agent === "abraham" ? { "@id": `${siteConfig.url}/abraham-nunez-chavez#person`, url: `${siteConfig.url}/abraham-nunez-chavez`, sameAs: Object.values(abrahamSocials), knowsLanguage: ["English", "Spanish"], knowsAbout: ["Landlord insurance", "DP-3", "Homebuyer insurance coordination", "Commercial liability", "Inland marine", "Life insurance", "Insurance coverage reviews"] } : {}),
     image: `${siteConfig.url}${profile.image}`,
     jobTitle: profile.role,
-    worksFor: { "@type": "InsuranceAgency", name: "Abel Duran Insurance Agency, Inc." },
+    worksFor: { "@type": "InsuranceAgency", "@id": `${siteConfig.url}/#insurance-agency`, name: siteConfig.agencyLegalName },
     telephone: profile.phoneHref.replace("tel:", ""),
     email: profile.email,
     address: { "@type": "PostalAddress", streetAddress: "13800 Heacock St., Suite C120", addressLocality: "Moreno Valley", addressRegion: "CA", postalCode: "92553", addressCountry: "US" },

@@ -75,6 +75,29 @@ test('the real public index has unique bilingual routes and specialty search ter
   }
   assert.equal(searchPublicPages(index,'Coterie','en')[0].href,'/carriers');
   assert.equal(searchPublicPages(index,'Juan Pollo','es')[0].href,'/es/eventos/convivio-navideno');
+  for (const [query, locale, target] of [
+    ['vacant condo','en','/insurance/condo-insurance'],
+    ['vacant condos','en','/insurance/condo-insurance'],
+    ['condominio vacante','es','/es/seguro-de-condominio'],
+    ['LLC rental','en','/insurance/landlord-insurance'],
+    ['new contractor','en','/insurance/contractor-insurance'],
+    ['contratista nuevo','es','/es/seguro-para-contratistas'],
+    ['manufactured homes','en','/insurance/homeowners-insurance'],
+    ['seasonal homes','en','/insurance/homeowners-insurance'],
+    ['mortgage protection','en','/insurance/life-insurance'],
+    ['legacy life','en','/insurance/life-insurance'],
+    ['3 generations','en','/insurance/life-insurance'],
+    ['tres generaciones','es','/es/seguro-de-vida'],
+    ['legado','es','/es/seguro-de-vida'],
+    ['Steadily','en','/carriers'],
+    ['AmTrust','en','/carriers'],
+    ['Bamboo','en','/carriers'],
+    ['The Hartford','en','/carriers'],
+  ]) {
+    const matches=searchPublicPages(index,query,locale);
+    assert.ok(matches.slice(0,5).some(entry=>entry.href.startsWith(target)),query+': '+matches.slice(0,5).map(x=>x.href).join(', '));
+    assert.equal(matches[0].locale,locale,query);
+  }
   for (const topic of Object.values(loadTs('content/abraham-guidance').guidanceLinks)) {
     assert.notEqual(topic.service,topic.guide);
     assert.ok(allowed.has(topic.service),topic.service);

@@ -53,7 +53,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     dateModified: article.dateModified ?? publishedDate,
     mainEntityOfPage: articleUrl,
     author: { "@type": "Person", name: "Abraham Nunez-Chavez", url: `${siteConfig.url}/about`, identifier: "CA Insurance Lic. No. 4357305" },
-    publisher: { "@type": "InsuranceAgency", "@id": `${siteConfig.url}/#insurance-agency`, name: siteConfig.name },
+    publisher: { "@type": "InsuranceAgency", "@id": `${siteConfig.url}/#insurance-agency`, name: siteConfig.agencyLegalName },
   };
   const breadcrumb = {
     "@context": "https://schema.org",

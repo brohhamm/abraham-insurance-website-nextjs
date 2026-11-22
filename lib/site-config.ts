@@ -1,5 +1,7 @@
 export const siteConfig = {
   name: "Abraham Nunez-Chavez",
+  agencyLegalName: "Abel Duran Insurance Agency, Inc.",
+  agencyLicense: "0K15422",
   title: "Insurance Agent/Broker",
   license: "4357305",
   agency: "Farmers Insurance – Office of Abel Duran",

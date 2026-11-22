@@ -1,3 +1,4 @@
+import { coveragePathways } from "./coverage-pathways";
 import { serviceExplanation } from "./service-explanations";
 
 export type InsuranceService = {
@@ -34,6 +35,7 @@ const originalServices: InsuranceService[] = [
 export const insuranceServices = originalServices.map((service) => ({
   ...service,
   ...serviceExplanation(service.slug, service.guideSlug, "en"),
+  commonQuestions: [...(coveragePathways[service.slug]?.en.questions ?? []), ...service.commonQuestions],
 }));
 
 export function getInsuranceService(slug: string) {
