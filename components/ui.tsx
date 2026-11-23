@@ -32,7 +32,7 @@ export function PageHero({ eyebrow, title, children }: { eyebrow: string; title:
 
 export function CTA() {
   const es=localeFromPath(usePathname())==="es";
-  return <section className="cta"><div className="shell cta-inner"><div><p className="eyebrow light">{es?"Siguientes pasos claros":"Clear next steps"}</p><h2>{es?"Revisemos sus necesidades de seguro.":"Let’s review your insurance needs."}</h2><p>{es?"Reciba orientación oportuna y opciones de cobertura basadas en su situación.":"Receive responsive guidance and coverage options based on your situation."}</p></div><div className="button-row"><Link className="button button-light" href={es?"/es/contacto":"/contact"}>{es?"Solicitar una cotización":"Request a Quote"}</Link><a className="button button-outline-light" href="tel:+17143889533">{es?"Llamar al":"Call"} 714-388-9533</a></div></div></section>;
+  return <section className="cta"><div className="shell cta-inner"><div><p className="eyebrow light">{es?"Siguientes pasos claros":"Clear next steps"}</p><h2>{es?"Revisemos sus necesidades de seguro.":"Let’s review your insurance needs."}</h2><p>{es?"Cuéntenos qué necesita proteger o qué ha cambiado. Le explicaremos sus opciones y le ayudaremos a decidir el siguiente paso.":"Tell us what you’re protecting or what has changed. We’ll explain your options and help you decide what to do next."}</p></div><div className="button-row"><Link className="button button-light" href={es?"/es/contacto":"/contact"}>{es?"Solicitar una cotización":"Request a Quote"}</Link><a className="button button-outline-light" href="tel:+17143889533">{es?"Llamar al":"Call"} 714-388-9533</a></div></div></section>;
 }
 
 export function Cards({ items }: { items: readonly { title: string; text: string }[] }) {

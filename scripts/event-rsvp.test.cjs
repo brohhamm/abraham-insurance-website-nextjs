@@ -26,8 +26,11 @@ test("Spanish message includes guests and agency confirmation requirement", () =
 test("invalid contacts, duplicate guests and excess party sizes are rejected", () => {
   for (const data of [{ ...input, phone: "123" }, { ...input, email: "invalid" }, { ...input, guests: [{ name: input.name, client: "yes" }] }, { ...input, guests: Array(50).fill({ name: "Test Guest", client: "no" }) }]) assert.throws(() => parseRegistration(data));
 });
-test("deadline is the end of November 23 in Pacific time", () => {
-  assert.equal(new Date(event.deadline).toISOString(), "2026-11-24T08:00:00.000Z");
+test("drawing eligibility ends 24 hours before January 28 at 4 p.m. Pacific", () => {
+  assert.equal(new Date(event.deadline).toISOString(), "2027-01-28T00:00:00.000Z");
+  assert.equal(Date.parse(event.startsAt)-event.deadline,24*60*60*1000);
+  assert.equal(Date.parse(event.endsAt)-Date.parse(event.startsAt),2*60*60*1000);
+  assert.equal(event.timeZone,"America/Los_Angeles");
   assert.equal(isRsvpOpen(event.deadline - 1), true);
   assert.equal(isRsvpOpen(event.deadline), false);
   assert.equal(isRsvpOpen(event.deadline + 1), false);
@@ -48,5 +51,14 @@ test("Gmail and mailto carry the identical bilingual SMS payload without paramet
     assert.equal(gmail.searchParams.has("bcc"), false);
     assert.equal(mail.searchParams.has("bcc"), false);
     assert.equal(decodeURIComponent(smsHref(message).split("body=")[1]), message);
+  }
+});
+
+test("rescheduled RSVP messages preserve the January date and pending confirmation in both languages",()=>{
+  for(const locale of ['en','es']){
+    const message=buildRsvpMessage(parseRegistration({...input,locale}));
+    assert.match(message,/2027/);
+    assert.match(message,locale==='en'?/January 28.*4–6/:/28 de enero.*4–6/);
+    assert.doesNotMatch(message,/December|diciembre|Christmas|navideñ/);
   }
 });

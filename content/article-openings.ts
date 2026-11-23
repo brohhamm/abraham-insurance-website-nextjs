@@ -1,11 +1,11 @@
 type BilingualOpening = { en: string; es: string };
 
-// These are clearly framed, representative teaching scenarios—not client testimonials
+// These are clearly framed, representative teaching scenarios; not client testimonials
 // or descriptions of a particular claim. They give readers a practical reason to keep
 // reading before the guide moves into definitions, limits, and policy details.
 export const articleOpenings: Record<string, BilingualOpening> = {
   "home-insurance-deductibles": {
-    en: "Picture a homeowner opening a claim estimate after a kitchen fire and learning that the first several thousand dollars are their responsibility. The policy may be working exactly as written—the surprise is the deductible. This guide helps you translate every deductible into real dollars before a loss, so the amount you choose is one you could actually pay.",
+    en: "Picture a homeowner opening a claim estimate after a kitchen fire and learning that the first several thousand dollars are their responsibility. The policy may be working exactly as written; the surprise is the deductible. This guide helps you translate every deductible into real dollars before a loss, so the amount you choose is one you could actually pay.",
     es: "Imagine que un propietario abre el estimado de un reclamo después de un incendio en la cocina y descubre que los primeros miles de dólares son su responsabilidad. La póliza puede estar funcionando exactamente como fue escrita; la sorpresa es el deducible. Esta guía le ayuda a convertir cada deducible en una cantidad real antes de una pérdida, para elegir una suma que realmente podría pagar.",
   },
   "fair-plan-dic": {
@@ -13,7 +13,7 @@ export const articleOpenings: Record<string, BilingualOpening> = {
     es: "Un comprador en una zona expuesta a incendios puede recibir dos pólizas en vez de una: una póliza FAIR Plan para cierta protección contra incendio y otra de Difference in Conditions para vacíos importantes. Dos documentos pueden parecer cobertura duplicada, pero la pregunta real es si se complementan sin dejar vacíos de responsabilidad, agua, robo o vivienda temporal. Esta guía explica cómo revisar ambas como un solo plan de protección.",
   },
   "replacement-cost-market-value": {
-    en: "A home can sell for $900,000 and still need a very different amount of dwelling coverage. The sale price includes land and location; the insurance estimate asks what labor, materials, demolition, permits, and code upgrades could cost after a major loss. This guide explains why those numbers should not match automatically—and which number actually protects the structure.",
+    en: "A home can sell for $900,000 and still need a very different amount of dwelling coverage. The sale price includes land and location; the insurance estimate asks what labor, materials, demolition, permits, and code upgrades could cost after a major loss. This guide explains why those numbers should not match automatically; and which number actually protects the structure.",
     es: "Una casa puede venderse por $900,000 y aun necesitar una cantidad muy distinta de cobertura de vivienda. El precio de venta incluye el terreno y la ubicación; el estimado del seguro considera mano de obra, materiales, demolición, permisos y mejoras de código después de una pérdida grave. Esta guía explica por qué esas cifras no deben coincidir automáticamente y cuál protege realmente la estructura.",
   },
   "insurance-before-escrow": {
@@ -29,7 +29,7 @@ export const articleOpenings: Record<string, BilingualOpening> = {
     es: "Un cliente se resbala en un negocio mientras un empleado se lesiona la espalda al levantar inventario el mismo día. Ambas lesiones involucran al negocio, pero pertenecen a conversaciones de seguro distintas. Esta guía separa la responsabilidad civil general de la compensación laboral para que el propietario entienda qué personas, eventos y costos busca atender cada póliza.",
   },
   "insurance-mortgage-escrow": {
-    en: "A buyer divides the annual home premium by twelve and expects that exact amount to appear in the mortgage payment—then the closing disclosure shows a larger deposit. Nothing is necessarily wrong: prepaid premium, reserves, timing, and lender cushions can change the first-year figures. This guide explains the moving parts so you know which questions belong with the insurer and which belong with the lender or escrow officer.",
+    en: "A buyer divides the annual home premium by twelve and expects that exact amount to appear in the mortgage payment; then the closing disclosure shows a larger deposit. Nothing is necessarily wrong: prepaid premium, reserves, timing, and lender cushions can change the first-year figures. This guide explains the moving parts so you know which questions belong with the insurer and which belong with the lender or escrow officer.",
     es: "Un comprador divide la prima anual de la casa entre doce y espera ver exactamente esa cantidad en el pago hipotecario, pero la divulgación de cierre muestra un depósito mayor. No necesariamente existe un error: la prima prepagada, reservas, fechas y colchones del prestamista pueden cambiar las cifras del primer año. Esta guía explica cada parte para saber qué preguntas corresponden a la aseguradora y cuáles al prestamista o al oficial de escrow.",
   },
   "umbrella-insurance": {
@@ -41,15 +41,15 @@ export const articleOpenings: Record<string, BilingualOpening> = {
     es: "Suponga que un conductor causa un choque en cadena con una SUV reciente y dos pasajeros lesionados. El mínimo legal de California puede cumplir la ley y aun agotarse mucho antes de pagar todos los reclamos cubiertos. Esta guía traduce 30/60/15 y otros límites a lenguaje claro para comparar el cumplimiento legal con una protección financiera significativa.",
   },
   "uninsured-underinsured-motorist-california": {
-    en: "You can drive responsibly, carry strong liability limits, and still be injured by someone who has no insurance—or only the minimum. Your liability coverage protects others when you are at fault; it does not automatically replace what an uninsured driver should have paid you. This guide explains how UM/UIM can protect your household when the other driver's coverage fails.",
+    en: "You can drive responsibly, carry strong liability limits, and still be injured by someone who has no insurance; or only the minimum. Your liability coverage protects others when you are at fault; it does not automatically replace what an uninsured driver should have paid you. This guide explains how UM/UIM can protect your household when the other driver's coverage fails.",
     es: "Puede conducir responsablemente, llevar límites sólidos de responsabilidad y aun resultar lesionado por alguien sin seguro o con el mínimo. Su responsabilidad protege a otros cuando usted tiene la culpa; no reemplaza automáticamente lo que un conductor sin seguro debió pagarle. Esta guía explica cómo UM/UIM puede proteger a su hogar cuando falla la cobertura del otro conductor.",
   },
   "comprehensive-collision-deductibles": {
-    en: "Two damaged cars can lead to two different coverages: one hits a freeway barrier, while the other is struck by a falling tree branch. Collision commonly addresses the first event and comprehensive may address the second, subject to the policy. This guide helps you understand the distinction and choose a deductible you could handle more than once—not merely the option with the lowest premium.",
+    en: "Two damaged cars can lead to two different coverages: one hits a freeway barrier, while the other is struck by a falling tree branch. Collision commonly addresses the first event and comprehensive may address the second, subject to the policy. This guide helps you understand the distinction and choose a deductible you could handle more than once; not merely the option with the lowest premium.",
     es: "Dos autos dañados pueden activar coberturas distintas: uno choca con una barrera de la autopista y al otro le cae una rama. Colisión suele atender el primer evento e integral puede atender el segundo, según la póliza. Esta guía ayuda a entender la diferencia y elegir un deducible que podría pagar más de una vez, no solamente la opción con la prima más baja.",
   },
   "california-homeowners-coverage-limits": {
-    en: "After a major neighborhood fire, rebuilding is not just lumber and labor. Debris removal, permits, code upgrades, temporary housing, and regional demand can all arrive at once. This guide walks through the separate parts of a homeowners policy so you can see which limit pays for the structure, belongings, living elsewhere, and liability—and where a gap may remain.",
+    en: "After a major neighborhood fire, rebuilding is not just lumber and labor. Debris removal, permits, code upgrades, temporary housing, and regional demand can all arrive at once. This guide walks through the separate parts of a homeowners policy so you can see which limit pays for the structure, belongings, living elsewhere, and liability; and where a gap may remain.",
     es: "Después de un incendio importante en un vecindario, reconstruir no significa solamente madera y mano de obra. Retiro de escombros, permisos, mejoras de código, vivienda temporal y demanda regional pueden llegar al mismo tiempo. Esta guía recorre las partes separadas de una póliza de casa para identificar qué límite paga la estructura, pertenencias, vivienda temporal y responsabilidad, y dónde puede quedar un vacío.",
   },
   "renters-insurance-california": {
@@ -57,7 +57,7 @@ export const articleOpenings: Record<string, BilingualOpening> = {
     es: "Una tubería revienta en el apartamento de arriba y daña la cama, computadora, ropa y muebles del inquilino. El propietario puede reparar el edificio, pero eso no significa que cubra las pertenencias o el hotel del inquilino. Esta guía explica las tres funciones del seguro para inquilinos: proteger bienes personales, ayudar con gastos elegibles de vivienda temporal y brindar responsabilidad civil personal.",
   },
   "condo-insurance-california": {
-    en: "A leak damages cabinets, flooring, and drywall inside a condo, and the owner assumes the HOA master policy will pay for everything. The answer depends on the master policy and the CC&Rs—documents many owners do not read until a loss. This guide shows how to coordinate those documents with an HO-6 policy before a repair becomes a dispute over who insures what.",
+    en: "A leak damages cabinets, flooring, and drywall inside a condo, and the owner assumes the HOA master policy will pay for everything. The answer depends on the master policy and the CC&Rs; documents many owners do not read until a loss. This guide shows how to coordinate those documents with an HO-6 policy before a repair becomes a dispute over who insures what.",
     es: "Una fuga daña gabinetes, pisos y paneles de yeso dentro de un condominio, y el propietario supone que la póliza maestra de la HOA pagará todo. La respuesta depende de la póliza maestra y los CC&R, documentos que muchos propietarios no leen hasta una pérdida. Esta guía muestra cómo coordinarlos con una póliza HO-6 antes de que una reparación se convierta en una disputa sobre quién asegura cada parte.",
   },
   "landlord-insurance-california": {
@@ -81,7 +81,7 @@ export const articleOpenings: Record<string, BilingualOpening> = {
     es: "Un contratista entrega un certificado con $1 millón de responsabilidad y supone que cumplió el contrato. Después descubre que también se exigían asegurado adicional, operaciones terminadas y lenguaje específico que el certificado por sí solo no crea. Esta guía explica los límites comunes y por qué los endosos, exclusiones y operaciones reales importan tanto como la cifra en la página.",
   },
   "business-owners-policy-property-income": {
-    en: "A small business survives a covered fire, but reopening takes months while rent, payroll, and loan payments continue. Replacing damaged equipment is only part of the recovery; lost income and extra operating costs can be just as serious. This guide explains how a Business Owners Policy can package property, liability, and eligible business-income protection—and which exposures still need separate review.",
+    en: "A small business survives a covered fire, but reopening takes months while rent, payroll, and loan payments continue. Replacing damaged equipment is only part of the recovery; lost income and extra operating costs can be just as serious. This guide explains how a Business Owners Policy can package property, liability, and eligible business-income protection; and which exposures still need separate review.",
     es: "Una pequeña empresa sobrevive a un incendio cubierto, pero reabrir toma meses mientras continúan renta, nómina y préstamos. Reemplazar equipo dañado es solamente parte de la recuperación; la pérdida de ingresos y los gastos adicionales pueden ser igual de serios. Esta guía explica cómo una BOP puede combinar propiedad, responsabilidad e ingresos comerciales elegibles, y qué riesgos todavía necesitan revisión separada.",
   },
   "workers-compensation-california": {
@@ -97,16 +97,16 @@ export const articleOpenings: Record<string, BilingualOpening> = {
     es: "Un correo convincente hace que un empleado envíe dinero a la cuenta equivocada mientras un error de software retrasa el proyecto de un cliente. Ambas pérdidas involucran tecnología, pero no necesariamente activan la misma cobertura. Esta guía separa riesgos cibernéticos, de crimen y responsabilidad profesional para relacionar el seguro con la forma en que el negocio guarda datos, mueve dinero y presta servicios.",
   },
   "california-home-insurance-non-renewal": {
-    en: "Opening a non-renewal notice can feel like being told the home is suddenly uninsurable. It may instead reflect a roof concern, wildfire model, property detail, claims history, or broader underwriting change—and the response depends on which one applies. This guide gives you an orderly first-day plan so valuable time is spent correcting facts, gathering documents, and comparing complete alternatives.",
+    en: "Opening a non-renewal notice can feel like being told the home is suddenly uninsurable. It may instead reflect a roof concern, wildfire model, property detail, claims history, or broader underwriting change; and the response depends on which one applies. This guide gives you an orderly first-day plan so valuable time is spent correcting facts, gathering documents, and comparing complete alternatives.",
     es: "Abrir un aviso de no renovación puede sentirse como si la casa fuera de repente imposible de asegurar. En realidad puede reflejar el techo, un modelo de incendio, un dato de la propiedad, reclamos o un cambio general de suscripción, y la respuesta depende de la causa. Esta guía ofrece un plan ordenado para el primer día y aprovechar el tiempo corrigiendo datos, reuniendo documentos y comparando alternativas completas.",
   },
   "high-value-home-insurance-underwriting-california": {
-    en: "A custom home cannot be explained by square footage and sale price alone. Imported finishes, hillside access, detached structures, collections, domestic staff, and wildfire features can each change reconstruction or liability exposure. This guide helps organize the detailed underwriting story so the insurer sees the property that actually exists—not an incomplete database profile.",
+    en: "A custom home cannot be explained by square footage and sale price alone. Imported finishes, hillside access, detached structures, collections, domestic staff, and wildfire features can each change reconstruction or liability exposure. This guide helps organize the detailed underwriting story so the insurer sees the property that actually exists; not an incomplete database profile.",
     es: "Una casa personalizada no puede explicarse solamente con pies cuadrados y precio de venta. Acabados importados, acceso en ladera, estructuras separadas, colecciones, empleados domésticos y características contra incendios pueden cambiar la reconstrucción o responsabilidad. Esta guía ayuda a organizar la historia completa de suscripción para que la aseguradora vea la propiedad real y no un perfil incompleto de una base de datos.",
   },
   "insuring-jewelry-art-collections": {
     en: "A homeowner may have $200,000 of personal-property coverage and still discover that a stolen ring is subject to a much smaller jewelry limit. The total limit and the category limit are different questions. This guide explains how inventories, appraisals, scheduling, valuation methods, and protection away from home work together for items that cannot be treated like ordinary household contents.",
-    es: "Un propietario puede tener $200,000 de cobertura de bienes personales y aun descubrir que un anillo robado está sujeto a un límite mucho menor para joyas. El límite total y el límite por categoría son preguntas distintas. Esta guía explica cómo inventarios, tasaciones, bienes programados, métodos de valoración y protección fuera del hogar se coordinan para artículos que no deben tratarse como contenido común.",
+    es: "Un propietario puede tener $200,000 de cobertura de bienes personales y aun descubrir que un anillo robado está sujeto a un límite mucho menor para joyas. El límite total y el límite por categoría son preguntas distintas. Esta guía explica cómo inventarios, tasaciones, bienes valiosos incluidos individualmente en la póliza, métodos de valoración y protección fuera del hogar se coordinan para artículos que no deben tratarse como contenido común.",
   },
 };
 

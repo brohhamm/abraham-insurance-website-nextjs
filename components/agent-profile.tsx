@@ -13,7 +13,7 @@ const profiles = {
     abraham: {
       name: "Abraham Nunez-Chavez",
       eyebrow: "Moreno Valley insurance agent and broker",
-      intro: "Coverage-focused insurance advice for your home purchase, rental properties, business, vehicles, and family. California License No. 4357305.",
+      intro: "Practical insurance advice for your home purchase, rental properties, business, vehicles, and family. California License No. 4357305.",
       license: "CA Lic. No. 4357305",
       image: "/images/abraham-nunez-chavez-insurance-agent.jpg",
       alt: "Abraham Nunez-Chavez, licensed insurance producer serving Southern California",
@@ -39,7 +39,7 @@ const profiles = {
       image: "/images/rosalia-elizabeth-gomez-insurance-agent.jpg",
       alt: "Rosalia Elizabeth Gomez, licensed insurance agent at the Moreno Valley office",
       bio: "Rosalia assists with personal, commercial, and life insurance. Her primary office is in Moreno Valley.",
-      detail: "She works through Abel Duran Insurance Agency, Inc. and helps clients connect with appropriate quote and coverage support based on their insurance needs.",
+      detail: "At Abel Duran Insurance Agency, Inc., Rosalia helps you compare quotes and understand the coverage you are choosing. Bring your questions, whether you are starting a policy or reviewing your options.",
       office: siteConfig.morenoValleyOffice,
       phone: agents.rosalia.phone,
       phoneHref: agents.rosalia.phoneHref,

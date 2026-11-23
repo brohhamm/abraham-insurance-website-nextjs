@@ -1,3 +1,4 @@
+import { ServiceHelp } from "@/components/service-help";
 import Image from "next/image";
 import Link from "next/link";
 import { CTA, PageHero } from "@/components/ui";
@@ -358,7 +359,7 @@ export function SpanishAbel() {
           </div>
           <div className="specialty-grid">
             {abelServices.map((x) => (
-              <span key={x}>Seguro de {x.toLowerCase()}</span>
+              <span key={x}>{({comercial:"Seguro comercial",paraguas:"Seguro paraguas",marítimo:"Seguro de embarcaciones"} as Record<string,string>)[x.toLowerCase()] || `Seguro de ${x.toLowerCase()}`}</span>
             ))}
           </div>
         </div>
@@ -880,7 +881,7 @@ export function SpanishOffice({ city }: { city: keyof typeof officeData }) {
           </div>
           <div className="specialty-grid">
             {officeSpecialties[city].map((x) => (
-              <span key={x}>Seguro de {x.toLowerCase()}</span>
+              <span key={x}>{({comercial:"Seguro comercial",paraguas:"Seguro paraguas",marítimo:"Seguro de embarcaciones"} as Record<string,string>)[x.toLowerCase()] || `Seguro de ${x.toLowerCase()}`}</span>
             ))}
           </div>
           <p className="disclaimer">
@@ -928,7 +929,7 @@ export function SpanishCustomerService() {
     <>
       <PageHero
         eyebrow="Servicio al cliente y apoyo para pólizas"
-        title="Ayuda para pólizas existentes de un verdadero equipo de agencia."
+        title="¿Tiene preguntas sobre su póliza? Está en el lugar indicado."
       >
         Rashel Dominguez y Suzee Cervantes ayudan con preguntas sobre pólizas, documentos, orientación de
         facturación, renovaciones y solicitudes de servicio.
@@ -983,9 +984,10 @@ export function SpanishCustomerService() {
         <div className="shell service-layout">
           <div>
             <p className="eyebrow">Solicitudes comunes</p>
-            <h2>Apoyo para su póliza sin ingresar al proceso de cotización.</h2>
+            <h2>Reciba ayuda con el seguro que ya tiene.</h2>
+            <ServiceHelp locale="es" />
             <ul className="service-list">
-              {requests.map((x) => (
+              {requests.slice(3).map((x) => (
                 <li key={x}>{x}</li>
               ))}
             </ul>

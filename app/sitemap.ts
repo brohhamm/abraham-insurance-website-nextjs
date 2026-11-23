@@ -22,10 +22,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   const englishDates = new Map(english.map((entry) => [new URL(entry.url).pathname, entry.lastModified]));
   const spanish = Object.entries(routePairs).map(([en, path]) => ({ url: `${siteConfig.url}${path}`, lastModified: englishDates.get(en) ?? lastModified, changeFrequency: path === "/es" ? "weekly" as const : "monthly" as const, priority: path === "/es" ? 0.9 : 0.7 }));
-  const eventEntry = { url: `${siteConfig.url}/events/christmas-client-appreciation`, lastModified: new Date("2026-11-05T00:00:00-08:00"), changeFrequency: "weekly" as const, priority: 0.7 };
+  const eventEntry = { url: `${siteConfig.url}/events/christmas-client-appreciation`, lastModified: new Date("2026-11-22T00:00:00-08:00"), changeFrequency: "weekly" as const, priority: 0.7 };
   const revised = new Set(["/personal-insurance", "/carriers", "/", "/abraham-nunez-chavez", "/business-insurance", "/referral-partners", "/inland-marine-insurance", "/insurance/homeowners-insurance", "/insurance/condo-insurance", "/insurance/landlord-insurance", "/insurance/auto-insurance", "/insurance/life-insurance", "/insurance/general-liability-insurance", "/insurance/commercial-property-insurance", "/insurance/business-owners-policy", "/insurance/workers-compensation-insurance", "/insurance/contractor-insurance", "/insurance/commercial-auto-insurance"]);
   for (const path of [...revised]) if (routePairs[path]) revised.add(routePairs[path]);
   const priorOnly = new Set(["/referral-partners", "/es/socios-de-referidos", "/inland-marine-insurance", "/es/seguro-de-equipo-y-bienes-en-transito", "/insurance/auto-insurance", "/es/seguro-de-auto"]);
-  return [...english, ...spanish, eventEntry].map(entry => revised.has(new URL(entry.url).pathname) ? { ...entry, lastModified: new Date(priorOnly.has(new URL(entry.url).pathname) ? "2026-11-18T00:00:00-08:00" : "2026-11-21T00:00:00-08:00") } : entry);
+  return [...english, ...spanish, eventEntry].map(entry => entry.url.endsWith("/es/eventos/convivio-navideno") ? { ...entry, lastModified: eventEntry.lastModified } : revised.has(new URL(entry.url).pathname) ? { ...entry, lastModified: new Date(priorOnly.has(new URL(entry.url).pathname) ? "2026-11-18T00:00:00-08:00" : "2026-11-21T00:00:00-08:00") } : entry);
 }
 

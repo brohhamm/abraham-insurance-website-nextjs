@@ -5,29 +5,29 @@ import { event, buildRsvpMessage, parseRegistration, smsHref, gmailHref, emailHr
 const messages = {
   en: {
     name: "Full name", phone: "Phone number", email: "Email",
-    client: "Are you the primary named insured on a current policy with our agency?",
+    client: "Are you listed as the main policyholder on an active insurance policy with our agency?",
     count: "Total people attending, including you", guest: "Guest",
-    guestClient: "Is this guest the primary named insured on a current agency policy?",
+    guestClient: "Is this guest listed as the main policyholder on an active agency policy?",
     notes: "Dietary or accessibility requests (optional; no sensitive medical details)",
     yes: "Yes", no: "No", unsure: "Not sure",
     text: "Text My RSVP", gmail: "Email My RSVP with Gmail", emailApp: "Use another email app",
-    ready: "Your holiday RSVP message is ready",
+    ready: "Your New Year RSVP message is ready",
     instructions: "Choose text or email, and we’ll have your message ready for you. Just press Send in your app, then look out for our reply confirming your places.",
     pending: "You’re almost there! Please send your prepared message in your app. Your places are confirmed when our team replies.",
     open: "Open Text Message", copy: "Copy Message", copied: "Your message is copied and ready to share. Paste it into your message or email app and press Send.",
     copyFailed: "Copy was unavailable. Select and copy the prepared message below.",
     edit: "Edit details", privacy: "Your details stay in this form until you choose a text or email handoff, or copy the message. They are used for event coordination. This page does not save registrations or subscribe you to marketing.",
     help: "For assistance, changes, or cancellations, call",
-    closed: "Our RSVP deadline was November 23. Please call the office; we’ll be happy to help.",
+    closed: "The prize-drawing RSVP deadline was January 27 at 4 p.m. Pacific. Call us about any remaining places to attend; a late inquiry does not establish drawing eligibility.",
     invalid: "Please check your contact details and include a different full name for each guest so we can welcome everyone.",
     preview: "Prepared RSVP message", fallback: "No messaging app available? Copy the message or use another email app.",
     recipient: "Text: 714-388-9533 · Email: Abraham.aduran@farmersagency.com",
   },
   es: {
     name: "Nombre completo", phone: "Número de teléfono", email: "Correo electrónico",
-    client: "¿Es usted el asegurado principal de una póliza vigente con nuestra agencia?",
+    client: "¿Figura usted como titular principal de una póliza activa con nuestra agencia?",
     count: "Total de asistentes, incluyéndose a usted", guest: "Invitado",
-    guestClient: "¿Es este invitado el asegurado principal de una póliza vigente con la agencia?",
+    guestClient: "¿Figura este invitado como titular principal de una póliza activa con la agencia?",
     notes: "Necesidades alimentarias o de accesibilidad (opcional; no incluya detalles médicos sensibles)",
     yes: "Sí", no: "No", unsure: "No estoy seguro",
     text: "Enviar mi solicitud por mensaje de texto", gmail: "Enviar mi solicitud con Gmail", emailApp: "Usar otra aplicación de correo",
@@ -38,7 +38,7 @@ const messages = {
     copyFailed: "No se pudo copiar automáticamente. Seleccione y copie el mensaje preparado a continuación.",
     edit: "Editar datos", privacy: "Sus datos permanecen en este formulario hasta que abra su aplicación de mensajes o correo, o copie el mensaje. Se utilizan para coordinar el evento. Esta página no guarda registros ni lo suscribe a publicidad.",
     help: "Para asistencia, cambios o cancelaciones, llame al",
-    closed: "La fecha límite fue el 23 de noviembre. Llame a la oficina; con gusto le ayudaremos.",
+    closed: "El plazo de solicitud para participar en los sorteos terminó el 27 de enero a las 4 p. m., hora del Pacífico. Llame para consultar lugares disponibles; una consulta tardía no otorga participación en los sorteos.",
     invalid: "Revise sus datos de contacto e incluya un nombre completo diferente para cada invitado para que podamos darles la bienvenida.",
     preview: "Mensaje de solicitud preparado", fallback: "¿No tiene una aplicación de mensajes disponible? Copie el mensaje o use otra aplicación de correo.",
     recipient: "Mensajes: 714-388-9533 · Correo: Abraham.aduran@farmersagency.com",
@@ -86,6 +86,7 @@ export function EventRsvpForm({ locale }: { locale: "en" | "es" }) {
   return <form className="quote-form" onSubmit={submit}>
     <label>{t.name}<input required minLength={2} maxLength={100} autoComplete="name" value={details.name} onChange={e => setDetails({ ...details, name: e.target.value })} /></label>
     <div className="form-grid"><label>{t.phone}<input required type="tel" maxLength={30} autoComplete="tel" value={details.phone} onChange={e => setDetails({ ...details, phone: e.target.value })} /></label><label>{t.email}<input required type="email" maxLength={180} autoComplete="email" value={details.email} onChange={e => setDetails({ ...details, email: e.target.value })} /></label></div>
+    <p className="experience-note">{locale === "es" ? "El titular principal es la persona que aparece como asegurado principal en los documentos de la póliza. Si no está seguro, elija esa opción; nuestro equipo lo revisará." : "The main policyholder is the person listed as the primary named insured on the policy documents. Not sure? Choose that option and our team will check."}</p>
     <label>{t.client}<select value={details.client} onChange={e => setDetails({ ...details, client: e.target.value as ClientStatus })}>{choices()}</select></label>
     <label>{t.count}<select value={guests.length + 1} onChange={e => { const count = Number(e.target.value) - 1; setGuests(old => Array.from({ length: count }, (_, i) => old[i] ?? { name: "", client: "unsure" })); }}>{Array.from({ length: event.capacity }, (_, i) => <option key={i + 1} value={i + 1}>{i + 1}</option>)}</select></label>
     {guests.map((g, i) => <fieldset key={i} className="rsvp-guest"><legend>{t.guest} {i + 1}</legend><label>{t.name}<input required minLength={2} maxLength={100} value={g.name} onChange={e => setGuests(old => old.map((x, n) => n === i ? { ...x, name: e.target.value } : x))} /></label><label>{t.guestClient}<select value={g.client} onChange={e => setGuests(old => old.map((x, n) => n === i ? { ...x, client: e.target.value as ClientStatus } : x))}>{choices()}</select></label></fieldset>)}

@@ -12,7 +12,7 @@ export function SiteSearch({ entries, locale, onNavigate }: { entries: SearchEnt
   const trigger = useRef<HTMLButtonElement>(null);
   const es = locale === "es";
   const suggestions = es ? ["Seguro de casa", "Propietarios", "Condominio vacante", "Contratista nuevo", "Compensación laboral", "Legado"] : ["Home insurance", "Landlord", "Vacant condo", "New contractor", "Workers compensation", "Legacy life"];
-  const categories: Record<string, string> = es ? {market:"Aseguradoras", service:"Seguros", guide:"Guía", agent:"Equipo", location:"Área de servicio", event:"Evento", page:"Página"} : {market:"Carriers", service:"Insurance", guide:"Guide", agent:"Team", location:"Service area", event:"Event", page:"Page"};
+  const categories: Record<string, string> = es ? {support:"Servicio al cliente", market:"Aseguradoras", service:"Seguros", guide:"Guía", agent:"Equipo", location:"Área de servicio", event:"Evento", page:"Página"} : {support:"Customer service", market:"Carriers", service:"Insurance", guide:"Guide", agent:"Team", location:"Service area", event:"Event", page:"Page"};
   const results = searchPublicPages(entries, query, locale);
   function close() { dialog.current?.close(); trigger.current?.focus(); }
   function open() { setQuery(""); dialog.current?.showModal(); input.current?.focus(); }

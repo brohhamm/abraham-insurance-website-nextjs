@@ -1,52 +1,102 @@
 import { EventRsvpForm } from "@/components/event-rsvp-form";
 import { event, isRsvpOpen } from "@/lib/event-rsvp";
+import { siteConfig } from "@/lib/site-config";
 import { connection } from "next/server";
 import "./christmas-event.css";
 
+const copy = {
+  en: {
+    kicker: "A new year. The same heartfelt thanks.", title: "You’re part of our community. Let’s start the year together.",
+    name: "New Year Client Appreciation & Community Event",
+    welcome: "To our clients, neighbors, and friends: thank you for being part of our community. We’re grateful for the trust you place in our team and for the chance to help protect the people and places you care about.",
+    invitation: "Join us in January for good food, friendly conversation, and practical ideas you can take home. Whether you’ve worked with us for years or are meeting us for the first time, we’d love to welcome you.",
+    date: "Thursday, January 28", time: "2027 · 4–6 p.m., Pacific time", rsvp: "Request My Place",
+    gathering: "Good company. Useful conversations. A fresh start.", gatheringTitle: "Pull up a chair and spend the afternoon with us.",
+    motto: "Building a life is hard work. Let’s protect your future.",
+    speakersIntro: "Our speakers are confirmed, and there will be time for your questions. Bring the things you’ve always wanted to ask about protecting your home, your vehicle, or your family.",
+    speakers: [
+      {name:"Abel Duran and our agency team", text:"Let’s make insurance easier to understand. We’ll talk about protecting what matters and leave room for your general insurance questions."},
+      {name:"Fix It Auto", text:"Know what to do when a drive takes an unexpected turn. Learn about vehicle preparedness and the first steps to take immediately after a crash."},
+      {name:"Nichole Mowrey · SERVPRO Team Lingurar", text:"A little home preparedness can make a difficult day easier to navigate. Nichole will discuss preparedness and the first steps after water or fire damage."},
+    ],
+    dinnerTitle:"Come hungry. Stay for the conversation.",
+    dinner:"Sharing a meal is one of our favorite ways to bring people together. We’ve selected Juan Pollo in Moreno Valley and are planning dinner for our full capacity of 50 guests.",
+    menu:"Our planned menu includes chicken, rice, beans, potato salad, green salad, salsa, and tortillas. Drinks and cookies are planned separately; those selections are still being finalized.",
+    caterer:"Meet our selected caterer: Juan Pollo", dietary:"Have a dietary concern? Mention it with your RSVP so we can review it with you. Special meals and dietary accommodations have not been confirmed.",
+    howTitle:"We’d love to know you’re coming.", steps:["Tell us your name and who’s joining you. Include yourself in the total.","Choose text or email. Your message will be ready; press Send in your app.","Look for our reply confirming available places. That reply confirms your reservation."],
+    detailsTitle:"A few details before we get together", questions:[
+      {q:"Who’s invited?",a:"Clients and community members are welcome to request a place. Bringing family or friends? Include each person’s name so we can plan for your group."},
+      {q:"When should I send my RSVP?",a:"For prize-drawing eligibility, send your RSVP by Wednesday, January 27, 2027, at 4 p.m. Pacific, 24 hours before the event. Final drawing rules will also apply. We have space for 50 guests, excluding staff, and our team confirms availability manually."},
+      {q:"What if I miss that deadline?",a:"Call 951-653-8888 to ask whether places remain to attend. The drawing-eligibility deadline is separate from seat availability; a late inquiry does not establish eligibility for the drawings."},
+      {q:"When is my place confirmed?",a:"Your place is confirmed when our team replies. Completing the form prepares a message; you still need to press Send in your text or email app. We’ll review your request and reply about availability."},
+    ],
+    prizesKicker:"A little extra excitement", prizesTitle:"Prizes with a practical purpose.",
+    prizesIntro:"Our planned prize drawings connect with the ideas you’ll hear from our speakers. Here’s what we’re looking forward to sharing:",
+    prizes:[
+      {name:"SERVPRO · Home Preparedness Gift Basket",text:"Planned items include a home camera, fire-safety devices, and water-damage mitigation items. The theme is spotting problems early and getting your household ready for the unexpected."},
+      {name:"Fix It Auto · Auto Preparedness Gift Basket",text:"Emergency and vehicle-preparedness supplies, plus a pamphlet with the first steps to take after a crash, bring the presentation’s practical advice together."},
+      {name:"Abel Duran · Television",text:"A television is planned as another prize for the celebration. We’ll share any additional confirmed gift details before the event."},
+    ],
+    prizeNote:"Basket contents are being finalized. These are drawing prizes, so not every guest receives a gift. Preparedness products do not prevent every loss, and installation services are not included in the announced gifts.",
+    rules:"Final prize-drawing eligibility, attendance, and entry rules will be announced. Any client status you share will be checked by our team. No entries are awarded for Google reviews.",
+    formKicker:"Let’s make plans", formTitle:"We’d love to welcome you.",
+    formIntro:"Complete one request for your group, then choose text or email. Our team will reply to confirm available places. Your details are used to coordinate the event.",
+    closed:"The January 27, 4 p.m. Pacific RSVP deadline for drawing eligibility has passed. Call us to ask about any remaining places to attend. A late inquiry does not establish drawing eligibility.", help:"For help, changes, or cancellations:",
+  },
+  es: {
+    kicker:"Un nuevo año, con el mismo agradecimiento.",title:"Usted es parte de nuestra comunidad. Empecemos el año juntos.",
+    name:"Encuentro de Año Nuevo para Clientes y Comunidad",
+    welcome:"A nuestros clientes, vecinos y amigos: gracias por ser parte de nuestra comunidad. Agradecemos la confianza que depositan en nuestro equipo y la oportunidad de ayudarles a proteger a sus seres queridos, sus hogares y sus negocios.",
+    invitation:"Acompáñenos en enero para compartir buena comida, conversar y llevarse ideas prácticas para su hogar. Ya sea que nos conozca desde hace años o nos visite por primera vez, nos dará mucho gusto recibirle.",
+    date:"Jueves 28 de enero",time:"2027 · 4–6 p. m., hora del Pacífico",rsvp:"Solicitar mi lugar",
+    gathering:"Buena compañía. Conversaciones útiles. Un nuevo comienzo.",gatheringTitle:"Acompáñenos y comparta la tarde con nosotros.",
+    motto:"Construir una vida requiere mucho esfuerzo. Protejamos su futuro.",
+    speakersIntro:"Nuestros invitados ya están confirmados y habrá tiempo para sus preguntas. Traiga sus dudas sobre cómo proteger su vivienda, su vehículo o a su familia.",
+    speakers:[
+      {name:"Abel Duran y nuestro equipo",text:"Queremos que el seguro sea más fácil de entender. Conversaremos sobre cómo proteger lo que más importa y responderemos preguntas generales de seguros."},
+      {name:"Fix It Auto",text:"Sepa qué hacer cuando un recorrido cambia inesperadamente. Conozca ideas de preparación para su vehículo y los primeros pasos que debe tomar después de un accidente."},
+      {name:"Nichole Mowrey · SERVPRO Team Lingurar",text:"Preparar su hogar ayuda a afrontar un día difícil con más información. Nichole hablará de preparación y de los primeros pasos después de daños por agua o incendio."},
+    ],
+    dinnerTitle:"Venga con apetito. Quédese para conversar.",
+    dinner:"Compartir la mesa es una de nuestras formas favoritas de reunir a la comunidad. Hemos elegido a Juan Pollo en Moreno Valley y planeamos ofrecer cena para el cupo completo de 50 invitados.",
+    menu:"El menú previsto incluye pollo, arroz, frijoles, ensalada de papa, ensalada verde, salsa y tortillas. Las bebidas y galletas se planean por separado; esas selecciones aún se están definiendo.",
+    caterer:"Conozca al restaurante elegido: Juan Pollo",dietary:"¿Tiene alguna necesidad alimentaria? Menciónela en su solicitud para revisarla con usted. Aún no se han confirmado comidas especiales ni adaptaciones alimentarias.",
+    howTitle:"Nos encantará saber que nos acompañará.",steps:["Comparta su nombre y el de cada acompañante. Inclúyase en el total.","Elija mensaje de texto o correo. Prepararemos el mensaje; pulse Enviar en su aplicación.","Espere nuestra respuesta sobre los lugares disponibles. Esa respuesta confirma su reservación."],
+    detailsTitle:"Algunos detalles antes de reunirnos",questions:[
+      {q:"¿Quién está invitado?",a:"Los clientes y miembros de la comunidad pueden solicitar un lugar. Si viene con familiares o amigos, incluya el nombre de cada persona para que podamos planear para su grupo."},
+      {q:"¿Hasta cuándo debo enviar mi solicitud?",a:"Para la elegibilidad de los sorteos, envíe su solicitud a más tardar el miércoles 27 de enero de 2027 a las 4 p. m., hora del Pacífico, 24 horas antes del evento. También aplicarán las reglas finales de los sorteos. Hay espacio para 50 invitados, sin contar al personal; nuestro equipo confirma la disponibilidad personalmente."},
+      {q:"¿Qué pasa si se me pasa el plazo?",a:"Llame al 951-653-8888 para preguntar si quedan lugares para asistir. El plazo de elegibilidad de sorteos es distinto de la disponibilidad de asientos; una consulta tardía no otorga participación en los sorteos."},
+      {q:"¿Cuándo queda confirmado mi lugar?",a:"Su lugar queda confirmado cuando nuestro equipo le responda. El formulario prepara un mensaje; usted todavía debe pulsar Enviar en su aplicación de texto o correo. Revisaremos la solicitud y le responderemos sobre la disponibilidad."},
+    ],
+    prizesKicker:"Un toque más de emoción",prizesTitle:"Premios con un propósito práctico.",
+    prizesIntro:"Los sorteos previstos se relacionan con las ideas de nuestros invitados. Estos son los premios que estamos preparando:",
+    prizes:[
+      {name:"SERVPRO · Canasta de preparación para el hogar",text:"Se planea incluir una cámara para el hogar, dispositivos de seguridad contra incendios y artículos para mitigar daños por agua. La idea es detectar problemas a tiempo y preparar a su hogar para lo inesperado."},
+      {name:"Fix It Auto · Canasta de preparación para el auto",text:"Artículos de emergencia y preparación para el vehículo, junto con un folleto sobre los primeros pasos después de un accidente, complementan los consejos de la presentación."},
+      {name:"Abel Duran · Televisor",text:"También se planea sortear un televisor. Compartiremos los detalles de otros regalos si se confirman antes del evento."},
+    ],
+    prizeNote:"El contenido de las canastas aún se está definiendo. Son premios de sorteos; no todos los asistentes reciben un regalo. Estos productos no evitan toda pérdida y los regalos anunciados no incluyen servicios de instalación.",
+    rules:"Anunciaremos las reglas finales de elegibilidad, asistencia y participaciones. Nuestro equipo verificará cualquier condición de cliente que usted indique. No se otorgan participaciones por reseñas de Google.",
+    formKicker:"Hagamos planes",formTitle:"Nos encantará darle la bienvenida.",
+    formIntro:"Complete una solicitud para su grupo y elija mensaje de texto o correo. Le responderemos para confirmar lugares disponibles. Sus datos se usan para coordinar el evento.",
+    closed:"El plazo de solicitud para la elegibilidad de sorteos terminó el 27 de enero a las 4 p. m., hora del Pacífico. Llame para consultar lugares disponibles para asistir. Una consulta tardía no otorga participación en los sorteos.",help:"Para asistencia, cambios o cancelaciones:",
+  },
+};
+
 export async function ChristmasEvent({ locale }: { locale: "en" | "es" }) {
   await connection();
-  const es = locale === "es", closed = !isRsvpOpen();
+  const t=copy[locale], closed=!isRsvpOpen();
+  const schema={"@context":"https://schema.org","@type":"Event",name:t.name,description:t.invitation,startDate:event.startsAt,endDate:event.endsAt,previousStartDate:"2026-12-10T17:00:00-08:00",eventStatus:"https://schema.org/EventRescheduled",eventAttendanceMode:"https://schema.org/OfflineEventAttendanceMode",url:siteConfig.url+(locale==="es"?event.esPath:event.enPath),location:{"@type":"Place",name:"Farmers Insurance, Office of Abel Duran",address:event.address},organizer:{"@type":"InsuranceAgency",name:siteConfig.agencyLegalName,url:siteConfig.url},maximumAttendeeCapacity:event.capacity};
   return <div className="holiday-event">
-    <section className="holiday-intro"><div className="shell">
-      <div className="holiday-ornaments" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span></div>
-      <p className="holiday-kicker">{es ? "Un poco de alegría navideña, con nuestro agradecimiento" : "A little holiday cheer, with our thanks"}</p>
-      <h1>{es ? "Usted es parte de nuestra comunidad. Celebremos juntos." : "You’re part of our community. Let’s celebrate together."}</h1>
-      <p className="holiday-subtitle">{es ? "Convivio navideño de agradecimiento a clientes y comunidad" : "Christmas Client Appreciation & Community Event"}</p>
-      <p className="holiday-welcome">{es ? "A nuestros clientes, vecinos y amigos: gracias por ser parte de nuestra comunidad. A quienes nos han confiado la protección de sus familias, hogares y negocios, les agradecemos de manera especial." : "To our clients, neighbors, and friends: thank you for being part of our community. To those who have entrusted us with protecting their families, homes, and businesses, we are especially grateful."}</p>
-      <p className="holiday-welcome">{es ? "Este diciembre, nos encantaría invitarle a una tarde de comida, rostros amigos y alegría navideña. Ya sea que conozca a nuestro equipo desde hace años o nos visite por primera vez, esperamos recibirle con mucho gusto." : "This December, we’d love to treat you to an evening of food, friendly faces, and holiday cheer. Whether you’ve known our team for years or are meeting us for the first time, we look forward to welcoming you."}</p>
-      <div className="holiday-date-strip"><span><strong>{es ? "Jueves 10 de diciembre" : "Thursday, December 10"}</strong><br />{es ? "2026 · 5–8 p. m., hora del Pacífico" : "2026 · 5–8 p.m., Pacific time"}</span><span><strong>Moreno Valley</strong><br />{event.address}</span><a href="#event-rsvp" className="button">{es ? "Solicitar mi lugar" : "Request My Place"}</a></div>
-    </div></section>
-    <section className="holiday-body"><div className="shell rsvp-layout">
-      <div className="holiday-details">
-        <article className="holiday-card"><p className="holiday-kicker">{es ? "Buena compañía, conversaciones útiles y alegría navideña." : "Good company. Helpful conversations. Holiday cheer."}</p><h2>{es ? "Acompáñenos y comparta una tarde con nosotros." : "Pull up a chair and spend the evening with us."}</h2>
-          <p>{es ? "Construir una vida requiere mucho esfuerzo. Protejamos su futuro." : "Building a life is hard work. Let’s protect your future."}</p>
-          <p>{es ? "Abel Duran y nuestro equipo recibirán a invitados especiales de Fix It Auto y a Nichole de SERVPRO para conversar sobre cómo proteger lo que más importa. Hablaremos de qué hacer después de un accidente de auto y de los primeros pasos tras daños por agua o incendio, con tiempo para sus preguntas." : "Abel Duran and our agency team will be joined by special guests from Fix It Auto and Nichole from SERVPRO for practical conversations about protecting what matters most. We’ll talk about what to do after a car accident and the first steps to take after water or fire damage, with time for your questions along the way."}</p>
-          <p>{es ? "Venga a disfrutar de algo de comer, conozca a las personas detrás de la agencia y comparta un poco de alegría navideña con sus vecinos." : "Come enjoy a bite to eat, get to know the people behind the agency, and share a little holiday cheer with your neighbors."}</p>
-          <div className="holiday-partners"><span>Abel Duran Agency</span><span>Fix It Auto</span><span>SERVPRO</span></div>
-        </article>
-        <article className="holiday-card"><h2>{es ? "Venga con apetito. Quédese por la alegría navideña." : "Come hungry. Stay for the holiday cheer."}</h2>
-          <p>{es ? "Compartir una comida es una de nuestras formas favoritas de reunir a la comunidad. Hemos elegido a Juan Pollo en Moreno Valley para nuestra celebración, y ofreceremos cena para el cupo de 50 invitados del evento." : "Sharing a meal is one of our favorite ways to bring people together. We’ve selected Juan Pollo in Moreno Valley for our celebration, and dinner will be provided for our event’s 50-guest capacity."}</p>
-          <p>{es ? "Nuestro menú previsto incluye pollo, arroz, frijoles, ensalada de papa, ensalada verde, salsa y tortillas. También estamos planeando bebidas y galletas navideñas para darle un toque dulce a la tarde." : "Our planned menu includes chicken, rice, beans, potato salad, green salad, salsa, and tortillas. We’re also planning drinks and holiday cookies to add a little sweetness to the evening."}</p>
-          <p>{es ? "Esperamos compartir con usted buena comida, conversaciones amenas y un poco de alegría navideña." : "We look forward to sharing good food, warm conversation, and a little holiday cheer with you."}</p>
-          <p><a href="https://juanpollo.com/locations/moreno-valley/" target="_blank" rel="noopener noreferrer">{es ? "Conozca al restaurante elegido para nuestra cena: Juan Pollo" : "Meet our selected caterer: Juan Pollo"}</a></p>
-          <p>{es ? "¿Tiene alguna necesidad alimentaria? Menciónela al enviar su solicitud de asistencia para que podamos revisarla con usted. Aún no se han confirmado comidas especiales ni adaptaciones alimentarias." : "Have a dietary concern? Please mention it with your RSVP so we can review it with you. Special meals and dietary accommodations have not been confirmed."}</p>
-        </article>
-        <article className="holiday-card holiday-how"><h2>{es ? "Reserve un momento para la alegría navideña." : "Save a little time for holiday cheer."}</h2>
-          <p>{es ? "Nos encantará saber que nos acompañará. Enviar su solicitud es fácil:" : "We’d love to know you’re coming. Sending your request is easy:"}</p>
-          <ol><li>{es ? "Comparta su nombre y díganos quién le acompañará." : "Tell us your name and who’s joining you."}</li><li>{es ? "Elija mensaje de texto o Gmail. Su mensaje estará listo; solo pulse Enviar en su aplicación." : "Choose text or Gmail. Your message will be ready to go; just press Send in your app."}</li><li>{es ? "Nuestro equipo le responderá para confirmar sus lugares. ¡Después, solo quedará esperar una tarde festiva con nosotros!" : "Our team will reply to confirm your places. Then you can look forward to a festive evening with us!"}</li></ol>
-        </article>
-        <article className="holiday-card"><h2>{es ? "Algunos detalles antes de celebrar" : "A few details before we celebrate"}</h2>
-          <dl><dt>{es ? "¿Quién está invitado?" : "Who’s invited?"}</dt><dd>{es ? "Nuestros clientes, vecinos y amigos de la comunidad son bienvenidos a solicitar un lugar. ¿Vendrá acompañado? Incluya el nombre de cada invitado para que podamos preparar una cálida bienvenida para todos." : "Our clients, neighbors, and community friends are welcome to request a place. Bringing someone along? Please include each guest’s name so we can plan a warm welcome for everyone."}</dd>
-          <dt>{es ? "¿Hasta cuándo puedo enviar mi solicitud?" : "When should I RSVP?"}</dt><dd>{es ? "Envíe su solicitud antes de que termine el 23 de noviembre de 2026, hora del Pacífico. Tenemos espacio para 50 invitados, sin contar al personal, por lo que nuestro equipo revisará las solicitudes y responderá para confirmar disponibilidad." : "Please send your request by the end of November 23, 2026, Pacific time. We have room for 50 guests, excluding staff, so our team will review requests and reply to confirm availability."}</dd>
-          <dt>{es ? "¿Cómo sabré que mis lugares están confirmados?" : "How will I know my places are confirmed?"}</dt><dd>{es ? "Espere una respuesta de nuestra agencia confirmando sus lugares. Completar el formulario o abrir el mensaje preparado es el primer paso. Recuerde pulsar Enviar y esperar nuestra confirmación antes de hacer planes para asistir." : "Look for a reply from our agency confirming your places. Filling out the form or opening your prepared message is the first step. Be sure to press Send, then wait for our confirmation before making plans to attend."}</dd></dl>
-        </article>
-        <article className="holiday-card holiday-drawings"><p className="holiday-kicker">{es ? "Un toque más de emoción navideña" : "A little extra holiday excitement"}</p><h2>{es ? "Algunas sorpresas para alegrar la tarde" : "A few surprises to brighten the evening"}</h2><p>{es ? "Nos entusiasma dar un toque de emoción a nuestra celebración con algunos sorteos." : "We’re looking forward to adding a little prize-drawing excitement to our celebration."}</p><p><strong>{es ? "Los detalles y las reglas de los sorteos se anunciarán próximamente." : "Prize-drawing details will be announced."}</strong></p><p>{es ? "Compartiremos las reglas finales de elegibilidad, asistencia y participaciones antes de los sorteos para que todos sepan cómo participar. Si indica que es cliente actual, nuestro equipo confirmará esa información." : "We’ll share the final eligibility, attendance, and entry rules before the drawings so everyone knows how to participate. If you identify yourself as a current client, our team will confirm that information."}</p></article>
-        <p className="holiday-help">{es ? "Para asistencia, cambios o cancelaciones:" : "For help, changes, or cancellations:"} <a href="tel:+19516538888">951-653-8888</a>.</p>
-      </div>
-      <div className="form-card holiday-form" id="event-rsvp"><p className="holiday-kicker">{es ? "Hagamos planes" : "Make a little room for cheer"}</p><h2>{es ? "Nos encantará darle la bienvenida." : "We’d love to welcome you."}</h2><p className="holiday-form-event">{es ? "Evento seleccionado: Convivio navideño · 10 de diciembre" : "Selected event: Christmas Client Appreciation · December 10"}</p>
-        <p>{es ? "Cuéntenos quién le acompañará a la celebración. Complete una solicitud para su grupo, inclúyase en el total y elija mensaje de texto o correo a continuación. Nuestro equipo le responderá para confirmar disponibilidad." : "Let us know who’s joining the celebration. Complete one request for your group, include yourself in the total, and choose text or email below. Our team will reply to confirm availability."}</p>
-        {closed ? <p role="status">{es ? "El registro cerró el 23 de noviembre. Llame a la oficina para recibir asistencia." : "Registration closed on November 23. Please call the office for assistance."}</p> : <EventRsvpForm locale={locale} />}
-      </div>
-    </div></section>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}} />
+    <section className="holiday-intro"><div className="shell"><div className="holiday-ornaments" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span></div><p className="holiday-kicker">{t.kicker}</p><h1>{t.title}</h1><p className="holiday-subtitle">{t.name}</p><p className="holiday-welcome">{t.welcome}</p><p className="holiday-welcome">{t.invitation}</p><div className="holiday-date-strip"><span><strong>{t.date}</strong><br/>{t.time}</span><span><strong>Moreno Valley</strong><br/>{event.address}</span><a href="#event-rsvp" className="button">{t.rsvp}</a></div></div></section>
+    <section className="holiday-body"><div className="shell rsvp-layout"><div className="holiday-details">
+      <article className="holiday-card"><p className="holiday-kicker">{t.gathering}</p><h2>{t.gatheringTitle}</h2><p>{t.motto}</p><p>{t.speakersIntro}</p>{t.speakers.map(s=><div key={s.name}><h3>{s.name}</h3><p>{s.text}</p></div>)}</article>
+      <article className="holiday-card"><h2>{t.dinnerTitle}</h2><p>{t.dinner}</p><p>{t.menu}</p><p><a href="https://juanpollo.com/locations/moreno-valley/" target="_blank" rel="noopener noreferrer">{t.caterer}</a></p><p>{t.dietary}</p></article>
+      <article className="holiday-card holiday-how"><h2>{t.howTitle}</h2><ol>{t.steps.map(s=><li key={s}>{s}</li>)}</ol></article>
+      <article className="holiday-card"><h2>{t.detailsTitle}</h2><dl>{t.questions.map(q=><div key={q.q}><dt>{q.q}</dt><dd>{q.a}</dd></div>)}</dl></article>
+      <article className="holiday-card holiday-drawings" id="preparedness"><p className="holiday-kicker">{t.prizesKicker}</p><h2>{t.prizesTitle}</h2><p>{t.prizesIntro}</p>{t.prizes.map(p=><div key={p.name}><h3>{p.name}</h3><p>{p.text}</p></div>)}<p>{t.prizeNote}</p><p><strong>{t.rules}</strong></p></article>
+      <p className="holiday-help">{t.help} <a href="tel:+19516538888">951-653-8888</a>.</p>
+    </div><div className="form-card holiday-form" id="event-rsvp"><p className="holiday-kicker">{t.formKicker}</p><h2>{t.formTitle}</h2><p className="holiday-form-event">{t.name} · {t.date} · {t.time}</p><p>{t.formIntro}</p>{closed?<p role="status">{t.closed} <a href="tel:+19516538888">951-653-8888</a></p>:<EventRsvpForm locale={locale}/>}</div></div></section>
   </div>;
 }

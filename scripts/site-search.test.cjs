@@ -98,6 +98,33 @@ test('the real public index has unique bilingual routes and specialty search ter
     assert.ok(matches.slice(0,5).some(entry=>entry.href.startsWith(target)),query+': '+matches.slice(0,5).map(x=>x.href).join(', '));
     assert.equal(matches[0].locale,locale,query);
   }
+  for (const [query,locale,target] of [
+    ['my insurance dropped me','en','/education/california-home-insurance-non-renewal'],
+    ['nonrenewal','en','/education/california-home-insurance-non-renewal'],
+    ['ID cards','en','/customer-service#documents'],
+    ['proof of insurance','en','/customer-service#documents'],
+    ['pay my bill','en','/customer-service#billing'],
+    ['change my car','en','/customer-service#policyservice'],
+    ['my house is empty','en','/insurance/homeowners-insurance'],
+    ['home ins','en','/insurance/homeowners-insurance'],
+    ['life insur','en','/insurance/life-insurance'],
+    ['hablar con Abraham','es','/es/abraham-nunez-chavez'],
+    ['tarjetas de seguro','es','/es/servicio-al-cliente#documents'],
+    ['comprobante de seguro','es','/es/servicio-al-cliente#documents'],
+    ['pagar mi factura','es','/es/servicio-al-cliente#billing'],
+    ['me cancelaron el seguro','es','/es/educacion/no-renovacion-seguro-de-casa-california'],
+    ['January event','en','/events/christmas-client-appreciation'],
+    ['rsvp','en','/events/christmas-client-appreciation'],
+  ]) {
+    const found=searchPublicPages(index,query,locale);
+    assert.equal(found[0]?.href,target,query);
+    assert.equal(found[0]?.locale,locale,query);
+  }
+  for(const query of ['RSVP','pay my bill','ID cards']) {
+    const found=searchPublicPages(index,query,'en');
+    assert.ok(found.length>0 && found.length<=4,query);
+    assert.ok(found.every(e=>/customer-service|servicio-al-cliente|events|eventos/.test(e.href)),query);
+  }
   for (const topic of Object.values(loadTs('content/abraham-guidance').guidanceLinks)) {
     assert.notEqual(topic.service,topic.guide);
     assert.ok(allowed.has(topic.service),topic.service);

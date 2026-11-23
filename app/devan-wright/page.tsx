@@ -24,7 +24,7 @@ export default function Page() {
         </div>
         <div>
           <p className="eyebrow">CA Lic. No. 0H19544</p>
-          <h2>Coverage guidance built around the risk.</h2>
+          <h2>Let’s talk about what you need to protect.</h2>
           <p>Devan serves individuals, families, property owners, and businesses with life, home, landlord, renters, auto, commercial, marine, off-road vehicle, trailer, umbrella, and earthquake insurance.</p>
           <div className="button-row">
             <Link className="button" href="/contact?agent=devan">Request a Quote With Devan</Link>

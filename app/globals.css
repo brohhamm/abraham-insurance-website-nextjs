@@ -153,3 +153,5 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .nav-links .site-search-dialog .search-heading .button{width:auto;flex:0 0 auto;margin-top:0;min-height:44px}.site-search-dialog .search-heading h2{flex:1;min-width:0}
 
 .site-search-dialog .search-results span{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+.insurance-words{margin:28px 0;padding:24px;border:1px solid var(--line);background:var(--cream)}.insurance-words h2{font-size:1.6rem}.insurance-words dl{margin:0}.insurance-words dl>div+div{margin-top:16px}.insurance-words dd{margin:4px 0 0;color:var(--muted)}.insurance-words p:last-child{margin-bottom:0}

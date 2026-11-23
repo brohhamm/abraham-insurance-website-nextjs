@@ -97,7 +97,7 @@ export function localizePath(pathname: string, locale: Locale) {
 }
 
 export const navByLocale = {
-  en: [["Home", "/"], ["Personal Lines", "/personal-insurance"], ["Business Lines", "/business-insurance"], ["Carriers", "/carriers"], ["Wildfire & Education", "/education"], ["Our Agency & Abel", "/about"], ["Moreno Valley", "/moreno-valley-office"], ["Yorba Linda", "/yorba-linda-office"], ["Customer Service", "/customer-service"], ["Referral Partners", "/referral-partners"]],
+  en: [["Home", "/"], ["Personal Insurance", "/personal-insurance"], ["Business Insurance", "/business-insurance"], ["Carriers", "/carriers"], ["Wildfire & Education", "/education"], ["Our Agency & Abel", "/about"], ["Moreno Valley", "/moreno-valley-office"], ["Yorba Linda", "/yorba-linda-office"], ["Customer Service", "/customer-service"], ["Referral Partners", "/referral-partners"]],
   es: [["Inicio", "/es"], ["Seguros personales", "/es/seguros-personales"], ["Seguros comerciales", "/es/seguros-comerciales"], ["Aseguradoras", "/es/aseguradoras"], ["Incendios y educación", "/es/educacion"], ["Nuestra agencia y Abel", "/es/nuestra-agencia"], ["Moreno Valley", "/es/oficina-moreno-valley"], ["Yorba Linda", "/es/oficina-yorba-linda"], ["Servicio al cliente", "/es/servicio-al-cliente"], ["Socios de referidos", "/es/socios-de-referidos"]],
 } as const;
 

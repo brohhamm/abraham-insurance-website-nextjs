@@ -1,9 +1,12 @@
 export const event = {
-  id: "christmas-2026",
+  id: "new-year-2027",
   enPath: "/events/christmas-client-appreciation",
   esPath: "/es/eventos/convivio-navideno",
-  // November 23 ends at midnight Pacific (UTC-8).
-  deadline: Date.parse("2026-11-24T00:00:00-08:00"),
+  // Prize-drawing RSVP eligibility ends exactly 24 hours before the event (Pacific standard time).
+  timeZone: "America/Los_Angeles",
+  startsAt: "2027-01-28T16:00:00-08:00",
+  endsAt: "2027-01-28T18:00:00-08:00",
+  deadline: Date.parse("2027-01-27T16:00:00-08:00"),
   capacity: 50,
   address: "13800 Heacock St., Suite C120, Moreno Valley, CA 92553",
 };
@@ -40,9 +43,9 @@ export function parseRegistration(input: unknown) {
 export function buildRsvpMessage(d: ReturnType<typeof parseRegistration>) {
   const es = d.locale === "es";
   const status = (v: ClientStatus) => v === "yes" ? (es ? "Sí (pendiente de verificación)" : "Yes (pending verification)") : v === "no" ? "No" : (es ? "No estoy seguro" : "Not sure");
-  return [es ? "Solicitud de asistencia: Convivio navideño" : "RSVP request: Christmas Client Appreciation",
-    es ? "¡Hola, equipo de la agencia Abel Duran! Me encantaría acompañarles a la celebración navideña. Estos son los datos de mi grupo:" : "Hello, Abel Duran Agency team! I’d love to join your holiday celebration. Here are my party’s details:",
-    es ? "10 de diciembre de 2026, 5–8 p. m. (Pacífico)" : "December 10, 2026, 5–8 p.m. (Pacific)", event.address,
+  return [es ? "Solicitud de asistencia: Encuentro de Año Nuevo" : "RSVP request: New Year Client Appreciation",
+    es ? "¡Hola, equipo de la agencia Abel Duran! Me encantaría acompañarles a la celebración de Año Nuevo. Estos son los datos de mi grupo:" : "Hello, Abel Duran Agency team! I’d love to join your New Year celebration. Here are my party’s details:",
+    es ? "28 de enero de 2027, 4–6 p. m. (Pacífico)" : "January 28, 2027, 4–6 p.m. (Pacific)", event.address,
     `${es ? "Nombre" : "Name"}: ${d.name}`, `${es ? "Teléfono" : "Phone"}: ${d.phone}`, `${es ? "Correo" : "Email"}: ${d.email}`,
     `${es ? "Asegurado principal" : "Primary named insured"}: ${status(d.client)}`, `${es ? "Total de asistentes" : "Total attending"}: ${d.guests.length + 1}`,
     ...d.guests.map((g, i) => `${es ? "Invitado" : "Guest"} ${i + 1}: ${g.name} | ${es ? "Asegurado principal" : "Primary named insured"}: ${status(g.client)}`),
@@ -52,7 +55,7 @@ export function buildRsvpMessage(d: ReturnType<typeof parseRegistration>) {
 }
 export const smsHref = (message: string) => `sms:+17143889533?&body=${encodeURIComponent(message)}`;
 export const rsvpEmail = "Abraham.aduran@farmersagency.com";
-export const rsvpSubject = (locale: "en" | "es") => locale === "es" ? "Solicitud de asistencia | Convivio navideño | 10 de diciembre de 2026" : "RSVP Request | Christmas Client Appreciation | December 10, 2026";
+export const rsvpSubject = (locale: "en" | "es") => locale === "es" ? "Solicitud de asistencia | Encuentro de Año Nuevo | 28 de enero de 2027" : "RSVP Request | New Year Client Appreciation | January 28, 2027";
 export const gmailHref = (message: string, locale: "en" | "es") => `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(rsvpEmail)}&su=${encodeURIComponent(rsvpSubject(locale))}&body=${encodeURIComponent(message)}`;
 export const emailHref = (message: string, locale: "en" | "es") => `mailto:${rsvpEmail}?subject=${encodeURIComponent(rsvpSubject(locale))}&body=${encodeURIComponent(message)}`;
 export const isRsvpOpen = (now = Date.now()) => now < event.deadline;

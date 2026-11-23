@@ -243,7 +243,7 @@ export function QuoteForm({
               : "Start with two details. The next step only asks how to reach you."}
           </p>
           <label>
-            {es ? "Cobertura necesaria" : "Coverage needed"}
+            {es ? "¿Qué necesita asegurar?" : "What do you need to insure?"}
             <select
               name="insuranceType"
               required
@@ -387,8 +387,8 @@ export function QuoteForm({
           </button>
           <p className="privacy-reassurance">
             {es
-              ? "No solicitamos su número de Seguro Social, licencia de conducir ni información de pago."
-              : "No Social Security number, driver’s license number, or payment information is requested."}
+              ? "Comparta solo datos básicos. Si necesitamos documentos confidenciales, coordinaremos una forma segura de revisarlos."
+              : "Please share basic details only. We’ll arrange a secure way to review sensitive documents if needed."}
           </p>
         </fieldset>
       ) : null}
@@ -467,7 +467,7 @@ export function QuoteForm({
               </select>
             </label>
             <label>
-              {es ? "Fecha de vigencia deseada" : "Desired effective date"}{" "}
+              {es ? "¿Cuándo necesita que comience la cobertura?" : "When do you need coverage to start?"}{" "}
               <span>({es ? "opcional" : "optional"})</span>
               <input name="effectiveDate" type="date" />
             </label>
@@ -501,7 +501,7 @@ export function QuoteForm({
             </summary>
             <div>
               <label>
-                {es ? "Aseguradora actual" : "Current carrier"}
+                {es ? "Compañía de seguros actual" : "Current insurance company"}
                 <input name="currentCarrier" />
               </label>
               <label>

@@ -127,7 +127,7 @@ const originalArticles: Article[] = [
   "slug": "uninsured-underinsured-motorist-california",
   "title": "Uninsured and Underinsured Motorist Coverage in California",
   "category": "Personal",
-  "summary": "Understand how UM/UIM can protect your household when an at-fault driver has too little—or no—insurance.",
+  "summary": "Understand how UM/UIM can protect your household when an at-fault driver has too little; or no; insurance.",
   "quickFacts": [
     "UM/UIM addresses covered injuries caused by uninsured or underinsured drivers.",
     "Uninsured-motorist property-damage rules differ from collision coverage.",
@@ -208,7 +208,7 @@ const originalArticles: Article[] = [
   ],
   "commonLimits": "Personal property commonly starts around $25,000–$50,000. Liability commonly starts at $100,000, with $300,000 often reviewed for stronger protection.",
   "body": [
-    "Renters insurance typically combines personal property, additional living expense, and personal liability coverage. The building owner's policy generally protects the structure—not the tenant's furniture, clothing, electronics, or liability.",
+    "Renters insurance typically combines personal property, additional living expense, and personal liability coverage. The building owner's policy generally protects the structure; not the tenant's furniture, clothing, electronics, or liability.",
     "Replacement-cost settlement can provide stronger protection than actual cash value because depreciation is not applied in the same way, subject to policy terms. Jewelry, bicycles, collectibles, and business equipment may have special limits.",
     "Choose personal-property coverage using a room-by-room inventory. Review liability exposure from pets, guests, water damage, and daily activities, and confirm every resident who needs coverage is properly listed."
   ],
@@ -385,7 +385,7 @@ const originalArticles: Article[] = [
   "slug": "business-owners-policy-property-income",
   "title": "Business Owners Policies, Property, and Business Income",
   "category": "Commercial",
-  "summary": "See how eligible businesses can combine liability, property, and income protection—and where gaps remain.",
+  "summary": "See how eligible businesses can combine liability, property, and income protection; and where gaps remain.",
   "quickFacts": [
     "A BOP typically packages property and liability for eligible businesses.",
     "Business income generally requires direct covered physical loss unless endorsed otherwise.",
@@ -472,7 +472,7 @@ const originalArticles: Article[] = [
   "body": [
     "Cyber coverage can address incident response, forensic investigation, notification, credit monitoring, data restoration, business interruption, extortion, fraud, regulatory matters, and third-party liability, subject to the form.",
     "Professional liability or errors and omissions coverage can address claims that advice, design, technology, or professional services caused financial loss. The retroactive date and continuous coverage are critical on claims-made policies.",
-    "Review contracts, revenue, largest-client exposure, record count, payment processes, remote access, backups, multifactor authentication, vendor dependencies, and professional services. Limits should reflect a credible severe event—not only the smallest contract."
+    "Review contracts, revenue, largest-client exposure, record count, payment processes, remote access, backups, multifactor authentication, vendor dependencies, and professional services. Limits should reflect a credible severe event; not only the smallest contract."
   ],
   "officialResources": [
     {
@@ -515,7 +515,7 @@ const originalArticles: Article[] = [
   summary: "Organize the property details, reconstruction records, mitigation proof, appraisals, and liability information underwriters may need.",
   quickFacts: [
     "A strong submission explains the property instead of listing only an address and dwelling limit.",
-    "Reconstruction cost should reflect custom features, specialized labor, debris removal, permits, and code requirements—not sale price.",
+    "Reconstruction cost should reflect custom features, specialized labor, debris removal, permits, and code requirements; not sale price.",
     "Mitigation documentation can strengthen a file but does not guarantee eligibility, pricing, or coverage."
   ],
   commonLimits: "Begin before a renewal, non-renewal, or escrow deadline. Gather a current reconstruction estimate, photographs, inspection and renovation records, mitigation proof, loss history, appraisals, and details about all structures and household liability exposures.",
@@ -543,7 +543,7 @@ const originalArticles: Article[] = [
   ],
   commonLimits: "Review the policy's actual special limits rather than relying on a generic amount. Inventory valuable items, confirm the settlement method and deductible, and ask whether scheduled or separate valuable-articles coverage is appropriate.",
   body: [
-    "Homeowners, renters, and condo policies can protect personal property, but may apply smaller special limits to jewelry, fine art, antiques, firearms, silverware, money, computers, business property, and collections. These limits are generally part of—not additional to—the total personal-property limit. A policy may also restrict a particular cause of loss such as theft.",
+    "Homeowners, renters, and condo policies can protect personal property, but may apply smaller special limits to jewelry, fine art, antiques, firearms, silverware, money, computers, business property, and collections. These limits are generally part of; not additional to; the total personal-property limit. A policy may also restrict a particular cause of loss such as theft.",
     "Scheduling generally means listing an item through an endorsement or separate valuable-articles policy. Depending on the contract, it may provide a separate limit, broader covered causes of loss, different deductible terms, or agreed-value treatment. Verify each feature in the policy rather than assuming it applies.",
     "Create an inventory recording the maker or artist, identifying marks, serial number, purchase information, appraisal, photographs, receipts, ownership history, storage location, and security. Keep copies away from the home or in secure cloud storage. Ask how often appraisals must be updated and how newly acquired property is treated before scheduling.",
     "Review whether claims use replacement cost, actual cash value, agreed value, stated amount, or repair and restoration cost. Confirm how coverage applies to accidental breakage, disappearance, flood, earthquake, transit, vault storage, exhibitions, restoration, second homes, and international travel. Risk controls do not guarantee eligibility or a discount."

@@ -1,3 +1,5 @@
+import { readerArticleBody } from "@/content/article-structure";
+import { InsuranceWords } from "@/components/insurance-words";
 import { insuranceServices } from "@/content/services";
 import { PriorityPaths } from "@/components/priority-paths";
 import { CoverageGuidance } from "@/components/coverage-guidance";
@@ -176,6 +178,7 @@ function ServicePage({ slug }: { slug: string }) {
         <div className="shell service-layout">
           <div>
             <p className="lead-small">{x.intro}</p>
+            <InsuranceWords slug={x.englishSlug} locale="es" />
             <h2>Lo que esta cobertura puede proteger</h2>
             <ul className="service-list">
               {x.protects.map((v) => (
@@ -205,7 +208,7 @@ function ServicePage({ slug }: { slug: string }) {
           <div className="section-heading">
             <div>
               <p className="eyebrow">Prepárese para cotizar</p>
-              <h2>Información que ayuda a producir una opción precisa</h2>
+              <h2>Empiece con lo que sabe. Le ayudaremos con lo demás.</h2>
             </div>
             <p>
               No solicitamos números de Seguro Social o licencia, información de
@@ -226,7 +229,7 @@ function ServicePage({ slug }: { slug: string }) {
         <div className="shell service-layout">
           <div>
             <p className="eyebrow">Preguntas frecuentes</p>
-            <h2>Lo que preguntan nuestros clientes</h2>
+            <h2>Respuestas a preguntas comunes</h2>
             <div className="faq-list">
               {x.commonQuestions.map((q, index) => (
                 <details key={q.question} id={`question-${x.englishSlug}-${index}`}>
@@ -269,7 +272,7 @@ function ArticlePage({ slug }: { slug: string }) {
   return (
     <>
       <PageHero
-        eyebrow={`${x.category || "General"} · Guía de seguros`}
+        eyebrow={`${({Commercial:"Seguros comerciales",Personal:"Seguros personales","Wildfire & Catastrophe":"Incendios y catástrofes","Real Estate":"Bienes raíces",General:"Orientación general"} as Record<string,string>)[x.category || "General"] || "Seguros"} · Guía de seguros`}
         title={x.title}
       >
         {x.summary}
@@ -281,7 +284,7 @@ function ArticlePage({ slug }: { slug: string }) {
         <div className="shell article-layout">
           <div className="article-body">
             {x.englishSlug === "inland-marine-rental-equipment-california" ? <p className="source-note">Orientación de <Link href="/es/abraham-nunez-chavez">Abraham Nunez-Chavez</Link> · Licencia de CA n.º 4357305. Publicado el <time dateTime="2026-11-18">18 de noviembre de 2026</time>.</p> : null}
-            {x.dateModified && x.englishSlug !== "inland-marine-rental-equipment-california" ? <p className="source-note">Ejemplos educativos actualizados el <time dateTime={x.dateModified}>20 de septiembre de 2026</time>. Esta actualización no representa una nueva revisión legal.</p> : null}
+            {x.dateModified && x.englishSlug !== "inland-marine-rental-equipment-california" ? <p className="source-note">Ejemplos educativos actualizados el <time dateTime={x.dateModified}>20 de septiembre de 2026</time>. </p> : null}
             {articleOpening(x.englishSlug, "es") ? <section className="article-opening" aria-label="Por qué importa este tema"><p className="eyebrow">Por qué importa</p><p>{articleOpening(x.englishSlug, "es")}</p></section> : null}
             {x.quickFacts?.length ? (
               <div className="quick-facts">
@@ -293,7 +296,7 @@ function ArticlePage({ slug }: { slug: string }) {
                 </ul>
               </div>
             ) : null}
-            {x.body.map((v) => (
+            {readerArticleBody(x.englishSlug, x.body).map((v) => (
               <p key={v}>{v}</p>
             ))}
             <ArticlePhoto slug={x.englishSlug} locale="es" />
@@ -318,14 +321,14 @@ function ArticlePage({ slug }: { slug: string }) {
               </a>
             ))}
             <Link className="button" href="/es/contacto">
-              Revisar mis preguntas de cobertura
+              Consultar sobre esta cobertura
             </Link>
           </aside>
         </div>
       </article>
       <script id={`article-schema-${x.slug}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org", "@type": "Article", headline: x.title,
-        description: x.summary, inLanguage: "es-US", dateModified: x.dateModified,
+        description: x.summary, inLanguage: "es-US", dateModified: x.dateModified, author:{"@type":"Person",name:"Abraham Nunez-Chavez",url:`${siteConfig.url}/es/abraham-nunez-chavez`,identifier:"CA Insurance Lic. No. 4357305"},
         mainEntityOfPage: `${siteConfig.url}/es/educacion/${x.slug}`,
         publisher: { "@type": "InsuranceAgency", "@id": `${siteConfig.url}/#insurance-agency`, name: siteConfig.agencyLegalName },
       }) }} />
@@ -413,10 +416,10 @@ function LocationPage({ slug }: { slug: string }) {
               <article key={r.title}>
                 <h3>{r.title}</h3>
                 <p>
-                  <strong>Señal local:</strong> {r.signal}
+                  <strong>Qué debe conocer de su comunidad:</strong> {r.signal}
                 </p>
                 <p>
-                  <strong>Impacto en el seguro:</strong> {r.insurance}
+                  <strong>Qué significa para su seguro:</strong> {r.insurance}
                 </p>
                 <a href={r.resourceUrl} target="_blank" rel="noreferrer">
                   {r.resourceLabel} ↗
@@ -500,7 +503,7 @@ function Listing({ commercial = false }: { commercial?: boolean }) {
             </>
           ) : (
             <>
-              <div><p className="eyebrow">Por qué las pólizas deben coordinarse</p><h2>Un cambio cotidiano puede afectar varias coberturas.</h2><p>Imagine un hogar que remodela la cocina, agrega a un conductor adolescente y empieza a alquilar su antigua casa. La remodelación cambia el cálculo de reconstrucción, el conductor cambia la exposición de auto y la vivienda ahora necesita seguro para inquilinos, no para ocupación del dueño. El precio de renovación por sí solo no revela esos problemas.</p></div>
+              <div><p className="eyebrow">Por qué las pólizas deben coordinarse</p><h2>Un cambio cotidiano puede afectar varias coberturas.</h2><p>Imagine un hogar que remodela la cocina, agrega a un conductor adolescente y empieza a alquilar su antigua casa. La remodelación cambia el cálculo de reconstrucción, el conductor cambia la exposición de auto y la vivienda ahora necesita seguro para el propietario que la alquila. El seguro del inquilino protege otras necesidades, como sus pertenencias. El precio de renovación por sí solo no revela esos problemas.</p></div>
               <div><p className="eyebrow">Una revisión práctica</p><h2>Conecte cada límite con un gasto real.</h2><p>Convierta deducibles a la cantidad que podría pagar después de una pérdida. Compare responsabilidad con un reclamo grave. Calcule cuánto podría durar la vivienda temporal o la renta perdida. Después confirme qué riesgos requieren otra póliza, como terremoto e inundación.</p></div>
             </>
           )}
@@ -534,7 +537,7 @@ function Education() {
           <div className="article-grid">
             {spanishArticles.map((x) => (
               <article className="article-card interactive-card" key={x.slug}>
-                <span>{x.category || "General"}</span>
+                <span>{({Commercial:"Seguros comerciales",Personal:"Seguros personales","Wildfire & Catastrophe":"Incendios y catástrofes","Real Estate":"Bienes raíces",General:"Orientación general"} as Record<string,string>)[x.category || "General"] || "Seguros"}</span>
                 <h2>{x.title}</h2>
                 <p>{x.summary}</p>
                 <Link href={`/es/educacion/${x.slug}`}>
@@ -897,7 +900,7 @@ function Profile({ who }: { who: "abel" | "devan" }) {
           {!abel ? <div className="photo-frame portrait-frame"><Image src="/images/devan-wright-yorba-linda-insurance-agent.jpg" alt="Devan Wright, agente y corredora de seguros con licencia en Yorba Linda, California" fill sizes="(max-width: 760px) 75vw, 340px" priority /></div> : null}
           <div>
             <p className="eyebrow">Lic. CA {abel ? "0F17442" : "0H19544"}</p>
-            <h2>Cobertura basada en el riesgo.</h2>
+            <h2>Conversemos sobre lo que necesita proteger.</h2>
             <p>
               {abel
                 ? "Abel dirige una agencia enfocada en relaciones duraderas, servicio local y soluciones prácticas. Su reconocimiento incluye Farmers Insurance President’s Council."
@@ -1365,7 +1368,7 @@ function Office({ city }: { city: "Moreno Valley" | "Yorba Linda" }) {
           <h2>Opciones de cobertura</h2>
           <div className="specialty-grid">
             {specialties.map((x) => (
-              <span key={x}>Seguro de {x.toLowerCase()}</span>
+              <span key={x}>{({comercial:"Seguro comercial",paraguas:"Seguro paraguas",marítimo:"Seguro de embarcaciones"} as Record<string,string>)[x.toLowerCase()] || `Seguro de ${x.toLowerCase()}`}</span>
             ))}
           </div>
           <p className="disclaimer">
@@ -1467,7 +1470,7 @@ function Referral() {
           </div>
         </div>
       </section>
-      <section className="section soft"><div className="shell partner-grid"><div><p className="eyebrow">Recurso gratuito de suscripción</p><h2>Solicite una revisión gratuita del historial de reclamaciones de la propiedad</h2><p>El historial previo de reclamaciones de una propiedad puede afectar la elegibilidad, las opciones de cobertura y la prima. Algunas viviendas pueden ser difíciles o imposibles de asegurar debido a pérdidas anteriores o condiciones pendientes. Revisar la información disponible con anticipación ayuda a compradores y profesionales hipotecarios a identificar obstáculos antes de que retrasen el cierre.</p><p><strong>Abraham Nunez-Chavez es el contacto designado de la agencia para estas revisiones gratuitas.</strong></p><p className="disclaimer">La revisión de reclamaciones es un recurso informativo de suscripción y no garantiza la asegurabilidad, aceptación de una compañía, prima ni cobertura.</p></div><div className="form-card"><ClaimsCheckForm spanish /></div></div></section>
+      <section className="section soft"><div className="shell partner-grid"><div><p className="eyebrow">Conozca la propiedad antes de comprarla</p><h2>Solicite una revisión gratuita del historial de reclamaciones de la propiedad</h2><p>El historial previo de reclamaciones de una propiedad puede afectar la elegibilidad, las opciones de cobertura y la prima. Algunas viviendas pueden ser difíciles o imposibles de asegurar debido a pérdidas anteriores o condiciones pendientes. Revisar la información disponible con anticipación ayuda a compradores y profesionales hipotecarios a identificar obstáculos antes de que retrasen el cierre.</p><p><strong>Abraham Nunez-Chavez es el contacto designado de la agencia para estas revisiones gratuitas.</strong></p><p className="disclaimer">La revisión de reclamaciones es un recurso informativo de suscripción y no garantiza la asegurabilidad, aceptación de una compañía, prima ni cobertura.</p></div><div className="form-card"><ClaimsCheckForm spanish /></div></div></section>
       <ExperienceSection topic="homebuyer" locale="es" />
     </>
   );
